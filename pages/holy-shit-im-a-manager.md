@@ -32,7 +32,7 @@ schema_offers:
   <div class="course-hero__text">
     <p class="page-intro"><strong>Nobody prepares you for this job.</strong></p>
     <p>Should you still be coding? How do you have the conversation you've been rehearsing in the shower for a week? What does good even look like? And why is everyone else so calm?</p>
-    <p class="pull-quote">52 bite-sized lessons, direct access to me, and the manual nobody handed you on day one. That's how you get the answers to your questions.</p>
+    <p class="pull-quote">52+ bite-sized lessons, direct access to me, and the manual nobody handed you on day one. That's how you get the answers to your questions.</p>
     <p class="course-hero__cta-row">
       {% if sale.active %}<a class="header-cta" data-goatcounter-click="enrol-hero" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>
       <span class="course-hero__cta-note">{{ sale.saving }} off with code <span class="sale-code">{{ sale.code }}</span>. One-time payment. Unlimited* access. No subscription.</span>{% else %}<a class="header-cta" data-goatcounter-click="enrol-hero" href="{{ enrol_url }}">Enrol now · £400</a>
@@ -73,7 +73,7 @@ schema_offers:
 <p>Everything is text. Open it in a tab, read it on your phone between meetings, ctrl+F when you need the bit about giving feedback to someone who cries.</p>
 
 <ul class="course-features">
-  <li><strong>50+ bite-sized lessons</strong> you can fit into the gaps in your day.</li>
+  <li><strong>52+ bite-sized lessons</strong> you can fit into the gaps in your day.</li>
   <li><strong>Hands-on activities</strong> to practice in your actual job, not hypothetical scenarios.</li>
   <li><strong>Reflective un-quizzes</strong> that make you think, not check if you were paying attention.</li>
   <li><strong>Ask me directly</strong> via the discussion feature or Slack. I actually answer. Yes, me, actual Val.</li>
@@ -83,7 +83,7 @@ schema_offers:
 
 <h2>What's actually in this thing</h2>
 
-<p>Eight chapters. 50+ lessons. Built in the order the panic actually hits you. Don't take my word for it: a few lessons are free to read before you buy, marked below.</p>
+<p>Eight chapters. 52+ lessons. Built in the order the panic actually hits you. Don't take my word for it: a few lessons are free to read before you buy, marked below.</p>
 
 <div class="course-curriculum">
   <details class="course-chapter" open>
@@ -245,7 +245,7 @@ schema_offers:
   <p class="course-buy__sale">{{ sale.blurb }} · {{ sale.saving }} off with code <span class="sale-code sale-code--light">{{ sale.code }}</span></p>{% else %}<p class="course-buy__price"><span class="course-buy__amount">£400</span> <span class="course-buy__terms">one-time payment</span></p>{% endif %}
   <p class="course-buy__pitch">Everything I wish someone had handed me when I first became a manager. Real experience, no corporate bullshit, no AI-generated filler.</p>
   <ul class="course-buy__list">
-    <li>50+ lessons, activities and un-quizzes</li>
+    <li>52+ lessons, activities and un-quizzes</li>
     <li>Direct access to me via Slack and discussion</li>
     <li>10-year access with free updates</li>
     <li>Certificate on completion</li>
@@ -264,7 +264,7 @@ schema_offers:
   </details>
   <details class="course-faq__item">
     <summary>How long does it take?</summary>
-    <p>50+ lessons. Roughly a month and a half to two months. If you really go for it with coffee and passion a few weeks. But you've got unlimited* access, so there's no rush.</p>
+    <p>52+ lessons. Roughly a month and a half to two months. If you really go for it with coffee and passion a few weeks. But you've got unlimited* access, so there's no rush.</p>
   </details>
   <details class="course-faq__item">
     <summary>How do I pay?</summary>
