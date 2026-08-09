@@ -296,6 +296,6 @@ schema_offers:
   </details>
 </div>
 
-<p class="course-final">Still reading? You already know you need this. Come in feeling like an imposter, leave feeling like you've got this.</p>
+<p class="course-final">Come in feeling like an imposter, leave feeling like you've got this. Join us!</p>
 
 <p class="text-center">{% if sale.active %}<a class="header-cta" data-goatcounter-click="enrol-footer" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>{% else %}<a class="header-cta" data-goatcounter-click="enrol-footer" href="{{ enrol_url }}">Enrol now · £400</a>{% endif %}</p>
