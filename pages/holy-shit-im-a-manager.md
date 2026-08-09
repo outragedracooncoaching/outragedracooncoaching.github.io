@@ -8,7 +8,7 @@ description: 100% online, self-paced, no-bullshit online course with 52+ practic
 show_cta: false
 schema_offers:
   - name: "Holy Shit, I'm a Manager! Full Course"
-    description: "52+ text-based lessons, hands-on activities, direct access to Val via Slack and forums, certificate, and 10-year access. One-time payment."
+    description: "52+ text-based lessons, hands-on activities, direct access to Val via Slack and forums, certificate, unlimited* access. One-time payment."
     price: "400"
     priceCurrency: "GBP"
     priceValidUntil: "2026-12-31"
@@ -247,7 +247,7 @@ schema_offers:
   <ul class="course-buy__list">
     <li>52+ lessons, activities and un-quizzes</li>
     <li>Direct access to me via Slack and discussion</li>
-    <li>10-year access with free updates</li>
+    <li>Unlimited* access with free updates</li>
     <li>Certificate on completion</li>
     <li>Pay once. No subscription, ever.</li>
   </ul>
