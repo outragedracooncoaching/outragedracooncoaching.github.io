@@ -41,11 +41,7 @@ schema_offers:
   </div>
 </section>
 
-<p>I'm Val. Executive leader, certified coach, 18 years in tech, hands-on coder for 13 of them until I had to let it go. I've supported hundreds of tech leaders and run teams of 150+ people, and I learned some hard lessons you don't have to repeat.</p>
-
 <p class="callout callout--teal">I know exactly what that "holy shit, I'm a manager" moment feels like, because I lived it myself, without the support you're about to get.</p>
-
-<div class="course-cred">{% include credibility-strip.html %}</div>
 
 <h2>This is the bit nobody hands you on day one</h2>
 
@@ -191,32 +187,38 @@ schema_offers:
   </details>
 </div>
 
+<h2>Who's teaching you this</h2>
+
+<p>I'm Val. Executive leader, certified coach, 18 years in tech, hands-on coder for 13 of them until I had to let it go. I've supported hundreds of tech leaders and run teams of 150+ people, and I learned some hard lessons you don't have to repeat.</p>
+
+<div class="course-cred">{% include credibility-strip.html %}</div>
+
 <h2>Real managers saying real things</h2>
 
-<div class="course-rating" role="img" aria-label="Rated 5 out of 5 stars from 14 reviews">
+<div class="course-rating" role="img" aria-label="Rated 5 out of 5 stars from 15 reviews">
   <span class="course-rating__score">5/5</span>
   <span class="course-rating__stars" aria-hidden="true">★★★★★</span>
-  <span class="course-rating__count" aria-hidden="true">(14)</span>
+  <span class="course-rating__count" aria-hidden="true">(15)</span>
 </div>
 
 <div class="manager-quote-wall" aria-label="What managers said about the course">
   <figure class="manager-quote-card">
-    <blockquote>"I highly recommend this for new or aspiring engineering managers. It covers so many important topics succinctly. Each one is packed with valuable insights, actionable advice and activities that really make you apply what you've learned."<span class="quote-author">— Phil Hale</span></blockquote>
+    <blockquote>"I highly recommend this for new or aspiring engineering managers. It covers so many important topics succinctly. Each one is packed with valuable insights, actionable advice and activities that really make you apply what you've learned."<span class="quote-author">— Phil Hale, Engineering Manager @ Mews</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"Despite being an EM for a few years, it was alarming how much I didn't know, but reassuring to see it so clearly defined. I've done various management courses, none with this scope and emotional depth. Come for the raccoons, stay for the personal growth."<span class="quote-author">— Hugh Lyon, Engineering Manager</span></blockquote>
+    <blockquote>"Despite being an EM for a few years, it was alarming how much I didn't know, but reassuring to see it so clearly defined. I've done various management courses, none with this scope and emotional depth. Come for the raccoons, stay for the personal growth."<span class="quote-author">— Hugh Lyon, Engineering Manager @ Perk</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"Compact and impactful. It combines actionable steps with insightful reflection exercises, and tackles the questions EMs moving from individual contributor roles actually ask, like measuring success and entering flow state. I recommend it to all EMs."<span class="quote-author">— Prisca Aeby</span></blockquote>
+    <blockquote>"Compact and impactful. It combines actionable steps with insightful reflection exercises, and tackles the questions EMs moving from individual contributor roles actually ask, like measuring success and entering flow state. I recommend it to all EMs."<span class="quote-author">— Prisca Aeby, Senior Engineering Manager @ Snyk</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"A great overview of the new skills you need moving into the role, bite-sized enough that it doesn't feel overwhelming, plus a great book list for when you're ready to go deep into whichever area you need most."<span class="quote-author">— Craig Nicol</span></blockquote>
+    <blockquote>"A great overview of the new skills you need moving into the role, bite-sized enough that it doesn't feel overwhelming, plus a great book list for when you're ready to go deep into whichever area you need most."<span class="quote-author">— Craig Nicol, Engineering Manager @ Craneware</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
     <blockquote>"As a well-seasoned EM, the feedback sections are rich gold. 'Don't ask for feedback, ask for advice' just had not resonated until now, perhaps because I'd recently fallen foul of exactly that. Loving it."<span class="quote-author">— Tom Cross, Cloud Infrastructure Technical Lead @ Aer Lingus</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"A great baseline for new managers and seasoned ones alike. The amount of times I felt 'seen' by this course, and the mistakes I've made that led me to reflect and get into a-ha moments. Highly recommend."<span class="quote-author">— Vlad Dubrovskis, Engineering Manager</span></blockquote>
+    <blockquote>"A great baseline for new managers and seasoned ones alike. The amount of times I felt 'seen' by this course, and the mistakes I've made that led me to reflect and get into a-ha moments. Highly recommend."<span class="quote-author">— Vlad Dubrovskis, Engineering Manager @ Abnormal Security</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
     <blockquote>"Holy shit, I have learned so much. This course is fantastic: concise, powerful, meaningful and full of great extra resources. I'll probably spend a whole year reading all the books listed, and I'm grateful for the suggestions."<span class="quote-author">— Carla Gottschald Chiodi, Senior Engineer @ 2i</span></blockquote>
@@ -225,16 +227,19 @@ schema_offers:
     <blockquote>"I'm so impressed by the way Val extracted, distilled, structured and served all of it. I also loved how the tests really check whether you've been paying attention. Common sense isn't always enough to pass them. Highly recommend it to freshly minted and seasoned managers alike."<span class="quote-author">— Krzysztof Malinowski, Engineering Manager (ex JP Morgan)</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"A beautiful course. Bite-sized digestible concepts, some new and some known, and very enjoyable, refreshingly written. One of the few courses I've been eager to read through."<span class="quote-author">— Maitrayee Biswas</span></blockquote>
+    <blockquote>"A beautiful course. Bite-sized digestible concepts, some new and some known, and very enjoyable, refreshingly written. One of the few courses I've been eager to read through."<span class="quote-author">— Maitrayee Biswas, Senior Analytics Manager @ Vista</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"Very well structured and easy to follow. I like the thoughts section at the end of each chapter and the activities that help me ponder and action what I can do hands-on. I'd recommend it to any leaders-to-be, from Leads and EMs to C-level."<span class="quote-author">— Jimmy Mian Guan Lim</span></blockquote>
+    <blockquote>"Very well structured and easy to follow. I like the thoughts section at the end of each chapter and the activities that help me ponder and action what I can do hands-on. I'd recommend it to any leaders-to-be, from Leads and EMs to C-level."<span class="quote-author">— Jimmy Mian Guan Lim, Engineering Manager @ Zencargo</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
     <blockquote>"Great course and amazing insights, methods and all-around knowledge. It will be crucial for becoming a better human and co-worker, and my team-members current and future will benefit from what I apply from it. Thank you for distilling this gem."<span class="quote-author">— Rui Andrés</span></blockquote>
   </figure>
   <figure class="manager-quote-card">
-    <blockquote>"A super course for engineering managers of all levels. The topics are full of valuable, actionable advice. There were a number of 'a-ha' moments that will directly contribute to my growth as an engineering manager."<span class="quote-author">— Chris Brunton</span></blockquote>
+    <blockquote>"A super course for engineering managers of all levels. The topics are full of valuable, actionable advice. There were a number of 'a-ha' moments that will directly contribute to my growth as an engineering manager."<span class="quote-author">— Chris Brunton, Senior Engineering Manager @ Llyods</span></blockquote>
+  </figure>
+  <figure class="manager-quote-card">
+    <blockquote>"I loved this course. Even though I'm still not at the level of managing a group, it did a great job of preparing me to do so in the future. Well organized and thorough, with many valuable lessons, not just for managing a group but for making work more efficient in general."<span class="quote-author">— Eduardo Montalvo, Engineering Manager</span></blockquote>
   </figure>
 </div>
 
