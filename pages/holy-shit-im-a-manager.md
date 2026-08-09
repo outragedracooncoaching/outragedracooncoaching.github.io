@@ -3,12 +3,12 @@ layout: info_page
 permalink: /holy-shit-im-a-manager/
 title: "Holy Shit, I'm a Manager! Engineering Management First Aid"
 display_title: "Holy Shit, I'm a Manager!"
-title_sub: engineering management first aid, from someone who lives it.
-description: Still coding all day and quietly losing it? Take my no-bullshit online self-pace course with 52+ practical lessons on the actual job. 1:1s, feedback, managing your boss, knowing what good looks like. With direct access to me, actual Val.
+title_sub: Engineering management first aid
+description: 100% online, self-paced, no-bullshit online course with 52+ practical lessons and activities from someone that's done the job. 1:1s, difficult feedback, managing your boss, knowing what good looks like. With direct access to me, actual Val.
 show_cta: false
 schema_offers:
   - name: "Holy Shit, I'm a Manager! Full Course"
-    description: "50+ text-based lessons, hands-on activities, un-quizzes, direct access to Val via Slack and forums, certificate, and 10-year access. One-time payment."
+    description: "52+ text-based lessons, hands-on activities, direct access to Val via Slack and forums, certificate, and 10-year access. One-time payment."
     price: "400"
     priceCurrency: "GBP"
     priceValidUntil: "2026-12-31"
@@ -30,12 +30,12 @@ schema_offers:
     <img src="/assets/images/site/hsiam_logo.png" alt="Four wide-eyed cartoon raccoons wearing MANAGER name badges, one per colour panel: gold, magenta, orange, teal" width="1200" height="1200">
   </div>
   <div class="course-hero__text">
-    <p class="page-intro"><strong>Nobody prepares you for this job. So you're sat there quietly losing it.</strong></p>
+    <p class="page-intro"><strong>Nobody prepares you for this job.</strong></p>
     <p>Should you still be coding? How do you have the conversation you've been rehearsing in the shower for a week? What does good even look like? And why is everyone else so calm?</p>
     <p class="pull-quote">52 bite-sized lessons, direct access to me, and the manual nobody handed you on day one. That's how you get the answers to your questions.</p>
     <p class="course-hero__cta-row">
-      {% if sale.active %}<a class="header-cta" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>
-      <span class="course-hero__cta-note">{{ sale.saving }} off with code <span class="sale-code">{{ sale.code }}</span>. One-time payment. Unlimited* access. No subscription.</span>{% else %}<a class="header-cta" href="{{ enrol_url }}">Enrol now · £400</a>
+      {% if sale.active %}<a class="header-cta" data-goatcounter-click="enrol-hero" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>
+      <span class="course-hero__cta-note">{{ sale.saving }} off with code <span class="sale-code">{{ sale.code }}</span>. One-time payment. Unlimited* access. No subscription.</span>{% else %}<a class="header-cta" data-goatcounter-click="enrol-hero" href="{{ enrol_url }}">Enrol now · £400</a>
       <span class="course-hero__cta-note">One-time payment. Unlimited* access. No subscription.</span>{% endif %}
     </p>
   </div>
@@ -89,7 +89,7 @@ schema_offers:
   <details class="course-chapter" open>
     <summary><span class="course-chapter__num">1</span><span class="course-chapter__title">Holy Shit, You're Here!</span><span class="course-chapter__count">3 lessons</span></summary>
     <ul>
-      <li>Welcome <a class="course-preview" href="{{ preview_url }}">Free preview</a></li>
+      <li>Welcome <a class="course-preview" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free preview</a></li>
       <li>Sneaky Sneaky</li>
       <li>Quick Code of Conduct Reminder</li>
     </ul>
@@ -98,9 +98,9 @@ schema_offers:
   <details class="course-chapter">
     <summary><span class="course-chapter__num">2</span><span class="course-chapter__title">Holy Shit, What's My Job?</span><span class="course-chapter__count">14 lessons</span></summary>
     <ul>
-      <li>Flavours of Engineering Manager <a class="course-preview" href="{{ preview_url }}">Free preview</a></li>
-      <li>Your One Job <a class="course-preview" href="{{ preview_url }}">Free preview</a></li>
-      <li>Do I Need To Code? <a class="course-preview" href="{{ preview_url }}">Free preview</a></li>
+      <li>Flavours of Engineering Manager <a class="course-preview" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free preview</a></li>
+      <li>Your One Job <a class="course-preview" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free preview</a></li>
+      <li>Do I Need To Code? <a class="course-preview" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free preview</a></li>
       <li>Staying Close to Engineering</li>
       <li>Boring Admin Tasks</li>
       <li>Core Activities</li>
@@ -251,7 +251,7 @@ schema_offers:
     <li>Certificate on completion</li>
     <li>Pay once. No subscription, ever.</li>
   </ul>
-  {% if sale.active %}<a class="header-cta course-buy__cta" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>{% else %}<a class="header-cta course-buy__cta" href="{{ enrol_url }}">Enrol now · £400</a>{% endif %}
+  {% if sale.active %}<a class="header-cta course-buy__cta" data-goatcounter-click="enrol-buybox" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>{% else %}<a class="header-cta course-buy__cta" data-goatcounter-click="enrol-buybox" href="{{ enrol_url }}">Enrol now · £400</a>{% endif %}
   <p class="course-buy__fineprint">Most managers expense this through their L&D budget. Paid via PayPal. "Enrol" takes you to the course platform (yes, it's the right place, don't worry, see the FAQ).</p>
 </section>
 
@@ -298,4 +298,4 @@ schema_offers:
 
 <p class="course-final">Still reading? You already know you need this. Come in feeling like an imposter, leave feeling like you've got this.</p>
 
-<p class="text-center">{% if sale.active %}<a class="header-cta" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>{% else %}<a class="header-cta" href="{{ enrol_url }}">Enrol now · £400</a>{% endif %}</p>
+<p class="text-center">{% if sale.active %}<a class="header-cta" data-goatcounter-click="enrol-footer" href="{{ enrol_url }}">Enrol now · <s>{{ sale.full_price }}</s> {{ sale.price }}</a>{% else %}<a class="header-cta" data-goatcounter-click="enrol-footer" href="{{ enrol_url }}">Enrol now · £400</a>{% endif %}</p>
