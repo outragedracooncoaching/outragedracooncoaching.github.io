@@ -27,4 +27,4 @@ For legal review, drafting, or T&Cs questions use '/legal'.
 
 # Task tracking
 
-Tasks are tracked in `tasks.md` at the project root. When completing a task, tick it off in `tasks.md` and include that file in the same commit. Always do this when asked to commit.
+Tasks are tracked in `tasks.md` at the project root. Tick tasks off as you complete them. The file is gitignored, so it never goes into a commit.

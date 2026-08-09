@@ -7,3 +7,5 @@
   renders at desktop width and gets clipped. Renders identically on a clean
   build of the pre-optimisation commit, so it is not caused by the image /
   font perf work in 48d3b3d. Confirm in real device emulation before fixing.
+
+- Make a hero callout of Hugh's quote
