@@ -6,7 +6,7 @@ display_title: Who is Val?
 title_sub: "VP Engineering, executive coach, and a feral little racoon."
 description: "Val Dryden is an ILM-certified executive coach and VP Engineering. No-bullshit support for the messy, human, hard parts of tech, with lived experience as a neurodivergent leader."
 ---
-<img src="/assets/images/brand-images/Me.png" alt="Val smiling in a garden" class="profile-image">
+<img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" class="profile-image" width="600" height="600" decoding="async">
 
 <p class="page-intro"><strong>I was about 7 years into my career when I noticed most managers sucked.</strong></p>
 
@@ -120,10 +120,10 @@ description: "Val Dryden is an ILM-certified executive coach and VP Engineering.
 </div>
 
 <div class="image-gallery">
-  <img src="/assets/images/brand-images/bat-eating-grapefruit-pink-bg.jpeg" alt="a demon bat eating a grapefruit on a hot pink background">
-  <img src="/assets/images/brand-images/vampire-woman-wild-hair.jpeg" alt="a haunting vampire woman with wild hair, chalk linework">
-  <img src="/assets/images/brand-images/rabbit-ears-cracked-flower-pot.jpeg" alt="a tiny anxious bunny hiding in a cracked terracotta pot">
-  <img src="/assets/images/brand-images/skeleton-tuxedo-bouquet.jpeg" alt="a dapper skeleton in a top hat holding a bouquet of roses">
-  <img src="/assets/images/brand-images/toad-jeans-smoking-pipe.jpeg" alt="a very chill orange toad in jeans smoking a pipe">
-  <img src="/assets/images/brand-images/lighthouse-butterflies-night.jpeg" alt="a lighthouse at night with butterflies drawn into the beam of light">
+  <img src="/assets/images/brand-images/bat-eating-grapefruit-pink-bg.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a demon bat eating a grapefruit on a hot pink background">
+  <img src="/assets/images/brand-images/vampire-woman-wild-hair.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a haunting vampire woman with wild hair, chalk linework">
+  <img src="/assets/images/brand-images/rabbit-ears-cracked-flower-pot.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a tiny anxious bunny hiding in a cracked terracotta pot">
+  <img src="/assets/images/brand-images/skeleton-tuxedo-bouquet.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a dapper skeleton in a top hat holding a bouquet of roses">
+  <img src="/assets/images/brand-images/toad-jeans-smoking-pipe.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a very chill orange toad in jeans smoking a pipe">
+  <img src="/assets/images/brand-images/lighthouse-butterflies-night.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a lighthouse at night with butterflies drawn into the beam of light">
 </div>

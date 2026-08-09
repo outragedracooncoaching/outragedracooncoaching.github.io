@@ -15,7 +15,7 @@ cta_href: "mailto:outragedracooncoaching@gmail.com?subject=Fractional%20CTO%20En
     <p class="page-intro"><strong>You need someone who has actually done this, not someone who will take three months to get up to speed.</strong></p>
     <p>I embed directly into your business as a Fractional CTO / VP Engineering. On the ground, in the room, making the calls with you. No corporate theatre, no slide decks full of obvious things, no consultant who disappears after the diagnosis.</p>
   </div>
-  <img src="/assets/images/brand-images/Me.png" alt="Val smiling in a garden" class="who-hero__image">
+  <img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" class="who-hero__image" width="600" height="600" decoding="async">
 </div>
 
 <div class="credibility-strip--bar-wrap">{% include credibility-strip.html %}</div>

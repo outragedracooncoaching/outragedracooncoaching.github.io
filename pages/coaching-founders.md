@@ -29,7 +29,7 @@ schema_offers:
     priceValidUntil: "2026-12-31"
 ---
 
-<img src="/assets/images/brand-images/Me.png" alt="Val smiling in a garden" class="profile-image">
+<img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" class="profile-image" width="600" height="600" decoding="async">
 
 <p class="page-intro"><strong>You are making decisions alone, at speed, with nobody to reality-check you.</strong></p>
 

@@ -27,7 +27,7 @@ schema_offers:
 
 <section class="course-hero">
   <div class="course-hero__art">
-    <img src="/assets/images/site/hsiam_logo.png" alt="Four wide-eyed cartoon raccoons wearing MANAGER name badges, one per colour panel: gold, magenta, orange, teal" width="1200" height="1200">
+    <img src="/assets/images/site/hsiam_logo.webp" alt="Four wide-eyed cartoon raccoons wearing MANAGER name badges, one per colour panel: gold, magenta, orange, teal" width="900" height="900">
   </div>
   <div class="course-hero__text">
     <p class="page-intro"><strong>Nobody prepares you for this job.</strong></p>

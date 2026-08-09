@@ -23,7 +23,7 @@ schema_offers:
     priceValidUntil: "2026-12-31"
 ---
 
-<img src="/assets/images/brand-images/Me.png" alt="Val smiling in a garden" class="profile-image">
+<img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" class="profile-image" width="600" height="600" decoding="async">
 
 <p class="page-intro"><strong>There's no undo button for people. And you're the one making the calls now. Congrats!</strong></p>
 

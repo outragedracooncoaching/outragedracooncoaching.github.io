@@ -19,6 +19,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
+sass:
+  style: compressed
 defaults:
   - scope:
       path: ""
