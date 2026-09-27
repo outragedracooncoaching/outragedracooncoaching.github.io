@@ -77,9 +77,9 @@ description: "Val Dryden is an ILM-certified executive coach and VP Engineering.
 <div class="creative-showcase card-grid" aria-label="Creative work by Val">
   <div class="card creative-feature">
     <p class="offer-label">Art on Cara</p>
-    <h3><a href="https://cara.app/outragedracoonpaws" target="_blank" rel="noopener noreferrer">Outraged Racoon Paws<span class="sr-only"> (opens in new tab)</span></a></h3>
+    <h3><a href="https://cara.app/outragedpinkracoon" target="_blank" rel="noopener noreferrer">Outraged Racoon Paws<span class="sr-only"> (opens in new tab)</span></a></h3>
     <p>I draw strange little beings, haunting portraits, and whatever my brain needs to put somewhere outside my body. It is messy, playful, tender, dramatic, and extremely mine.</p>
-    <a class="card-cta" href="https://cara.app/outragedracoonpaws" target="_blank" rel="noopener noreferrer">See the art <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
+    <a class="card-cta" href="https://cara.app/outragedpinkracoon" target="_blank" rel="noopener noreferrer">See the art <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
   </div>
 
   <div class="card creative-feature">
