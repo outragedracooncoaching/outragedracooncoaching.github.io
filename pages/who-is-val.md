@@ -84,9 +84,9 @@ description: "Val Dryden is an ILM-certified executive coach and VP Engineering.
 
   <div class="card creative-feature">
     <p class="offer-label">Corporate vampire romance</p>
-    <h3><a href="https://stakeholdersbook.substack.com/about" target="_blank" rel="noopener noreferrer">Stakeholders&trade;<span class="sr-only"> (opens in new tab)</span></a></h3>
+    <h3><a href="https://outragedpinkracoon.substack.com/s/stakeholders-book" target="_blank" rel="noopener noreferrer">Stakeholders&trade;<span class="sr-only"> (opens in new tab)</span></a></h3>
     <p>Stakeholders is corporate vampire fiction about power, politics, influence, and the absolute absurdity of tech. It is ridiculous on purpose. It is also, inconveniently, quite serious.</p>
-    <a class="card-cta" href="https://stakeholdersbook.substack.com/about" target="_blank" rel="noopener noreferrer">Read Stakeholders <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
+    <a class="card-cta" href="https://outragedpinkracoon.substack.com/s/stakeholders-book" target="_blank" rel="noopener noreferrer">Read Stakeholders <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
   </div>
 </div>
 
