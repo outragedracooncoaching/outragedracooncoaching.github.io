@@ -285,7 +285,9 @@ $calm-measure: 38rem;
     text-transform: none !important;
 
     grid-template-columns: 1fr auto !important;
-    grid-template-areas: "mark display" "links links" !important;
+    grid-template-areas: "mark display" "links links" "cta cta" !important;
+    align-items: center !important;
+    gap: 0.5rem 1.6ch !important;
     width: auto !important;
 
     a {
@@ -310,7 +312,10 @@ $calm-measure: 38rem;
     }
     .site-nav__mark { font-weight: 700 !important; svg { display: none !important; } em { font-style: normal !important; color: inherit !important; } }
     .site-nav__links { justify-content: flex-start !important; gap: 0.2rem 1.6ch !important; }
-    .display-settings { margin-left: auto !important; &::before { display: none !important; } }
+    .site-nav__mark { grid-area: mark !important; }
+    .site-nav__links { grid-area: links !important; }
+    .site-nav__cta { grid-area: cta !important; justify-self: start !important; margin: 0 !important; }
+    .display-settings { grid-area: display !important; margin-left: auto !important; &::before { display: none !important; } }
     .display-settings-toggle {
       background: none !important;
       color: var(--calm-text) !important;

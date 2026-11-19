@@ -167,7 +167,8 @@ nav.site-nav {
   padding: 0.35rem 0.65rem;
   font-size: 0.9rem;
   @media (min-width: 1300px) { font-size: 1rem; padding: 0.45rem 0.8rem; }
-  &:hover, &[aria-expanded="true"] { color: $text; border-color: $text; }
+  // the base .display-settings-toggle:hover fills cream; keep the fill out so the cream text stays readable
+  &:hover, &[aria-expanded="true"] { background: fade($text, 0.12); color: $text; border-color: $text; }
   // a setting differs from default: pink frame, not a glaring filled block
   &[data-active="true"] { background: none; color: $text; border-color: $magenta; }
 }
