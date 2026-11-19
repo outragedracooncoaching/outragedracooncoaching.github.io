@@ -61,7 +61,7 @@ description: How to fund coaching through L&D or Access to Work. No-bullshit sup
       <div class="fund-email__paper">
         <p class="fund-email__subject">Subject: L&amp;D budget request for coaching</p>
         <p>Hi <span class="fill-blank">[Name]</span>,</p>
-        <p>I'd like to use my L&amp;D budget for a coaching session. I've found a coach I think would be genuinely useful: Val Dryden at Outraged Racoon Coaching. She's an ILM-certified executive coach and former CTO/VP Engineering with nearly two decades in tech, so she understands this industry and the specific situations I'm navigating.</p>
+        <p>I'd like to use my L&amp;D budget for a coaching session. I've found a coach I think would be genuinely useful: Val Dryden at Outraged Racoon Coaching. She's an ILM-certified executive coach and practising VP Engineering with nearly two decades in tech, so she understands this industry and the specific situations I'm navigating.</p>
         <p>A single session is £350, which fits within my L&amp;D allowance. I'm looking at it as a way to <span class="fill-blank">[get sharper on X / work through Y / develop faster in Z]</span>.</p>
         <p>Happy to talk through it if useful. Let me know if you need anything from me to get this approved.</p>
         <p>Thanks,<br><span class="fill-blank">[Your name]</span></p>
@@ -74,7 +74,7 @@ description: How to fund coaching through L&D or Access to Work. No-bullshit sup
       <div class="fund-email__paper">
         <p class="fund-email__subject">Subject: L&amp;D budget request for coaching</p>
         <p>Hi <span class="fill-blank">[Name]</span>,</p>
-        <p>I'd like to use my L&amp;D budget toward a block of three coaching sessions with Val Dryden at Outraged Racoon Coaching. She's an ILM-certified executive coach and former CTO/VP Engineering with nearly two decades in tech.</p>
+        <p>I'd like to use my L&amp;D budget toward a block of three coaching sessions with Val Dryden at Outraged Racoon Coaching. She's an ILM-certified executive coach and practising VP Engineering with nearly two decades in tech.</p>
         <p>The block is £800 in total. I'm looking at this as a way to <span class="fill-blank">[get support on X / develop faster in Y / work through Z]</span> over the next few months.</p>
         <p>Happy to talk through it if useful. Let me know if you need anything from me to get this approved.</p>
         <p>Thanks,<br><span class="fill-blank">[Your name]</span></p>
