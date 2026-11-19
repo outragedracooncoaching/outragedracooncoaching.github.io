@@ -1,0 +1,94 @@
+---
+layout: poster
+body_class: poster-home poster-coaching-page poster-contact
+show_cta: false
+subtitle: false
+permalink: /contact-form/
+title: Get in touch about coaching
+description: Tell me what's going on in a sentence or two. I'll reply myself and tell you honestly whether coaching with me can help.
+---
+
+<div class="poster">
+
+<section class="cf" aria-labelledby="cf-title">
+  <p class="cp-hero__kicker cf__kicker">Get in touch <span>&middot; 1:1 coaching</span></p>
+  <h1 id="cf-title" class="cf__title"><span class="cond">Tell me what's</span> <em><mark>going on.</mark></em></h1>
+  <p class="cf__lead">Send me a sentence or two about what's going on. I'll reply and tell you <em>honestly</em> whether I can help.</p>
+
+  <div class="cf__side">
+  <div class="cf__art" aria-hidden="true">
+    <figure class="taped cf__photo">
+      <img src="/assets/images/brand-images/Me.webp" alt="" width="600" height="600" decoding="async">
+    </figure>
+    <p class="cc-stamp cf__stamp"><small>No sales team.</small> <b>Just me,</b> <small>reading every one.</small></p>
+  </div>
+  <blockquote class="cf__proof">
+    <p>"Little did I know when I reached out to Valerie <mark>the huge impact it would have on me.</mark>"</p>
+    <footer>— Philip Hayton, R&amp;D Team Leader @&nbsp;Cycode</footer>
+  </blockquote>
+  </div>
+
+  <div class="cf__body">
+    <form class="cf-form" id="contact-form" action="#" method="post" novalidate
+          data-endpoint="{{ site.contact_form_endpoint | escape }}">
+      <div class="cf-form__field">
+        <label for="cf-name">Your name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="200">
+      </div>
+      <div class="cf-form__field">
+        <label for="cf-email">Your email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="320" spellcheck="false">
+      </div>
+      <div class="cf-form__field">
+        <label for="cf-message">What's going on? <span>A sentence or two is fine</span></label>
+        <textarea id="cf-message" name="message" rows="5" required maxlength="5000"></textarea>
+      </div>
+      <div class="cf-form__field">
+        <label for="cf-package">Got something in mind? <span>Optional</span></label>
+        <select id="cf-package" name="package">
+          <option value="">Not sure yet</option>
+          <option value="one_session">The Decisive Hour, £350</option>
+          <option value="three_sessions">The Sort-It Sequence, £800</option>
+          <option value="monthly">In Your Corner, £250/mo</option>
+          <option value="course">Holy Shit, I'm a Manager! course invoice</option>
+          <option value="course_support">Holy Shit, I'm a Manager! course support</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="from" value="">
+      <input type="hidden" name="page" value="">
+      <input type="hidden" name="started" value="">
+      <div class="cf-form__hp" aria-hidden="true">
+        <label for="cf-website">Leave this empty</label>
+        <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <p class="cf-form__error" id="cf-error" role="alert" hidden></p>
+      <p class="cf-form__go"><button class="sticker" type="submit">Send it</button></p>
+      <p class="cf-form__slow" id="cf-slow" hidden>Still going. Emails take their sweet time sometimes.</p>
+      <p class="sr-only" id="cf-status" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="cf-done" id="cf-done" tabindex="-1" hidden>
+      <h2 class="cf-done__title"><span class="cond">Got it.</span> <em>Thank you.</em></h2>
+      <p>I'll read it properly and reply to you by email. If it's not something I can help with, I'll tell you that too, and point you somewhere better if I can.</p>
+    </div>
+
+    <p class="cf__alt">Rather just email? <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoaching@gmail.com</a></p>
+  </div>
+</section>
+
+<section class="cp-next" aria-labelledby="next-title">
+  <h2 id="next-title" class="cp-next__title"><em>What happens</em> <span class="cond">next</span></h2>
+  <ol class="cp-next__list" aria-label="What happens after you get in touch">
+    <li><strong>I reply.</strong> We work out whether we are a good fit and which format makes sense. If it is not right, I will say so.</li>
+    <li><strong>Agree format and payment</strong> before anything is booked. One session, three, or a monthly retainer: whichever fits what's actually happening.</li>
+    <li><strong>We get to work.</strong> Remote 1:1, by video or phone, no preamble.</li>
+  </ol>
+</section>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
+</div>
+
+<script src="/assets/js/contact-form.js" defer></script>

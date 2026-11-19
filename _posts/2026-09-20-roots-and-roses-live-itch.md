@@ -2,12 +2,14 @@
 title: Roots and Roses Is Live on Itch.io
 description: My second solo tablet/print game is out, a vampire novella you write yourself with a notebook, a pen and a few dice. No assembly required.
 layout: post
-categories: [personal-development]
+categories: [making]
 ---
 
 You are definitely just a normal person. With a normal farm. And a normal love life.
 
 Try not to get caught eating anyone.
+
+![The Roots and Roses rulebook cover: a hand-drawn vampire woman with wild white hair and bared fangs on a charcoal background, the title in blackletter, and a pink strip reading "You are definitely a normal farmer, with a normal love life. Try not to get caught eating anyone."](/assets/images/roots-and-roses/rulebook-cover.webp)
 
 My second tablet/print game just went live on Itch: Roots and Roses 🌹🩸
 

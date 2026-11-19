@@ -1,36 +1,53 @@
 ---
-layout: default
+layout: poster
+body_class: poster-home poster-blog poster-cats
+show_cta: false
+subtitle: false
 permalink: /categories/
 title: Categories
 description: Browse no-bullshit writing on leadership, management, hiring, neurodivergence, and tech from an ILM-certified executive coach.
 ---
-<div id='categories'>
-  <ul id='category-name-list'>
-    {% for category in site.categories %}
-      {% capture category_name %}{{ category | first }}{% endcapture %}
-      <li>
-        <a class='category-name-link' id='name-{{ category_name | slugize }}' href="/categories?q={{ category_name | slugize }}">{{ category_name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-  <ul>
-  {% for category in site.categories %}
-  {% capture category_name %}{{ category | first }}{% endcapture %}
-  <li id='posts-{{ category_name | slugize }}' class='hidden'>
-    <h1 class='category-name'>{{ category_name }}</h1>
-    <ul id='category-posts'>
-    {% for post in site.categories[category_name] %}
-      <li>
-        <p class='date'>{{ post.date | date: '%B %d, %Y' }}</p>
-        <a href="{{ site.baseurl }}{{ post.url }}">
-        {{ post.display_title | default: post.title }}
-        </a>
-      </li>
-    {% endfor %}
+
+{% assign all_cats = site.categories | sort %}
+
+<div class="poster">
+
+<div class="bl-catpage">
+  <p class="bl-kicker"><a href="{{ site.baseurl }}/blog/">&larr; The blog</a> <span>&middot; Categories</span></p>
+
+  <section id="cats-intro" class="bl-cathead" aria-labelledby="cats-title">
+    <h1 id="cats-title" class="bl-cathead__title"><em>The blog, by</em> <span class="cond">category</span></h1>
+  </section>
+
+  <div class="bl-cats" role="navigation" aria-label="Blog categories">
+    <ul>
+      {%- for category in all_cats %}
+      {%- capture category_name %}{{ category | first }}{% endcapture %}
+      <li><a class="category-name-link" id="name-{{ category_name | slugize }}" href="{{ site.baseurl }}/categories?q={{ category_name | slugize }}">{{ category_name | replace: '-', ' ' }} <span class="bl-cats__n">{{ category[1].size }}</span></a></li>
+      {%- endfor %}
     </ul>
-  </li>
-  {% endfor %}
-  </ul>
+  </div>
+
+  <div class="bl-catlists">
+  {%- for category in all_cats %}
+  {%- capture category_name %}{{ category | first }}{% endcapture %}
+  <section id="posts-{{ category_name | slugize }}" class="hidden bl-catposts">
+    <div class="bl-cathead">
+      <p class="bl-cathead__count">{{ category[1].size }} {% if category[1].size == 1 %}post{% else %}posts{% endif %}</p>
+      <h2 class="bl-cathead__title category-name"><span class="cond">{{ category_name | replace: '-', ' ' }}</span></h2>
+    </div>
+    <ul class="bl-list">
+      {%- for post in site.categories[category_name] %}
+      {% include blog-row.html post=post level=2 %}
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+  </div>
+</div>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
 </div>
 
 <script>
@@ -41,10 +58,19 @@ description: Browse no-bullshit writing on leadership, management, hiring, neuro
   if (postsElement) {
     postsElement.classList.remove("hidden");
     postsElement.classList.add('active-posts');
+    // a real category is showing: hide the "by category" intro heading
+    document.getElementById("cats-intro").classList.add("hidden");
   }
 
   const nameElement = document.getElementById("name-"+param);
   if (nameElement) {
     nameElement.classList.add('active-link');
+    nameElement.setAttribute('aria-current', 'page');
+    // on phones the tags are a swipeable strip: bring the chosen one into view
+    const strip = nameElement.closest('ul');
+    if (strip && strip.scrollWidth > strip.clientWidth) {
+      const li = nameElement.parentElement;
+      strip.scrollLeft = li.offsetLeft - strip.offsetLeft - (strip.clientWidth - li.offsetWidth) / 2;
+    }
   }
 </script>

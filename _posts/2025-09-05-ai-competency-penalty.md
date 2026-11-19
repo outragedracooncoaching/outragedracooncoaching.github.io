@@ -1,6 +1,6 @@
 ---
 title: Devs Who Use AI Are Rated 9% Less Competent
-description: New research shows developers who use AI are perceived as less competent — and for women and older engineers, the bias is even worse. Here's what we can do about it.
+description: "Research shows developers who use AI are seen as less competent, and the bias is worse for women and older engineers. What we can do about it."
 layout: post
 categories: [diversity, leadership, spicy]
 ---

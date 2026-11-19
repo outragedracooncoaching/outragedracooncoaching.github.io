@@ -49,14 +49,14 @@
   // override the boring .grt blockquote — use the main yellow tilted style
   .grt blockquote {
     background: $yellow;
-    color: $ink;
+    color: $text;
     padding: 1.8rem 1.8rem 1.8rem 4.2rem;
     border: none;
     border-left: none;
     font-style: normal;
     position: relative;
     transform: rotate(-2deg);
-    box-shadow: 5px 5px 0 $ink;
+    box-shadow: 5px 5px 0 $text;
     margin: 3.5rem -8px;
 
     &:nth-child(even) { transform: rotate(1.5deg); }
@@ -79,16 +79,16 @@
   .metadata {
     margin: 0 0 1.5rem 0;
     padding: 0.6rem 0 0.6rem 1rem;
-    border-left: 3px solid rgba($lavender, 0.5);
+    border-left: 3px solid fade($lavender, 0.5);
     font-family: $font-primary;
     font-size: 0.88rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba($ink, 0.65);
+    color: fade($text, 0.65);
 
     a {
-      color: rgba($ink, 0.75);
+      color: fade($text, 0.75);
       text-decoration: none;
       &:hover { color: $magenta; }
     }
@@ -105,7 +105,7 @@
     a {
       display: inline-block;
       padding: 0.2rem 0.7rem;
-      border: 1px solid rgba($teal, 0.4);
+      border: 1px solid fade($teal, 0.4);
       color: $teal;
       font-size: 0.82rem;
       margin-right: 0.4rem;
@@ -113,8 +113,8 @@
       transition: background 0.15s ease, box-shadow 0.15s ease;
 
       &:hover {
-        background: rgba($teal, 0.08);
-        box-shadow: 2px 2px 0 rgba($teal, 0.3);
+        background: fade($teal, 0.08);
+        box-shadow: 2px 2px 0 fade($teal, 0.3);
         text-decoration: none;
       }
     }

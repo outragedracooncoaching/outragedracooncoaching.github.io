@@ -76,3 +76,5 @@ I bet you did something today that no-one else did, in your own unique way. Be p
 
 ## BEING AN IMPOSTER IS HEALTHY
 Imposter syndrome means you care about your craft and feeling vulnerable means your learning. It's healthy and good and normal and most of us feel it every single day. Accept it and tame it and use it to your advantage, because you're humble and hard working and an amazing hire for anyone to have.
+
+_Recognise yourself in this? I do [1:1 coaching for folks in tech](/coaching/folks-in-tech/), for people who are good at the job and done being treated like a maybe._

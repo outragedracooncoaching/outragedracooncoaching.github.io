@@ -1,43 +1,109 @@
 ---
 layout: default
 ---
-<article id='post'>
-  <h1>{{- page.display_title | default: page.title -}}</h1>
-  <p class='metadata'>
-    {{- page.date | date: '%B %d, %Y' -}} &nbsp; | &nbsp;
-    {%- if page.categories != empty -%}
-      {%- for category in page.categories -%}
-      <a href="{{site.baseurl}}/categories?q={{category|slugize}}">{{category}}</a>
-      {%- unless forloop.last %},&nbsp;{% endunless -%}
-      {%- endfor -%}
-    {%- endif -%}
-  </p>
+{%- assign post_title = page.display_title | default: page.title -%}
+{%- assign title_len = post_title | size -%}
+{%- assign title_size = '' -%}
+{%- if title_len > 48 -%}{%- assign title_size = 'post-head__title--long' -%}{%- elsif title_len < 22 -%}{%- assign title_size = 'post-head__title--short' -%}{%- endif -%}
+{%- assign post_kind = '' -%}
+{%- assign title_down = page.title | downcase -%}
+{%- if page.categories contains 'haiku' -%}
+  {%- assign post_kind = 'post--haiku' -%}
+{%- elsif page.poem or title_down contains 'poem' -%}
+  {%- assign post_kind = 'post--poem' -%}
+{%- endif -%}
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign read_mins = words | divided_by: 230 | at_least: 1 -%}
+<article class="poster post {{ post_kind }}">
+  <div class="post-head">
+    <a class="post-head__kicker" href="/blog">&larr; The blog</a>
+    <h1 class="post-head__title {{ title_size }}">{{- post_title -}}</h1>
+    <p class="post-head__meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{- page.date | date: '%-d %B %Y' -}}</time>
+      {%- unless post_kind == 'post--haiku' %}<span class="post-head__read">{{ read_mins }} min read</span>{% endunless -%}
+      {%- if page.categories != empty -%}
+      <span class="post-head__cats">
+        {%- for category in page.categories -%}
+        <a href="{{site.baseurl}}/categories?q={{category|slugize}}">{{ category | replace: '-', ' ' }}</a>
+        {%- endfor -%}
+      </span>
+      {%- endif -%}
+    </p>
+  </div>
+
+  {%- if post_kind == 'post--haiku' -%}
+    {%- assign haiku_no = 1 -%}
+    {%- for p in site.categories.haiku -%}
+      {%- if p.url == page.url -%}{%- assign haiku_no = forloop.length | minus: forloop.index0 -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if haiku_no < 10 -%}{%- assign haiku_no = haiku_no | prepend: '0' -%}{%- endif %}
+  <div class="haiku-plate">
+    <div class="post-body">
+      {{ content }}
+    </div>
+    <p class="haiku-plate__caption">Haiku Nº {{ haiku_no }} &middot; Valerie Dryden &middot; {{ page.date | date: '%Y' }}</p>
+  </div>
+  {%- else %}
   <div class="post-body">
     {{ content }}
   </div>
+  {%- endif %}
+
   <aside class="post-cta" aria-label="Coaching services">
     {% if page.categories contains 'new-manager' %}
-      <div class="callout callout--yellow">
-        <p>Still coding all day and quietly losing it? My self-paced course, Holy Shit, I'm a Manager!, is engineering management first aid. 52+ practical lessons on the actual job, with direct access to me.</p>
-        <p class="text-center"><a class="header-cta" href="/holy-shit-im-a-manager/">See the course</a></p>
+      <div class="post-cta__box">
+        <p class="post-cta__text">Still coding all day and quietly losing it? My self-paced course, Holy Shit, I'm a Manager!, is engineering management first aid. 52+ practical lessons on the actual job, with direct access to me.</p>
+        <p class="post-cta__action"><a class="sticker" data-goatcounter-click="post-to-course" href="/holy-shit-im-a-manager/">See the course</a></p>
       </div>
     {% elsif page.categories contains 'diversity' %}
-      <div class="callout callout--teal">
-        <p>If any of this landed, I do 1:1 coaching for folks in tech. Careers, power, getting unstuck. No generic advice, no polite pissing about.</p>
-        <p class="text-center"><a class="header-cta" href="/coaching/folks-in-tech/">See how it works</a></p>
+      <div class="post-cta__box">
+        <p class="post-cta__text">If any of this landed, I do 1:1 coaching for folks in tech. Careers, power, getting unstuck. No generic advice, no polite pissing about.</p>
+        <p class="post-cta__action"><a class="sticker" data-goatcounter-click="post-to-folks" href="/coaching/folks-in-tech/">See how it works</a></p>
       </div>
     {% elsif page.categories contains 'management' or page.categories contains 'one-to-ones' or page.categories contains 'leadership' or page.categories contains 'training' %}
-      <div class="callout callout--teal">
-        <p>If any of this is your actual life, I do 1:1 engineering manager coaching. The messy, human, nobody-prepared-me-for-this bits.</p>
-        <p class="text-center"><a class="header-cta" href="/coaching/engineering-managers/">See how it works</a></p>
+      <div class="post-cta__box">
+        <p class="post-cta__text">If any of this is your actual life, I do 1:1 engineering manager coaching. The messy, human, nobody-prepared-me-for-this bits.</p>
+        <p class="post-cta__action"><a class="sticker" data-goatcounter-click="post-to-managers" href="/coaching/engineering-managers/">See how it works</a></p>
       </div>
     {% elsif page.categories contains 'personal-development' or page.categories contains 'hiring' or page.categories contains 'productivity' or page.categories contains 'self-care' or page.categories contains 'coaching' %}
-      <div class="callout callout--teal">
-        <p>If any of this landed, I do 1:1 coaching for folks in tech. Careers, power, getting unstuck. No generic advice, no polite pissing about.</p>
-        <p class="text-center"><a class="header-cta" href="/coaching/folks-in-tech/">See how it works</a></p>
+      <div class="post-cta__box">
+        <p class="post-cta__text">If any of this landed, I do 1:1 coaching for folks in tech. Careers, power, getting unstuck. No generic advice, no polite pissing about.</p>
+        <p class="post-cta__action"><a class="sticker" data-goatcounter-click="post-to-folks" href="/coaching/folks-in-tech/">See how it works</a></p>
       </div>
     {% else %}
-      <p class="text-center"><a class="header-cta" href="mailto:outragedracooncoaching@gmail.com?subject=Coaching%20Enquiry&body=Hi%20Val%2C%20I%27d%20like%20to%20book%20a%201%3A1%20coaching%20session.">Get in touch</a></p>
+      <p class="post-cta__action post-cta__action--solo"><a class="sticker" data-goatcounter-click="post" href="/contact-form/?from=post">Get in touch</a></p>
     {% endif %}
   </aside>
+
+  <section class="post-more" aria-labelledby="post-more-title">
+    <h2 class="post-more__title" id="post-more-title">More from the blog</h2>
+    <ul class="blog-index">
+      {%- assign shown = 0 -%}
+      {%- assign picked = "" -%}
+      {%- comment -%} pass 1: newest posts sharing a category; pass 2: top up with newest overall {%- endcomment -%}
+      {%- for pass in (1..2) -%}
+        {%- for p in site.posts -%}
+          {%- assign skip_haiku = false -%}{%- if p.categories contains 'haiku' and post_kind != 'post--haiku' -%}{%- assign skip_haiku = true -%}{%- endif -%}
+          {%- if p.url != page.url and shown < 3 and skip_haiku == false -%}
+            {%- unless picked contains p.url -%}
+              {%- assign ok = false -%}
+              {%- if pass == 2 -%}{%- assign ok = true -%}{%- else -%}
+                {%- for c in page.categories -%}{%- if p.categories contains c -%}{%- assign ok = true -%}{%- endif -%}{%- endfor -%}
+              {%- endif -%}
+              {%- if ok -%}
+                {%- assign shown = shown | plus: 1 -%}
+                {%- assign picked = picked | append: p.url | append: "|" %}
+      <li>
+        <span class="blog-index__date">{{ p.date | date: "%b %Y" }}</span>
+        <a href="{{ p.url }}">{{ p.display_title | default: p.title }}</a>
+      </li>
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
 </article>

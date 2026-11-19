@@ -6,7 +6,7 @@ locale: 'en_GB'
 permalink: /:year/:month/:day/:title.html
 twitter:
   username: outragedracoon
-  card: summary
+  card: summary_large_image
 # Course sale. Set active: false to end it and revert all prices to full.
 sale:
   active: false
@@ -15,6 +15,9 @@ sale:
   saving: "£200"
   code: "RACOONFRIEND"
   blurb: "Celebrating 3 years of holy shit!"
+# Contact form: the Google Apps Script web app URL (see apps-script/contact-form.gs).
+# Empty = the form shows the email fallback instead of sending.
+contact_form_endpoint: "https://script.google.com/macros/s/AKfycbyrSH3RnU_aZeRpKyAheNw72UDzMUXegDzlxouagbVdSyZyvKArv-5YdUXkEGd2QxBc/exec"
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
@@ -25,10 +28,27 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/site/racoon.jpg
+      image: /assets/images/og/default.png
       subtitle: VP Eng | ILM Executive Coach | Neurodivergent | Chief Racoon Officer
   - scope:
       path: ""
       type: posts
     values:
-      show_cta: true
+      show_cta: false
+      body_class: poster-home poster-post
+# Private working files: never publish
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - AGENTS.md
+  - context
+  - linkedin
+  - blogs_todo
+  - tasks.md
+  - todo.md
+  - sales_todo.md
+  - seo_todo.md
+  - ssl.todo
+  - apps-script

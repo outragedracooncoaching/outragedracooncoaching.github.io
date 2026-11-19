@@ -1,0 +1,628 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// BLOG + CATEGORIES (poster). The big sibling of the homepage's .blog-index:
+// a mixed-font hero, one featured post at poster scale, then an art-book
+// contents page grouped by year. Categories reuses the same rows.
+// Scope: body.poster-blog.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+@mixin bl-cond {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  text-transform: uppercase;
+}
+
+@mixin bl-mono {
+  font: 700 0.78rem/1.3 $mono;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body.poster-blog {
+
+  .bl-hero, .bl-feature, .bl-archive, .bl-catpage {
+    width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // ── neutralise riso leftovers from main.scss ──
+  // (:where keeps these at low specificity so component rules below win)
+  :where(.poster) :where(h1, h2, h3, h4) {
+    color: $text;
+    font-style: normal;
+    border-left: 0;
+    padding-left: 0;
+    overflow-wrap: normal;
+    hyphens: manual;
+    &::after { content: none; }
+  }
+  :where(.poster) :where(ul) { padding-left: 0; }
+  :where(.poster) :where(li) { margin-bottom: 0; }
+
+  // ─── KICKER (mono label, pink rule, tilted like the other heroes) ─────────
+  .bl-kicker {
+    display: inline-block;
+    margin: 0 0 1.6rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    @include bl-mono;
+    transform: rotate(-3deg);
+    transform-origin: left;
+
+    span { color: fade($text, 0.75); }
+    a { color: $text; text-decoration: none; }
+    a:hover, a:focus-visible { color: $magenta; }
+  }
+
+  // ─── HERO ─────────────────────────────────────────────────────────────────
+  .bl-hero {
+    padding: 1.5rem 0 1rem;
+
+    @include respond-to('large') {
+      display: grid;
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      grid-template-areas: "kicker kicker" "title title" "sub cats" "intro cats";
+      grid-template-rows: auto auto auto 1fr;
+      column-gap: 3.5rem;
+
+      .bl-kicker { grid-area: kicker; justify-self: start; }
+      .bl-hero__title { grid-area: title; }
+      .bl-hero__sub { grid-area: sub; }
+      .bl-hero__intro { grid-area: intro; }
+      .bl-cats { grid-area: cats; align-self: start; margin-top: 2.4rem; }
+    }
+
+    &__title {
+      margin: 0;
+      font: 700 clamp(3rem, 8.6vw, 7.4rem)/0.9 $font-display;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.065em;
+      text-wrap: balance;
+
+      .cond {
+        display: block;
+        @include bl-cond;
+        font-size: 1.62em;
+        line-height: 0.84;
+        letter-spacing: -0.03em;
+        margin-left: -0.04em;
+      }
+    }
+
+    &__line {
+      display: block;
+      margin: 0.02em 0 0 7%;
+    }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $paper;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      padding: 0 0.16em 0.1em 0.06em;
+      transform: rotate(-3.5deg);
+      line-height: 0.9;
+      box-shadow: 6px 6px 0 $text;
+    }
+
+    &__sub {
+      margin: 1.8rem 0 0 7%;
+      max-width: 24ch;
+      font: italic 400 clamp(1.5rem, 3vw, 2.3rem)/1.1 $font-display;
+      letter-spacing: -0.035em;
+      color: $magenta;
+    }
+
+    // vandalised: a statement, marked up in pink marker
+    &__intro {
+      margin: 2.4rem 0 0 7%;
+      max-width: 22ch;
+      font: 600 clamp(1.7rem, 2.9vw, 2.5rem)/1.22 $font-display;
+      letter-spacing: -0.04em;
+      text-wrap: pretty;
+    }
+  }
+
+  // slapped-on pink box
+  .bl-v-box {
+    display: inline-block;
+    padding: 0 0.14em 0.04em 0.08em;
+    background: $magenta;
+    color: $paper;
+    font-style: italic;
+    font-weight: 500;
+    transform: rotate(-3deg);
+    box-shadow: 4px 4px 0 $text;
+  }
+
+  // scrawled wavy underline
+  .bl-v-wave {
+    text-decoration: underline wavy $magenta;
+    text-decoration-thickness: 0.07em;
+    text-underline-offset: 0.2em;
+    text-decoration-skip-ink: none;
+  }
+
+  // circled in marker, a bit too fast
+  .bl-v-circle {
+    position: relative;
+    display: inline-block;
+    margin: 0.15em 0 0 0.3em;
+    white-space: nowrap;
+    font-style: italic;
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -0.32em -0.4em -0.28em -0.38em;
+      background: $magenta;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'%3E%3Cpath d='M18 14 C 60 2, 160 0, 190 18 C 204 30, 186 52, 120 56 C 60 59, 6 52, 6 34 C 6 20, 30 10, 70 7 C 100 5, 140 6, 160 10' fill='none' stroke='%23ff66a5' stroke-width='3.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'%3E%3Cpath d='M18 14 C 60 2, 160 0, 190 18 C 204 30, 186 52, 120 56 C 60 59, 6 52, 6 34 C 6 20, 30 10, 70 7 C 100 5, 140 6, 160 10' fill='none' stroke='%23ff66a5' stroke-width='3.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+      transform: rotate(-2.5deg);
+      pointer-events: none;
+    }
+  }
+
+  // ─── CATEGORY TAGS (mono labels; press like the stickers) ─────────────────
+  .bl-cats {
+    margin: 2.4rem 0 0;
+
+    &__label {
+      margin: 0 0 1rem;
+      @include bl-mono;
+      color: $magenta;
+    }
+
+    // one run of mono text, pink slashes between: quiet until you point at it
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      row-gap: 0.15rem;
+      line-height: 1.4;
+    }
+
+    li {
+      margin: 0;
+      &:not(:last-child)::after {
+        content: '/';
+        margin: 0 0.45em;
+        color: $magenta;
+        font: 700 0.85rem/1 $mono;
+      }
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.1rem 0.2rem;
+      color: $text;
+      font: 700 0.8rem/1.3 $mono;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.1s, color 0.1s, transform 0.12s ease;
+
+      &:hover, &:focus-visible {
+        background: $magenta;
+        color: $paper;
+        transform: rotate(-2deg);
+        outline: none;
+      }
+
+      // the chosen category is the one sticker
+      &.active-link {
+        background: $magenta;
+        color: $paper;
+        padding: 0.2rem 0.45rem;
+        box-shadow: 3px 3px 0 $text;
+        transform: rotate(-2deg);
+      }
+    }
+
+    &__n {
+      font-size: 0.8em;
+      opacity: 0.55;
+    }
+  }
+
+  // ─── FEATURED (newest post at poster scale) ───────────────────────────────
+  .bl-feature {
+    position: relative;
+    margin-top: 6rem;
+    padding-top: 2.6rem;
+    border-top: 1.5px solid $text;
+
+    @include respond-to('large') {
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+      grid-template-areas: "label label" "title body";
+      column-gap: 4rem;
+      align-items: start;
+      .bl-feature__body { align-self: end; }
+    }
+
+    &__label {
+      grid-area: label;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      translate: 0 -55%;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      @include bl-mono;
+      background: $paper;
+      padding-right: 0.9rem;
+
+      span {
+        @include bl-cond;
+        font-size: 1.15rem;
+        letter-spacing: 0.06em;
+        background: $magenta;
+        color: $paper;
+        padding: 0.35rem 0.7rem 0.3rem;
+        transform: rotate(-4deg);
+        box-shadow: 4px 4px 0 $text;
+      }
+    }
+
+    &__title {
+      grid-area: title;
+      margin: 2rem 0 0;
+      font: 700 clamp(2.6rem, 6.4vw, 5.8rem)/0.92 $font-display;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.06em;
+      text-wrap: balance;
+
+      a {
+        color: $text;
+        text-decoration: none;
+        background: linear-gradient($magenta, $magenta) 0 88% / 0 0.16em no-repeat;
+        transition: background-size 0.25s ease;
+      }
+      a:hover, a:focus-visible { color: $text; background-size: 100% 0.16em; outline: none; }
+    }
+
+    &__body {
+      grid-area: body;
+      margin-top: 1.8rem;
+      max-width: 40rem;
+    }
+
+    &__desc {
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      line-height: 1.65;
+    }
+
+    .bl-row__tags { margin-bottom: 2rem; }
+  }
+
+  // with art: words left, the post's first image taped on the right
+  .bl-feature--art {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "art" "body";
+
+    @include respond-to('medium') {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      grid-template-areas: "title art" "body art";
+      grid-template-rows: auto 1fr;
+      column-gap: 3rem;
+      align-items: start;
+      .bl-feature__body { align-self: start; }
+    }
+    @include respond-to('large') {
+      grid-template-areas: "title art" "body art";
+      column-gap: 4rem;
+    }
+
+    .bl-feature__title { font-size: clamp(2.6rem, 5.4vw, 5rem); }
+  }
+
+  .bl-feature__art {
+    grid-area: art;
+    position: relative;
+    z-index: 1;
+    justify-self: center;
+    width: min(88%, 26rem);
+    margin: 2.8rem 0 1rem;
+    padding: 0.65rem 0.65rem 2.2rem;
+    background: $text;
+    box-shadow: 12px 12px 0 $magenta;
+    transform: rotate(3.5deg);
+
+    img { width: 100%; height: auto; max-height: 34rem; object-fit: cover; }
+
+    @include respond-to('medium') {
+      justify-self: end;
+      width: 100%;
+      max-width: 26rem;
+      margin: 0.5rem 0.8rem 0 0;
+    }
+    @include respond-to('large') {
+      margin-right: -1.5rem;   // nudges just past the column edge
+    }
+  }
+
+  .bl-read {
+    display: inline-block;
+    padding: 1rem 1.8rem 1.05rem;
+    background: $magenta;
+    color: $paper;
+    font: 800 clamp(1rem, 1.6vw, 1.25rem)/1 $font-primary;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transform: rotate(-3deg);
+    box-shadow: 7px 7px 0 $text;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    &::after { content: ' →'; }
+    &:hover, &:focus-visible {
+      color: $paper;
+      transform: rotate(-3deg) translate(3px, 3px);
+      box-shadow: 4px 4px 0 $text;
+    }
+    &:active { transform: rotate(-3deg) translate(7px, 7px); box-shadow: none; }
+  }
+
+  // ─── ARCHIVE (contents page grouped by year) ──────────────────────────────
+  .bl-archive {
+    margin-top: 3rem;
+    .mega { margin-top: 6rem; }
+  }
+
+  .bl-coaching {
+    width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+    margin: 4rem auto 0;
+    font-size: 1.1rem;
+    a { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+  }
+
+  .bl-year {
+    position: relative;
+    margin-top: 3.5rem;
+
+    @include respond-to('large') {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      column-gap: 2.5rem;
+      align-items: start;
+    }
+
+    &__num {
+      margin: 0 0 1rem;
+      font: 700 clamp(3.6rem, 16vw, 6.5rem)/0.85 $font-display;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.06em;
+      color: $text;
+
+      @include respond-to('large') {
+        position: sticky;
+        top: 1.5rem;
+        margin: 0.6rem 0 0;
+        transform: rotate(-4deg);
+        transform-origin: left top;
+      }
+    }
+  }
+
+  // ─── ROWS (shared by blog + categories) ───────────────────────────────────
+  .bl-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bl-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.2rem minmax(0, 1fr);
+    gap: 1.2rem;
+    align-items: baseline;
+    margin: 0;
+    padding: 1.15rem 0.6rem 1.25rem;
+    border-top: 1px solid fade($text, 0.45);
+    transition: transform 0.14s cubic-bezier(0.3, 1.6, 0.5, 1), background 0.1s, box-shadow 0.14s;
+
+    &:last-child { border-bottom: 1px solid fade($text, 0.45); }
+
+    .bl-row__tags { grid-column: 2; margin-top: -0.6rem; }
+
+    &__date {
+      @include bl-mono;
+      font-size: 0.75rem;
+      color: $magenta;
+      white-space: nowrap;
+    }
+    &__year { display: none; }
+
+    &__title {
+      margin: 0;
+      padding: 0;
+      font: 500 clamp(1.35rem, 2.3vw, 1.85rem)/1.12 $font-display;
+      letter-spacing: -0.04em;
+      word-spacing: 0;
+
+      a {
+        color: $text;
+        text-decoration: none;
+        // whole row is the click target
+        &::before { content: ''; position: absolute; inset: 0; z-index: 1; }
+        &::after { content: '\00a0→'; opacity: 0; transition: opacity 0.1s; }
+        &:focus-visible { outline: none; }
+      }
+    }
+
+    &__desc {
+      margin: 0.45rem 0 0;
+      max-width: 68ch;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: $text;
+    }
+
+    // hover = slapped on as a pink sticker strip (same move as the homepage)
+    &:hover, &:focus-within {
+      z-index: 2;
+      background: $magenta;
+      border-color: transparent;
+      box-shadow: 7px 7px 0 $text;
+      transform: rotate(-0.8deg) translate(-4px, -4px);
+
+      .bl-row__date, .bl-row__title a, .bl-row__desc, .bl-row__tags a { color: $paper; }
+      .bl-row__tags a { border-color: fade($paper, 0.6); }
+      .bl-row__title a::after { opacity: 1; }
+    }
+    &:nth-child(even):hover, &:nth-child(even):focus-within {
+      transform: rotate(0.7deg) translate(-4px, -4px);
+    }
+    &:hover + .bl-row, &:focus-within + .bl-row { border-top-color: transparent; }
+  }
+
+  // small mono tags under a post (sit above the row's click target)
+  .bl-row__tags {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.5rem;
+    margin: 0.7rem 0 0;
+
+    a {
+      font: 700 0.7rem/1 $mono;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $magenta;
+      text-decoration: none;
+      padding: 0.3rem 0.45rem 0.25rem;
+      border: 1px solid fade($magenta, 0.55);
+
+      &:hover, &:focus-visible {
+        background: $paper;
+        color: $text !important;
+        border-color: $paper;
+        outline: none;
+      }
+    }
+  }
+
+  // ─── CATEGORIES PAGE ──────────────────────────────────────────────────────
+  .bl-catpage { padding-top: 1.5rem; }
+
+  .bl-catpage .bl-cats { margin-top: 2.5rem; }
+
+  .bl-cathead {
+    margin: 4.5rem 0 2.2rem;
+
+    &__count {
+      margin: 0 0 0.8rem;
+      @include bl-mono;
+      color: $magenta;
+    }
+
+    &__title {
+      margin: 0;
+      font: 700 clamp(3.2rem, 10vw, 8.5rem)/0.86 $font-display;
+      font-variation-settings: 'opsz' 144;
+      letter-spacing: -0.06em;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
+      hyphens: none;
+
+      em {
+        display: block;
+        font: italic 400 0.42em/1 $font-display;
+        letter-spacing: -0.04em;
+        margin: 0 0 0.06em 0.06em;
+        color: $magenta;
+      }
+
+      .cond {
+        display: block;
+        @include bl-cond;
+        font-size: 1.3em;
+        line-height: 0.84;
+        letter-spacing: -0.03em;
+      }
+    }
+  }
+
+  // the chosen category: name sits in a crooked pink-box sticker
+  .bl-catposts .bl-cathead__title .cond {
+    display: inline-block;
+    background: $magenta;
+    color: $paper;
+    padding: 0.06em 0.14em 0.02em;
+    transform: rotate(-2deg);
+    box-shadow: 10px 10px 0 $text;
+  }
+
+  // the intro (no ?q) shows the list as the poster
+  #cats-intro:not(.hidden) + .bl-cats a { font-size: 1rem; }
+
+  // ─── WIDE: show the year inside the date when the year column is gone ─────
+  @media (max-width: 991px) {
+    .bl-row { grid-template-columns: 4.4rem minmax(0, 1fr); }
+  }
+
+  .bl-catposts .bl-row {
+    grid-template-columns: 7.4rem minmax(0, 1fr);
+    .bl-row__year { display: inline; }
+  }
+
+  // ─── PHONES: restack ──────────────────────────────────────────────────────
+  @media (max-width: 767px) {
+    .bl-hero__title { font-size: 13.8vw; }
+    .bl-archive .mega--outline .cond { font-size: 1.62em; -webkit-text-stroke-width: 3px; }
+    .bl-cats a { font-size: 0.74rem; letter-spacing: 0.05em; }
+    #cats-intro:not(.hidden) + .bl-cats a { font-size: 0.85rem; }
+    .bl-hero__title .cond { font-size: 1.62em; }
+    .bl-hero__line, .bl-hero__sub, .bl-hero__intro { margin-left: 0; }
+    .bl-hero__intro { font-size: 7.2vw; max-width: none; }
+
+    .bl-feature { margin-top: 4.5rem; }
+    .bl-feature__title { font-size: 12.5vw; }
+
+    .bl-year__num { font-size: 22vw; transform: rotate(-3deg); transform-origin: left; }
+
+    .bl-row,
+    .bl-catposts .bl-row {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.4rem;
+      padding: 1rem 0.3rem 1.1rem;
+      .bl-row__tags { grid-column: 1; margin-top: 0.3rem; }
+    }
+    .bl-row__title { font-size: 1.4rem; }
+
+    .bl-cathead__title { font-size: 15vw; }
+    #cats-intro .bl-cathead__title { font-size: 18vw; }
+
+    // a category is chosen: the tags become one swipeable strip so the
+    // category name still lands on the first screen
+    .bl-catpage:has(.active-posts) .bl-cats {
+      margin-top: 1.4rem;
+      margin-right: calc(-1 * #{$gutter});
+      ul {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0.4rem $gutter 0.8rem 0.2rem;
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
+      }
+      li { flex: none; }
+    }
+    .bl-catpage:has(.active-posts) .bl-cathead { margin-top: 2.6rem; }
+    .bl-catposts .bl-cathead__title .cond { box-shadow: 6px 6px 0 $text; }
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: How to Run Local AI Art Models on a MacBook
-description: MLX, Ollama, Hugging Face, GGUF, quantisation. It sounds terrifying. Here's how to install and run a local AI art model on a normal MacBook in about five minutes.
+description: "Install and run a local AI art model on a normal MacBook in about five minutes. MLX, Ollama and GGUF sound terrifying. They aren't."
 layout: post
 categories: [programming]
 ---

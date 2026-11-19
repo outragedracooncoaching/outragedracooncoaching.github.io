@@ -3,7 +3,7 @@ title: Why You Need a Creative Outlet With No Goal Attached
 display_title: I Drew a Tiny Truck, Then I Added Cats
 description: I drew a tiny truck this week, then added cats. No content plan, no skill-building, no point. Here's why pointless creativity is worth protecting.
 layout: post
-categories: [self-care, personal-development]
+categories: [making]
 ---
 
 I drew a tiny truck this week. Then I added cats. No regrets.

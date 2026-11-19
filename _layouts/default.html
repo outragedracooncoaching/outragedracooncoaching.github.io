@@ -3,7 +3,9 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <link href='/favicon.ico' rel='icon' />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/site/favicon-32.png">
+    <link rel="apple-touch-icon" href="/assets/images/site/apple-touch-icon.png">
     {% seo %}
     <script type="application/ld+json">
     {
@@ -35,8 +37,14 @@
             "https://www.linkedin.com/in/outragedpinkracoon/",
             "https://www.instagram.com/outragedracoonpaws/",
             "https://cara.app/outragedpinkracoon",
-            "https://outragedpinkracoon.substack.com/"
-          ]
+            "https://outragedpinkracoon.substack.com/",
+            "https://outragedpinkracoon.com"
+          ],
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "ILM Level 5 Certificate in Coaching and Mentoring",
+            "credentialCategory": "certificate"
+          }
         }{% if page.url == '/coaching/' or page.url == '/coaching' or page.url == '/coaching/engineering-managers/' or page.url == '/coaching/managers' or page.url == '/coaching/folks-in-tech/' or page.url == '/coaching/folks-in-tech' or page.url == '/coaching/founders/' or page.url == '/coaching/founders' or page.url == '/coaching/funding/' or page.url == '/coaching/funding' %},
         {
           "@type": "Service",
@@ -73,84 +81,96 @@
               }{% endfor %}
             ]
           }{% endif %}
-        },
+        }{% endif %}{% if page.url == '/holy-shit-im-a-manager/' %},
         {
-          "@type": "FAQPage",
-          "@id": "{{ site.url }}{{ page.url }}#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Who do you coach?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "I work with engineering managers of all levels, and folks in tech who are capable, ambitious, and tired of being treated like a maybe. Specialist support for neurodivergent, queer, and disabled people."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does coaching work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sessions are remote and one-to-one. They blend coaching — direct questions, genuine challenge, and reflection — with mentoring drawn from nearly two decades as an engineer, manager and executive. Direct, no waffle, no bullshit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How much does coaching cost?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Pricing varies by audience and format. One-off sessions, short campaign packages, and monthly retainers are available. See the pricing section on each coaching page for current rates."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Are sessions in person or remote?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "All sessions are remote and private, one-to-one. Clients work with me from anywhere in the world."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I book a session?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Get in touch via email at outragedracooncoaching@gmail.com or on LinkedIn. We'll have a quick conversation first so you know what to expect before you commit to anything."
-              }
-            }
+          "@type": "Course",
+          "@id": "{{ site.url }}{{ page.url }}#course",
+          "name": "Holy Shit, I'm a Manager!",
+          "description": {{ page.description | jsonify }},
+          "url": "{{ site.url }}{{ page.url }}",
+          "provider": { "@id": "{{ site.url }}/#person" },
+          "inLanguage": "en-GB",
+          "educationalLevel": "Beginner",
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "New engineering managers"
+          },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "courseWorkload": "Self-paced"
+          },
+          "offers": [
+            {% for offer in page.schema_offers %}{% unless forloop.first %},{% endunless %}{
+              "@type": "Offer",
+              "category": "Paid",
+              "price": {{ offer.price | jsonify }},
+              "priceCurrency": {{ offer.priceCurrency | jsonify }},
+              "priceValidUntil": {{ offer.priceValidUntil | jsonify }},
+              "url": "{{ site.url }}{{ page.url }}",
+              "availability": "https://schema.org/InStock"
+            }{% endfor %}
           ]
         }{% endif %}
       ]
     }
     </script>
+    <script>
+      // Apply saved Display settings before paint so nothing flashes
+      window.loadCalmFont = function() {
+        if (document.getElementById('calm-font')) return;
+        var l = document.createElement('link');
+        l.id = 'calm-font'; l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Atkinson+Hyperlegible+Mono:wght@400;700&display=swap';
+        document.head.appendChild(l);
+      };
+      try {
+        var calm = localStorage.getItem('calm') === 'on';
+        // No theme chosen yet? Calm mode defaults to light (a printed page); otherwise dark.
+        var theme = localStorage.getItem('theme') || (calm ? 'light' : 'dark');
+        if (theme === 'light') document.documentElement.dataset.theme = 'light';
+        if (calm) { document.documentElement.dataset.calm = ''; loadCalmFont(); }
+      } catch (e) {}
+    </script>
     <link rel="stylesheet" href='/assets/css/normalize.css'>
     <link rel="stylesheet" href='/assets/css/code-syntax.css'>
-    <link rel="shortcut icon" type="image/png" href="/assets/images/site/favicon.ico">
     <link rel="stylesheet" href='/assets/css/styles.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,144,900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <nav aria-label="Main navigation">
-    <a href='/' {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
-    <a href='/who-is-val' {% if page.url == '/who-is-val/' or page.url == '/who-is-val' %}aria-current="page"{% endif %}>Who is Val?</a>
-    <a href='/coaching' {% if page.url == '/coaching/' or page.url == '/coaching' or page.url contains '/coaching/' %}aria-current="page"{% endif %}>Coaching</a>
-    <a href='/holy-shit-im-a-manager' {% if page.url == '/holy-shit-im-a-manager/' or page.url == '/holy-shit-im-a-manager' %}aria-current="page"{% endif %}>Online course</a>
-    <a href='/blog' {% if page.url == '/blog/' or page.url == '/blog' %}aria-current="page"{% endif %}>Blog</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-nav__mark" href='/' {% if page.url == '/' %}aria-current="page"{% endif %}><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 4v92M4 50h92M17.5 17.5l65 65M17.5 82.5l65-65" fill="none" stroke="currentColor" stroke-width="14"/></svg><span>Outraged <em>Racoon</em></span><span class="sr-only"> Coaching, home</span></a>
+    <div class="site-nav__links">
+      <a href='/who-is-val' {% if page.url == '/who-is-val/' or page.url == '/who-is-val' %}aria-current="page"{% endif %}>Who is Val?</a>
+      <a href='/coaching' {% if page.url contains '/coaching' %}aria-current="page"{% endif %}>Coaching</a>
+      <a href='/holy-shit-im-a-manager' {% if page.url contains '/holy-shit-im-a-manager' %}aria-current="page"{% endif %}>Online course</a>
+      <a href='/blog' {% if page.url contains '/blog' or page.layout == 'post' %}aria-current="page"{% endif %}>Blog</a>
+    </div>
+    <a class="site-nav__cta" href="/contact-form/?from=nav" data-goatcounter-click="nav-cta" {% if page.url contains '/contact-form' %}aria-current="page"{% endif %}>Get in touch</a>
     <div class="display-settings">
       <button class="display-settings-toggle" aria-expanded="false" aria-controls="display-settings-panel" aria-label="Open display settings">
         <span class="settings-icon" aria-hidden="true">⚙</span>
-        <span>Display</span>
+        <span class="display-settings-toggle__label">Display</span>
       </button>
       <div class="display-settings-panel" id="display-settings-panel" role="dialog" aria-modal="true" aria-label="Display settings" aria-hidden="true">
         <div class="panel-close"><button aria-label="Close display settings">✕</button></div>
-        <label class="setting-row">
-          <input type="checkbox" id="toggle-reading-mode"> Calm mode
-        </label>
+        <fieldset class="theme-row">
+          <legend class="font-scale-label">Theme</legend>
+          <div class="theme-options">
+            <label><input type="radio" name="theme" value="dark" checked><span>Dark</span></label>
+            <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="theme-row">
+          <legend class="font-scale-label">Calm mode</legend>
+          <div class="theme-options">
+            <label><input type="radio" name="calm" value="off" checked><span>Off</span></label>
+            <label><input type="radio" name="calm" value="on"><span>On</span></label>
+          </div>
+        </fieldset>
         <div class="font-scale-row">
           <span class="font-scale-label">Text size</span>
           <div class="font-scale-controls">
@@ -159,30 +179,17 @@
             <button class="font-scale-btn" id="font-scale-up" aria-label="Increase text size">+</button>
           </div>
         </div>
-        <p class="setting-group-label">Colour-safe palette</p>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-none" value="none" checked> Standard colours
-        </label>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-red-green" value="red-green"> Red/green safe
-        </label>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-blue-yellow" value="blue-yellow"> Blue/yellow safe
-        </label>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-greyscale" value="greyscale"> Greyscale
-        </label>
       </div>
     </div>
   </nav>
-  <header><a href='/'>OUTRAGED RACOON COACHING</a></header>
+  <header><svg class="burst" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 4v92M4 50h92M17.5 17.5l65 65M17.5 82.5l65-65" fill="none" stroke="currentColor" stroke-width="12"/></svg><a href='/'>OUTRAGED RACOON COACHING</a></header>
   <main id="main-content">
     {% if page.subtitle %}<p class="page-subtitle">{{ page.subtitle }}</p>{% endif %}
-    {% unless page.show_cta == false %}<p class="text-center page-header-cta"><a class="header-cta" href="{{ page.cta_href | default: 'mailto:outragedracooncoaching@gmail.com?subject=Coaching%20Enquiry&body=Hi%20Val%2C%20I%27d%20like%20to%20book%20a%201%3A1%20coaching%20session.' }}">{{ page.cta_label | default: 'Get in touch' }}</a></p>{% endunless %}
+    {% unless page.show_cta == false %}<p class="text-center page-header-cta"><a class="header-cta" href="{{ page.cta_href | default: '/contact-form/' }}">{{ page.cta_label | default: 'Get in touch' }}</a></p>{% endunless %}
     {{ content }}
   </main>
   <footer>
-    <p class="footer-copy">&copy; 2026 Outraged Racoon Coaching&reg; &middot; <a href="/coaching/funding/">How to fund coaching</a> &middot; <a href="/privacy/">Privacy policy</a></p>
+    <p class="footer-copy">&copy; 2026 Outraged Racoon Coaching&reg; &middot; <a href="/coaching/funding/">How to fund coaching</a> &middot; <a href="/privacy/">Privacy policy</a> &middot; <a href="/coaching-disclaimer-and-terms/">Terms</a></p>
     <nav class="footer-social" aria-label="Social media links">
       <a href="https://www.linkedin.com/in/outragedpinkracoon/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
       <a href="https://www.instagram.com/outragedracoonpaws/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in new tab)</span></a>
@@ -196,9 +203,6 @@
       var body = document.body;
       var toggleBtn = document.querySelector('.display-settings-toggle');
       var panel = document.getElementById('display-settings-panel');
-      var readingCheck = document.getElementById('toggle-reading-mode');
-      var colourModes = ['red-green', 'blue-yellow', 'greyscale'];
-      var colourClasses = { 'red-green': 'cb-red-green', 'blue-yellow': 'cb-blue-yellow', 'greyscale': 'cb-greyscale' };
 
       // Font scale
       var scaleSteps = [80, 90, 100, 110, 120, 130, 140];
@@ -212,7 +216,39 @@
         scaleValueEl.textContent = scaleSteps[scaleIndex] + '%';
         scaleDownBtn.disabled = scaleIndex === 0;
         scaleUpBtn.disabled = scaleIndex === scaleSteps.length - 1;
+        syncActive();
       }
+
+      // Theme (the head script applies it before paint; this keeps the radios in step)
+      var root = document.documentElement;
+      function currentTheme() { return root.dataset.theme === 'light' ? 'light' : 'dark'; }
+      function syncActive() {
+        toggleBtn.dataset.active = String(scaleIndex !== 2 || currentTheme() === 'light' || calmOn());
+      }
+      function calmOn() { return 'calm' in root.dataset; }
+      function setTheme(t) {
+        if (t === 'light') { root.dataset.theme = 'light'; } else { delete root.dataset.theme; }
+        document.querySelectorAll('input[name="theme"]').forEach(function(r) { r.checked = r.value === t; });
+      }
+      function savedTheme() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
+      document.querySelectorAll('input[name="calm"]').forEach(function(radio) {
+        radio.checked = radio.value === (calmOn() ? 'on' : 'off');
+        radio.addEventListener('change', function() {
+          if (this.value === 'on') { root.dataset.calm = ''; window.loadCalmFont(); } else { delete root.dataset.calm; }
+          try { localStorage.setItem('calm', this.value); } catch (e) {}
+          // Visitor never picked a theme: calm follows paper (light), off goes back to dark
+          if (!savedTheme()) setTheme(this.value === 'on' ? 'light' : 'dark');
+          syncActive();
+        });
+      });
+      document.querySelectorAll('input[name="theme"]').forEach(function(radio) {
+        radio.checked = radio.value === currentTheme();
+        radio.addEventListener('change', function() {
+          setTheme(this.value);
+          try { localStorage.setItem('theme', this.value); } catch (e) {}
+          syncActive();
+        });
+      });
 
       applyFontScale();
 
@@ -222,32 +258,6 @@
       scaleUpBtn.addEventListener('click', function() {
         if (scaleIndex < scaleSteps.length - 1) { scaleIndex++; localStorage.setItem('font-scale-index', scaleIndex); applyFontScale(); }
       });
-
-      // Restore saved preferences
-      var readingOn = localStorage.getItem('reading-mode') === 'true';
-      var savedColour = localStorage.getItem('colour-mode') || 'none';
-
-      function applyModes() {
-        // Calm mode — also kills animations
-        body.classList.toggle('reading-mode', readingOn);
-        body.classList.toggle('reduce-motion', readingOn);
-        readingCheck.checked = readingOn;
-
-        // Colour mode — remove all, apply saved
-        colourModes.forEach(function(m) { body.classList.remove(colourClasses[m]); });
-        if (savedColour !== 'none' && colourClasses[savedColour]) {
-          body.classList.add(colourClasses[savedColour]);
-        }
-
-        // Sync radio buttons
-        var radio = document.querySelector('input[name="colour-mode"][value="' + savedColour + '"]');
-        if (radio) radio.checked = true;
-
-        // Display button active state
-        toggleBtn.dataset.active = String(readingOn || savedColour !== 'none' || scaleIndex !== 2);
-      }
-
-      applyModes();
 
       // Focus trap helpers
       function getFocusable() {
@@ -310,26 +320,8 @@
           toggleBtn.focus();
         }
       });
-
-      // Reading mode checkbox
-      readingCheck.addEventListener('change', function() {
-        readingOn = this.checked;
-        localStorage.setItem('reading-mode', readingOn);
-        applyModes();
-      });
-
-      // Colour mode radio group
-      document.querySelectorAll('input[name="colour-mode"]').forEach(function(radio) {
-        radio.addEventListener('change', function() {
-          savedColour = this.value;
-          localStorage.setItem('colour-mode', savedColour);
-          applyModes();
-        });
-      });
     })();
   </script>
-  <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
   <script data-goatcounter="https://outragedracoon.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
   </body>
 </html>

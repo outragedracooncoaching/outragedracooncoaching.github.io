@@ -1,0 +1,184 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// SITE NAV  (shared, _layouts/default.html)
+// Wordmark left (asterisk sticker + Fraunces, doubles as Home), cream condensed
+// caps links, the current page as a pink sticker, Display at the end.
+// Phone: wordmark + Display on one row, the links on a tidy row under it.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+nav.site-nav {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  max-width: none;
+  margin: 0 auto;
+  padding: 1.3rem 0 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas: "mark cta display" "links links links";
+  align-items: center;
+  gap: 0.9rem 1rem;
+  // reset main.scss nav type
+  font-family: $font-primary;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+
+  // one row only once there's room for it (two rows below 1300px)
+  @media (min-width: 1300px) {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas: "mark links cta display";
+    gap: 1.5rem;
+    padding-top: 1.6rem;
+  }
+
+  a { text-decoration: none; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid $magenta;
+    outline-offset: 3px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+// ─── Wordmark ────────────────────────────────────────────────────────────────
+.site-nav__mark {
+  grid-area: mark;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $text;
+  font-family: $font-display;
+  font-weight: 700;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(1.15rem, 5.2vw, 1.9rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+
+  @include respond-to('medium') { font-size: 2.4rem; }
+  @media (min-width: 1300px) { font-size: 2.45rem; }
+
+  svg {
+    width: 1.05em;
+    height: 1.05em;
+    flex: none;
+    color: $magenta;
+    transform: rotate(14deg);
+    transition: transform 0.35s ease;
+  }
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $magenta;
+    letter-spacing: -0.02em;
+  }
+
+  &:hover svg { transform: rotate(59deg); }
+}
+
+// ─── Links ───────────────────────────────────────────────────────────────────
+.site-nav__links {
+  grid-area: links;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.15rem;
+  justify-content: space-between;
+
+  @include respond-to('medium') { justify-content: flex-start; gap: 0.2rem 0.8rem; }
+  @media (min-width: 1300px) { justify-content: flex-end; gap: 0.2rem 0.3rem; }
+
+  a {
+    display: inline-block;
+    padding: 0.3rem 0.35rem 0.25rem;
+    color: $text;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: clamp(0.95rem, 4.3vw, 1.3rem);
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+
+    @include respond-to('medium') { font-size: 1.55rem; padding: 0.35rem 0.6rem 0.3rem; }
+    @media (min-width: 1300px) { font-size: 1.5rem; padding: 0.35rem 0.55rem 0.3rem; }
+
+    &:hover { color: $magenta; }
+
+    // you are here: pink sticker, cream shadow
+    &[aria-current="page"] {
+      background: $magenta;
+      color: $paper;
+      box-shadow: 3px 3px 0 $text;
+      transform: rotate(-2deg);
+    }
+    &:nth-child(even)[aria-current="page"] { transform: rotate(2deg); }
+  }
+}
+
+// ─── Get in touch: the one pink sticker button in the nav ─────────────────────
+// Same press as every .sticker: cream hard shadow, push into it on hover.
+.site-nav__cta {
+  grid-area: cta;
+  justify-self: end;
+  display: inline-block;
+  padding: 0.6rem 0.75rem 0.55rem;
+  background: $magenta;
+  color: $paper;
+  font-family: $font-primary;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  box-shadow: 4px 4px 0 $text;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &::after { content: ' →'; }
+
+  .site-nav &:hover, .site-nav &:focus-visible {
+    color: $paper;
+    transform: rotate(-3deg) translate(2px, 2px);
+    box-shadow: 2px 2px 0 $text;
+  }
+  &:active { transform: rotate(-3deg) translate(4px, 4px); box-shadow: none; }
+
+  @include respond-to('medium') { font-size: 1.3rem; padding: 0.7rem 1.05rem 0.65rem; box-shadow: 5px 5px 0 $text; }
+  @media (min-width: 1300px) { font-size: 1.3rem; margin-left: 0.4rem; }
+}
+
+// ─── Display button ──────────────────────────────────────────────────────────
+.site-nav .display-settings {
+  grid-area: display;
+  justify-self: end;
+
+  &::before { display: none; }   // old "|" separator
+}
+
+.site-nav .display-settings-toggle {
+  color: fade($text, 0.75);
+  border: 2px solid fade($text, 0.3);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.9rem;
+  @media (min-width: 1300px) { font-size: 1rem; padding: 0.45rem 0.8rem; }
+  // the base .display-settings-toggle:hover fills cream; keep the fill out so the cream text stays readable
+  &:hover, &[aria-expanded="true"] { background: fade($text, 0.12); color: $text; border-color: $text; }
+  // a setting differs from default: pink frame, not a glaring filled block
+  &[data-active="true"] { background: none; color: $text; border-color: $magenta; }
+}
+
+// phones: the gear alone (the button keeps its aria-label), so the CTA fits row one
+@media (max-width: 767px) {
+  .site-nav .display-settings-toggle__label { display: none; }
+  .site-nav .display-settings-toggle { padding: 0.3rem 0.4rem; min-height: 40px; min-width: 40px; }
+  nav.site-nav { column-gap: 0.5rem; }
+  // the arrow goes on phones so the button can stay a decent size beside the wordmark
+  .site-nav__cta { font-size: clamp(0.9rem, 4.1vw, 1.05rem); padding: 0.65rem 0.75rem 0.6rem; letter-spacing: 0.05em; }
+  .site-nav__cta::after { content: none; }
+}

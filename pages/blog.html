@@ -1,27 +1,85 @@
 ---
-layout: default
+layout: poster
+body_class: poster-home poster-blog
+show_cta: false
+subtitle: false
 permalink: /blog/
-title: Blog — Leadership, Engineering Management & Life in Tech
+title: "Blog: engineering management, leadership and life in tech"
 description: No-bullshit writing on engineering management, burnout, neurodivergence, leadership, and working in tech from an ILM-certified executive coach.
 ---
 
-<h1>No-bullshit writing on tech<span class="title-sub">sweary, occasionally furious, always honest.</span></h1>
+{% assign featured = site.posts.first %}
+{%- comment -%} the featured post's art: first <img> in its body, if it has one {%- endcomment -%}
+{%- assign feat_src = "" -%}{%- assign feat_alt = "" -%}
+{%- if featured.content contains '<img' -%}
+  {%- assign feat_tag = featured.content | split: '<img' | slice: 1 | first | split: '>' | first -%}
+  {%- if feat_tag contains 'src="' -%}{%- assign feat_src = feat_tag | split: 'src="' | last | split: '"' | first -%}{%- endif -%}
+  {%- if feat_tag contains 'alt="' -%}{%- assign feat_alt = feat_tag | split: 'alt="' | last | split: '"' | first -%}{%- endif -%}
+{%- endif -%}
+{% assign all_cats = site.categories | sort %}
 
-<p>Thoughts on engineering management, burnout, neurodivergence, and working in tech without becoming someone you hate.</p>
+<div class="poster">
 
-<ul id='posts'>
-  {%- for post in site.posts -%}
-  <li>
-    <h2><a href="{{ post.url }}">{{ post.display_title | default: post.title }}</a></h2>
-    <p>{{ post.description }}</p>
-    <p class='date'>{{ post.date | date: '%B %d, %Y' }} | &nbsp;
-      {%- if post.categories != empty -%}
-        {%- for category in post.categories -%}
-        <a href="{{site.baseurl}}/categories?q={{category|slugize}}">{{category}}</a>
-        {%- unless forloop.last %},&nbsp;{% endunless -%}
-        {%- endfor -%}
-      {%- endif -%}
+<section class="bl-hero" aria-labelledby="hero-title">
+  <p class="bl-kicker">The blog <span>&middot; {{ site.posts.size }} posts</span></p>
+  <h1 id="hero-title" class="bl-hero__title"><span class="cond">No-bullshit</span> <span class="bl-hero__line">writing on <mark>tech</mark></span></h1>
+  <p class="bl-hero__sub">sweary, occasionally furious, always honest.</p>
+  <p class="bl-hero__intro">Thoughts on engineering management, <b class="bl-v-box">burnout</b>, <span class="bl-v-wave">neurodivergence</span>, and working in tech without becoming <span class="bl-v-circle">someone you hate.</span></p>
+
+  <div class="bl-cats" role="navigation" aria-label="Blog categories">
+    <p class="bl-cats__label">Browse by category</p>
+    <ul>
+      {%- for category in all_cats %}
+      <li><a href="{{ site.baseurl }}/categories?q={{ category[0] | slugize }}">{{ category[0] | replace: '-', ' ' }} <span class="bl-cats__n">{{ category[1].size }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<article class="bl-feature{% if feat_src != '' %} bl-feature--art{% endif %}" aria-labelledby="feature-title">
+  <p class="bl-feature__label"><span>Latest</span> <time datetime="{{ featured.date | date: '%Y-%m-%d' }}">{{ featured.date | date: '%d %B %Y' }}</time></p>
+  <h2 id="feature-title" class="bl-feature__title"><a href="{{ site.baseurl }}{{ featured.url }}">{{ featured.display_title | default: featured.title }}</a></h2>
+  {%- if feat_src != '' %}
+  <figure class="taped bl-feature__art"><img src="{{ feat_src }}" alt="{{ feat_alt }}" loading="lazy" decoding="async"></figure>
+  {%- endif %}
+  <div class="bl-feature__body">
+    {%- if featured.description %}
+    <p class="bl-feature__desc">{{ featured.description }}</p>
+    {%- endif %}
+    {%- if featured.categories != empty %}
+    <p class="bl-row__tags">
+      {%- for category in featured.categories -%}
+      <a href="{{ site.baseurl }}/categories?q={{ category | slugize }}">{{ category | replace: '-', ' ' }}</a>
+      {%- endfor -%}
     </p>
-  </li>
-  {%- endfor -%}
-</ul>
+    {%- endif %}
+    <a class="bl-read" href="{{ site.baseurl }}{{ featured.url }}" aria-label="Read {{ featured.display_title | default: featured.title | escape }}">Read it</a>
+  </div>
+</article>
+
+<section class="bl-archive" aria-labelledby="archive-title">
+  <h2 id="archive-title" class="mega mega--mix mega--outline"><em>The whole</em> <span class="cond">archive</span></h2>
+
+  {% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {%- for year in years %}
+  {%- assign year_count = year.items.size %}
+  {%- if year.items.first.url == featured.url %}{% assign year_count = year_count | minus: 1 %}{% endif %}
+  {%- if year_count > 0 %}
+  <div class="bl-year">
+    <h3 class="bl-year__num">{{ year.name }}</h3>
+    <ul class="bl-list">
+      {%- for post in year.items %}
+      {%- if post.url == featured.url %}{% continue %}{% endif %}
+      {% include blog-row.html post=post level=4 %}
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+  {%- endfor %}
+</section>
+
+<p class="bl-coaching">Reading this because it's your actual life? I do <a href="/coaching/engineering-managers/">coaching for engineering managers</a> and <a href="/coaching/folks-in-tech/">for folks in tech</a>.</p>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
+</div>

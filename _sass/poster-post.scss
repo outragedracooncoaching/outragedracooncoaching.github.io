@@ -1,0 +1,583 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// BLOG POST (poster template for every post in _posts).
+// Header is the poster; the body is for reading: straight, full contrast,
+// ~68ch. Haiku posts become an art-book plate, longer poems a poetry column.
+// Scope: body.poster-post (set via _config.yml defaults for type: posts).
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$pp-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
+$pp-measure: 42rem;   // ~68ch of Source Serif at 1.2rem
+
+// crooked pink box + cream hard shadow, drawn as one background so it works on
+// ::first-letter (which can't be transformed or box-shadowed)
+$pp-cap-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='10,12 100,7 100,100 8,100' fill='%23eeeadd'/%3E%3Cpolygon points='0,4 90,0 93,90 2,94' fill='%23ff66a5'/%3E%3C/svg%3E");
+// light mode: charcoal shadow, deep pink quad (data URIs can't read CSS vars)
+$pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='10,12 100,7 100,100 8,100' fill='%23191917'/%3E%3Cpolygon points='0,4 90,0 93,90 2,94' fill='%23c2185b'/%3E%3C/svg%3E");
+
+@mixin pp-mono {
+  font: 700 0.78rem/1.3 $mono;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@mixin pp-cond {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  text-transform: uppercase;
+}
+
+.post {
+  .post-head, .post-body, .haiku-plate, .post-cta, .post-more {
+    width: $pp-col;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ─── HEADER ──────────────────────────────────────────────────────────────────
+.post-head {
+  padding: 2.4rem 0 1rem;
+
+  &__kicker {
+    display: inline-block;
+    margin: 0 0 2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid $magenta;
+    @include pp-mono;
+    color: $text;
+    text-decoration: none;
+    transform: rotate(-3deg);
+    transform-origin: left;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 16ch;
+    font-family: $font-display;
+    font-style: normal;
+    font-weight: 700;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(2.8rem, 8.4vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.065em;
+    text-wrap: balance;
+    color: $text;
+    overflow-wrap: break-word;
+    hyphens: manual;
+
+    &--short { font-size: clamp(3.4rem, 12vw, 9.5rem); max-width: 12ch; line-height: 0.86; }
+    &--long  { font-size: clamp(2.3rem, 6vw, 5rem); max-width: 20ch; line-height: 0.95; }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem 1.4rem;
+    margin: 2.4rem 0 0;
+    @include pp-mono;
+    color: $text;
+
+    time { color: $magenta; }
+  }
+
+  &__read::before { content: '/'; color: $magenta; margin-right: 1.4rem; }
+
+  &__cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    a {
+      padding: 0.3rem 0.55rem 0.32rem;
+      border: 1.5px solid $text;
+      color: $text;
+      text-decoration: none;
+      transition: transform 0.12s ease, background 0.1s, color 0.1s;
+      &:nth-child(odd)  { transform: rotate(-2deg); }
+      &:nth-child(even) { transform: rotate(1.5deg); }
+      &:hover, &:focus-visible { background: $magenta; border-color: $magenta; color: $paper; }
+    }
+  }
+
+  @include respond-to('large') {
+    padding-top: 3.4rem;
+    .post-head__meta { margin-left: 8%; }
+  }
+}
+
+// ─── BODY (for reading) ──────────────────────────────────────────────────────
+.post .post-body {
+  padding: 3rem 0 1rem;
+  font: 400 1.2rem/1.75 $font-secondary;
+  color: $text;
+
+  > * { max-width: $pp-measure; }
+
+  @include respond-to('large') {
+    padding-left: 8%;
+    font-size: 1.3rem;
+  }
+
+  p { margin: 0 0 1.45em; }
+  strong { color: $text; font-weight: 700; }
+  em { color: $text; font-style: italic; }
+
+  a {
+    color: $text;
+    text-decoration: underline;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+    &:hover, &:focus-visible {
+      color: $paper;
+      background: $magenta;
+      text-decoration-color: $magenta;
+    }
+  }
+
+  // drop cap: the pink-box word, shrunk to one letter, three lines deep
+  > p:first-of-type:not(:has(img))::first-letter {
+    font-family: $font-display;
+    font-style: normal;          // upright: italic W/F overhang and cut through the box
+    font-weight: 700;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: 0;
+    color: $paper;
+    text-transform: uppercase;   // lowercase haiku ('another reorg') still get a full-height cap
+    background: $pp-cap-bg no-repeat 0 0 / 100% 100%;
+    :root[data-theme="light"] & { background-image: $pp-cap-bg-light; }
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+    // Chrome resolves em padding on an initial-letter against the PARAGRAPH
+    // font, not the cap. At line-height 1.75 the cap is ~4.2 para-em tall, so
+    // these are ~8% / 30% / 16% / 16% of the cap. The pink quad fills ~0-92% of
+    // the box (cream shadow is the rest): wide W/M never touch an edge.
+    padding: 0.8em 1.26em 0.67em 0.67em;
+    margin-right: 0.5rem;
+  }
+  @supports not ((initial-letter: 3) or (-webkit-initial-letter: 3)) {
+    > p:first-of-type:not(:has(img))::first-letter {
+      float: left;
+      font-size: 4.4em;
+      line-height: 0.82;
+      padding: 0.1em 0.34em 0.16em 0.16em;
+      margin: 0.12em 0.5rem 0 0;
+    }
+  }
+
+  // headings: poster type, calmer scale; no riso underline
+  h2, h3, h4, h5, h6 {
+    position: static;
+    border: 0;
+    padding: 0;
+    background: none;
+    text-wrap: balance;
+    &::after, &::before { content: none; display: none; }
+  }
+
+  h2 {
+    margin: 3.6rem 0 1.2rem;
+    font: 700 clamp(1.9rem, 3.4vw, 2.7rem)/1.02 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.045em;
+    color: $text;
+  }
+
+  h3 {
+    margin: 2.8rem 0 0.8rem;
+    @include pp-cond;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    line-height: 1;
+    letter-spacing: -0.005em;
+    color: $text;
+  }
+
+  h4, h5, h6 {
+    margin: 2.2rem 0 0.6rem;
+    font: italic 400 1.45rem/1.2 $font-display;
+    letter-spacing: -0.02em;
+    color: $magenta;
+  }
+
+  // lists
+  ul, ol { padding-left: 1.6rem; margin: 0 0 1.6em; }
+  li { margin-bottom: 0.55em; padding-left: 0.3rem; }
+  li > ul, li > ol { margin: 0.55em 0 0; }
+  ul li::marker { color: $magenta; content: '✶  '; font-size: 0.85em; }
+  ol li::marker { color: $magenta; font: 700 0.9em $mono; }
+
+  // blockquote: pull-quote with a pink rule, straight
+  blockquote {
+    margin: 2.6rem 0;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    background: none;
+    border: 0;
+    border-left: 8px solid $magenta;
+    box-shadow: none;
+    transform: none;
+    color: $text;
+    font: italic 400 clamp(1.4rem, 2.2vw, 1.7rem)/1.35 $font-display;
+    letter-spacing: -0.02em;
+    &::before { content: none; }
+    p { margin: 0 0 0.7em; }
+    p:last-child { margin: 0; }
+  }
+
+  // code
+  code {
+    font: 400 0.86em/1.5 $mono;
+    background: fade($text, 0.1);
+    padding: 0.1em 0.35em;
+    overflow-wrap: anywhere;
+  }
+  pre, div.highlighter-rouge {
+    max-width: $pp-measure;
+  }
+  pre {
+    margin: 2rem 0;
+    padding: 1.2rem 1.3rem;
+    overflow-x: auto;
+    background: #10100f;
+    border: 1px solid fade($text, 0.3);
+    border-left: 6px solid $magenta;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    code { background: none; padding: 0; font-size: inherit; overflow-wrap: normal; white-space: pre; }
+  }
+
+  // hr: a crooked pink bar
+  hr {
+    width: min(40%, 14rem);
+    height: 10px;
+    margin: 3.4rem 0;
+    border: 0;
+    background: $magenta;
+    transform: rotate(-1.5deg);
+    clip-path: polygon(0 15%, 97% 0, 100% 80%, 2% 100%);
+    &::after { content: none; }
+  }
+
+  // tables
+  table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    border: 1.5px solid $text;
+    box-shadow: 8px 8px 0 $magenta;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    th, td { padding: 0.7rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid fade($text, 0.35); }
+    thead th { @include pp-mono; background: none; color: $magenta; border-bottom: 1.5px solid $text; }
+    tbody tr:nth-child(even) td { background: fade($text, 0.04); }
+  }
+
+  // single images: cream frame, pink tape, small tilt. Never tilted enough to hurt
+  > p:has(> img:first-child) {
+    position: relative;
+    width: fit-content;
+    max-width: min(100%, #{$pp-measure});
+    margin: 3rem 0 3.4rem;
+    padding: 0.55rem 0.55rem 1.6rem;
+    background: $text;
+    box-shadow: 10px 10px 0 $magenta;
+    line-height: 0;
+    transform: rotate(-1.2deg);
+
+    img { display: block; max-width: 100%; max-height: 82vh; width: auto; height: auto; }
+
+    // a caption under the image sits in the polaroid strip, charcoal on cream
+    > em {
+      display: block;
+      width: 0;
+      min-width: 100%;
+      margin: 0;
+      padding: 0.75rem 0.2rem 0;
+      font: 700 0.72rem/1.35 $mono;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-style: normal;
+      color: $paper;
+    }
+    &:has(> em) { padding-bottom: 1rem; }
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 5.5rem;
+      height: 1.6rem;
+      background: fade($magenta, 0.92);
+      clip-path: polygon(0 10%, 4% 0, 8% 12%, 96% 0, 100% 90%, 94% 100%, 4% 88%);
+    }
+    &::before { top: -0.7rem; left: -1.7rem; transform: rotate(-36deg); }
+    &::after  { top: -0.6rem; right: -1.8rem; transform: rotate(32deg); }
+  }
+  > p:has(> img:first-child) ~ p:has(> img:first-child):nth-of-type(even) { transform: rotate(1.2deg); }
+
+  figure { margin: 2.6rem 0; }
+  figcaption, img + em {
+    display: block;
+    margin-top: 0.8rem;
+    @include pp-mono;
+    font-size: 0.72rem;
+    color: $text;
+  }
+
+  // galleries
+  .post-gallery, .image-pair {
+    max-width: min(100%, 58rem);   // photos get more room than prose
+    gap: 1.6rem;
+    margin: 2.6rem 0 3rem;
+    img {
+      border-radius: 0;
+      border: 1.5px solid $text;
+      box-shadow: 6px 6px 0 $magenta;
+      filter: none;
+    }
+    img:nth-child(odd)  { transform: rotate(-0.8deg); }
+    img:nth-child(even) { transform: rotate(0.8deg); }
+  }
+  // an odd one out in a two-up grid gets centred, not orphaned on the left
+  .image-pair img:last-child:nth-child(odd),
+  .post-gallery--two-up img:last-child:nth-child(odd) {
+    @media (min-width: 560px) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 0.8rem); }
+  }
+
+  iframe, video { display: block; max-width: 100%; margin: 2.4rem 0; border: 1.5px solid $text; box-shadow: 8px 8px 0 $magenta; }
+
+  // the old riso callouts, re-cut as poster objects
+  .callout {
+    position: relative;
+    margin: 2.8rem 0;
+    padding: 1.3rem 1.5rem 1.4rem 2rem;
+    background: none;
+    border: 1.5px solid $text;
+    box-shadow: 9px 9px 0 $magenta;
+    color: $text;
+    font: italic 400 clamp(1.3rem, 2vw, 1.55rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+    transform: rotate(-1deg);
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.5px; top: -1.5px; bottom: -1.5px;
+      width: 0.6rem;
+      background: $magenta;
+    }
+  }
+  .callout--teal {
+    background: $magenta;
+    border-color: $magenta;
+    color: $paper;
+    box-shadow: 9px 9px 0 $text;
+    font-style: normal;
+    font-weight: 600;
+    transform: rotate(1deg);
+    &::before { content: none; }
+  }
+}
+
+// ─── CTA: the ruled callout, the one loud thing after the post ───────────────
+.post-cta {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+
+  @include respond-to('large') { padding-left: 8%; }
+
+  &__box {
+    position: relative;
+    max-width: 40rem;
+    padding: 1.8rem 1.8rem 2.2rem 2.4rem;
+    border: 1.5px solid $text;
+    box-shadow: 12px 12px 0 $magenta;
+    transform: rotate(-1.5deg);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.5px; top: -1.5px; bottom: -1.5px;
+      width: 0.75rem;
+      background: $magenta;
+    }
+  }
+
+  &__text {
+    margin: 0 0 1.8rem;
+    font: italic 400 clamp(1.45rem, 2.4vw, 1.95rem)/1.22 $font-display;
+    letter-spacing: -0.03em;
+    color: $text;
+    text-wrap: pretty;
+  }
+
+  &__action { margin: 0; }
+  &__action--solo { padding: 1rem 0 0.5rem; }
+
+  .sticker { transform: rotate(-2deg); }
+  .sticker:hover, .sticker:focus-visible { transform: rotate(-2deg) translate(3px, 3px); }
+  .sticker:active { transform: rotate(-2deg) translate(8px, 8px); }
+}
+
+// ─── MORE FROM THE BLOG ─────────────────────────────────────────────────────
+.post-more {
+  margin-top: 5.5rem;
+
+  @include respond-to('large') { padding-left: 8%; }
+
+  &__title {
+    display: inline-block;
+    margin: 0;
+    padding: 0 0 0.4rem;
+    border-bottom: 3px solid $magenta;
+    @include pp-mono;
+    font-style: normal;
+    color: $text;
+    transform: rotate(-2deg);
+    transform-origin: left;
+    &::after { content: none; display: none; }
+  }
+
+  .blog-index { max-width: 52rem; margin-top: 1.6rem; }
+}
+
+.post .sign-off { margin-top: 5rem; }
+
+// ─── HAIKU: an art-book plate. The poem is the headline ─────────────────────
+.post--haiku {
+  // the poem is the headline, so the title steps down
+  .post-head__title { font-size: clamp(2rem, 2.6vw, 2.6rem); max-width: 24ch; line-height: 1; letter-spacing: -0.05em; }
+
+  .haiku-plate {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 3.4rem 0 1rem;
+
+    @include respond-to('large') {
+      grid-template-columns: minmax(0, 1fr) 17rem;
+      grid-template-rows: auto auto 1fr;
+      column-gap: 3rem;
+      padding-left: 4%;
+    }
+  }
+  // no art: the poem gets the whole plate
+  .haiku-plate:not(:has(img)) {
+    grid-template-columns: minmax(0, 1fr);
+    @include respond-to('large') {
+      .post-body > p:first-of-type:not(:has(img)) { font-size: clamp(2.8rem, 3.9vw, 3.9rem); }
+    }
+  }
+
+  // the post body dissolves into the plate grid
+  .post-body {
+    display: contents;
+    > * { max-width: none; }
+  }
+
+  .post-body > p:first-of-type:not(:has(img)) {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    margin: 0;
+    font: italic 400 5.4vw/1.32 $font-display;   // phone: the largest size where 25-26 char lines fit beside the 3-line cap
+    letter-spacing: -0.03em;
+    color: $text;
+
+    @include respond-to('medium') { font-size: 4.6vw; }
+    @include respond-to('large') { font-size: clamp(2.3rem, 3vw, 3.3rem); }
+
+    // line-height 1.32 -> cap ~3.3 para-em: same proportions as the body cap
+    &::first-letter { padding: 0.5em 0.75em 0.45em 0.4em; margin-right: 0.25em; }
+  }
+
+  .haiku-plate__caption {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 2.2rem 0 0;
+    padding-top: 0.8rem;
+    border-top: 1.5px solid $text;
+    max-width: 30rem;
+    @include pp-mono;
+    font-size: 0.72rem;
+    color: $text;
+  }
+
+  // "Come comment with your own haiku on LinkedIn": a small italic aside
+  .post-body > p:has(> a[href*="linkedin.com"]) {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 1.4rem 0 0;
+    font: italic 400 1.1rem/1.4 $font-display;
+    color: fade($text, 0.85);
+    a { color: inherit; }
+  }
+
+  // the raccoon: taped beside the poem on wide screens, big below it on phones
+  .post-body > p:has(> img:first-child) {
+    grid-column: 1;
+    margin: 3.4rem auto 1rem 0.4rem;
+    transform: rotate(2.5deg);
+    max-width: min(100%, 30rem);
+
+    @include respond-to('large') {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+      margin: -2.4rem 0 0 -1.5rem;
+      transform: rotate(3deg);
+      max-width: 100%;
+    }
+  }
+
+  .post-cta { margin-top: 5rem; }
+}
+
+// ─── LONGER POEMS: a poetry column ──────────────────────────────────────────
+.post--poem .post-body {
+  > p:has(br) {
+    max-width: 30rem;
+    margin: 0 0 2.4rem;
+    font: 400 clamp(1.45rem, 2.4vw, 1.95rem)/1.45 $font-display;
+    letter-spacing: -0.015em;
+  }
+  > p:first-of-type:has(br) { margin-top: 0.8rem; }
+  > p:first-of-type:has(br)::first-letter { padding: 0.66em 1.05em 0.3em 0.56em; }   // lh 1.45 -> cap ~3.5 para-em
+  > p:not(:has(br)):not(:has(img)) { font-size: 1.1rem; font-style: italic; color: fade($text, 0.85); }
+  > p:not(:has(br)):not(:has(img)) + p:not(:has(br)):not(:has(img)) { margin-top: -0.6rem; }
+}
+
+// ─── phones ──────────────────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .post-head { padding-top: 1.6rem; }
+  .post-head__title { font-size: 13vw; }
+  .post-head__title--short { font-size: 19vw; }
+  .post-head__title--long { font-size: 10.4vw; }
+  .post--haiku .post-head__title { font-size: 8vw; }
+
+  // haiku on phones: bolder. No drop cap: an oversized pink-box letter on
+  // line 1, every line full width, the poem at poster size.
+  .post--haiku .post-body > p:first-of-type:not(:has(img)) {
+    font-size: 7.2vw;
+    line-height: 1.28;
+
+    &::first-letter {
+      -webkit-initial-letter: normal;
+      initial-letter: normal;
+      font-size: 2em;
+      line-height: 1;
+      vertical-align: 0.14em;
+      padding: 0.06em 0.16em 0 0.1em;
+      margin-right: 0.08em;
+    }
+  }
+  .post .post-body { font-size: 1.15rem; padding-top: 2.4rem; }
+  .post-cta__box { padding: 1.5rem 1.3rem 1.9rem 1.8rem; box-shadow: 8px 8px 0 $magenta; }
+  .post-cta .sticker { font-size: 1.1rem; padding: 1.1rem 1.5rem; }
+  .post-more .blog-index li { grid-template-columns: 1fr; gap: 0.3rem; }
+}

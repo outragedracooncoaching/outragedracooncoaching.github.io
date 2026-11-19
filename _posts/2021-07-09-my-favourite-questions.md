@@ -1,6 +1,6 @@
 ---
 title: My Favourite Questions
-description: It's surprisingly hard to ask the right question, at the right time to the right person but when you get it right it unlocks doors and ways of thinking you didn't even know were possible. This is a list of my favourite questions.
+description: "The right question, to the right person, at the right time, unlocks things you didn't know were possible. My favourite questions, for managers and others."
 layout: post
 categories: [leadership, books]
 ---

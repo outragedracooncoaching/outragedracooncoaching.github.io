@@ -2,7 +2,7 @@
 title: Escape the Derpy Dungeon Is Live on Itch.io
 description: A solo card game about a field archivist stuck in a dungeon for fourteen weeks, drawn and built entirely by hand. Free rules and a colouring sheet included.
 layout: post
-categories: [personal-development]
+categories: [making]
 ---
 
 Fourteen months ago I started drawing a derpy pigeon tarot card. Because why wouldn't you.

@@ -1,7 +1,6 @@
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // DISPLAY SETTINGS PANEL
-// The toggle button and dropdown panel for accessibility mode switching.
-// Not mode-specific — always rendered.
+// The toggle button and dropdown panel. Always rendered.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 .display-settings {
@@ -11,7 +10,7 @@
 
   &::before {
     content: '|';
-    color: rgba(#1c1714, 0.45);
+    color: fade($text, 0.45);
     margin: 0 0.3rem 0 0.1rem;
     font-weight: 700;
   }
@@ -31,7 +30,7 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #1c1714;
+  color: $text;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
   min-height: 44px;
@@ -47,19 +46,19 @@
   }
 
   &:hover {
-    background: #1c1714;
-    color: #f7f2e8;
+    background: $text;
+    color: $paper;
   }
 
   &:focus-visible {
-    outline: 3px solid #1c1714;
+    outline: 3px solid $text;
     outline-offset: 2px;
   }
 
-  // Filled when any mode is active
+  // Filled when any setting differs from default
   &[data-active="true"] {
-    background: #1c1714;
-    color: #f7f2e8;
+    background: $text;
+    color: $paper;
   }
 }
 
@@ -69,9 +68,9 @@
   top: calc(100% + 0.5rem);
   right: 0;
   z-index: 1000;
-  background: #f7f2e8;
-  border: 3px solid #1c1714;
-  box-shadow: 5px 5px 0 #1c1714;
+  background: $paper;
+  border: 3px solid $text;
+  box-shadow: 5px 5px 0 $text;
   padding: 1.2rem 1.4rem;
   min-width: 240px;
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -88,7 +87,7 @@
     border-left: none;
     border-right: none;
     border-top: none;
-    box-shadow: 0 5px 0 #1c1714;
+    box-shadow: 0 5px 0 $text;
     padding: 1rem 1.2rem 1.4rem;
   }
 
@@ -102,7 +101,7 @@
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
-      color: #1c1714;
+      color: $text;
       padding: 0.2rem 0.4rem;
       line-height: 1;
       min-height: 44px;
@@ -112,7 +111,7 @@
       justify-content: center;
 
       &:focus-visible {
-        outline: 3px solid #1c1714;
+        outline: 3px solid $text;
         outline-offset: 2px;
       }
     }
@@ -123,7 +122,7 @@
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #1c1714;
+    color: $text;
     margin: 0 0 1rem;
     padding: 0;
     background: none;
@@ -133,27 +132,66 @@
     text-shadow: none;
   }
 
-  .setting-row {
+  // Dark / Light as a pair of hard-edged segments; the chosen one fills cream
+  .theme-row {
+    border: none;
+    margin: 0;
+    padding: 0.4rem 0 0.8rem;
+    min-width: 0;
+
+    legend {
+      padding: 0;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  .theme-options {
     display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1.4;
-    cursor: pointer;
-    padding: 0.4rem 0;
-    border-top: 1px solid rgba(#1c1714, 0.15);
+    border: 2px solid $text;
 
-    &:first-of-type { border-top: none; }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      margin-top: 0.15em;
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
+    label {
+      flex: 1;
+      position: relative;
       cursor: pointer;
-      accent-color: #1c1714;
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $text;
+    }
+
+    label + label span { border-left: 2px solid $text; }
+
+    // Unselected goes quiet; selected is the site's "active" language (pink
+    // sticker, like the active nav link) plus a tick. A cream fill read as a
+    // button to press, the same as the − / + buttons below.
+    input:not(:checked) + span { color: fade($text, 0.7); }
+
+    input:checked + span {
+      background: $magenta;
+      color: $paper;
+      &::before { content: '✓'; margin-right: 0.4em; }
+    }
+
+    input:focus-visible + span {
+      outline: 3px solid $magenta;
+      outline-offset: 2px;
     }
   }
 
@@ -162,7 +200,7 @@
     flex-direction: column;
     gap: 0.4rem;
     padding: 0.4rem 0;
-    border-top: 1px solid rgba(#1c1714, 0.15);
+    border-top: 1px solid fade($text, 0.15);
 
     .font-scale-label {
       font-size: 0.85rem;
@@ -176,8 +214,8 @@
     }
 
     .font-scale-btn {
-      background: #1c1714;
-      color: #f7f2e8;
+      background: $text;
+      color: $paper;
       border: none;
       border-radius: 2px;
       width: 28px;
@@ -195,13 +233,13 @@
       &:hover { opacity: 0.75; }
       &:disabled {
         background: transparent;
-        color: rgba(#1c1714, 0.4);
-        border: 2px solid rgba(#1c1714, 0.3);
+        color: fade($text, 0.4);
+        border: 2px solid fade($text, 0.3);
         cursor: default;
       }
 
       &:focus-visible {
-        outline: 3px solid #1c1714;
+        outline: 3px solid $text;
         outline-offset: 2px;
       }
     }
@@ -214,13 +252,4 @@
     }
   }
 
-  .setting-group-label {
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(#1c1714, 0.5);
-    margin: 0.8rem 0 0.2rem;
-    padding: 0;
-  }
 }

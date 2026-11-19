@@ -1,7 +1,7 @@
 ---
 title: How to Run Better One-to-Ones as an Engineering Manager
 display_title: Most One-To-Ones Suck
-description: Wanna know why?
+description: "Most one-to-ones are status updates with a calendar invite. How to run 1:1s as an engineering manager that people actually get something from."
 layout: post
 categories: [management]
 ---
@@ -45,3 +45,5 @@ Welcome to not being shit at one-to-ones my friend.
 You won't go back, trust me.
 
 <img src="/assets/images/one-to-ones-suck/1.png" alt="A cartoon raccoon holding a finger to its lips, shushing the viewer" style="max-height:400px;">
+
+_Still winging your one-to-ones, or the rest of the job? I do [1:1 coaching for engineering managers](/coaching/engineering-managers/), or there's my course for new managers, [Holy Shit, I'm a Manager!](/holy-shit-im-a-manager/)._

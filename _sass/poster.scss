@@ -1,0 +1,1342 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// POSTER HOMEPAGE
+// Art-book chaos: oversized type, die-cut stickers, tilted slashes.
+// Scope: body.poster-home only. Paragraphs stay straight and high-contrast;
+// the frame around them is what misbehaves.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$mono: 'Courier New', Courier, monospace;
+$gutter: clamp(18px, 5vw, 56px);
+$wide: 1180px;
+
+body.poster-home {
+  header,
+  .page-subtitle { display: none; }
+
+  main {
+    max-width: none;
+    padding: 0 0 80px;
+  }
+
+  &::before { opacity: 0; } // no paper grain on the poster
+}
+
+.poster {
+  position: relative;
+  overflow-x: clip;
+  color: $text;
+
+  h1, h2, h3 {
+    word-spacing: 0.1em;
+    border: 0;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background: none;
+    text-shadow: none;
+  }
+
+  section, .slash { position: relative; }
+
+  img { display: block; }
+}
+
+// shared "page column"
+.hero, .intro, .work, .picks-wrap, .chorus-wrap, .blog-wrap, .poster .credibility-strip {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ─── HERO ─────────────────────────────────────────────────────────────────────
+.hero {
+  padding: 1.5rem 0 3rem;
+
+  // the asterisk is now a sticker slapped on the corner of the photo
+  &__burst {
+    position: absolute;
+    z-index: 3;
+    color: $magenta;
+    width: clamp(7.5rem, 13vw, 12rem);
+    height: auto;
+    right: -2.8rem;
+    bottom: -2.6rem;
+    transform: rotate(14deg);
+    filter: drop-shadow(4px 4px 0 $paper);
+    pointer-events: none;
+  }
+
+  &__kicker {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    margin: 0 0 1.4rem;
+    font: 700 0.78rem/1 $mono;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    transform: rotate(-3deg);
+    transform-origin: left;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-family: $font-display;
+    font-style: normal;
+    font-weight: 700;
+    font-variation-settings: 'opsz' 144;
+    font-size: clamp(3.6rem, 17vw, 12rem);
+    line-height: 0.8;
+    letter-spacing: -0.075em;
+    color: $text;
+
+    span, mark { display: block; }
+
+    .t1 { transform: rotate(-5deg); transform-origin: left bottom; margin-left: -0.03em; }
+    .t2 { margin-left: 9%; transform: rotate(1.6deg); position: relative; z-index: 2; }
+    .t3 { position: relative; z-index: 1; }
+    .t3 { margin: 0.07em 0 0 -1%; }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $paper;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      padding: 0.02em 0.14em 0.2em 0.06em;
+      transform: rotate(-3.5deg);
+      transform-origin: left center;
+      line-height: 0.82;
+    }
+  }
+
+  &__sub {
+    position: relative;
+    z-index: 2;
+    max-width: 22ch;
+    margin: 2.2rem 0 0 0;
+
+    @include respond-to('medium') { margin-left: 8%; }
+    font: italic 400 clamp(1.6rem, 3.4vw, 2.6rem)/1.08 $font-display;
+    letter-spacing: -0.035em;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+
+    em {
+      font-style: italic;
+      color: inherit;
+      background: linear-gradient($magenta, $magenta) 0 92% / 100% 0.2em no-repeat;
+    }
+  }
+
+
+  &__actions {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.4rem 2rem;
+    margin-top: 2.8rem;
+    max-width: 62%;
+
+    // sits straight under the subtitle, on the reading path
+    @include respond-to('medium') { margin-left: 8%; }
+  }
+
+  &__next {
+    margin: 0;
+    max-width: 32ch;
+    font: italic 400 1.2rem/1.4 $font-display;
+    letter-spacing: -0.01em;
+  }
+
+  &__price {
+    flex-basis: 100%;
+    margin: -0.4rem 0 0;
+    font: italic 400 1.1rem/1.4 $font-display;
+    letter-spacing: -0.01em;
+    b { font-style: normal; font-weight: 700; }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: $magenta;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+      &:hover, &:focus-visible { color: $magenta; }
+    }
+  }
+
+  // creds: a sticker strip slapped right across the page (full bleed),
+  // set like the CV's role line. Tilts against the pull-quote band.
+  &__tag {
+    position: relative;
+    z-index: 2;
+    width: 100vw;
+    margin: 3rem 0 0 calc(50% - 50vw);
+    padding: 0.7rem 5vw 0.8rem;
+    background: $magenta;
+    color: $paper;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: 6vw;                          // phone: two clean lines
+    white-space: nowrap;
+    line-height: 1.05;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    transform: rotate(1.4deg);
+    box-shadow: 0 9px 0 $text;               // cream tape layer peeking out underneath
+
+    @include respond-to('medium') {
+      font-size: min(2.8rem, 3.6vw);
+      white-space: nowrap;
+    }
+
+    i { font-style: normal; color: $paper; opacity: 0.55; padding: 0 0.2em; }
+    .nowrap { white-space: nowrap; }
+    // phone: this slash becomes the line break -> two clean lines
+    .sep-break {
+      display: block; height: 0; overflow: hidden; font-size: 0;
+      @include respond-to('medium') { display: inline; height: auto; font-size: inherit; }
+    }
+    b {
+      font-weight: 800;
+      background: $text;
+      color: $paper;
+      display: inline-block;
+      transform: rotate(-2.5deg);
+      padding: 0 0.25em 0.04em;
+      white-space: nowrap;
+    }
+  }
+
+  // the coaching/course pointer: ruled box under the photo, crooked like the button
+  &__callout {
+    position: relative;
+    z-index: 2;
+    margin: 3rem 0 0;
+    padding: 1.4rem 1.6rem 1.5rem 2rem;
+    border: 1px solid $text;
+    box-shadow: 10px 10px 0 $magenta;
+    font: italic 400 clamp(1.25rem, 1.8vw, 1.5rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+    transform: rotate(-3deg);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 1rem;
+      bottom: 1rem;
+      width: 8px;
+      background: $magenta;
+    }
+
+    a {
+      color: $magenta;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.15em;
+      &:hover { color: $text; }
+    }
+
+    @include respond-to('medium') {
+      max-width: 30rem;
+      margin: 3.5rem 4% 0 auto;
+    }
+
+    // wide screens: right column, under the photo (same width maths as .hero__photo)
+    @media (min-width: 1200px) {
+      position: absolute;
+      margin: 0;
+      max-width: none;
+      right: 6%;
+      top: calc(2.5rem + #{clamp(12rem, 26vw, 24rem)} * 1.1 + 4.5rem);
+      width: calc(#{clamp(12rem, 26vw, 24rem)} + 1rem);
+    }
+  }
+}
+
+// the main pink button (hero + any page CTA)
+.poster .sticker {
+  display: inline-block;
+  padding: 1.2rem 2.2rem 1.25rem;
+  background: $magenta;
+  color: $paper;
+  font: 800 clamp(1.05rem, 2.2vw, 1.6rem)/1 $font-primary;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: rotate(-4deg);
+  box-shadow: 8px 8px 0 $text;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &::after { content: ' →'; }
+
+  &:hover,
+  &:focus-visible {
+    color: $paper;
+    transform: rotate(-4deg) translate(3px, 3px);
+    box-shadow: 4px 4px 0 $text;
+  }
+  &:active { transform: rotate(-4deg) translate(8px, 8px); box-shadow: none; }
+}
+
+// ─── HERO PHOTO (your face on the first screen) ──────────────────────────────
+.hero .hero__photo {
+  position: relative;
+  z-index: 2;
+  margin: 1.6rem 8% 0 auto;
+  width: 58%;
+  padding: 0.6rem 0.6rem 2rem;
+  transform: rotate(5deg);
+  box-shadow: 10px 10px 0 $magenta;
+
+  &::before, &::after { width: 5rem; height: 1.5rem; }
+  &::before { top: -0.7rem; left: -1.6rem; }
+  &::after  { top: -0.6rem; right: -1.7rem; }
+
+  @include respond-to('medium') {
+    position: absolute;
+    margin: 0;
+    top: 2.5rem;
+    right: 6%;
+    bottom: auto;
+    width: clamp(12rem, 26vw, 24rem);
+    padding: 0.6rem 0.6rem 2rem;
+    box-shadow: 12px 12px 0 $magenta;
+
+    &::before, &::after { width: 5.5rem; height: 1.6rem; }
+    &::before { top: -0.7rem; left: -1.7rem; }
+    &::after  { top: -0.6rem; right: -1.9rem; }
+  }
+}
+
+// ─── INTRO ────────────────────────────────────────────────────────────────────
+.intro {
+  display: grid;
+  gap: 2.4rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
+
+  @include respond-to('medium') {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+    gap: 4rem;
+  }
+
+  p { font-size: 1.15rem; line-height: 1.75; max-width: 62ch; }
+
+  &__lead {
+    font: italic 400 clamp(1.8rem, 3.4vw, 2.7rem)/1.1 $font-display !important;
+    letter-spacing: -0.035em;
+    color: $magenta;
+    margin: 0 0 1.4rem;
+  }
+
+  &--solo {
+    display: block;
+    margin-top: 1rem;
+    .intro__text { max-width: 46rem; margin-left: auto; margin-right: 6%; }
+  }
+  &--after { display: block; margin-top: 3rem; }
+  &--after p { margin-left: auto; margin-right: 0; font-size: 1.3rem; }
+}
+
+.taped {
+  position: relative;
+  margin: 1rem 0 0 4%;
+  width: min(82%, 24rem);
+  padding: 0.7rem 0.7rem 2.6rem;
+  background: $text;
+  transform: rotate(-5.5deg);
+  box-shadow: 12px 12px 0 $magenta;
+
+  img { width: 100%; height: auto; }
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 6.5rem;
+    height: 1.9rem;
+    background: fade($magenta, 0.92);
+    clip-path: polygon(0 10%, 4% 0, 8% 12%, 96% 0, 100% 90%, 94% 100%, 4% 88%);
+  }
+  &::before { top: -0.8rem; left: -2rem; transform: rotate(-38deg); }
+  &::after  { top: -0.7rem; right: -2.2rem; transform: rotate(33deg); }
+}
+
+// ─── VIBE CHECK (who I'm for / not for) ──────────────────────────────────────
+.vibe {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+
+  @include respond-to('medium') { padding-left: 8%; padding-right: 6%; }
+
+  &__no {
+    display: inline-block;
+    margin: 0 0 1.6rem;
+    font: 700 clamp(1rem, 1.8vw, 1.35rem)/1.5 $mono;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    transform-origin: left;
+  }
+
+  // crossed out in marker
+  &__strike {
+    white-space: nowrap;
+    text-decoration: line-through;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 0.32em;
+  }
+
+  &__yes {
+    .nowrap { white-space: nowrap; }
+    margin: 0;
+    max-width: 24ch;
+    font: 600 clamp(2rem, 4.4vw, 3.8rem)/1.02 $font-display;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $paper;
+      font-style: italic;
+      font-weight: 500;
+      padding: 0 0.12em 0.06em 0.06em;
+      transform: rotate(-2.5deg);
+    }
+
+    em {
+      display: block;
+      margin-top: 0.35em;
+      color: $magenta;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+  }
+}
+
+// ─── THE WEEDS (headline, three pinned maybes, whoami callout + stamp) ───────
+.weeds {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 3rem auto 0;
+
+  &__title {
+    margin: 0;
+    max-width: 17ch;
+    font: 700 clamp(2.5rem, 7vw, 5.6rem)/0.98 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.07em;
+    text-wrap: balance;
+    color: $text;
+    padding: 0;
+    &::after { display: none; }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $paper;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      padding: 0 0.12em 0.04em 0.06em;
+      transform: rotate(-2deg);
+      box-shadow: 7px 7px 0 $text;
+    }
+  }
+
+  &__whisper {
+    margin: 1.4rem 0 0 clamp(0rem, 12vw, 12rem);
+    max-width: 30ch;
+    font: italic 400 clamp(1.4rem, 2.6vw, 2.1rem)/1.15 $font-display;
+    letter-spacing: -0.03em;
+    color: $magenta;
+  }
+}
+
+// three different card types, pinned like a collage, not a row of clones
+.maybes {
+  list-style: none;
+  margin: 3.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2.2rem;
+
+  @include respond-to('large') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.6rem;
+    align-items: start;
+  }
+}
+
+.maybe {
+  position: relative;
+  margin: 0;
+  font: 400 clamp(1.15rem, 1.6vw, 1.3rem)/1.5 $font-secondary;
+
+  &__tag {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75;
+    font-size: clamp(2.6rem, 4vw, 3.4rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  em { font-style: italic; color: $magenta; }
+
+  // cream paper slip, pink shadow
+  &--slip {
+    background: $text;
+    color: $paper;
+    padding: 1.4rem 1.5rem 1.6rem;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(-2.5deg);
+    margin-right: 8%;
+    em { color: $paper; }
+    h3.maybe__tag { color: $pink-on-ink; }  // h3 tags would get the page pink, which fails on the slip
+  }
+
+  // outlined box, pink shadow, opposite tilt
+  &--box {
+    border: 3px solid $text;
+    padding: 1.3rem 1.4rem 1.5rem;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(2deg);
+    margin-left: 8%;
+
+    .maybe__tag {
+      color: $paper;
+      -webkit-text-stroke: 2px $text;
+      paint-order: stroke fill;
+    }
+    em {
+      background: linear-gradient($magenta, $magenta) 0 88% / 100% 0.32em no-repeat;
+      color: inherit;
+    }
+  }
+
+  // pull-quote with a pink rule, no box
+  &--rule {
+    border-left: 8px solid $magenta;
+    padding: 0.4rem 0 0.4rem 1.3rem;
+    margin-right: 6%;
+    font: italic 400 clamp(1.35rem, 2vw, 1.6rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+    .maybe__tag { color: $magenta; font-style: normal; }
+  }
+
+  @include respond-to('medium') {
+    max-width: 34rem;
+    &--box { margin-left: auto; margin-right: 6%; }
+    &--rule { margin-left: 10%; }
+  }
+
+  @include respond-to('large') {
+    max-width: none;
+    &--slip, &--box, &--rule { margin-left: 0; margin-right: 0; }
+    &--box  { margin-top: 2.4rem; }
+    &--rule { margin-top: 0.8rem; }
+  }
+}
+
+// CV-style ruled callout with a pink tab, plus a stamp slammed on the corner
+.whoami {
+  position: relative;
+  margin: 4.5rem 0 1rem auto;
+  max-width: 40rem;
+  padding: 1.6rem 1.8rem 2.2rem 2.4rem;
+  border: 1.5px solid $text;
+  box-shadow: 10px 10px 0 $magenta;
+  transform: rotate(-1.5deg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5px;
+    top: -1.5px;
+    bottom: -1.5px;
+    width: 0.7rem;
+    background: $magenta;
+  }
+
+  @include respond-to('medium') { margin-right: 6%; }
+
+  p { margin: 0; font-size: 1.15rem; line-height: 1.7; }
+
+  &__label {
+    margin-bottom: 0.6rem !important;
+    font: 700 0.85rem/1.3 $mono !important;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+
+  &__stamp {
+    position: absolute;
+    right: -0.8rem;
+    bottom: -2.4rem;
+    padding: 0.35rem 0.8rem 0.45rem;
+    border: 3px solid $magenta;
+    outline: 2px solid $magenta;
+    outline-offset: 3px;
+    background: $paper;
+    color: $magenta;
+    font-family: $font-primary !important;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75;
+    font-size: clamp(1.5rem, 3vw, 2.1rem) !important;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+
+    small {
+      display: block;
+      font: 700 0.7rem/1.4 $mono;
+      letter-spacing: 0.16em;
+      text-align: right;
+    }
+  }
+}
+
+// ─── THE SLASH (pull-quote band, bleeds off both edges) ───────────────────────
+.slash {
+  width: 118%;
+  margin: 4.5rem 0 3.5rem -9%;
+  padding: 2.4rem clamp(2rem, 11vw, 9rem) 2.8rem;
+  background: $magenta;
+  color: $paper;
+  font: 600 clamp(1.9rem, 5.2vw, 4.3rem)/1.04 $font-display;
+  letter-spacing: -0.05em;
+  transform: rotate(-2.4deg);
+  clip-path: polygon(0 5%, 31% 1%, 63% 4%, 100% 0, 99% 94%, 70% 100%, 38% 96%, 1% 100%);
+
+  mark {
+    display: inline;
+    color: inherit;
+    font-style: italic;
+    font-weight: 500;
+    background: linear-gradient($text, $text) 0 94% / 100% 0.14em no-repeat;
+    white-space: nowrap;
+  }
+  text-wrap: balance;
+}
+
+// ─── CREDIBILITY (existing include, re-set as stamps) ────────────────────────
+// second sticker strip: the inverse of the hero strip (cream tape, pink layer
+// peeking out above), tilted the other way. Full bleed.
+.poster .credibility-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem 0;
+  width: 100vw;
+  max-width: none;
+  margin: 4.5rem 0 2rem calc(50% - 50vw);
+  padding: 0.75rem 5vw 0.8rem;
+  border: 0;
+  background: $text;
+  color: $paper;
+  box-shadow: 0 -9px 0 $magenta;
+  transform: rotate(-2deg);
+
+  .credibility-badge {
+    all: unset;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: 6.4vw;                       // phone: one credential per line
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-align: center;
+    color: $paper;
+    white-space: nowrap;
+    flex-basis: 100%;
+
+    @include respond-to('medium') {
+      flex-basis: auto;
+      font-size: min(2.1rem, 2.15vw);
+
+      & + .credibility-badge::before {
+        content: '/';
+        color: $magenta;
+        margin: 0 0.45em;
+      }
+    }
+  }
+
+  .credibility-badge__mark { display: none; }
+}
+
+// ─── WORK + COURSE ────────────────────────────────────────────────────────────
+.mega {
+  font-family: $font-display;
+  font-style: normal;
+  font-weight: 700;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(3.2rem, 13vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.07em;
+  text-wrap: balance;
+  color: $text;
+  margin: 5rem 0 2rem;
+  padding: 0 0 0.12em;
+
+  &::after { display: none; } // opt in with .underscore
+
+  &--small {
+    font-size: clamp(2.4rem, 8.5vw, 6.4rem);
+    line-height: 0.9;
+    max-width: 14ch;
+  }
+}
+
+.work { padding-top: 1rem; }
+
+.work__copy {
+  display: grid;
+  gap: 1.1rem;
+  margin-left: auto;
+  max-width: 58ch;
+
+  p { font-size: 1.15rem; line-height: 1.75; margin: 0; }
+  strong { color: $magenta; }
+}
+
+.course {
+  display: grid;
+  gap: 3.5rem;
+  margin: 8rem 0 7rem;
+
+  @include respond-to('medium') {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 5.5rem;
+    align-items: center;
+  }
+
+  // the poster has been got at: taped up crooked, stamped, scrawled on
+  &__art {
+    position: relative;
+    display: block;
+    box-shadow: 14px 14px 0 $text;
+    border: 1px solid $text;
+    line-height: 0;
+    transform: rotate(-4deg);
+
+    img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      width: 7rem;
+      height: 2rem;
+      background: fade($text, 0.9);           // cream tape: the art is pink now
+      clip-path: polygon(0 10%, 4% 0, 8% 12%, 96% 0, 100% 90%, 94% 100%, 4% 88%);
+    }
+    &::before { top: -0.9rem; left: -2.2rem; transform: rotate(-34deg); }
+    &::after  { bottom: -0.8rem; right: -2.4rem; transform: rotate(-30deg); }
+  }
+
+  // rubber stamp slammed on the art
+  &__stamp {
+    position: absolute;
+    z-index: 3;
+    top: 7%;
+    right: 3%;
+    @include respond-to('medium') { right: -6%; }
+    padding: 0.5rem 0.8rem 0.55rem;
+    border: 4px solid $text;
+    color: $text;
+    background: fade($paper, 0.82);
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-align: center;
+    transform: rotate(14deg);
+    box-shadow: 6px 6px 0 $magenta;
+  }
+
+  &__label {
+    display: inline-block;
+    margin: 0 0 1.3rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid $magenta;
+    font: 700 0.78rem/1.3 $mono;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $text;
+    transform: rotate(-3deg);
+    transform-origin: left;
+    margin-bottom: 2rem;
+  }
+
+  // title: condensed caps shout + the pink-box italic, like the hero
+  &__title {
+    margin: 0 0 2.4rem;
+    line-height: 0.9;
+
+    a { color: $text; text-decoration: none; display: block; }
+
+    .cond {
+      display: block;
+      font-family: $font-primary;
+      font-weight: 800;
+      font-variation-settings: 'wdth' 75, 'opsz' 96;
+      font-size: clamp(3.4rem, 9vw, 7.4rem);
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    em { display: block; margin-top: 0.08em; }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $paper;
+      font: italic 500 clamp(2rem, 4.6vw, 3.6rem)/1 $font-display;
+      letter-spacing: -0.04em;
+      padding: 0.04em 0.18em 0.12em 0.1em;
+      transform: rotate(-3deg);
+      transform-origin: left;
+    }
+
+    a:hover .cond { color: $magenta; }
+  }
+
+  // the three questions, pulled out as the spoken lead
+  // three questions, one per line, cream; the funny bit in pink
+  &__q {
+    margin: 0 0 2.4rem;
+    max-width: 30ch;
+    font: italic 400 clamp(1.4rem, 2.2vw, 1.85rem)/1.2 $font-display;
+    letter-spacing: -0.025em;
+    color: $text;
+
+    span { display: block; margin-bottom: 0.45em; text-wrap: balance; }
+    span:last-child { margin-bottom: 0; }
+    b { font-weight: 400; color: $magenta; }
+  }
+
+  &__pitch {
+    font-size: 1.12rem; line-height: 1.7; margin: 0 0 1.8rem; max-width: 52ch;
+
+    .hl {
+      font-weight: 700;
+      background: linear-gradient(transparent 68%, fade($magenta, 0.8) 68%, fade($magenta, 0.8) 100%);
+      padding: 0 0.1em;
+    }
+  }
+
+  &__rating {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    margin: 0.4rem 0 0;
+    font: 800 0.95rem/1.3 $font-primary;
+  }
+  &__stars { color: $magenta; font-size: 1.3rem; letter-spacing: 0.08em; }
+  &__count { color: $magenta; white-space: nowrap; }
+
+  &__cta {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; margin: 0;
+    // the one true pink + the same press as every other button on the poster
+    .button {
+      background: $magenta;
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      padding: 1.05rem 2rem 1.1rem;
+      box-shadow: 7px 7px 0 $text;
+      transform: rotate(-2deg);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .button:hover, .button:focus-visible {
+      transform: rotate(-2deg) translate(3px, 3px);
+      box-shadow: 3px 3px 0 $text;
+    }
+    .button:active { transform: rotate(-2deg) translate(6px, 6px); box-shadow: none; }
+  }
+  &__visual { position: relative; }
+
+  // sale coupon: a cut-out slip stuck over the bottom corner of the art,
+  // opposite the stamp
+  &__coupon {
+    position: absolute;
+    z-index: 4;
+    left: -1.2rem;
+    bottom: -3.2rem;
+    margin: 0;
+    padding: 0.9rem 1.2rem 1rem;
+    max-width: 19rem;
+    background: $paper;
+    border: 2px dashed $text;
+    box-shadow: 8px 8px 0 $magenta;
+    transform: rotate(4deg);
+    @include respond-to('medium') { left: -2.4rem; }
+  }
+  &__deal {
+    display: block;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75;
+    font-size: clamp(2.2rem, 3.6vw, 3rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+  &__blurb {
+    display: block;
+    margin: 0.4rem 0 0.7rem;
+    font: italic 400 1.15rem/1.3 $font-display;
+    text-wrap: balance;
+  }
+  &__code {
+    display: block;
+    font: 700 0.78rem/1 $mono;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    .sale-code {
+      display: inline-block;
+      margin-left: 0.4rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0;
+      background: $magenta;
+      color: $paper;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      transform: rotate(-2deg);
+    }
+  }
+}
+
+// ─── PICKS (1:1) ──────────────────────────────────────────────────────────────
+
+.picks {
+  display: grid;
+  gap: 2.6rem;
+
+  @include respond-to('medium') {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+.pick {
+  position: relative;
+  padding: 3.4rem 1.8rem 1.8rem;
+  border: 1px solid $text;
+  background: $paper;
+  counter-increment: pick;
+
+  &::before {
+    content: '0' counter(pick);
+    position: absolute;
+    top: -0.62em;
+    left: 1rem;
+    font: italic 400 clamp(5rem, 11vw, 8rem)/1 $font-display;
+    color: transparent;
+    -webkit-text-stroke: 1.5px $magenta;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+  }
+
+  h3 {
+    margin: 0 0 1rem;
+    font: italic 400 clamp(1.9rem, 3.5vw, 2.8rem)/1.04 $font-display;
+    letter-spacing: -0.045em;
+    color: $text;
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: $magenta; }
+  }
+  p { font-size: 1.08rem; line-height: 1.65; margin: 0 0 1.4rem; }
+
+  &__cta {
+    display: inline-block;
+    font: 800 0.9rem/1 $font-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $paper;
+    background: $magenta;
+    padding: 0.8rem 1.2rem;
+    // press like the hero sticker; shadow is cream on dark cards
+    box-shadow: 5px 5px 0 $text;
+    transform: rotate(-2deg);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    &:hover, &:focus-visible {
+      color: $paper;
+      transform: rotate(-2deg) translate(3px, 3px);
+      box-shadow: 2px 2px 0 $text;
+    }
+    &:active { transform: rotate(-2deg) translate(5px, 5px); box-shadow: none; }
+  }
+
+  &--one {
+    background: $text;
+    color: $paper;
+    border-color: $text;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(-1.5deg);
+
+    h3, p { color: $paper; }
+    // cream card, so the button's shadow goes charcoal
+    .pick__cta { box-shadow: 5px 5px 0 $paper; }
+    .pick__cta:hover, .pick__cta:focus-visible { box-shadow: 2px 2px 0 $paper; }
+    .pick__cta:active { box-shadow: none; }
+    &::before { color: $magenta; -webkit-text-stroke: 0; }
+  }
+  &--two {
+    border-width: 2px;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(1.5deg);
+    @include respond-to('medium') { margin-top: 3rem; }
+  }
+}
+.picks { counter-reset: pick; }
+.picks-wrap .picks { margin-top: 4.5rem; }
+
+// ─── UNDERSCORE (reusable: a thick crooked pink bar under any heading) ──────
+.underscore {
+  position: relative;
+  padding-bottom: 0.12em;
+
+  &::after,
+  &.mega::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: min(100%, 30rem);
+    height: clamp(8px, 1.4vw, 14px);
+    background: $magenta;
+    transform: rotate(-0.6deg);
+    transform-origin: left;
+    clip-path: polygon(0 12%, 97% 0, 100% 80%, 3% 100%);
+  }
+}
+
+// ─── MIXED HEADINGS (editorial italic + condensed caps, like the top site) ───
+.mega--mix {
+  font-size: clamp(3.4rem, 11vw, 9rem);
+  line-height: 0.86;
+  max-width: none;
+
+  em {
+    display: block;
+    font: italic 400 0.42em/1 $font-display;
+    letter-spacing: -0.04em;
+    margin: 0 0 0.04em 0.06em;
+    color: $magenta;
+  }
+
+  .cond {
+    display: block;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    text-transform: uppercase;
+    letter-spacing: -0.035em;
+    line-height: 0.84;
+  }
+}
+
+.mega--right {
+  text-align: right;
+  margin-left: auto;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+
+  em {
+    font-size: 0.62em;
+    color: $text;
+    margin: 0.06em 0 0;
+  }
+
+  mark {
+    display: inline-block;
+    background: $magenta;
+    color: $paper;
+    padding: 0 0.14em 0.08em 0.06em;
+    transform: rotate(-2.5deg);
+    line-height: 0.95;
+  }
+}
+
+.mega--outline {
+  .cond {
+    font-size: 1.5em;
+    color: $paper;                 // fill with the page colour to hide contour overlaps
+    -webkit-text-stroke: 4px $text;
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
+  }
+}
+
+// ─── PROOF (lead testimonial, straight after the offers) ─────────────────────
+.proof {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 5rem auto 6.5rem;
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  position: relative;
+  overflow: hidden;
+  overflow: visible;
+  // pink slip, charcoal text, cream shadow (never pink on pink)
+  background: $magenta;
+  color: $paper;
+  border: 0;
+  box-shadow: 12px 12px 0 $text;
+  transform: rotate(-1.5deg);
+
+  &::before, &::after { content: none !important; }
+
+  p, footer { position: relative; z-index: 1; }
+
+  p {
+    margin: 0 0 1.4rem;
+    max-width: 22ch;
+    font: 700 clamp(2.2rem, 5.4vw, 4.6rem)/0.98 $font-display;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
+
+    // highlighter on the payoff, lower third only
+    mark {
+      color: inherit;
+      background: linear-gradient(transparent 62%, $text 62%, $text 92%, transparent 92%);
+      padding: 0 0.04em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+  }
+  footer {
+    all: unset;
+    display: block;
+    font: 700 0.8rem/1.4 $mono;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+// ─── CHORUS (testimonials, uneven on purpose) ─────────────────────────────────
+.chorus {
+  display: grid;
+  gap: 2.2rem;
+  margin-top: 2rem;
+
+  @include respond-to('medium') {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem 1.6rem;
+    align-items: start;
+  }
+}
+
+.say {
+  margin: 0;
+  padding: 1.6rem 1.6rem 1.3rem;
+  border: 1px solid $text;
+  background: $paper;
+  box-shadow: none;
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+
+  &:nth-child(n) { transform: none; }
+  &::before, &::after { content: none !important; }
+
+  p {
+    margin: 0;
+    font: italic 400 1.55rem/1.15 $font-display;
+    letter-spacing: -0.035em;
+  }
+  footer {
+    all: unset;
+    display: block;
+    font: 700 0.72rem/1.4 $mono;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $magenta;
+    text-align: left;
+  }
+
+}
+
+// three different objects, not three identical boxes
+.say--a {
+  background: $text;
+  border-color: $text;
+  color: $paper;
+  footer { color: $paper; }
+  box-shadow: 8px 8px 0 $magenta;
+  p { font-size: 1.9rem; }
+}
+.say--b {
+  border: 0;
+  border-left: 8px solid $magenta;
+  background: transparent;
+  padding: 0.4rem 0 0.4rem 1.6rem;
+  p { font-size: clamp(1.7rem, 2.3vw, 2.1rem); line-height: 1.1; color: $magenta; }
+}
+.say--c { border-style: dashed; }
+
+@include respond-to('medium') {
+  .say--a { grid-column: 1 / span 4; }
+  .say--b { grid-column: 5 / span 4; margin-top: 1.5rem; }
+  .say--c { grid-column: 9 / span 4; }
+  .say--a:nth-child(n) { transform: rotate(-2deg); }
+  .say--c:nth-child(n) { transform: rotate(1.5deg); }
+}
+
+// ─── SIGN-OFF (giant wordmark bleeding off the page, like the top site) ──────
+.sign-off {
+  margin: 6rem 0 -0.1em;
+  padding-left: $gutter;
+  white-space: nowrap;
+  font: 700 clamp(3.4rem, 13.6vw, 14rem)/0.8 $font-display;
+  letter-spacing: -0.08em;
+  color: $text;
+  user-select: none;
+
+  mark {
+    display: inline-block;
+    background: none;
+    color: $magenta;
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 0.12em;
+    letter-spacing: -0.06em;
+  }
+}
+
+// ─── BLOG INDEX ───────────────────────────────────────────────────────────────
+.blog-index {
+  list-style: none;
+  margin: 2rem 0 1.5rem;
+  padding: 0;
+
+  li {
+    display: grid;
+    grid-template-columns: 6.2rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    margin: 0;
+    padding: 0.9rem 0.4rem;
+    position: relative;
+    border-top: 1px solid fade($text, 0.55);
+    transition: transform 0.14s cubic-bezier(0.3, 1.6, 0.5, 1), background 0.1s, box-shadow 0.14s;
+
+    &:last-child { border-bottom: 1px solid fade($text, 0.55); }
+
+    // hover = the row gets slapped on as a pink sticker strip, cream shadow
+    &:hover, &:focus-within {
+      z-index: 2;
+      background: $magenta;
+      border-color: transparent;
+      box-shadow: 7px 7px 0 $text;
+      transform: rotate(-1.4deg) translate(-4px, -4px);
+    }
+    &:nth-child(even):hover, &:nth-child(even):focus-within {
+      transform: rotate(1.2deg) translate(-4px, -4px);
+    }
+    &:hover a, &:hover .blog-index__date,
+    &:focus-within a, &:focus-within .blog-index__date { color: $paper; }
+    &:hover + li, &:focus-within + li { border-top-color: transparent; }
+
+    a::after {
+      content: ' →';
+      opacity: 0;
+      transition: opacity 0.1s;
+    }
+    &:hover a::after, &:focus-within a::after { opacity: 1; }
+    a:focus-visible { outline: none; }
+  }
+
+  a {
+    font: 500 clamp(1.3rem, 2.6vw, 1.95rem)/1.12 $font-display;
+    letter-spacing: -0.045em;
+    color: $text;
+    text-decoration: none;
+  }
+
+  &__date {
+    font: 700 0.75rem/1 $mono;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+}
+
+.blog-all {
+  display: inline-block;
+  font: 800 0.95rem/1 $font-primary;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $paper;
+  background: $magenta;
+  padding: 0.9rem 1.4rem;
+  text-decoration: none;
+  // same press as the hero sticker: hard cream shadow, push into it
+  box-shadow: 6px 6px 0 $text;
+  transform: rotate(2deg);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &:hover, &:focus-visible {
+    color: $paper;
+    transform: rotate(2deg) translate(3px, 3px);
+    box-shadow: 3px 3px 0 $text;
+  }
+  &:active { transform: rotate(2deg) translate(6px, 6px); box-shadow: none; }
+}
+
+// ─── small screens: keep the chaos, protect the text ──────────────────────────
+@media (max-width: 767px) {
+  .hero { min-height: 0; padding-bottom: 2rem; }
+  .hero__actions { max-width: 100%; }
+  .picks { gap: 4rem; }
+  .hero__title { font-size: 23vw; }
+  .hero__sub { margin-left: 0; max-width: 18ch; font-size: 1.9rem; }
+  .hero .sticker { font-size: 1.2rem; padding: 1.2rem 1.8rem; }
+  .hero__actions { margin-top: 2.6rem; }
+
+  // section headings stay poster-sized on phones
+  .mega--mix { font-size: 19vw; }
+  .mega--right { font-size: 16vw; }
+  .mega--outline .cond { font-size: 1.9em; }
+
+  // sign-off stacks instead of running off the edge
+  .sign-off {
+    white-space: normal;
+    font-size: 26vw;
+    line-height: 0.82;
+    mark { display: block; margin-left: 0.2em; }
+  }
+  .slash mark { white-space: normal; }
+  .course { margin: 6rem 0 5rem; }
+  .course__title .cond { font-size: 22vw; }
+  .course__label-sub { display: block; }
+  // make room for the sale coupon hanging off the art
+  .course__visual:has(.course__coupon) { margin-bottom: 3.5rem; }
+  .course__coupon { left: -0.4rem; bottom: -4rem; max-width: 16rem; padding: 0.7rem 1rem 0.8rem; }
+  .course__title mark { font-size: 10vw; }
+  .slash { width: 124%; margin-left: -12%; padding: 2rem 14% 2.4rem; }
+}

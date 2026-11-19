@@ -1,6 +1,6 @@
 ---
 title: Will I Belong Here?
-description: I'll share my view on how I look to answer this key question when I'm job hunting to help you increase the number of diverse and amazing applicants that apply for your positions.
+description: "How I answer 'will I belong here?' when job hunting, and what employers can do to attract more diverse, brilliant applicants."
 layout: post
 categories: [hiring]
 ---

@@ -1,26 +1,49 @@
-// ─── Risograph Palette ────────────────────────────────────────────────────────
-$cream:          #f7f2e8;    // uncoated risograph paper
-$ink:            #1c1714;    // warm near-black
-$magenta:        #d91a5e;    // fluorescent pink — the brand colour, non-negotiable
-$teal:           #008c84;    // risograph teal
-$yellow:         #f0c000;    // risograph yellow
-$orange:         #c8421a;    // risograph orange (darkened for AA contrast with cream)
-$lavender:       #6f4f94;    // soft purple/lavender (darkened for AA contrast with cream)
+// ─── Dark palette (matches CV, outragedpinkracoon.github.io, Roots and Roses) ─
+// Naming note: $paper is now the SURFACE (charcoal) and $text is now the TEXT
+// colour (warm cream). Names are kept from the old light riso theme so ~300
+// existing usages flip correctly: "$text text on $paper bg" stays "text on bg",
+// and "$paper text on a pink fill" becomes charcoal on pink, as on the CV.
+// Runtime tokens: the values live on :root (see main.scss THEME) so the
+// Display menu can swap them for light mode without a rebuild.
+$paper:          var(--paper);   // charcoal surface (cream in light mode)
+$text:           var(--ink);     // warm cream text (charcoal in light mode)
+$magenta:        var(--pink);    // the one accent: soft pink (deep pink in light mode)
+$pink-on-ink:    var(--pink-on-ink); // pink text on a cream $text slip: the other theme's pink, so it passes AA
+
+// Raw values, for the :root definitions only
+$dark-paper:     #191917;
+$dark-ink:       #eeeadd;
+$dark-pink:      #ff66a5;
+$light-paper:    #eeeadd;
+$light-ink:      #191917;
+$light-pink:     #c2185b;    // passes AA as text on cream AND under cream text
+
+// rgba()/darken() can't take a CSS variable; these do the same job at runtime.
+@function fade($c, $a) {
+  @return color-mix(in srgb, #{$c} #{$a * 100%}, transparent);
+}
+@function shade($c, $amount) {
+  @return color-mix(in srgb, #{$c}, black #{$amount * 1.6});
+}
+$teal:           $magenta;   // single-accent: secondary inks collapse to pink
+$yellow:         $magenta;
+$orange:         $magenta;
+$lavender:       $magenta;
 
 // ─── Compatibility aliases ─────────────────────────────────────────────────────
 // Old variable names kept so post/posts/categories scss still compile
-$void:            $ink;
+$void:            $text;
 $hot-pink:        $magenta;
 $electric-purple: $lavender;
 $acid-teal:       $teal;
 $acid-lime:       $yellow;
 $amber:           $orange;
-$off-white:       $cream;
+$off-white:       $paper;
 
 // ─── Semantic ─────────────────────────────────────────────────────────────────
-$bg-color:       $cream;
+$bg-color:       $paper;
 $primary-color:  $magenta;
-$text-color:     $ink;
+$text-color:     $text;
 
 // ─── Card accent rotation ─────────────────────────────────────────────────────
 $card-accents: $magenta, $teal, $orange, $lavender;
@@ -33,4 +56,4 @@ $gradient-title: $magenta;
 // ─── Typography ───────────────────────────────────────────────────────────────
 $font-display:   'Fraunces', serif;          // site title + h1 — editorial inky serif
 $font-primary:   'Bricolage Grotesque', sans-serif; // h2–h6, nav, labels — hand-set irregular grotesque
-$font-secondary: 'Space Grotesk', sans-serif; // body — warm readable
+$font-secondary: 'Source Serif 4', Georgia, serif; // body — editorial serif, matches the CV

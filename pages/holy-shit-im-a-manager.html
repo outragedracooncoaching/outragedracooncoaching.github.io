@@ -1,0 +1,326 @@
+---
+layout: poster
+body_class: poster-home poster-course
+show_cta: false
+subtitle: false
+permalink: /holy-shit-im-a-manager/
+image: /assets/images/og/course.png
+title: "Holy Shit, I'm a Manager! Engineering Management First Aid"
+display_title: "Holy Shit, I'm a Manager!"
+title_sub: Engineering management first aid
+description: "Nobody prepares you for this job. So I wrote the manual: 52+ lessons on 1:1s, feedback and managing up. Five stars from 100+ managers. Ask actual Val."
+schema_offers:
+  - name: "Holy Shit, I'm a Manager! Full Course"
+    description: "52+ text-based lessons, hands-on activities, direct access to Val via Slack and forums, certificate, unlimited* access. One-time payment."
+    price: "400"
+    priceCurrency: "GBP"
+    priceValidUntil: "2027-12-31"
+---
+
+{% assign sale = site.sale %}
+{% assign enrol_url = "https://holyshit.trainercentralsite.eu/clientapp/app/course/29208000000003006/purchase?ticketId=29208000000080004&previousPage=1" %}{% if sale.active %}{% assign enrol_url = enrol_url | append: "&coupon=" | append: sale.code %}{% endif %}
+{% assign preview_url = "https://holyshit.trainercentralsite.eu/clientapp/login?redirect=https%3A%2F%2Fholyshit.trainercentralsite.eu%2Fcourse%2Fengineering-manager-first-aid%2Fattend%2F%23%2Fcourse%2F29208000000003006%2Fattend%2Fsection%2F29208000000003014%2Flesson%2F29208000000003024%3FfreePreview%3Dtrue%26previouspage%3D%2Fcourse%2Fengineering-manager-first-aid%2F" %}
+{% capture enrol_label %}Enrol now · <span class="hs-nowrap">{% if sale.active %}<s>{{ sale.full_price }}</s> {{ sale.price }}{% else %}£400{% endif %}</span>{% endcapture %}
+
+<div class="poster">
+
+<section class="hs-hero" aria-labelledby="hero-title">
+  <p class="hs-hero__kicker">Online course <span>&middot; Engineering management first aid</span></p>
+  <h1 id="hero-title" class="hs-hero__title"><span class="cond">Holy shit,</span> <em><mark>I'm a Manager!</mark></em></h1>
+  <p class="hs-hero__sub">Nobody prepares you for this job.</p>
+
+  <div class="hs-hero__art">
+    <figure class="course__art">
+      <img src="/assets/images/site/hsiam-raccoon-1100.webp" srcset="/assets/images/site/hsiam-raccoon-600.webp 600w, /assets/images/site/hsiam-raccoon-1100.webp 1100w" sizes="(min-width: 768px) 440px, 84vw" alt="A wide-eyed cartoon raccoon wearing a MANAGER name badge, mouth open in panic, on a pink background" width="1100" height="1100" fetchpriority="high" decoding="async">
+      <span class="course__stamp">52+ lessons<br><small>8 chapters</small></span>
+    </figure>
+    {% if sale.active %}<p class="course__coupon"><span class="course__deal">{{ sale.saving }} off</span> <span class="course__blurb">{{ sale.blurb }}</span> <span class="course__code">Code <span class="sale-code">{{ sale.code }}</span></span></p>{% endif %}
+  </div>
+
+  <p class="hs-hero__q"><span>Should you still be coding?</span> <span>How do you have the conversation you've <b>been rehearsing in the shower for a week?</b></span> <span>What does good even look like?</span> <span>And why is everyone else so calm?</span></p>
+
+  <div class="hs-buy">
+    <a class="sticker" data-goatcounter-click="enrol-hero" href="{{ enrol_url }}">{{ enrol_label }}</a>
+    <p class="hs-buy__terms">One-time payment. Unlimited* access. No subscription.</p>
+    <p class="hs-rating" role="img" aria-label="Rated 5 out of 5 stars in every review, 100+ managers enrolled"><span class="hs-rating__stars" aria-hidden="true">★★★★★</span> <span aria-hidden="true">Every single review: five stars. <b>100+ managers</b></span></p>
+    <a class="hs-peek" data-goatcounter-click="preview-hero" href="{{ preview_url }}">Not sure yet? Read 4 lessons free <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<p class="hs-strip" aria-label="Course at a glance">52+ lessons <i>/</i> No videos <i class="sep-break">/</i> <b>Ask actual Val</b> <i>/</i> Pay once</p>
+
+<blockquote class="proof hs-proof"><p>"I've done various management courses, none with this scope and emotional depth. <mark>Come for the raccoons, stay for the personal growth.</mark>"</p><footer>— Hugh Lyon, Engineering Manager @ Perk</footer></blockquote>
+
+<section class="hs-wins" aria-labelledby="wins-title">
+  <h2 id="wins-title" class="mega mega--mix underscore"><em>The bit nobody hands you</em> <span class="cond">on day one.</span></h2>
+  <div class="hs-wins__body">
+    <p class="hs-wins__lead">You got the promotion because you were good at the job. Now the job is making other people good at the job, and those are completely different jobs. <em>Nobody told you that either.</em></p>
+    <div>
+      <p class="hs-wins__label">By the end, you'll be able to</p>
+      <ul class="hs-ticks">
+        <li>Run one-to-ones that don't suck the life out of you or them.</li>
+        <li>Give feedback that lands, without anyone crying. <em>Including you.</em></li>
+        <li>Manage your boss as skillfully as you manage your team.</li>
+        <li>Have the hard conversation you've been avoiding, and survive it.</li>
+        <li>Keep your shit together when everything is on fire.</li>
+        <li>Know what good looks like, so you stop guessing.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="vibe hs-arc" aria-label="The point of the course">
+  <p class="vibe__no">Come in feeling like an imposter.</p>
+  <p class="vibe__yes">Leave feeling like you've <mark>got this.</mark></p>
+</section>
+
+<p class="slash">100% online. Self-paced. <mark>Fits around your actual job.</mark></p>
+
+<section class="hs-how" aria-labelledby="how-title">
+  <h2 id="how-title" class="mega mega--mix mega--right"><span class="cond">No videos.</span> <em><mark>On purpose.</mark></em></h2>
+  <div class="hs-how__text">
+    <p class="hs-how__lead">Built for how engineering managers actually work, which is never "sitting down for 45 uninterrupted minutes with a notepad."</p>
+    <p>Everything is text. Open it in a tab, read it on your phone between meetings, ctrl+F when you need the bit about giving feedback to someone who cries.</p>
+  </div>
+  <ul class="maybes hs-how__cards">
+    <li class="maybe maybe--slip"><h3 class="maybe__tag">Bite-sized</h3> 52+ lessons you can fit into the gaps in your day. Reflective un-quizzes that make you think, not check if you were paying attention.</li>
+    <li class="maybe maybe--box"><h3 class="maybe__tag">Practise for real</h3> Hands-on activities to practise in your <em>actual job</em>, not hypothetical scenarios.</li>
+    <li class="maybe maybe--rule"><h3 class="maybe__tag">Ask actual Val</h3> Ask me directly via the discussion feature or Slack. I actually answer. Yes, me, actual Val.</li>
+  </ul>
+</section>
+
+<section class="hs-toc" aria-labelledby="toc-title">
+  <h2 id="toc-title" class="mega mega--mix"><em>What's actually</em> <span class="cond">in this thing</span></h2>
+  <p class="hs-toc__lead">Eight chapters. 52+ lessons. Built in the order the panic actually hits you. <em>Don't take my word for it: the lessons marked free are yours to read before you buy. You'll need a free account on the course platform.</em></p>
+
+  <ol class="hs-chapters">
+    <li><details class="hs-ch" open>
+      <summary><span class="hs-ch__num" aria-hidden="true">01</span><span class="hs-ch__title">Holy Shit, You're Here!</span><span class="hs-ch__count">3 lessons</span></summary>
+      <ul>
+        <li>Welcome <a class="hs-free" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free</a></li>
+        <li>Sneaky Sneaky</li>
+        <li>Quick Code of Conduct Reminder</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch" open>
+      <summary><span class="hs-ch__num" aria-hidden="true">02</span><span class="hs-ch__title">Holy Shit, What's My Job?</span><span class="hs-ch__count">14 lessons</span></summary>
+      <ul>
+        <li>Flavours of Engineering Manager <a class="hs-free" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free</a></li>
+        <li>Your One Job <a class="hs-free" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free</a></li>
+        <li>Do I Need To Code? <a class="hs-free" data-goatcounter-click="preview-free" href="{{ preview_url }}">Free</a></li>
+        <li>Staying Close to Engineering</li>
+        <li>Boring Admin Tasks</li>
+        <li>Core Activities</li>
+        <li>Knowing Your Domain</li>
+        <li>Knowing Your Team</li>
+        <li>Measuring Team Effectiveness</li>
+        <li>Manager vs Leader Hats</li>
+        <li>WTF is a Senior Engineering Manager?</li>
+        <li>Making A Plan</li>
+        <li>End of Chapter Un-Quiz</li>
+        <li>Holy Shit, Take A Breather (Part 1)</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch">
+      <summary><span class="hs-ch__num" aria-hidden="true">03</span><span class="hs-ch__title">Holy Shit, How Do I Know I'm Doing A Good Job?</span><span class="hs-ch__count">7 lessons</span></summary>
+      <ul>
+        <li>Life in the Orchard</li>
+        <li>Your Compass 1: Your Values</li>
+        <li>Your Compass 2: Manager Mission</li>
+        <li>Your Compass 3: Your Integrity</li>
+        <li>Your Compass 4: Putting It Into Action</li>
+        <li>Self-Sponsorship</li>
+        <li>Holy Shit, Take A Breather (Part 2)</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch">
+      <summary><span class="hs-ch__num" aria-hidden="true">04</span><span class="hs-ch__title">Holy Shit, How Do I&hellip; People?</span><span class="hs-ch__count">8 lessons</span></summary>
+      <ul>
+        <li>One-To-Ones 1: Logistics</li>
+        <li>One-To-Ones 2: Finding The Gold</li>
+        <li>Growth Conversations</li>
+        <li>The Danger of Giving Advice</li>
+        <li>The Art of Asking Questions</li>
+        <li>Active Listening</li>
+        <li>Coaching vs Mentoring</li>
+        <li>Holy Shit, Take A Breather (Part 3)</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch">
+      <summary><span class="hs-ch__num" aria-hidden="true">05</span><span class="hs-ch__title">Holy Shit, How Do I Build Trust?</span><span class="hs-ch__count">9 lessons</span></summary>
+      <ul>
+        <li>Building Trust</li>
+        <li>Psychological Safety</li>
+        <li>Empathy</li>
+        <li>Being An Ally</li>
+        <li>Conflict Management</li>
+        <li>Managing Your Boss</li>
+        <li>Managing Your Peers</li>
+        <li>Managing Your Product Manager</li>
+        <li>Holy Shit, Take A Breather (Part 4)</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch">
+      <summary><span class="hs-ch__num" aria-hidden="true">06</span><span class="hs-ch__title">Holy Shit, How Do I Handle Feedback?</span><span class="hs-ch__count">7 lessons</span></summary>
+      <ul>
+        <li>Getting Feedback 1: Asking</li>
+        <li>Getting Feedback 2: Receiving</li>
+        <li>Giving Feedback 1: Getting the Conditions Right</li>
+        <li>Giving Feedback 2: Say No To The Shit Sandwich</li>
+        <li>Giving Feedback 3: Situation, Behaviour, Impact</li>
+        <li>Giving Feedback 4: Radical Candor</li>
+        <li>Holy Shit, Take A Breather (Part 5)</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch">
+      <summary><span class="hs-ch__num" aria-hidden="true">07</span><span class="hs-ch__title">Holy Shit, How Do I Do All This?</span><span class="hs-ch__count">7 lessons</span></summary>
+      <ul>
+        <li>Managing All This Shit</li>
+        <li>Keeping Your Shit Together</li>
+        <li>The Cult Of Busy</li>
+        <li>Meetings That Don't Suck</li>
+        <li>Delegate That Shit</li>
+        <li>Flow State as a Manager</li>
+        <li>Holy Shit, Take A Breather (Part 6)</li>
+      </ul>
+    </details></li>
+    <li><details class="hs-ch">
+      <summary><span class="hs-ch__num" aria-hidden="true">08</span><span class="hs-ch__title">Holy Shit, We Did It!</span><span class="hs-ch__count">1 lesson</span></summary>
+      <ul>
+        <li>Congratulations!</li>
+      </ul>
+    </details></li>
+  </ol>
+  <a class="hs-peek hs-peek--big" data-goatcounter-click="preview-toc" href="{{ preview_url }}">Read the free lessons <span aria-hidden="true">→</span></a>
+</section>
+
+<section class="hs-reviews" aria-labelledby="reviews-title">
+  <h2 id="reviews-title" class="mega mega--mix mega--right"><span class="cond">Real managers</span> <em>saying <mark>real things</mark></em></h2>
+  <p class="hs-rating hs-rating--big" role="img" aria-label="Rated 5 out of 5 stars from 15 reviews"><span class="hs-rating__stars" aria-hidden="true">★★★★★</span> <span aria-hidden="true">Every single review: five stars.</span></p>
+
+  <div class="hs-wall" aria-label="What managers said about the course">
+    <blockquote class="hs-q"><p>"I highly recommend this for new or aspiring engineering managers. It covers so many important topics succinctly. Each one is packed with valuable insights, actionable advice and activities that really make you apply what you've learned."</p><footer>— Phil Hale, Engineering Manager @ Mews</footer></blockquote>
+    <blockquote class="hs-q"><p>"Compact and impactful. It combines actionable steps with insightful reflection exercises, and tackles the questions EMs moving from individual contributor roles actually ask, like measuring success and entering flow state. I recommend it to all EMs."</p><footer>— Prisca Aeby, Senior Engineering Manager @ Snyk</footer></blockquote>
+    <blockquote class="hs-q"><p>"As a well-seasoned EM, the feedback sections are rich gold. 'Don't ask for feedback, ask for advice' just had not resonated until now, perhaps because I'd recently fallen foul of exactly that. Loving it."</p><footer>— Tom Cross, Cloud Infrastructure Technical Lead @ Aer Lingus</footer></blockquote>
+    <blockquote class="hs-q"><p>"A great overview of the new skills you need moving into the role, bite-sized enough that it doesn't feel overwhelming, plus a great book list for when you're ready to go deep into whichever area you need most."</p><footer>— Craig Nicol, Engineering Manager @ Craneware</footer></blockquote>
+    <blockquote class="hs-q"><p>"A great baseline for new managers and seasoned ones alike. The amount of times I felt 'seen' by this course, and the mistakes I've made that led me to reflect and get into a-ha moments. Highly recommend."</p><footer>— Vlad Dubrovskis, Engineering Manager @ Abnormal Security</footer></blockquote>
+    <blockquote class="hs-q"><p>"Holy shit, I have learned so much. This course is fantastic: concise, powerful, meaningful and full of great extra resources. I'll probably spend a whole year reading all the books listed, and I'm grateful for the suggestions."</p><footer>— Carla Gottschald Chiodi, Senior Engineer @ 2i</footer></blockquote>
+    <blockquote class="hs-q"><p>"I'm so impressed by the way Val extracted, distilled, structured and served all of it. I also loved how the tests really check whether you've been paying attention. Common sense isn't always enough to pass them. Highly recommend it to freshly minted and seasoned managers alike."</p><footer>— Krzysztof Malinowski, Engineering Manager (ex JP Morgan)</footer></blockquote>
+    <blockquote class="hs-q"><p>"A beautiful course. Bite-sized digestible concepts, some new and some known, and very enjoyable, refreshingly written. One of the few courses I've been eager to read through."</p><footer>— Maitrayee Biswas, Senior Analytics Manager @ Vista</footer></blockquote>
+    <blockquote class="hs-q"><p>"Very well structured and easy to follow. I like the thoughts section at the end of each chapter and the activities that help me ponder and action what I can do hands-on. I'd recommend it to any leaders-to-be, from Leads and EMs to C-level."</p><footer>— Jimmy Mian Guan Lim, Engineering Manager @ Zencargo</footer></blockquote>
+    <blockquote class="hs-q"><p>"A super course for engineering managers of all levels. The topics are full of valuable, actionable advice. There were a number of 'a-ha' moments that will directly contribute to my growth as an engineering manager."</p><footer>— Chris Brunton, Senior Engineering Manager @ Lloyds</footer></blockquote>
+    <blockquote class="hs-q"><p>"Great course and amazing insights, methods and all-around knowledge. It will be crucial for becoming a better human and co-worker, and my team-members current and future will benefit from what I apply from it. Thank you for distilling this gem."</p><footer>— Rui Andrés</footer></blockquote>
+    <blockquote class="hs-q"><p>"I loved this course. Even though I'm still not at the level of managing a group, it did a great job of preparing me to do so in the future. Well organized and thorough, with many valuable lessons, not just for managing a group but for making work more efficient in general."</p><footer>— Eduardo Montalvo, Engineering Manager</footer></blockquote>
+  </div>
+</section>
+
+<section class="hs-ticket-wrap" id="enrol" aria-labelledby="ticket-title">
+  <div class="hs-ticket">
+    <div class="hs-ticket__main">
+      <p class="hs-ticket__eyebrow">Sort your shit out</p>
+      <h2 id="ticket-title" class="hs-ticket__title">The whole course</h2>
+      <p class="hs-ticket__price">{% if sale.active %}<s>{{ sale.full_price }}</s> {{ sale.price }}{% else %}£400{% endif %} <span>one-time payment</span></p>
+      {% if sale.active %}<p class="hs-ticket__sale">{{ sale.blurb }} · {{ sale.saving }} off with code <span class="sale-code">{{ sale.code }}</span></p>{% endif %}
+      <p class="hs-ticket__pitch">Everything I wish someone had handed me when I first became a manager. Real experience, no corporate bullshit, no AI-generated filler.</p>
+      <ul class="hs-ticket__list">
+        <li>52+ lessons, activities and un-quizzes</li>
+        <li>Direct access to me via Slack and discussion</li>
+        <li>Unlimited* access with free updates</li>
+        <li>Certificate on completion</li>
+        <li>Pay once. No subscription, ever.</li>
+      </ul>
+      <a class="sticker" data-goatcounter-click="enrol-buybox" href="{{ enrol_url }}">{{ enrol_label }}</a>
+    </div>
+    <p class="hs-ticket__stub" aria-hidden="true"><span>Admit one</span> <b>new manager</b></p>
+  </div>
+</section>
+
+<section class="hs-pay" aria-labelledby="pay-title">
+  <h2 id="pay-title" class="hs-pay__title"><em>Two ways</em> <span class="cond">to pay</span></h2>
+  <div class="hs-pay__ways">
+    <div class="hs-pay__way hs-pay__way--online">
+      <h3 class="hs-pay__tag">Pay online</h3>
+      <p>Hit enrol, pay via PayPal on the course platform, and you're in straight away.</p>
+      <p class="hs-pay__honest"><b>Honest bit:</b> the platform is clunky and I'm moving off it soon. It works, it's just not as nice as this page.</p>
+      <a class="hs-pay__link" data-goatcounter-click="enrol-pay" href="{{ enrol_url }}">Enrol online <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hs-pay__way hs-pay__way--invoice">
+      <p class="hs-pay__head" aria-hidden="true">Invoice <span>for L&amp;D budgets</span></p>
+      <h3 class="hs-pay__tag">Get an invoice</h3>
+      <p>Most managers expense this through their L&amp;D budget. Email me, I'll invoice you or your company and set up your access by hand.</p>
+      <a class="hs-pay__button" data-goatcounter-click="invoice-pay" href="mailto:outragedracooncoaching@gmail.com?subject=Holy%20Shit%20I%27m%20a%20Manager%20-%20invoice&amp;body=Hi%20Val%2C%20I%27d%20like%20to%20pay%20for%20the%20course%20by%20invoice.%20Company%20name%20and%20billing%20details%3A%20">Email me for an invoice</a>
+    </div>
+  </div>
+</section>
+
+<section class="hs-val" aria-labelledby="val-title">
+  <figure class="taped hs-val__photo">
+    <img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" width="600" height="600" loading="lazy" decoding="async">
+  </figure>
+  <div class="hs-val__text">
+    <h2 id="val-title" class="mega mega--mix"><em>Who's</em> <span class="cond">teaching you</span></h2>
+    <div class="whoami">
+      <p class="whoami__label">Hi. I'm Val.</p>
+      <p>Executive leader, certified coach, nearly 20 years in tech, hands-on coder for 13 of them until I had to let it go. I've supported hundreds of tech leaders and run teams of 150+ people, and I learned some hard lessons <em>you don't have to repeat.</em></p>
+      <p>I know exactly what that "holy shit, I'm a manager" moment feels like, because I lived it myself, without the support you're about to get.</p>
+      <p class="whoami__stamp">Been there <small>survived it</small></p>
+    </div>
+  </div>
+</section>
+
+{% include credibility-strip.html %}
+
+<section class="hs-faq" aria-labelledby="faq-title">
+  <h2 id="faq-title" class="mega mega--mix mega--outline"><em>Questions you're probably</em> <span class="cond">about to ask</span></h2>
+  <div class="hs-faq__list">
+    <details>
+      <summary>Who is this for?</summary>
+      <p>Anyone running a team of roughly 5 to 10 people in an engineering management capacity. If you're responsible for line management, stakeholder management, and delivering tech projects, this is for you. You might be a startup CTO, a tech lead, or an Engineering Manager by title. New or seasoned, both get plenty out of it.</p>
+    </details>
+    <details>
+      <summary>How long does it take?</summary>
+      <p>52+ lessons. Roughly a month and a half to two months. If you really go for it with coffee and passion a few weeks. But you've got unlimited* access, so there's no rush.</p>
+    </details>
+    <details>
+      <summary>How do I pay?</summary>
+      <p>Two ways. Hit enrol and pay via PayPal at checkout: one payment, done. Or <a href="mailto:outragedracooncoaching@gmail.com?subject=Holy%20Shit%20I%27m%20a%20Manager%20-%20invoice&amp;body=Hi%20Val%2C%20I%27d%20like%20to%20pay%20for%20the%20course%20by%20invoice.%20Company%20name%20and%20billing%20details%3A%20">email me</a> and I'll invoice you or your company and give you access myself. Handy if your L&amp;D budget needs a proper invoice.</p>
+    </details>
+    <details>
+      <summary>Why does "Enrol" take me to a weird URL?</summary>
+      <p>When you hit enrol you'll land on the course platform at a slightly unhinged address (trainercentralsite.eu). That's the right place. The course genuinely lives there. They wanted extra money for a custom domain, I wanted a nice landing page, and I refuse to be extorted over a URL. So should you. Honest bit: the platform is clunky, and I'm planning to move the course somewhere nicer. If you'd rather skip it at checkout, <a href="mailto:outragedracooncoaching@gmail.com?subject=Holy%20Shit%20I%27m%20a%20Manager%20-%20invoice&amp;body=Hi%20Val%2C%20I%27d%20like%20to%20pay%20for%20the%20course%20by%20invoice.%20Company%20name%20and%20billing%20details%3A%20">email me</a> and I'll sort your access directly.</p>
+    </details>
+    <details>
+      <summary>Do I have to join the Slack community?</summary>
+      <p>No, it's completely optional. I recommend it though, because it connects you to other managers you can share and learn from, and it's where you can DM me directly. You can also pop your answers to the course questions in the forum for me to see and respond to.</p>
+    </details>
+    <details>
+      <summary>What if I need help with my actual situation?</summary>
+      <p>The course teaches the fundamentals. It can't sit in your 1:1 with the team member who's struggling. If you've got a specific mess, a hard conversation or a decision you can't call, book <a data-goatcounter-click="course-to-coaching" href="/coaching/engineering-managers/">The Decisive Hour</a>: 60 minutes, one hard call, one situation, £350.</p>
+    </details>
+    <details>
+      <summary>Will I get a certificate?</summary>
+      <p>Yes, one is issued at the end of the course.</p>
+    </details>
+    <details>
+      <summary>Why is there an asterisk on unlimited access?</summary>
+      <p>Honesty. Access is tied to this platform being up and running. I have no plans to go anywhere, but in the unlikely event I ever shut down or migrate to a new platform, I'll give you as much notice as possible. The platform makes me set it to 10 years. If you're not nailing being an EM in 10 years well. We should talk. Full details are in the <a href="https://holyshit.trainercentralsite.eu/#/terms-and-conditions">terms and conditions.</a></p>
+    </details>
+    <details>
+      <summary>How come there's no cookie banner?</summary>
+      <p>Because I don't use Google Analytics, Hotjar, or any other intrusive tracking. I use <a href="https://www.goatcounter.com/">GoatCounter</a>, which is open source, uses no cookies, and doesn't store any PII about you. None.</p>
+    </details>
+    <details>
+      <summary>What if there's a problem?</summary>
+      <p>Contact me anytime via the <a data-goatcounter-click="course-faq" href="/contact-form/?from=course-faq&amp;package=course_support">contact form</a> or message me on <a href="https://www.linkedin.com/in/outragedpinkracoon/">LinkedIn</a>. Once you're signed up you can also DM me directly in the Slack community. I aim to respond within 1 to 2 days, unless I'm on holiday somewhere with terrible internet.</p>
+    </details>
+  </div>
+</section>
+
+<section class="hs-final" aria-label="Enrol">
+  <p class="hs-final__line"><span class="cond">Holy shit,</span> <em><mark>you've got this.</mark></em></p>
+  <a class="sticker" data-goatcounter-click="enrol-footer" href="{{ enrol_url }}">{{ enrol_label }}</a>
+</section>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
+</div>

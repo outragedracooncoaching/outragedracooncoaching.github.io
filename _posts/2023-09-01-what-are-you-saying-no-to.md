@@ -1,6 +1,6 @@
 ---
 title:  What are you saying no to?
-description: There's power in unchecked boxes on your todo list.
+description: "Leaders get judged on what they finish. Why the unchecked boxes on your to-do list, and the choices behind them, matter more."
 layout: post
 categories: [productivity, leadership]
 ---

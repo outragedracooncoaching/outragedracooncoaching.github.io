@@ -1,116 +1,121 @@
 ---
-layout: info_page
+layout: poster
+body_class: poster-home
+show_cta: false
+subtitle: false
 permalink: /
-title: "Outraged Racoon Coaching: no-bullshit coaching for tech"
+image: /assets/images/og/home.png
+title: No-bullshit coaching for engineering managers and folks in tech
 display_title: No-bullshit coaching
 title_sub: for the messy, human, hard parts of working in tech.
 description: Coaching for engineering managers and folks in tech from a VP Engineering and ILM-certified executive coach. No-bullshit help with the messy people stuff.
 ---
 
-<img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" class="profile-image" width="600" height="600" decoding="async">
+<div class="poster">
 
-<p><strong>You're in the weeds, out of your depth, or at a crossroads, and you can't really say that out loud to anyone at work.</strong></p>
-<p>Maybe you just got promoted and the people stuff is keeping you up at night. Maybe you're good at your job and still getting treated like a maybe. Maybe nothing's on fire, you just want more than this and don't know what the hell to do.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <p class="hero__kicker">Outraged Racoon Coaching&reg;</p>
+  <h1 id="hero-title" class="hero__title"><span class="t1">No-</span><span class="t2">bullshit</span> <span class="t3"><mark>coaching</mark></span></h1>
+  <p class="hero__sub">for the messy, human, <em>hard parts</em> of working in tech.</p>
+  <figure class="taped hero__photo">
+    <img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" width="600" height="600" fetchpriority="high" decoding="async">
+    <svg class="hero__burst" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 4v92M4 50h92M17.5 17.5l65 65M17.5 82.5l65-65" fill="none" stroke="currentColor" stroke-width="11"/></svg>
+  </figure>
+  <div class="hero__actions">
+    <a class="sticker" data-goatcounter-click="home-hero" href="/contact-form/?from=home-hero">Get in touch</a>
+    <p class="hero__next">Send me a sentence or two about what's going on. I'll reply and tell you honestly whether I can help.</p>
+    <p class="hero__price">Sessions from <b>£350</b>, often paid from your <a data-goatcounter-click="home-hero-funding" href="/coaching/funding/">L&amp;D budget</a>.</p>
+  </div>
+  <p class="hero__tag">VP Eng <i>/</i> <b>ILM Executive Coach</b> <i class="sep-break">/</i> Neurodivergent <i>/</i> <span class="nowrap">Chief Racoon Officer</span></p>
+  <p class="hero__callout">My 1:1 coaching can help untangle whatever is going on for you, in a way that is specific to you, kind and direct. And if you're a new manager who wants the manual nobody handed you, there's <a href="/holy-shit-im-a-manager/">the course</a>.</p>
+</section>
 
-<p>I'm Valerie Dryden, a practicing VP Engineering and Executive Coach. Nearly two decades in tech, from hands-on engineering all the way up to exec, in every brand of chaos from tiny startup to Series G unicorn. I've seen some shit, I tell you.</p>
+<section class="picks-wrap" aria-labelledby="picks-title">
+  <h2 id="picks-title" class="mega mega--mix underscore"><em>Pick your</em> <span class="cond">adventure.</span></h2>
+  <div class="picks">
+    <article class="pick pick--one">
+      <h3><a href="/coaching/engineering-managers/">I'm an engineering manager and I'm out of my depth</a></h3>
+      <p>You got promoted. Congratulations. Also: holy shit. Feedback, one-to-ones, conflict, team chaos, managing up, and the deeply cursed reality that there is no undo button for people.</p>
+      <a class="pick__cta" href="/coaching/engineering-managers/">Manager coaching <span aria-hidden="true">→</span></a>
+    </article>
+    <article class="pick pick--two">
+      <h3><a href="/coaching/folks-in-tech/">I want more power, more credit, and less bullshit</a></h3>
+      <p>You're good at this. That's not the problem. Career moves, burnout, masking, visibility, or a crossroads: between roles, freshly made redundant, working out what the next decade is for. Especially if you're neurodivergent, queer, or disabled.</p>
+      <a class="pick__cta" href="/coaching/folks-in-tech/">Folks in tech coaching <span aria-hidden="true">→</span></a>
+    </article>
+  </div>
+  <article class="course">
+    <div class="course__visual">
+      <a class="course__art" href="/holy-shit-im-a-manager/" aria-hidden="true" tabindex="-1">
+        <img src="/assets/images/site/hsiam-raccoon-1100.webp" srcset="/assets/images/site/hsiam-raccoon-600.webp 600w, /assets/images/site/hsiam-raccoon-1100.webp 1100w" sizes="(min-width: 768px) 480px, 90vw" alt="" width="1100" height="1100" loading="lazy" decoding="async">
+        <span class="course__stamp">No videos.<br>On purpose.</span>
+      </a>
+      {% if site.sale.active %}<p class="course__coupon"><span class="course__deal">{{ site.sale.saving }} off</span> <span class="course__blurb">{{ site.sale.blurb }}</span> <span class="course__code">Code <span class="sale-code">{{ site.sale.code }}</span></span></p>{% endif %}
+    </div>
+    <div class="course__body">
+      <p class="course__label">Online course <span class="course__label-sub">&middot; Engineering Management First Aid</span></p>
+      <h3 class="course__title"><a href="/holy-shit-im-a-manager/"><span class="cond">Holy shit,</span> <em><mark>I'm a Manager!</mark></em></a></h3>
+      <p class="course__q"><span>Should you still be coding?</span> <span>How do you have the conversation you've <b>rehearsed in the shower for a week?</b></span> <span>What does good even look like?</span></p>
+      {% if site.sale.active %}<p class="course__cta">
+        <a class="button" href="/holy-shit-im-a-manager/">Get the answers <span aria-hidden="true">→</span></a>
+        <span class="course__rating"><span class="course__stars" aria-hidden="true">★★★★★</span> <span>Every single review: five stars. <span class="course__count">100+ managers</span></span></span>
+      </p>{% else %}<p class="course__cta">
+        <a class="button" href="/holy-shit-im-a-manager/">Get the answers <span aria-hidden="true">→</span></a>
+        <span class="course__rating"><span class="course__stars" aria-hidden="true">★★★★★</span> <span>Every single review: five stars. <span class="course__count">100+ managers</span></span></span>
+      </p>{% endif %}
+    </div>
+  </article>
+</section>
 
-<p class="callout callout--teal">You can get training from someone who has read about management.
-  Or from someone who has lived it.</p>
+<blockquote class="proof"><p>"By September I'd been promoted to Director of Engineering, <mark>much faster than I'd expected.</mark>"</p><footer>— Teri Drummond, VP Engineering @ Speechmatics</footer></blockquote>
 
-<p>If you want corporate polish, I am probably not your person. If you want autistic directness, kindness, hard-won judgement, and someone who knows the messy, ambiguous life of working in tech, you are in the right place.</p>
-
-<div style="clear: left;">{% include credibility-strip.html %}</div>
-
-<h2>What I do</h2>
-
-<p>As an <strong>Executive Coach</strong> I help you work out what's actually going on, what matters, and what the hell to do next. The messy people issues, the hard strategic calls, the career crossroads, the overwhelm, the moments you can't admit to anyone.</p>
-
-<p>I also run an online course and Slack community for new engineering managers, for that "holy 
-  shit, I'm a manager" moment when you realise you're responsible for actual 
-  humans and there's no undo button. It helps you work out what the role is, 
-  what matters, and how to navigate the chaos.
-</p>
-<section class="home-course">
-  <a class="home-course__art" href="/holy-shit-im-a-manager/" aria-hidden="true" tabindex="-1">
-    <img src="/assets/images/site/hsiam_logo.webp" alt="" width="900" height="900">
-  </a>
-  <div class="home-course__body">
-    <p class="home-course__label">Online course · Engineering Management First Aid</p>
-    <h2 class="home-course__title"><a href="/holy-shit-im-a-manager/">Holy Shit, I'm a Manager!</a></h2>
-    <p class="home-course__pitch">Should you still be coding? How do you have the conversation you've rehearsed in the shower for a week? What does good even look like? 52+ bite-sized lessons, direct access to me, and the manual nobody handed you on day one.
-      No videos, on purpose. Built for how busy managers actually work.
-    </p>
-    <p class="home-course__rating"><span class="home-course__stars" aria-hidden="true">★★★★★</span> <span>5/5 from 14 managers</span></p>
-    {% if site.sale.active %}<p class="home-course__cta-row">
-      <a class="button" href="/holy-shit-im-a-manager/">See the course · <s>{{ site.sale.full_price }}</s> {{ site.sale.price }}</a>
-      <span class="home-course__note">{{ site.sale.blurb }}: {{ site.sale.saving }} off with code <span class="sale-code">{{ site.sale.code }}</span>. One-time payment, no subscription, maximum racoons.</span>
-    </p>{% else %}<p class="home-course__cta-row">
-      <a class="button" href="/holy-shit-im-a-manager/">See the course · £400</a>
-      <span class="home-course__note">One-time payment. No subscription. No boring corporate crap. Maximum racoons.</span>
-    </p>{% endif %}
+<section class="weeds" aria-labelledby="weeds-title">
+  <h2 id="weeds-title" class="weeds__title">You're in the weeds, out of your depth, or <mark>at a crossroads</mark></h2>
+  <p class="weeds__whisper">and you can't really say that out loud to anyone at work.</p>
+  <ul class="maybes">
+    <li class="maybe maybe--slip"><span class="maybe__tag">Maybe</span> you just got promoted and the people stuff is keeping you up at night.</li>
+    <li class="maybe maybe--box"><span class="maybe__tag">Maybe</span> you're good at your job and still getting treated like a <em>maybe</em>.</li>
+    <li class="maybe maybe--rule"><span class="maybe__tag">Maybe</span> nothing's on fire, you just want more than this and don't know what the hell to do.</li>
+  </ul>
+  <div class="whoami">
+    <p class="whoami__label">Hi. I'm Valerie Dryden.</p>
+    <p>A practising VP Engineering and Executive Coach. Nearly two decades in tech, from hands-on engineering all the way up to exec, in every brand of chaos from tiny startup to Series G unicorn.</p>
+    <p class="whoami__stamp">I've seen some shit, <small>I tell you.</small></p>
   </div>
 </section>
 
-<h2>Want it 1:1 instead? Pick your adventure.</h2>
+<p class="slash">You can get training from someone who has read about management. <mark>Or from someone who has lived it.</mark></p>
 
-<p>My 1:1 coaching can help untangle whatever is going on for you, in a way that is specific to you, kind and direct.
-  Some situations can't be solved with a course, they need the support of someone who has lived it.
-</p>
+<section class="vibe" aria-label="Who I'm for">
+  <p class="vibe__no">If you want <span class="vibe__strike">corporate polish</span>, I am probably not your person.</p>
+  <p class="vibe__yes">If you want <span class="nowrap"><mark>autistic directness</mark>,</span> kindness, hard-won judgement, and someone who knows the messy, ambiguous life of working in tech, <em>you are in the right place.</em></p>
+</section>
 
-<div class="card-grid">
-<div class="card">
-  <h3>I'm an engineering manager and I'm out of my depth</h3>
-  <p>You got promoted. Congratulations. Also: holy shit. Feedback, one-to-ones, conflict, team chaos, managing up, and the deeply cursed reality that there is no undo button for people.</p>
-  <a class="card-cta" href="/coaching/engineering-managers/">EM coaching <span aria-hidden="true">→</span></a>
+<section class="chorus-wrap">
+  <h2 class="mega mega--mix mega--right"><span class="cond">Real people</span> <em>saying <mark>real things</mark></em></h2>
+  <div class="chorus">
+    <blockquote class="say say--a"><p>"I spent half an hour talking to Val and everything changed"</p><footer>— Engineering Manager @ MedTech</footer></blockquote>
+    <blockquote class="say say--b"><p>"Valerie has extraordinary listening skills and an uncanny ability to ask the right questions at the right time."</p><footer>— Kishor Patel, VP Application Development @ Vortexa</footer></blockquote>
+    <blockquote class="say say--c"><p>"It gave me the space to grow, learn, and become a better version of myself in an environment that truly felt safe and inclusive."</p><footer>— Chamodi Lokuge, Software Engineer @ Thirdfort</footer></blockquote>
+  </div>
+</section>
+
+{% include credibility-strip.html %}
+
+<section class="blog-wrap">
+  <h2 class="mega mega--mix mega--outline"><em>From the</em> <span class="cond">blog</span></h2>
+  <ul class="blog-index">
+    {% assign coaching_posts = site.posts | where_exp: "post", "post.categories contains 'leadership' or post.categories contains 'management' or post.categories contains 'new-manager' or post.categories contains 'coaching' or post.categories contains 'hiring' or post.categories contains 'diversity'" %}
+    {% for post in coaching_posts limit:6 %}
+    <li>
+      <span class="blog-index__date">{{ post.date | date: "%b %Y" }}</span>
+      <a href="{{ post.url }}">{{ post.display_title | default: post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="blog-all" href="/blog" aria-label="Read all blog posts">Read all posts →</a>
+</section>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
 </div>
-
-<div class="card">
-  <h3>I want more power, more credit, and less bullshit</h3>
-  <p>You're good at this. That's not the problem. Career moves, burnout, masking, visibility, or a crossroads: between roles, freshly made redundant, working out what the next decade is for. Especially if you're neurodivergent, queer, or disabled.</p>
-  <a class="card-cta" href="/coaching/folks-in-tech/">Folks in tech coaching <span aria-hidden="true">→</span></a>
-</div>
-
-</div>
-
-<h2>Real people saying real things</h2>
-
-<div class="testimonial-grid">
-  <blockquote class="testimonial-card">
-    <p class="testimonial-pullquote testimonial-pullquote--solo">"By September I'd been promoted to Director of Engineering, much faster than I'd expected."</p>
-    <p><span class="quote-author">— Teri Drummond, VP Engineering @ Speechmatics</span></p>
-  </blockquote>
-  <blockquote class="testimonial-card">
-    <p class="testimonial-pullquote testimonial-pullquote--solo">"It gave me the space to grow, learn, and become a better version of myself in an environment that truly felt safe and inclusive."</p>
-    <p><span class="quote-author">— Chamodi Lokuge, Software Engineer @ Thirdfort</span></p>
-  </blockquote>
-  <blockquote class="testimonial-card">
-    <p class="testimonial-pullquote testimonial-pullquote--solo">"You will find it hard to find a more passionate people manager anywhere."</p>
-    <p><span class="quote-author">— Stephen Hill, Tech Recruiter & Meetup Organiser</span></p>
-  </blockquote>
-  <blockquote class="testimonial-card">
-    <p class="testimonial-pullquote testimonial-pullquote--solo">"She has transformed the Technology organization in our time together."</p>
-    <p><span class="quote-author">— Tom Welch, Head of Engineering</span></p>
-  </blockquote>
-  <blockquote class="testimonial-card">
-    <p class="testimonial-pullquote testimonial-pullquote--solo">"I spent half an hour talking to Val and everything changed"</p>
-    <p><span class="quote-author">— Engineering Manager @ MedTech</span></p>
-  </blockquote>
-  <blockquote class="testimonial-card">
-    <p class="testimonial-pullquote testimonial-pullquote--solo">"Valerie has extraordinary listening skills and an uncanny ability to ask the right questions at the right time."</p>
-    <p><span class="quote-author">— Kishor Patel, VP Application Development @ Vortexa</span></p>
-  </blockquote>
-</div>
-
-<h2>From the blog</h2>
-
-<ul id="recent-posts">
-  {% for post in site.posts limit:7 %}
-  <li>
-    <a href="{{ post.url }}">{{ post.display_title | default: post.title }}</a>
-    <span class="date"> — {{ post.date | date: "%B %Y" }}</span>
-  </li>
-  {% endfor %}
-</ul>
-
-<a href="/blog" aria-label="Read all blog posts">Read all posts →</a>
-

@@ -15,7 +15,7 @@ Aim bolder, clearer, and more commercially alive. Don't flatter work that is not
 I was selling to founders and CTOs and doing fractional, you'll see unpublished pages for these. I am no longer doing this so don't think about that market or those pages in our sessions.
 
 For copywriting tasks, use `/copywrite`.
-For making design use '/design'
+For making design use '/design' (dark poster redesign; the old riso skill is archived).
 for both '/page'
 
 There is also 'strategy' to check approach.
@@ -28,3 +28,10 @@ For legal review, drafting, or T&Cs questions use '/legal'.
 # Task tracking
 
 Tasks are tracked in `tasks.md` at the project root. Tick tasks off as you complete them. The file is gitignored, so it never goes into a commit.
+
+# Assets
+We're using ../cv, ../outragedpinkracoon.github.io, ../games/roots-and-roses/ A4 digital rulebook as our graphic design inspiration but the homepage (the dark poster design) captures what we are going for.
+
+# Accessibility display settings
+
+Light mode, calm mode and the other display modes (`_sass/a11y-*.scss`, `display-settings.scss`, `calm-mode.scss`) are finished, not parked. Treat them as part of the site: when you change a page, check it in dark (the default and design target), light and calm. See `/design` for the rules. Core accessibility always applies: semantic HTML, alt text, contrast, focus states.
