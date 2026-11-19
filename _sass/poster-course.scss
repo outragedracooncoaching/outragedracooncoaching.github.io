@@ -5,7 +5,7 @@
 
 $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
 
-.hs-hero, .hs-wins, .hs-how, .hs-toc, .hs-reviews, .hs-ticket-wrap, .hs-val, .hs-faq, .hs-final {
+.hs-hero, .hs-wins, .hs-how, .hs-toc, .hs-reviews, .hs-ticket-wrap, .hs-pay, .hs-val, .hs-faq, .hs-final {
   width: $hs-col;
   margin-left: auto;
   margin-right: auto;
@@ -594,8 +594,18 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
 
   &__expense {
     margin: 2.4rem 0 0;
+    max-width: 40ch;
     font: italic 400 1.3rem/1.3 $font-display;
     color: $magenta;
+
+    a {
+      color: $ink;
+      text-decoration: underline;
+      text-decoration-color: $magenta;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.18em;
+      &:hover, &:focus-visible { color: $magenta; }
+    }
   }
 
   &__fine {
@@ -632,6 +642,128 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
       border-right: 3px dashed $ink;   // the perforation, after the flip
       padding: 1.6rem 1.1rem;
     }
+  }
+}
+
+// ─── TWO WAYS TO PAY: platform honesty + the invoice route, out loud ───────
+.hs-pay {
+  margin-top: 6rem;
+
+  &__title {
+    margin: 0 0 3rem;
+    line-height: 0.88;
+    &::after { display: none; }
+
+    em {
+      display: block;
+      font: italic 400 clamp(1.8rem, 4vw, 3rem)/1 $font-display;
+      letter-spacing: -0.04em;
+      color: $magenta;
+    }
+    .cond {
+      display: block;
+      @include cond-caps;
+      font-size: clamp(3.4rem, 11vw, 7rem);
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  &__ways {
+    display: grid;
+    gap: 3rem;
+    @include respond-to('medium') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
+  &__way {
+    position: relative;
+    padding: 1.8rem 1.8rem 2rem;
+    p { margin: 0 0 1rem; font-size: 1.15rem; line-height: 1.6; }
+  }
+
+  &__tag {
+    margin: 0 0 1rem;
+    @include cond-caps;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    &::after { display: none; }
+  }
+
+  // outlined box, pink shadow
+  &__way--online {
+    border: 3px solid $ink;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(-1.5deg);
+    .hs-pay__tag { color: $ink; }
+  }
+
+  &__honest {
+    padding-left: 1rem;
+    border-left: 6px solid $magenta;
+    font: italic 400 1.25rem/1.35 $font-display !important;
+    b { font-style: normal; font-weight: 700; color: $magenta; }
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font: italic 400 1.3rem/1.3 $font-display;
+    color: $ink;
+    text-decoration: underline;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+
+  // cream paper invoice slip, pink shadow
+  &__way--invoice {
+    background: $ink;
+    color: $cream;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(1.5deg);
+    @include respond-to('medium') { margin-top: 2.5rem; }
+    .hs-pay__tag { color: $magenta; }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: -0.4rem 0 1.4rem !important;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px dashed $cream;
+    @include mono-label;
+    span { font-size: 0.68rem; opacity: 0.75; }
+  }
+
+  // pink button on a cream slip: charcoal shadow, same press as every other
+  &__button {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 1rem 1.6rem 1.05rem;
+    background: $magenta;
+    color: $cream;
+    font: 800 clamp(0.95rem, 1.6vw, 1.15rem)/1 $font-primary;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 6px 6px 0 $cream;
+    transform: rotate(-2deg);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    &::after { content: ' →'; }
+    &:hover, &:focus-visible {
+      color: $cream;
+      transform: rotate(-2deg) translate(3px, 3px);
+      box-shadow: 3px 3px 0 $cream;
+    }
+    &:active { transform: rotate(-2deg) translate(6px, 6px); box-shadow: none; }
   }
 }
 
