@@ -159,10 +159,11 @@
       <a href='/holy-shit-im-a-manager' {% if page.url contains '/holy-shit-im-a-manager' %}aria-current="page"{% endif %}>Online course</a>
       <a href='/blog' {% if page.url contains '/blog' or page.layout == 'post' %}aria-current="page"{% endif %}>Blog</a>
     </div>
+    <a class="site-nav__cta" href="/contact-form/?from=nav" data-goatcounter-click="nav-cta" {% if page.url contains '/contact-form' %}aria-current="page"{% endif %}>Get in touch</a>
     <div class="display-settings">
       <button class="display-settings-toggle" aria-expanded="false" aria-controls="display-settings-panel" aria-label="Open display settings">
         <span class="settings-icon" aria-hidden="true">⚙</span>
-        <span>Display</span>
+        <span class="display-settings-toggle__label">Display</span>
       </button>
       <div class="display-settings-panel" id="display-settings-panel" role="dialog" aria-modal="true" aria-label="Display settings" aria-hidden="true">
         <div class="panel-close"><button aria-label="Close display settings">✕</button></div>
