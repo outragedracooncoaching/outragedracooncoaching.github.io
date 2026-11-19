@@ -14,7 +14,7 @@ $calm-font: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
 $calm-mono: 'Atkinson Hyperlegible Mono', ui-monospace, Menlo, monospace;
 $calm-zone: 'body > header, main, body > footer';
 $calm-rule: 1px solid fade($text, 0.3);
-$calm-measure: 38rem;
+$calm-measure: 42rem;
 
 :root[data-calm] {
   scroll-behavior: auto;
@@ -139,12 +139,12 @@ $calm-measure: 38rem;
     max-width: $calm-measure !important;
     margin: 0 auto !important;
     padding: 2.5rem 1rem 3rem !important;
-    font-size: 1.05rem !important;
-    line-height: 1.75 !important;
+    font-size: 1.3rem !important;
+    line-height: 1.7 !important;
 
-    h1 { font-size: 2.4rem !important; line-height: 1.15 !important; font-weight: 700 !important; margin: 0 0 1.2rem !important; text-wrap: balance; }
+    h1 { font-size: 2.9rem !important; line-height: 1.15 !important; font-weight: 700 !important; margin: 0 0 1.2rem !important; text-wrap: balance; }
     h2 {
-      font-size: 1.6rem !important;
+      font-size: 2rem !important;
       line-height: 1.25 !important;
       text-wrap: balance;
       font-weight: 700 !important;
@@ -152,7 +152,7 @@ $calm-measure: 38rem;
       padding-top: 1.4rem !important;
       border-top: $calm-rule !important;
     }
-    h3, h4 { font-size: 1.2rem !important; line-height: 1.4 !important; font-weight: 700 !important; margin: 1.8rem 0 0.5rem !important; }
+    h3, h4 { font-size: 1.5rem !important; line-height: 1.4 !important; font-weight: 700 !important; margin: 1.8rem 0 0.5rem !important; }
     // Inline bits inside a heading (pink boxes, condensed caps) read as one line
     :is(h1, h2, h3, h4) * { display: inline !important; font-weight: inherit !important; }
 
@@ -171,7 +171,7 @@ $calm-measure: 38rem;
     // Typewriter voice for the small stuff: labels, kickers, citations, captions
     :is([class*="label"], [class*="kicker"], [class*="eyebrow"], figcaption, cite, blockquote footer) {
       font-family: $calm-mono !important;
-      font-size: 0.85rem !important;
+      font-size: 1.05rem !important;
       &, & * { font-family: $calm-mono !important; }
     }
 
@@ -180,7 +180,7 @@ $calm-measure: 38rem;
       border-left: 2px solid $magenta !important;
     }
     blockquote + blockquote { margin-top: 1.6rem !important; }
-    blockquote :is(footer, cite) { display: block !important; margin-top: 0.4rem !important; font-size: 0.9rem !important; }
+    blockquote :is(footer, cite) { display: block !important; margin-top: 0.4rem !important; font-size: 1.05rem !important; }
 
     hr { border-top: $calm-rule !important; margin: 2rem 0 !important; }
 
@@ -237,7 +237,7 @@ $calm-measure: 38rem;
       background: transparent !important;
       color: var(--calm-text) !important;
       font-family: $calm-mono !important;
-      font-size: 1rem !important;
+      font-size: 1.2rem !important;
       box-shadow: none !important;
     }
     // calm's grid rule shrink-wraps children, so each field would size to its own content
@@ -254,7 +254,7 @@ $calm-measure: 38rem;
     margin: 1.5rem auto 0 !important;
     padding: 0 1rem 0.6rem !important;
     border-bottom: $calm-rule !important;
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
     line-height: 1.4 !important;
     font-weight: 700 !important;
     a { text-decoration: none !important; }
@@ -266,7 +266,7 @@ $calm-measure: 38rem;
     margin: 0 auto !important;
     padding: 1.4rem 1rem 3rem !important;
     border-top: $calm-rule !important;
-    font-size: 0.85rem !important;
+    font-size: 1.05rem !important;
     line-height: 1.7 !important;
 
     nav { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 0 2ch !important; margin-top: 0.6rem !important; }
@@ -279,7 +279,7 @@ $calm-measure: 38rem;
     gap: 0.2rem 1.6ch !important;
     padding: 1.4rem 1rem 0 !important;
     font-family: $calm-mono !important;
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
     font-weight: 400 !important;
     letter-spacing: normal !important;
     text-transform: none !important;
@@ -297,7 +297,7 @@ $calm-measure: 38rem;
       box-shadow: none !important;
       transform: none !important;
       font-family: $calm-mono !important;
-      font-size: 0.9rem !important;
+      font-size: 1.1rem !important;
       font-weight: 400 !important;
       font-variation-settings: normal !important;
       letter-spacing: normal !important;
