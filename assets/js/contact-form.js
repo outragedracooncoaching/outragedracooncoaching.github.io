@@ -15,7 +15,7 @@
   var slowTimer = null;
   var loadedAt = Date.now();
 
-  // Where they came from: ?from=<cta>&package=<one_session|three_sessions|monthly|course>
+  // Where they came from: ?from=<cta>&package=<one_session|three_sessions|monthly|course|course_support>
   var params = new URLSearchParams(window.location.search);
   var from = (params.get('from') || 'direct').replace(/[^a-z0-9-]/gi, '').slice(0, 60) || 'direct';
   form.elements.from.value = from;

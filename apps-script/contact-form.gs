@@ -36,7 +36,8 @@ var PACKAGES = {
   one_session: 'The Decisive Hour',
   three_sessions: 'The Sort-It Sequence',
   monthly: 'In Your Corner',
-  course: 'Course invoice'
+  course: 'HSIAM course invoice',
+  course_support: 'HSIAM course support'
 };
 
 function doPost(e) {
@@ -63,7 +64,7 @@ function doPost(e) {
     var sheet = getSheet_();
     sheet.appendRow([new Date(), name, email, message, pkgLabel || 'Not sure yet', from, page].map(safeCell_));
 
-    var subject = 'Coaching enquiry: ' + name + ' (' + (pkgLabel || from || 'direct') + ')';
+    var subject = 'Enquiry: ' + name + ' (' + (pkgLabel || from || 'direct') + ')';
     var body = [
       'Name: ' + name,
       'Email: ' + email,
@@ -80,7 +81,7 @@ function doPost(e) {
       replyTo: email,
       subject: subject,
       body: body,
-      name: 'Coaching contact form'
+      name: 'Contact form'
     });
 
     return json_({ ok: true });
