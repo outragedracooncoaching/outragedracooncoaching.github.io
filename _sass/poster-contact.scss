@@ -11,7 +11,7 @@
   padding: 3rem 0 2rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "kicker" "title" "lead" "art" "body";
+  grid-template-areas: "kicker" "title" "lead" "art" "body" "proof";
 
   @include respond-to('medium') {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -72,24 +72,34 @@
 
   // right column: Val + one testimonial (the quote only shows on desktop,
   // where the column would otherwise sit empty beside the form)
+  // on phones the wrapper dissolves: photo sits above the form, the quote
+  // lands below it, backing up the Send button
   &__side {
-    grid-area: art;
-    @include respond-to('medium') { align-self: start; }
+    display: contents;
+    @include respond-to('medium') {
+      display: block;
+      grid-area: art;
+      align-self: start;
+    }
   }
 
   &__proof {
-    display: none;
+    grid-area: proof;
+    display: block;
+    max-width: 24rem;
+    min-height: 0;
+    margin: 3rem 0 1rem 6%;
+    padding: 1.7rem 1.7rem 1.5rem;
+    background: $magenta;
+    color: $paper;
+    box-shadow: 10px 10px 0 $text;
+    transform: rotate(-2deg);
 
     @include respond-to('medium') {
-      display: block;
-      max-width: 24rem;
-      min-height: 0;
+      grid-area: auto;
       margin: 6rem 0 0 auto;
       padding: 2.1rem 2.2rem 1.9rem;
-      background: $magenta;
-      color: $paper;
       box-shadow: 12px 12px 0 $text;
-      transform: rotate(-2deg);
     }
 
     p {
@@ -118,6 +128,7 @@
   }
 
   &__art {
+    grid-area: art;
     position: relative;
     width: min(48%, 15rem);
     margin: 2.2rem 0 2.6rem 10%;
