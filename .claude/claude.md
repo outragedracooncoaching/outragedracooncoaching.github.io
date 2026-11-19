@@ -28,3 +28,6 @@ For legal review, drafting, or T&Cs questions use '/legal'.
 # Task tracking
 
 Tasks are tracked in `tasks.md` at the project root. Tick tasks off as you complete them. The file is gitignored, so it never goes into a commit.
+
+# Assets
+We're using ../cv, ../outragedpinkracoon.github.io, ../games/roots-and-roses/ A4 digital rulebook as our graphic design inspiration but the homepage on this special branch captures what we are going for.

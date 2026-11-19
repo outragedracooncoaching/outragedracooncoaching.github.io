@@ -409,6 +409,191 @@ body.poster-home {
   }
 }
 
+// ─── THE WEEDS (headline, three pinned maybes, whoami callout + stamp) ───────
+.weeds {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 3rem auto 0;
+
+  &__title {
+    margin: 0;
+    max-width: 17ch;
+    font: 700 clamp(2.5rem, 7vw, 5.6rem)/0.98 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.07em;
+    text-wrap: balance;
+    color: $ink;
+    padding: 0;
+    &::after { display: none; }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      padding: 0 0.12em 0.04em 0.06em;
+      transform: rotate(-2deg);
+      box-shadow: 7px 7px 0 $ink;
+    }
+  }
+
+  &__whisper {
+    margin: 1.4rem 0 0 clamp(0rem, 12vw, 12rem);
+    max-width: 30ch;
+    font: italic 400 clamp(1.4rem, 2.6vw, 2.1rem)/1.15 $font-display;
+    letter-spacing: -0.03em;
+    color: $magenta;
+  }
+}
+
+// three different card types, pinned like a collage, not a row of clones
+.maybes {
+  list-style: none;
+  margin: 3.2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2.2rem;
+
+  @include respond-to('large') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.6rem;
+    align-items: start;
+  }
+}
+
+.maybe {
+  position: relative;
+  margin: 0;
+  font: 400 clamp(1.15rem, 1.6vw, 1.3rem)/1.5 $font-secondary;
+
+  &__tag {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75;
+    font-size: clamp(2.6rem, 4vw, 3.4rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  em { font-style: italic; color: $magenta; }
+
+  // cream paper slip, pink shadow
+  &--slip {
+    background: $ink;
+    color: $cream;
+    padding: 1.4rem 1.5rem 1.6rem;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(-2.5deg);
+    margin-right: 8%;
+    em { color: $cream; }
+  }
+
+  // outlined box, pink shadow, opposite tilt
+  &--box {
+    border: 3px solid $ink;
+    padding: 1.3rem 1.4rem 1.5rem;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(2deg);
+    margin-left: 8%;
+
+    .maybe__tag {
+      color: $cream;
+      -webkit-text-stroke: 2px $ink;
+      paint-order: stroke fill;
+    }
+    em {
+      background: linear-gradient($magenta, $magenta) 0 88% / 100% 0.32em no-repeat;
+      color: inherit;
+    }
+  }
+
+  // pull-quote with a pink rule, no box
+  &--rule {
+    border-left: 8px solid $magenta;
+    padding: 0.4rem 0 0.4rem 1.3rem;
+    margin-right: 6%;
+    font: italic 400 clamp(1.35rem, 2vw, 1.6rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+    .maybe__tag { color: $magenta; font-style: normal; }
+  }
+
+  @include respond-to('medium') {
+    max-width: 34rem;
+    &--box { margin-left: auto; margin-right: 6%; }
+    &--rule { margin-left: 10%; }
+  }
+
+  @include respond-to('large') {
+    max-width: none;
+    &--slip, &--box, &--rule { margin-left: 0; margin-right: 0; }
+    &--box  { margin-top: 2.4rem; }
+    &--rule { margin-top: 0.8rem; }
+  }
+}
+
+// CV-style ruled callout with a pink tab, plus a stamp slammed on the corner
+.whoami {
+  position: relative;
+  margin: 4.5rem 0 1rem auto;
+  max-width: 40rem;
+  padding: 1.6rem 1.8rem 2.2rem 2.4rem;
+  border: 1.5px solid $ink;
+  box-shadow: 10px 10px 0 $magenta;
+  transform: rotate(-1.5deg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5px;
+    top: -1.5px;
+    bottom: -1.5px;
+    width: 0.7rem;
+    background: $magenta;
+  }
+
+  @include respond-to('medium') { margin-right: 6%; }
+
+  p { margin: 0; font-size: 1.15rem; line-height: 1.7; }
+
+  &__label {
+    margin-bottom: 0.6rem !important;
+    font: 700 0.85rem/1.3 $mono !important;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+
+  &__stamp {
+    position: absolute;
+    right: -0.8rem;
+    bottom: -2.4rem;
+    padding: 0.35rem 0.8rem 0.45rem;
+    border: 3px solid $magenta;
+    outline: 2px solid $magenta;
+    outline-offset: 3px;
+    background: $cream;
+    color: $magenta;
+    font-family: $font-primary !important;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75;
+    font-size: clamp(1.5rem, 3vw, 2.1rem) !important;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+
+    small {
+      display: block;
+      font: 700 0.7rem/1.4 $mono;
+      letter-spacing: 0.16em;
+      text-align: right;
+    }
+  }
+}
+
 // ─── THE SLASH (pull-quote band, bleeds off both edges) ───────────────────────
 .slash {
   width: 118%;
@@ -545,7 +730,7 @@ body.poster-home {
       z-index: 2;
       width: 7rem;
       height: 2rem;
-      background: rgba($magenta, 0.92);
+      background: rgba($ink, 0.9);           // cream tape: the art is pink now
       clip-path: polygon(0 10%, 4% 0, 8% 12%, 96% 0, 100% 90%, 94% 100%, 4% 88%);
     }
     &::before { top: -0.9rem; left: -2.2rem; transform: rotate(-34deg); }
