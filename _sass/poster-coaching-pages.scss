@@ -1,0 +1,884 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// COACHING SALES PAGES (/coaching/engineering-managers/, /coaching/folks-in-tech/)
+// Siblings of the coaching hub: reuses its cc- stamp, fund callout and press
+// mixins (poster-coaching.scss) and the homepage components (poster.scss).
+// Scope: body.poster-coaching-page; .poster-managers / .poster-folks vary accents.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$cp-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
+
+body.poster-coaching-page {
+  // riso leftovers from main.scss
+  .poster h2:not(.underscore)::after,
+  .poster h3::after { display: none; }
+}
+// zero-specificity resets, so component colours (.mega--mix em etc.) still win
+:where(body.poster-coaching-page .poster) {
+  h3 { border-left: 0; padding-left: 0; color: inherit; }
+  em { color: inherit; }
+  strong { color: inherit; }
+  ol, ul { padding-left: 0; }
+  li { margin-bottom: 0; }
+}
+body.poster-coaching-page {
+
+  .cp-hero, .cp-intro, .cp-who, .cp-why, .cp-session, .cp-next, .cp-pricing,
+  .cp-reviews, .cp-final {
+    width: $cp-col;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // body links in copy: cream text, pink marker underline
+  .cp-intro a, .cp-who a, .cp-session a, .cp-pricing__terms a, .cp-reviews a {
+    color: $ink;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+}
+
+// ─── HERO ───────────────────────────────────────────────────────────────────
+.cp-hero {
+  display: grid;
+  grid-template-areas: "kicker" "title" "art" "sub" "actions";
+  padding: 1.5rem 0 2.5rem;
+
+  @include respond-to('medium') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas:
+      "kicker  art"
+      "title   art"
+      "sub     art"
+      "actions art";
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  &__kicker {
+    grid-area: kicker;
+    justify-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.7rem;
+    margin: 0 0 1.8rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    @include cc-mono;
+    transform: rotate(-3deg);
+    transform-origin: left;
+
+    span:not(.cp-hero__num) { opacity: 0.75; }
+  }
+
+  // the route number from the hub card: you opened card 01
+  &__num {
+    @include cc-caps;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    line-height: 1;
+    padding: 0.15rem 0.4rem 0.2rem;
+    background: $magenta;
+    color: $cream;
+    transform: rotate(-4deg);
+  }
+
+  &__title {
+    grid-area: title;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    line-height: 0.9;
+    text-wrap: balance;
+  }
+
+  &__pre {
+    display: block;
+    margin: 0 0 0.5rem 0.1em;
+    font: italic 400 clamp(1.5rem, 2.8vw, 2.3rem)/1 $font-display;
+    letter-spacing: -0.04em;
+    color: $magenta;
+  }
+
+  &__sub {
+    grid-area: sub;
+    margin: 2.4rem 0 0;
+    max-width: 24ch;
+    font: italic 400 clamp(1.5rem, 2.6vw, 2.2rem)/1.12 $font-display;
+    letter-spacing: -0.03em;
+    color: $ink;
+    text-wrap: pretty;
+
+    em {
+      background: linear-gradient($magenta, $magenta) 0 92% / 100% 0.2em no-repeat;
+    }
+  }
+
+  &__art {
+    grid-area: art;
+    position: relative;
+    width: min(70%, 20rem);
+    margin: 2.6rem 0 3.6rem 6%;
+
+    @include respond-to('medium') {
+      width: 100%;
+      max-width: 26rem;
+      margin: 3.2rem 0 0 auto;
+      align-self: start;
+    }
+  }
+
+  &__actions {
+    grid-area: actions;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6rem 2.2rem;
+    margin-top: 2.8rem;
+    align-self: start;
+  }
+
+  .cp-hero__photo {
+    margin: 0;
+    width: 100%;
+    transform: rotate(4deg);
+  }
+}
+
+// managers: huge condensed caps + a pink-box italic, like the hub
+.poster-managers .cp-hero__title {
+  .cond {
+    display: block;
+    @include cc-caps;
+    font-size: clamp(3.8rem, 8.6vw, 8.4rem);
+    line-height: 0.84;
+    letter-spacing: -0.03em;
+    color: $ink;
+  }
+  em { display: block; margin-top: 0.12em; font-style: normal; }
+  mark {
+    display: inline-block;
+    background: $magenta;
+    color: $cream;
+    font: italic 500 clamp(2.8rem, 6.4vw, 6rem)/1 $font-display;
+    letter-spacing: -0.05em;
+    padding: 0.02em 0.16em 0.14em 0.08em;
+    transform: rotate(-3deg);
+    transform-origin: left;
+    box-shadow: 8px 8px 0 $ink;
+  }
+}
+
+// folks: mirrored. Val on the left, big upright Fraunces with the payoff in
+// pink italic on a crooked bar, the stamp on the opposite corner
+.poster-folks .cp-hero {
+  @include respond-to('medium') {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas:
+      "art kicker"
+      "art title"
+      "art sub"
+      "art actions";
+  }
+
+  .cp-hero__art {
+    @include respond-to('medium') { margin: 4rem auto 0 0; }
+  }
+  .cp-hero__photo { transform: rotate(-4deg); }
+  .cc-stamp { left: -5%; right: auto; bottom: -2.8rem; transform: rotate(5deg); }
+}
+
+.poster-folks .cp-hero__big {
+  display: block;
+  font: 700 clamp(3rem, 6.4vw, 6.2rem)/0.92 $font-display;
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -0.065em;
+  word-spacing: 0.04em;
+  color: $ink;
+  text-wrap: balance;
+
+  em {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    color: $magenta;
+    padding-bottom: 0.08em;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0.1em;
+      bottom: -0.04em;
+      height: clamp(8px, 1.2vw, 14px);
+      background: $ink;
+      transform: rotate(-1.2deg);
+      clip-path: polygon(0 12%, 97% 0, 100% 80%, 3% 100%);
+    }
+  }
+}
+
+.poster-folks .cp-hero__sub em {
+  color: $magenta;
+  background: none;
+}
+
+.poster-folks .cp-strip {
+  transform: rotate(-1.6deg);
+  @include respond-to('medium') { font-size: min(1.95rem, 2.15vw); }
+}
+
+.poster-folks .cp-intro {
+  @include respond-to('large') { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); }
+}
+
+.poster-folks .cp-ruled {
+  transform: rotate(1.8deg);
+  font: 400 1.15rem/1.65 $font-secondary;
+  letter-spacing: 0;
+  p { margin: 0 0 1rem; &:last-child { margin: 0; } }
+  p:first-child {
+    font: italic 400 clamp(1.3rem, 2vw, 1.6rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+  }
+}
+
+.poster-folks .cp-proof { transform: rotate(-1.2deg); }
+
+.poster-folks .cp-final__line {
+  max-width: 22ch;
+  font-size: clamp(2.3rem, 5vw, 4.6rem);
+}
+
+// ─── STRIP: the hub card's topics, full bleed, pink with cream behind ───────
+.cp-strip {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  margin: 1.5rem 0 0 calc(50% - 50vw);
+  padding: 0.7rem 5vw 0.8rem;
+  background: $magenta;
+  color: $cream;
+  @include cc-caps;
+  font-size: 6.6vw;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-align: center;
+  transform: rotate(1.8deg);
+  box-shadow: 0 9px 0 $ink;
+
+  @include respond-to('medium') { font-size: min(2.2rem, 2.65vw); white-space: nowrap; }
+
+  i { font-style: normal; opacity: 0.55; padding: 0 0.2em; }
+  b {
+    font-weight: 800;
+    display: inline-block;
+    background: $ink;
+    color: $cream;
+    padding: 0 0.25em 0.04em;
+    transform: rotate(-2.5deg);
+  }
+
+  // phone: one topic per line, no separators
+  @media (max-width: 767px) {
+    font-size: 7vw;
+    padding: 1rem 5vw 1.1rem;
+    i { display: none; }
+    span, b { display: table; margin: 0 auto; }
+    b { margin: 0.15rem auto; }
+  }
+}
+
+// ─── INTRO: straight copy left, ruled callout tilted on the right ──────────
+.cp-intro {
+  display: grid;
+  gap: 3rem;
+  margin-top: 6rem;
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  &__text p { margin: 0 0 1.2rem; font-size: 1.2rem; line-height: 1.7; max-width: 40rem; }
+
+  .cp-intro__lead {
+    font: 600 clamp(1.7rem, 3vw, 2.5rem)/1.12 $font-display;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.6rem;
+  }
+}
+
+// CV-style ruled callout with a pink tab
+.cp-ruled {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 1.6rem 1.7rem 2.2rem;
+  border: 1.5px solid $ink;
+  box-shadow: 10px 10px 0 $magenta;
+  transform: rotate(-2deg);
+  font: italic 400 clamp(1.3rem, 2vw, 1.6rem)/1.3 $font-display;
+  letter-spacing: -0.02em;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5px;
+    top: -1.5px;
+    bottom: -1.5px;
+    width: 0.7rem;
+    background: $magenta;
+  }
+
+  em { color: $magenta !important; }
+}
+
+.cp-proof {
+  margin-top: 6rem;
+  width: fit-content;
+  max-width: $cp-col;
+  @include respond-to('large') { padding-right: clamp(3rem, 8vw, 7rem); }
+  transform: rotate(1.5deg);
+  p { max-width: 24ch; font-size: clamp(2rem, 4.4vw, 3.8rem); }
+}
+
+// ─── WHO: the 2am thoughts, set as one run of overheard type ───────────────
+.cp-who {
+  &__lead {
+    max-width: 44rem;
+    margin: 3rem 0 0;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    p { margin: 0 0 1.1rem; }
+  }
+}
+
+.cp-worries {
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+
+  @include respond-to('large') {
+    columns: 2;
+    column-gap: 4rem;
+  }
+
+  li {
+    position: relative;
+    break-inside: avoid;
+    margin: 0 0 1.5rem;
+    padding-left: 1.1em;
+    max-width: 30ch;
+    font: italic 400 clamp(1.45rem, 2.2vw, 1.9rem)/1.18 $font-display;
+    letter-spacing: -0.03em;
+    text-wrap: pretty;
+
+    // pink open-quote mark hanging in front
+    &::before {
+      content: '\201C';
+      position: absolute;
+      left: 0;
+      top: -0.08em;
+      font: italic 700 1.6em/1 $font-display;
+      color: $magenta;
+    }
+
+    // ragged indents, like lines overheard in a 1:1
+    &:nth-child(3n + 2) { margin-left: 12%; }
+    &:nth-child(3n) { margin-left: 6%; }
+  }
+
+  // the two loud ones: pink slips, charcoal text, cream shadow
+  .cp-worries__slip {
+    z-index: 1;
+    margin: 0.6rem 0 2.4rem;
+    padding: 1rem 1.3rem 1.15rem 2.3rem;
+    max-width: 24ch;
+    background: $magenta;
+    color: $cream;
+    font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+    font-weight: 500;
+    line-height: 1.1;
+    box-shadow: 8px 8px 0 $ink;
+    transform: rotate(-2deg);
+
+    &::before { left: 0.45rem; top: 0.6rem; color: $cream; }
+    & ~ .cp-worries__slip { transform: rotate(2deg); margin-left: 8%; }
+  }
+}
+
+// ─── WHY ME ─────────────────────────────────────────────────────────────────
+.cp-why {
+  margin-top: 4rem;
+
+  &__body {
+    display: grid;
+    gap: 2.6rem;
+    margin-top: 3rem;
+
+    @include respond-to('large') {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+      grid-template-areas: "lead text" "quip quip";
+      gap: 3rem 4.5rem;
+      align-items: start;
+    }
+  }
+
+  &__lead {
+    margin: 0;
+    font: italic 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 $font-display;
+    letter-spacing: -0.03em;
+    @include respond-to('large') { grid-area: lead; }
+  }
+
+  &__text {
+    @include respond-to('large') { grid-area: text; }
+    p { margin: 0 0 1.2rem; font-size: 1.15rem; line-height: 1.7; }
+  }
+
+  // the not-for-you joke, crossed out in pink marker
+  &__not {
+    margin: 1rem 0 0;
+    max-width: 26ch;
+    font: 600 clamp(2rem, 4.4vw, 3.8rem)/1.06 $font-display;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+    @include respond-to('large') { grid-area: quip; margin: 1.5rem 0 0 8%; }
+
+    s {
+      font-style: italic;
+      font-weight: 400;
+      text-decoration: line-through;
+      text-decoration-color: $magenta;
+      text-decoration-thickness: 0.12em;
+      text-decoration-skip-ink: none;
+      color: $ink;
+    }
+  }
+}
+
+// ─── SESSION: four big numbered moves ───────────────────────────────────────
+.cp-session {
+  margin-top: 5rem;
+  .mega { margin-bottom: 3rem; }
+
+  &__notes {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 3.5rem;
+    max-width: 46rem;
+    p { margin: 0; font-size: 1.15rem; line-height: 1.65; }
+  }
+
+  &__coach {
+    font: italic 400 clamp(1.3rem, 2vw, 1.55rem)/1.3 $font-display !important;
+    letter-spacing: -0.02em;
+  }
+
+  &__fine {
+    padding-left: 1rem;
+    border-left: 6px solid $magenta;
+    strong { color: $magenta !important; }
+  }
+}
+
+.cp-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2.8rem;
+  counter-reset: none;
+
+  @include respond-to('medium') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem 3.5rem;
+    > li:nth-child(even) { margin-top: 3.5rem; }
+  }
+
+  > li {
+    position: relative;
+    margin: 0;
+    padding-top: 1.1rem;
+    border-top: 2px solid $ink;
+  }
+
+  &__num {
+    display: block;
+    font: italic 400 clamp(4.2rem, 8vw, 6.5rem)/0.85 $font-display;
+    letter-spacing: -0.06em;
+    color: $magenta;
+  }
+
+  h3 {
+    margin: 0.6rem 0 0.8rem;
+    font: 700 clamp(1.7rem, 2.8vw, 2.4rem)/1.02 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+  }
+
+  p { margin: 0; font-size: 1.12rem; line-height: 1.65; max-width: 36rem; }
+}
+
+// ─── WHAT HAPPENS NEXT: a ruled checklist, boxes still empty ───────────────
+.cp-next {
+  display: grid;
+  gap: 2.4rem;
+  margin-top: 6rem;
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 4rem;
+    align-items: start;
+  }
+
+  &__title {
+    margin: 0;
+    line-height: 0.88;
+
+    em {
+      display: block;
+      font: italic 400 clamp(1.8rem, 3.6vw, 2.8rem)/1 $font-display;
+      letter-spacing: -0.04em;
+      color: $magenta;
+    }
+    .cond {
+      display: block;
+      @include cc-caps;
+      font-size: clamp(4rem, 11vw, 7.5rem);
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 1.6rem 1.6rem 1.8rem 2.4rem !important;
+    position: relative;
+    border: 1.5px solid $ink;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(1.2deg);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.5px;
+      top: -1.5px;
+      bottom: -1.5px;
+      width: 0.7rem;
+      background: $magenta;
+    }
+
+    li {
+      position: relative;
+      padding: 0.9rem 0 0.9rem 2.8rem;
+      font-size: 1.12rem;
+      line-height: 1.6;
+      border-bottom: 1px dashed rgba($ink, 0.35);
+      &:last-child { border-bottom: 0; }
+
+      // an empty box, waiting for you to tick it
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 1.05rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        border: 2px solid $ink;
+        transform: rotate(-4deg);
+      }
+      &:nth-child(even)::before { transform: rotate(5deg); }
+    }
+
+    strong {
+      @include cc-caps;
+      font-size: 1.45rem;
+      letter-spacing: 0;
+      line-height: 1;
+      margin-right: 0.2rem;
+    }
+  }
+}
+
+// ─── PRICING: three tickets, then who pays ──────────────────────────────────
+.cp-pricing {
+  margin-top: 4rem;
+  scroll-margin-top: 1.5rem;
+
+  &__lead {
+    max-width: 30ch;
+    margin: 2rem 0 0;
+    font: italic 400 clamp(1.45rem, 2.4vw, 2rem)/1.2 $font-display;
+    letter-spacing: -0.03em;
+  }
+
+  &__terms {
+    margin: 3rem 0 0;
+    @include cc-mono;
+    font-size: 0.72rem;
+    line-height: 1.6;
+  }
+}
+
+.cp-tickets {
+  display: grid;
+  gap: 3.5rem;
+  margin-top: 4rem;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.6rem;
+    align-items: start;
+  }
+}
+
+.cp-ticket {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.7rem 0;
+  border: 3px solid $ink;
+  box-shadow: 12px 12px 0 $magenta;
+  max-width: 34rem;
+
+  > p { margin: 0; }
+
+  &__badge {
+    align-self: flex-start;
+    margin-bottom: 1.2rem !important;
+    padding: 0.3rem 0.6rem 0.35rem;
+    background: $magenta;
+    color: $cream;
+    @include cc-mono;
+    font-size: 0.72rem;
+    transform: rotate(-3deg);
+  }
+
+  &__title {
+    margin: 0;
+    @include cc-caps;
+    font-size: clamp(2.4rem, 3.4vw, 3rem);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: inherit;
+  }
+
+  &__price {
+    margin-top: 0.8rem !important;
+    font: 700 clamp(4.4rem, 7vw, 6rem)/0.9 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.045em;
+
+    span {
+      font: italic 400 0.4em/1 $font-display;
+      letter-spacing: -0.02em;
+      color: $magenta;
+      margin-left: 0.08em;
+    }
+  }
+
+  &__sub {
+    margin-top: 1rem !important;
+    font: italic 400 1.3rem/1.3 $font-display;
+    letter-spacing: -0.02em;
+  }
+
+  &__note {
+    margin-top: 1rem !important;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    strong { font-weight: 700; }
+  }
+
+  // the saving, stamped on the corner
+  &__save {
+    position: absolute;
+    top: -1.4rem;
+    right: -1rem;
+    max-width: 10rem;
+    padding: 0.4rem 0.6rem 0.45rem;
+    border: 3px solid $magenta;
+    outline: 2px solid $magenta;
+    outline-offset: 3px;
+    background: $cream;
+    color: $magenta;
+    @include cc-caps;
+    font-size: 1.15rem;
+    line-height: 1;
+    text-align: center;
+    transform: rotate(7deg);
+  }
+
+  // the tear-off stub with the button
+  &__go {
+    margin: 1.8rem -1.7rem 0 !important;
+    padding: 1.5rem 1.7rem 1.7rem;
+    border-top: 3px dashed currentColor;
+  }
+
+  &__cta { @include cc-press(-2deg); }
+
+  // featured: the cream ticket, pink shadow; its button gets a charcoal shadow
+  &--hour {
+    background: $ink;
+    color: $cream;
+    border-color: $ink;
+    transform: rotate(-1.5deg);
+
+    .cp-ticket__price span { color: $magenta; }
+    .cp-ticket__cta { @include cc-press(-2deg, $cream); }
+  }
+
+  &--campaign { transform: rotate(1deg); }
+  &--advisory { transform: rotate(-0.8deg); }
+
+  @media (max-width: 1099px) {
+    &--campaign { margin-left: auto; }
+  }
+  @media (min-width: 1100px) {
+    max-width: none;
+    &--campaign { margin-top: 2.4rem; }
+  }
+}
+
+.cp-fund {
+  margin-top: 5.5rem;
+  .cc-fund__line { font-size: clamp(1.35rem, 2.2vw, 1.8rem); }
+}
+
+// ─── REVIEWS: a wall of mixed card types ────────────────────────────────────
+.cp-reviews {
+  margin-top: 4rem;
+}
+
+.cp-wall {
+  margin-top: 3.5rem;
+  columns: 1;
+  column-gap: 3rem;
+
+  @include respond-to('large') { columns: 2; }
+}
+
+.cp-q {
+  break-inside: avoid;
+  margin: 0 0 3rem;
+  padding: 1.5rem 1.6rem 1.4rem;
+  border: 1px solid $ink;
+  background: transparent;
+  color: $ink;
+  box-shadow: none;
+  transform: none;
+  font-size: 1.05rem;
+
+  &::before, &::after { content: none !important; }
+  &:nth-child(n) { transform: none; }   // beat main.scss blockquote tilts
+
+  p {
+    margin: 0 0 0.9rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  &__tag {
+    display: inline-block;
+    margin-bottom: 1rem !important;
+    @include cc-mono;
+    font-size: 0.7rem !important;
+    color: $magenta;
+  }
+
+  &__pull {
+    font: italic 400 clamp(1.5rem, 2.2vw, 1.85rem)/1.15 $font-display !important;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem !important;
+  }
+
+  footer {
+    all: unset;
+    display: block;
+    margin-top: 0.4rem;
+    font: 700 0.72rem/1.45 $mono;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+
+  // outlined, pink shadow
+  &:nth-child(3n + 1) {
+    border-width: 2px;
+    box-shadow: 10px 10px 0 $magenta;
+  }
+  // pink rule, no box
+  &:nth-child(3n + 2) {
+    border: 0;
+    border-left: 8px solid $magenta;
+    padding: 0.3rem 0 0.3rem 1.4rem;
+    .cp-q__pull { color: $magenta; }
+  }
+  // dashed cut-out, opposite tilt
+  &:nth-child(3n) {
+    border: 2px dashed $ink;
+  }
+}
+
+// ─── FINAL CTA ──────────────────────────────────────────────────────────────
+.cp-final {
+  margin-top: 5rem;
+
+  &__line {
+    margin: 0 0 3rem;
+    max-width: 16ch;
+    font: 700 clamp(2.6rem, 6.8vw, 6rem)/0.96 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.06em;
+    word-spacing: 0.1em;
+    text-wrap: balance;
+
+    mark {
+      display: inline;
+      background: none;
+      color: $magenta;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .nowrap { white-space: nowrap; }
+  }
+
+  .sticker { margin-left: 4%; }
+}
+
+// ─── phones ─────────────────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  // phone: button before the photo so both make the first screen
+  .cp-hero { grid-template-areas: "kicker" "title" "actions" "art" "sub"; }
+  .cp-hero__kicker span:last-child { display: block; flex-basis: 100%; }
+  .cp-session .mega--outline .cond { font-size: 1.15em; -webkit-text-stroke-width: 3px; }
+  .cp-hero__pre { font-size: 1.45rem; }
+  .poster-folks .cp-hero__big { font-size: 12.5vw; }
+  .poster-folks .cp-hero__art { margin-left: auto; margin-right: 8%; }
+  .poster-folks .cp-hero .cc-stamp { left: -22%; right: auto; transform: rotate(-5deg); }
+  .poster-folks .cp-final__line { font-size: 9vw; }
+  .cp-worries li { font-size: 6vw; max-width: none; margin-left: 0; }
+  .cp-worries li:nth-child(3n + 2) { margin-left: 8%; }
+  .cp-worries li.cp-worries__slip, .cp-worries li.cp-worries__slip ~ .cp-worries__slip { margin-left: 0; margin-right: 0; font-size: 7vw; }
+  .poster-managers .cp-hero__title .cond { font-size: 17vw; }
+  .poster-managers .cp-hero__title mark { font-size: 13.5vw; }
+  .cp-hero__sub { font-size: 1.45rem; margin-top: 0.4rem; }
+  .cp-hero__actions { margin-top: 2.2rem; gap: 1.4rem; }
+  .cp-hero .cc-stamp { left: auto; right: -18%; bottom: -2.4rem; }
+  .cp-hero .sticker, .cp-final .sticker { font-size: 1.2rem; padding: 1.2rem 1.8rem; }
+  .cp-ticket { padding-left: 1.3rem; padding-right: 1.3rem; }
+  .cp-ticket__go { margin-left: -1.3rem !important; margin-right: -1.3rem !important; padding-left: 1.3rem; padding-right: 1.3rem; }
+  .cp-ticket__save { right: -0.4rem; }
+  .cp-q { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .cp-final__line { font-size: 11vw; }
+  .cp-next__list { padding-left: 1.8rem !important; padding-right: 1.1rem !important; }
+}
