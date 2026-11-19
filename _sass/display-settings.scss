@@ -178,9 +178,15 @@
 
     label + label span { border-left: 2px solid $text; }
 
+    // Unselected goes quiet; selected is the site's "active" language (pink
+    // sticker, like the active nav link) plus a tick. A cream fill read as a
+    // button to press, the same as the − / + buttons below.
+    input:not(:checked) + span { color: fade($text, 0.7); }
+
     input:checked + span {
-      background: $text;
+      background: $magenta;
       color: $paper;
+      &::before { content: '✓'; margin-right: 0.4em; }
     }
 
     input:focus-visible + span {
