@@ -1,0 +1,773 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// INFO PAGES (poster reading pages): coaching T&Cs, privacy, funding.
+// Legal pages are calm: one tilted title, a straight reading column, no
+// stickers. Funding is a persuasion page built from the same parts.
+// Scope: body.poster-info only.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$info-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
+
+@mixin info-caps {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  text-transform: uppercase;
+}
+
+@mixin info-mono {
+  font: 700 0.78rem/1.4 $mono;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+// ─── riso leftovers from main.scss, switched off here ───────────────────────
+body.poster-info {
+  h1, h2, h3, h4 {
+    border: 0;
+    padding-left: 0;
+    background: none;
+    text-shadow: none;
+    &::after { content: none; }
+  }
+  // .underscore is opt-in and keeps its bar
+  .underscore::after { content: ''; }
+
+  em { color: inherit; }
+  strong { color: inherit; }
+
+  .callout { background: none; box-shadow: none; transform: none; }
+}
+
+.info-head, .info-body, .fund-hero, .fund-route, .fund-templates, .fund-self, .fund-final {
+  width: $info-col;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ─── TITLE (the one tilted object on a legal page) ──────────────────────────
+.info-head {
+  padding: 2.5rem 0 1rem;
+
+  &__kicker {
+    display: inline-block;
+    margin: 0 0 1.6rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    @include info-mono;
+  }
+}
+
+.poster .info-title {
+  margin: 0 0 3.5rem;
+  font-size: clamp(2.8rem, 7.4vw, 6.4rem);
+  transform: rotate(-1.5deg);
+  transform-origin: left bottom;
+
+  em { font-size: 0.5em; margin-bottom: 0.08em; word-spacing: normal; }
+
+  &--sub-after {
+    em {
+      max-width: 26ch;
+      margin: 0.35em 0 0 0.08em;
+      font-size: 0.36em;
+      line-height: 1.12;
+      text-wrap: balance;
+    }
+  }
+}
+
+// ─── READING COLUMN ──────────────────────────────────────────────────────────
+.info-body {
+  @media (min-width: 1100px) {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 68ch);
+    column-gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  &--solo .info-text { grid-column: 2; }
+}
+
+.info-text {
+  max-width: 68ch;
+  font-family: $font-secondary;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: $ink;
+
+  > :first-child { margin-top: 0; }
+
+  p { margin: 0 0 1.25em; }
+
+  // the opening line of a page
+  > p:first-child,
+  .page-intro {
+    font: italic 400 clamp(1.35rem, 2.2vw, 1.6rem)/1.45 $font-display;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    margin: 4.5rem 0 1.6rem;
+    padding: 1.1rem 0 0;
+    font: normal 700 clamp(2.1rem, 4vw, 3.1rem)/0.95 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.055em;
+    color: $ink;
+    text-wrap: balance;
+    scroll-margin-top: 1.5rem;
+  }
+
+  h3 {
+    margin: 2.8rem 0 0.7rem;
+    @include info-caps;
+    font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+    color: $magenta;
+    scroll-margin-top: 1.5rem;
+  }
+
+  h2 + h3 { margin-top: 1.8rem; }
+
+  h4 {
+    margin: 2.2rem 0 0.6rem;
+    font: italic 500 1.4rem/1.2 $font-display;
+    letter-spacing: -0.02em;
+    color: $ink;
+  }
+
+  a {
+    color: $ink;
+    text-decoration: underline;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+    overflow-wrap: anywhere;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+
+  ul, ol { margin: 0 0 1.4em; padding-left: 1.3rem; }
+  li { margin-bottom: 0.5rem; padding-left: 0.3rem; }
+  ul li::marker { color: $magenta; content: '■  '; font-size: 0.7em; }
+
+  // lettered clauses: the letters carry the list, no bullets
+  .info-clauses {
+    padding-left: 0;
+    li { padding-left: 0; }
+    li::marker { content: none; }
+  }
+
+  // last updated: a mono label, in place
+  .info-updated {
+    display: inline-block;
+    margin: 0.4rem 0 2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid $magenta;
+    @include info-mono;
+    em { font-style: normal; }
+  }
+
+  // fees table
+  table {
+    margin: 1.6rem 0 2.4rem;
+    border: 1.5px solid $ink;
+    box-shadow: 8px 8px 0 $magenta;
+    font-size: 1.02rem;
+    line-height: 1.45;
+
+    th, td { border-bottom: 1px solid rgba($ink, 0.4); }
+
+    thead th {
+      background: $magenta;
+      color: $cream;
+      @include info-caps;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      border-bottom: 1.5px solid $ink;
+    }
+    tbody tr:nth-child(even) td { background: rgba($ink, 0.05); }
+  }
+}
+
+// ─── CONTENTS (terms) ────────────────────────────────────────────────────────
+.info-toc {
+  max-width: 68ch;
+  margin: 0 0 3.5rem;
+  padding: 1.1rem 0 0;
+  border-top: 3px solid $ink;
+
+  @media (min-width: 1100px) {
+    position: sticky;
+    top: 1.5rem;
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    margin: 0.4rem 0 0;
+  }
+
+  &__label {
+    margin: 0 0 0.9rem;
+    @include info-mono;
+    color: $magenta;
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { margin: 0; }
+
+  a {
+    display: block;
+    padding: 0.32rem 0;
+    font: 400 0.8rem/1.3 $mono;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $ink;
+    text-decoration: none;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+
+  // the two big sections read as headers
+  #markdown-toc > li > a {
+    margin-top: 0.5rem;
+    font-weight: 700;
+    color: $magenta;
+  }
+  #markdown-toc > li:first-child > a { margin-top: 0; }
+
+  #markdown-toc ul {
+    border-left: 2px solid rgba($ink, 0.3);
+    padding-left: 0.8rem;
+    margin: 0.2rem 0 0 0.1rem;
+
+    @media (min-width: 560px) and (max-width: 1099px) { columns: 2; column-gap: 2rem; }
+  }
+}
+
+// beats the leftover-killer above, which zeroes heading borders
+body.poster-info .info-text h2 { border-top: 3px solid $ink; }
+
+.poster-info .sign-off { margin-top: 7rem; }
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// FUNDING (persuasion page)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+.poster-funding .poster p { font-family: $font-secondary; }
+
+// ─── HERO: the statement is the poster ──────────────────────────────────────
+.fund-hero {
+  padding: 2.5rem 0 1rem;
+
+  // wide: the statement owns the left, the lead and route index sit beside it
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    grid-template-areas: "kicker kicker" "line side";
+    column-gap: 3.5rem;
+    align-items: end;
+
+    .fund-hero__kicker { grid-area: kicker; justify-self: start; }
+    .fund-hero__line { grid-area: line; }
+    .fund-hero__side { grid-area: side; padding-bottom: 0.6rem; }
+    .fund-hero__lead, .fund-jump { margin-left: 0; }
+    .fund-hero__lead { margin-top: 0; font-size: 1.18rem; }
+    .fund-jump { flex-direction: column; align-items: flex-start; }
+  }
+
+  .fund-hero__kicker {
+    display: inline-block;
+    margin: 0 0 2rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    @include info-mono;
+    font-size: 0.85rem;
+    color: $ink;
+    transform: rotate(-3deg);
+    transform-origin: left;
+  }
+
+  .fund-hero__line {
+    max-width: 12ch;
+    margin: 0;
+    font: normal 700 clamp(3.2rem, 9vw, 8.6rem)/0.88 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.065em;
+    text-wrap: balance;
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      padding: 0 0.14em 0.12em 0.06em;
+      line-height: 0.9;
+      transform: rotate(-2.5deg);
+      box-shadow: 8px 8px 0 $ink;
+    }
+  }
+
+  .fund-hero__lead {
+    max-width: 50ch;
+    margin: 2.8rem 0 0;
+    font-size: 1.25rem;
+    line-height: 1.65;
+    @include respond-to('large') { margin-left: 8%; }
+  }
+}
+
+.fund-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 2.4rem;
+  list-style: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  @include respond-to('large') { margin-left: 8%; }
+
+  li { margin: 0; }
+
+  a {
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid rgba($ink, 0.5);
+    @include info-mono;
+    font-size: 0.82rem;
+    color: $ink;
+    text-decoration: none;
+    span { color: $magenta; margin-right: 0.4rem; }
+    &:hover, &:focus-visible { color: $magenta; border-color: $magenta; }
+  }
+}
+
+// shared big pink route number, stuck on the card edge
+.fund-card__num {
+  margin: 0;
+  @include info-caps;
+  font-size: clamp(3.6rem, 6vw, 5rem) !important;
+  line-height: 0.8 !important;
+  color: $magenta;
+}
+
+// ─── ROUTE 01: L&D (outlined card + conversation script + quote) ────────────
+.fund-route { margin-top: 7rem; }
+
+.fund-route__grid {
+  display: grid;
+  gap: 4rem;
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(3rem, 5vw, 5rem);
+    align-items: start;
+  }
+}
+
+.fund-card--box {
+  position: relative;
+  padding: 2.6rem 2rem 1.6rem;
+  border: 3px solid $ink;
+  box-shadow: 10px 10px 0 $magenta;
+  transform: rotate(-1deg);
+
+  .fund-card__num {
+    position: absolute;
+    top: -2.2rem;
+    right: 1.4rem;
+    padding: 0 0.3rem;
+    background: $cream;
+    transform: rotate(4deg);
+  }
+
+  p { margin: 0 0 1.1rem; font-size: 1.13rem; line-height: 1.65; }
+}
+
+.fund-card__title {
+  max-width: 13ch;
+  margin: 0 0 1.4rem;
+  @include info-caps;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: $ink;
+}
+
+.fund-card__sub {
+  margin: 1.8rem 0 0.5rem;
+  font: italic 400 1.6rem/1.15 $font-display;
+  letter-spacing: -0.03em;
+  color: $magenta;
+}
+
+// the script: a ruled callout that reads like a template
+.fund-script {
+  position: relative;
+  padding: 1.5rem 1.6rem 1.6rem 2.3rem;
+  border: 1.5px solid $ink;
+
+  @include respond-to('large') { margin-top: 2.5rem; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5px;
+    top: -1.5px;
+    bottom: -1.5px;
+    width: 0.7rem;
+    background: $magenta;
+  }
+
+  &__label {
+    margin: 0 0 0.8rem;
+    @include info-mono;
+    font-size: 0.85rem;
+    color: $magenta;
+  }
+
+  &__intro { margin: 0 0 1rem; font: italic 400 1.3rem/1.3 $font-display !important; letter-spacing: -0.02em; }
+
+  &__steps {
+    counter-reset: step;
+    list-style: none;
+    margin: 0 0 1.2rem;
+    padding: 0;
+
+    li {
+      counter-increment: step;
+      position: relative;
+      margin: 0;
+      padding: 0.8rem 0 0.8rem 2.6rem;
+      border-top: 1px dashed rgba($ink, 0.5);
+      font-size: 1.08rem;
+      line-height: 1.55;
+
+      &::before {
+        content: counter(step, decimal-leading-zero);
+        position: absolute;
+        left: 0;
+        top: 0.95rem;
+        font: 700 0.9rem/1.3 $mono;
+        color: $magenta;
+      }
+    }
+    li:last-child { border-bottom: 1px dashed rgba($ink, 0.5); }
+  }
+
+  &__close { margin: 0; font-size: 1.08rem; line-height: 1.6; }
+}
+
+.fund-quote {
+  margin: 3rem 0 0;
+  padding-left: 1.2rem;
+  border-left: 6px solid $magenta;
+  font: italic 400 clamp(1.35rem, 2vw, 1.55rem)/1.4 $font-display !important;
+  letter-spacing: -0.02em;
+
+  em { background: linear-gradient($magenta, $magenta) 0 92% / 100% 0.22em no-repeat; }
+}
+
+// ─── TEMPLATES (dashed cut-out emails) ──────────────────────────────────────
+.fund-templates {
+  margin-top: 7rem;
+
+  .mega { margin: 0 0 1.4rem; }
+
+  &__intro {
+    margin: 0 0 3.5rem;
+    font: italic 400 clamp(1.35rem, 2.2vw, 1.7rem)/1.35 $font-display !important;
+    letter-spacing: -0.02em;
+  }
+}
+
+.fund-emails {
+  display: grid;
+  gap: 4.5rem;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4rem;
+    align-items: start;
+  }
+}
+
+.fund-email {
+  &__tag {
+    margin: 0 0 1rem;
+    @include info-caps;
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+    color: $magenta;
+  }
+
+  &__paper {
+    padding: 1.4rem 1.6rem 1.2rem;
+    border: 2px dashed $ink;
+
+    p { margin: 0 0 0.85rem; font-size: 1.06rem; line-height: 1.6; }
+  }
+
+  &__subject {
+    margin: -0.2rem 0 1.1rem !important;
+    padding-bottom: 0.7rem;
+    border-bottom: 1.5px solid $ink;
+    font: 700 0.82rem/1.4 $mono !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &--one { transform: rotate(-0.8deg); }
+  &--two { transform: rotate(0.8deg); @media (min-width: 1100px) { margin-top: 3rem; } }
+
+  .fill-blank {
+    background: $magenta;
+    color: $cream;
+    padding: 0 0.3em 0.05em;
+    border-radius: 0;
+    font: italic 600 1em/1.4 $font-display;
+    letter-spacing: -0.01em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  &__send {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.4rem;
+    margin: 1.8rem 0 0;
+
+    span { @include info-mono; font-size: 0.72rem; opacity: 0.85; }
+  }
+}
+
+// pink button, cream shadow, same press as every other button
+.fund-btn {
+  display: inline-block;
+  padding: 1rem 1.5rem 1.05rem;
+  background: $magenta;
+  color: $cream;
+  font: 800 clamp(0.95rem, 1.6vw, 1.1rem)/1 $font-primary;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 6px 6px 0 $ink;
+  transform: rotate(-2deg);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &::after { content: ' →'; }
+  &:hover, &:focus-visible {
+    color: $cream;
+    transform: rotate(-2deg) translate(3px, 3px);
+    box-shadow: 3px 3px 0 $ink;
+  }
+  &:active { transform: rotate(-2deg) translate(6px, 6px); box-shadow: none; }
+}
+
+// ─── ROUTE 02: ACCESS TO WORK ───────────────────────────────────────────────
+.fund-atw__head {
+  display: grid;
+  column-gap: clamp(3rem, 5vw, 5rem);
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas: "num num" "title title" "lead grant";
+    align-items: end;
+
+    .fund-card__num { grid-area: num; }
+    .fund-atw__title { grid-area: title; }
+    .fund-atw__lead { grid-area: lead; }
+    .fund-atw__grant { grid-area: grant; }
+  }
+
+  .fund-card__num { transform: rotate(-4deg); transform-origin: left; }
+}
+
+.poster .fund-atw__title {
+  margin: 0.4rem 0 2rem;
+  font-size: clamp(3.4rem, 10vw, 8.4rem);
+}
+
+.fund-atw__lead { margin: 0; max-width: 54ch; font-size: 1.2rem; line-height: 1.65; }
+
+.fund-atw__grant {
+  margin: 2.5rem 0 0;
+  font: italic 400 clamp(1.4rem, 2.2vw, 1.75rem)/1.3 $font-display !important;
+  letter-spacing: -0.02em;
+
+  @include respond-to('large') { margin: 0; }
+
+  span { display: block; }
+
+  strong {
+    display: block;
+    margin: 0.05em 0 0.12em;
+    @include info-caps;
+    font-size: clamp(3.2rem, 6.5vw, 5.6rem);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+    color: $magenta;
+  }
+}
+
+.fund-steps {
+  display: grid;
+  gap: 2.4rem;
+  margin-top: 4.5rem;
+
+  @include respond-to('large') { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.6rem; }
+}
+
+.fund-step {
+  padding-top: 1rem;
+  border-top: 3px solid $ink;
+
+  &__label {
+    margin: 0 0 0.9rem;
+    @include info-caps;
+    font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+    color: $ink;
+    span { font: 700 0.85rem/1 $mono; color: $magenta; vertical-align: 0.35em; margin-right: 0.3rem; }
+  }
+
+  p { margin: 0 0 1rem; font-size: 1.08rem; line-height: 1.65; }
+  a {
+    color: $ink;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+}
+
+// the one loud thing in this section: a pink slip, cream shadow
+.fund-help {
+  max-width: 40rem;
+  margin: 3.5rem 0 0 auto;
+  padding: 1.5rem 1.8rem 1.6rem;
+  background: $magenta;
+  color: $cream;
+  box-shadow: 10px 10px 0 $ink;
+  transform: rotate(1.5deg);
+
+  @include respond-to('medium') { margin-right: 4%; }
+
+  p { margin: 0; font: italic 500 clamp(1.25rem, 2vw, 1.5rem)/1.4 $font-display !important; letter-spacing: -0.02em; }
+
+  a {
+    color: $cream;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: $cream;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.16em;
+    &:hover, &:focus-visible { color: $cream; text-decoration-thickness: 4px; }
+    &:focus-visible { outline-color: $cream; }
+  }
+}
+
+// ─── ROUTE 03: SELF-FUNDING (pull-quote with a pink rule) ───────────────────
+.fund-self {
+  margin-top: 7rem;
+
+  > * { max-width: 46rem; }
+
+  .fund-card__num { transform: rotate(3deg); transform-origin: left; }
+
+  &__title {
+    margin: 0.3rem 0 1.4rem;
+    font: italic 400 clamp(2.8rem, 7vw, 5.6rem)/0.95 $font-display;
+    letter-spacing: -0.05em;
+    color: $ink;
+  }
+
+  p:last-child {
+    margin: 0;
+    padding-left: 1.2rem;
+    border-left: 6px solid $magenta;
+    font-size: 1.2rem;
+    line-height: 1.65;
+
+    em { font: italic 400 1.15em/1.4 $font-display; letter-spacing: -0.02em; }
+  }
+
+  a {
+    color: $ink;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+}
+
+// ─── FINAL ───────────────────────────────────────────────────────────────────
+.fund-final {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem 3rem;
+  margin-top: 6rem;
+
+  .sticker { transform: rotate(2deg); }
+  .sticker:hover, .sticker:focus-visible { transform: rotate(2deg) translate(3px, 3px); }
+  .sticker:active { transform: rotate(2deg) translate(8px, 8px); }
+}
+
+.fund-back {
+  font: italic 400 1.35rem/1.3 $font-display;
+  color: $ink;
+  text-decoration: underline;
+  text-decoration-color: $magenta;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  &:hover, &:focus-visible { color: $magenta; }
+}
+
+// ─── phones ──────────────────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .poster .info-title { font-size: 15vw; margin-bottom: 2.6rem; }
+  .poster .info-title em { font-size: 0.48em; }
+  .poster .info-title--sub-after em { font-size: 0.4em; }
+  .info-text { font-size: 1.08rem; }
+  .info-toc a { padding: 0.24rem 0; }
+  .info-text table { font-size: 0.92rem; th, td { padding: 0.6rem 0.55rem; } }
+
+  .fund-hero .fund-hero__line { font-size: 16vw; }
+  .fund-card--box { padding: 2.4rem 1.3rem 1.2rem; }
+  .fund-script { padding: 1.3rem 1.2rem 1.4rem 1.9rem; }
+  .fund-email__paper { padding: 1.2rem 1.1rem 1rem; }
+  .poster .fund-atw__title { font-size: 17vw; }
+  .fund-help { margin-right: 0.6rem; }
+}
+
+// contents below the sticky-sidebar width: one compact slash-separated run,
+// like the blog filters, so the terms start on the first screens
+@media (max-width: 1099px) {
+  body.poster-info .info-toc {
+    margin-bottom: 2.5rem;
+
+    #markdown-toc ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      padding: 0 !important;
+      margin: 0.3rem 0 0.6rem !important;
+      border: 0 !important;
+    }
+    #markdown-toc ul li:not(:last-child)::after {
+      content: '/';
+      margin: 0 0.4em;
+      color: $magenta;
+      font: 700 0.72rem/1 $mono;
+    }
+    #markdown-toc ul a {
+      display: inline;
+      padding: 0;
+      font-size: 0.68rem;
+      line-height: 1.9;
+    }
+  }
+}

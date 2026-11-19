@@ -1,14 +1,37 @@
 ---
-layout: info_page
+layout: poster
+body_class: poster-home poster-info poster-legal
+show_cta: false
+subtitle: false
 permalink: /coaching-disclaimer-and-terms/
 title: Coaching disclaimer/terms and conditions
 description: Terms and conditions for coaching with Val Dryden, an ILM-certified executive coach.
 sitemap: false
 ---
-The coaching disclaimer and terms and conditions outlined below define the relationship between Coach and Client and underpin any services delivered by Valerie Dryden trading as Outraged Racoon Coaching®. Please make sure you read the following carefully and if you have any questions or queries then please send them by email to [outragedracooncoaching@gmail.com](outragedracooncoaching@gmail.com).
+{::options toc_levels="2..3" /}
+<div class="poster info" markdown="1">
+
+<div class="info-head">
+<p class="info-head__kicker">The small print</p>
+<h1 class="mega mega--mix info-title" id="top"><em>Coaching disclaimer/</em><span class="cond">terms and conditions</span></h1>
+</div>
+
+<div class="info-body" markdown="1">
+
+<div class="info-toc" role="navigation" aria-label="Contents" markdown="1">
+<p class="info-toc__label">Contents</p>
+
+* Contents
+{:toc}
+
+</div>
+
+<div class="info-text" markdown="1">
+The coaching disclaimer and terms and conditions outlined below define the relationship between Coach and Client and underpin any services delivered by Valerie Dryden trading as Outraged Racoon Coaching®. Please make sure you read the following carefully and if you have any questions or queries then please send them by email to [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com).
 
 <!-- Bump this date only on MATERIAL changes to the terms, not typo fixes or unrelated edits. It is what "applies from the date of publication" in the Variation clause refers to. -->
 *Last updated: 8 June 2026*
+{:.info-updated}
 
 Payment of any invoice issued by the Coach constitutes the Client's acceptance of these terms and conditions in full, including the disclaimer below.
 
@@ -134,6 +157,7 @@ The Coach will not disclose any information about the Client without the Client'
 * (c) is obtained by the Coach from a third party without obligation to the Client;
 * (d) is independently developed by the Coach without reference to the Client's information; or
 * (e) must be disclosed by law, court order, or subpoena.
+{:.info-clauses}
 
 Exceptions to confidentiality also apply where there is imminent risk of harm to the Client or others, or where illegal activity is disclosed.
 
@@ -198,4 +222,11 @@ This agreement is governed by the law of Scotland, and the Scottish courts have 
 This document constitutes the entire agreement between the parties and supersedes all prior written or oral representations regarding its subject matter.
 
 ### Feedback
-Feedback about the service is welcomed and can be given during a coaching session or by emailing [outragedracooncoaching@gmail.com](outragedracooncoaching@gmail.com).
+Feedback about the service is welcomed and can be given during a coaching session or by emailing [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com).
+
+</div>
+</div>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
+</div>

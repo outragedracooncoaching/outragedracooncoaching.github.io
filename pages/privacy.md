@@ -1,5 +1,8 @@
 ---
-layout: info_page
+layout: poster
+body_class: poster-home poster-info poster-legal
+show_cta: false
+subtitle: false
 permalink: /privacy/
 title: Privacy policy
 display_title: Privacy policy
@@ -7,6 +10,16 @@ title_sub: the short version is we collect very little and don't sell any of it.
 description: Privacy policy for Outraged Racoon Coaching. How we collect, use, and protect your personal data.
 sitemap: false
 ---
+
+<div class="poster info">
+
+<div class="info-head">
+<p class="info-head__kicker">The small print</p>
+<h1 class="mega mega--mix info-title info-title--sub-after" id="top"><span class="cond">{{ page.display_title }}</span><em>{{ page.title_sub }}</em></h1>
+</div>
+
+<div class="info-body info-body--solo">
+<div class="info-text">
 
 <p class="page-intro">Outraged Racoon Coaching&reg; is committed to protecting your privacy. This policy explains what data we collect, why, and what we do with it.</p>
 
@@ -73,4 +86,11 @@ Contact: <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoachin
 
 <p>We may update this policy from time to time. The current version is always at this URL. Continued use of our services after a change means you accept the updated policy.</p>
 
-<p><em>Last updated: May 2026</em></p>
+<p class="info-updated"><em>Last updated: May 2026</em></p>
+
+</div>
+</div>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
+</div>
