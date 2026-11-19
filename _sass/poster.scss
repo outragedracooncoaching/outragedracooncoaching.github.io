@@ -189,6 +189,36 @@ body.poster-home {
   }
 }
 
+// ─── HERO PHOTO (your face on the first screen) ──────────────────────────────
+.hero .hero__photo {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  right: 0;
+  top: 52%;
+  width: 8.5rem;
+  padding: 0.4rem 0.4rem 1.4rem;
+  transform: rotate(6deg);
+  box-shadow: 8px 8px 0 $magenta;
+
+  &::before, &::after { width: 3.6rem; height: 1.1rem; }
+  &::before { top: -0.5rem; left: -1.1rem; }
+  &::after  { top: -0.4rem; right: -1.2rem; }
+
+  @include respond-to('medium') {
+    top: auto;
+    right: 6%;
+    bottom: 1.5rem;
+    width: clamp(11rem, 19vw, 16.5rem);
+    padding: 0.6rem 0.6rem 2rem;
+    box-shadow: 12px 12px 0 $magenta;
+
+    &::before, &::after { width: 5.5rem; height: 1.6rem; }
+    &::before { top: -0.7rem; left: -1.7rem; }
+    &::after  { top: -0.6rem; right: -1.9rem; }
+  }
+}
+
 // ─── INTRO ────────────────────────────────────────────────────────────────────
 .intro {
   display: grid;
@@ -211,6 +241,11 @@ body.poster-home {
     margin: 0 0 1.4rem;
   }
 
+  &--solo {
+    display: block;
+    margin-top: 1rem;
+    .intro__text { max-width: 46rem; margin-left: auto; margin-right: 6%; }
+  }
   &--after { display: block; margin-top: 3rem; }
   &--after p { margin-left: auto; margin-right: 0; font-size: 1.3rem; }
 }
