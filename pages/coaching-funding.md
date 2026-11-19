@@ -109,18 +109,18 @@ description: "Get your employer's L&D budget or Access to Work to pay for coachi
   </div>
 
   <div class="fund-help">
-    <p>If you're going through an Access to Work application and want to talk through what to include, <a href="mailto:outragedracooncoaching@gmail.com?subject=Access%20to%20Work%20Enquiry">get in touch</a>. I can help you articulate how coaching supports your work specifically.</p>
+    <p>If you're going through an Access to Work application and want to talk through what to include, <a href="/contact-form/?from=funding-atw">get in touch</a>. I can help you articulate how coaching supports your work specifically.</p>
   </div>
 </section>
 
 <section class="fund-self" aria-labelledby="self-funding">
   <p class="fund-card__num" aria-hidden="true">03</p>
   <h2 id="self-funding" class="fund-self__title">Self-funding</h2>
-  <p>If neither route works for you and you're paying out of pocket, especially if you're under-represented in tech, <a href="mailto:outragedracooncoaching@gmail.com?subject=Self-funding%20Enquiry">get in touch</a>. We can usually find a way to make it work. <em>I'd rather have the conversation than have someone rule themselves out before asking.</em></p>
+  <p>If neither route works for you and you're paying out of pocket, especially if you're under-represented in tech, <a href="/contact-form/?from=funding-self">get in touch</a>. We can usually find a way to make it work. <em>I'd rather have the conversation than have someone rule themselves out before asking.</em></p>
 </section>
 
 <section class="fund-final" aria-label="Get in touch">
-  <a class="sticker" data-goatcounter-click="funding-cta" href="mailto:outragedracooncoaching@gmail.com?subject=Funding%20Enquiry">Get in touch</a>
+  <a class="sticker" data-goatcounter-click="funding-cta" href="/contact-form/?from=funding">Get in touch</a>
   <a class="fund-back" href="/coaching/"><span aria-hidden="true">←</span> Back to coaching</a>
 </section>
 
