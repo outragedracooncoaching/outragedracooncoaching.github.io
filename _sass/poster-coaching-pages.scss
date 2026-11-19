@@ -23,7 +23,7 @@ body.poster-coaching-page {
 body.poster-coaching-page {
 
   .cp-hero, .cp-intro, .cp-who, .cp-why, .cp-session, .cp-next, .cp-pricing,
-  .cp-reviews, .cp-final {
+  .cp-reviews, .cp-final, .cp-course {
     width: $cp-col;
     margin-left: auto;
     margin-right: auto;
@@ -743,6 +743,7 @@ body.poster-coaching-page {
 .cp-fund {
   margin-top: 5.5rem;
   .cc-fund__line { font-size: clamp(1.35rem, 2.2vw, 1.8rem); }
+  &--course { margin: 3rem auto 0 0; transform: rotate(1.5deg); }
 }
 
 // ─── REVIEWS: a wall of mixed card types ────────────────────────────────────
