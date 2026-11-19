@@ -1,7 +1,7 @@
 ---
 title: "Burnout at Work: Why Holidays Don't Fix It and What Actually Does"
 display_title: Holidays Will Not Fix Your Work Burnout
-description: Sorry about that. But these actions will help instead.
+description: "Burnout at work isn't fixed by a holiday, because the systemic problems are waiting when you get back. What actually helps instead."
 date: 2023-04-08
 layout: post
 categories: [personal-development]
@@ -20,3 +20,5 @@ So a holiday can clear your head, but it won't solve the problem. If this is you
 6. Tame your Slack notifications and emails. Get it under control; it's background stress you don't need.
 
 Your homework is to pick the 2 of these that seem the most achievable for you and action them straight away. Then come back for the rest.
+
+_Recognise yourself in this? I do [1:1 coaching for folks in tech](/coaching/folks-in-tech/), for people who are good at the job and done being treated like a maybe._

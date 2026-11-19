@@ -382,6 +382,13 @@ body.poster-blog {
     .mega { margin-top: 6rem; }
   }
 
+  .bl-coaching {
+    width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+    margin: 4rem auto 0;
+    font-size: 1.1rem;
+    a { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+  }
+
   .bl-year {
     position: relative;
     margin-top: 3.5rem;

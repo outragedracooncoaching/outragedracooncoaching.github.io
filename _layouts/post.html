@@ -79,14 +79,28 @@ layout: default
     <h2 class="post-more__title" id="post-more-title">More from the blog</h2>
     <ul class="blog-index">
       {%- assign shown = 0 -%}
-      {%- for p in site.posts -%}
-        {%- if p.url != page.url and shown < 3 -%}
-        {%- assign shown = shown | plus: 1 %}
+      {%- assign picked = "" -%}
+      {%- comment -%} pass 1: newest posts sharing a category; pass 2: top up with newest overall {%- endcomment -%}
+      {%- for pass in (1..2) -%}
+        {%- for p in site.posts -%}
+          {%- assign skip_haiku = false -%}{%- if p.categories contains 'haiku' and post_kind != 'post--haiku' -%}{%- assign skip_haiku = true -%}{%- endif -%}
+          {%- if p.url != page.url and shown < 3 and skip_haiku == false -%}
+            {%- unless picked contains p.url -%}
+              {%- assign ok = false -%}
+              {%- if pass == 2 -%}{%- assign ok = true -%}{%- else -%}
+                {%- for c in page.categories -%}{%- if p.categories contains c -%}{%- assign ok = true -%}{%- endif -%}{%- endfor -%}
+              {%- endif -%}
+              {%- if ok -%}
+                {%- assign shown = shown | plus: 1 -%}
+                {%- assign picked = picked | append: p.url | append: "|" %}
       <li>
         <span class="blog-index__date">{{ p.date | date: "%b %Y" }}</span>
         <a href="{{ p.url }}">{{ p.display_title | default: p.title }}</a>
       </li>
-        {%- endif -%}
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
       {%- endfor %}
     </ul>
   </section>

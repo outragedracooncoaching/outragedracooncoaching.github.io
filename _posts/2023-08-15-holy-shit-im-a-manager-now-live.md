@@ -1,6 +1,6 @@
 ---
 title: "Launch Alert! ‘Holy Shit I'm A Manager!™’ is now live!"
-description: My new course to teach Engineering Managers everything they need to succeed in the role is now live! No corporate BS, just a ton of fun and a bunch of racoon art.
+description: "My course for new engineering managers is live. Everything you need to succeed in the role, no corporate BS, and a bunch of racoon art."
 layout: post
 categories: [new-manager, training, management, leadership]
 ---

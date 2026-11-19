@@ -1,6 +1,6 @@
 ---
 title: The Importance of Creative Rest
-description: AI art is my happy place. What's yours?
+description: "Why creative rest matters when work is relentless, and how AI art became my way to stop, breathe and feel human again."
 layout: post
 categories: [self-care, leadership]
 ---

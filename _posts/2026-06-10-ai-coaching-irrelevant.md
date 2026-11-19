@@ -1,7 +1,7 @@
 ---
 title: Are human coaches irrelevant in the age of AI?
 display_title: Are human coaches irrelevant in the age of AI?
-description: No, the opposite actually. Here's why.
+description: "Are human coaches irrelevant in the age of AI? No, the opposite. Why a VP Engineering and ILM-certified coach thinks AI makes human coaching matter more."
 layout: post
 categories: [coaching, personal-development]
 ---

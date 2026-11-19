@@ -74,3 +74,5 @@ There will be times when your line reports do things that you think are wild. Th
 Learn some tools like [these rumble starters](https://brenebrown.com/art/feedback-toolbox-rumble-language/) from Brené Brown that you can use to ask questions to get information rather than judge.
 
 If you found this interesting, you may want to read Brené's fantastic book [Dare to Lead](https://www.wob.com/en-gb/books/brene-brown/dare-to-lead/9781785042140) to learn more about building trust and becoming a daring leader that has the courage to be vulnerable, make mistakes and keep learning.
+
+_Nobody prepared you for the people side of the job. I do [1:1 coaching for engineering managers](/coaching/engineering-managers/) to help with exactly that._

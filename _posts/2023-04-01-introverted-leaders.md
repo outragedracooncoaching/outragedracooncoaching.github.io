@@ -1,6 +1,6 @@
 ---
 title: Introverted Leaders
-description: Never let anyone tell you introverts can't be leaders.
+description: "Introversion is not social anxiety, and it is not a leadership flaw. Why introverts make good leaders, and what to say to anyone who tells you otherwise."
 layout: post
 categories: [leadership]
 ---

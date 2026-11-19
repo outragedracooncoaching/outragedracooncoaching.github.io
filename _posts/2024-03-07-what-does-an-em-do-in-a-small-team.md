@@ -1,7 +1,7 @@
 ---
 title: What Does a Non-Coding Engineering Manager Actually Do?
 display_title: What does an EM do in a small team if they don't code?
-description: Clearly nothing at all right? ;)
+description: "What does an engineering manager do in a small team if they don't code? Quite a lot, as it turns out. A spicy take from a VP Engineering."
 layout: post
 categories: [new-manager, leadership, spicy]
 ---
@@ -60,3 +60,5 @@ Now, if I ask you if you've witnessed the magic of a non-coding EM, you will lik
 P.S if you want to learn more about the role of an engineering manager, come check out my course ["Holy Shit I'm a Manager! Engineering Management First Aid"](https://www.holyshitimamanager.com/course/engineering-manager-first-aid?previouspage=home&isenrolled=no#/home)
 
 Original LinkedIn post [here](https://www.linkedin.com/pulse/what-does-em-do-small-team-dont-code-valerie-dryden-gdane/?trackingId=a3uFJNf9RNyLk2IbvyXRvQ%3D%3D).
+
+_Nobody prepared you for the people side of the job. I do [1:1 coaching for engineering managers](/coaching/engineering-managers/) to help with exactly that._

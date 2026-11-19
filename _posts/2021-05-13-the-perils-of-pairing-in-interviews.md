@@ -1,6 +1,6 @@
 ---
 title: "Pairing Isn't Staring: Five Perils of Pairing In Interviews"
-description: Many technical hiring processes have a 'pairing' step, but many actually involves staring and not pairing! Let's look at five possible perils of interview pairing and how we can address them to set the candidate up for success.
+description: "Most pairing interviews are just staring. Five perils of interview pairing, and how to fix each so candidates can actually show you what they can do."
 layout: post
 categories: [hiring]
 ---

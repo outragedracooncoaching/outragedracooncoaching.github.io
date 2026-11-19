@@ -81,6 +81,8 @@ And managers be proactive in helping someone with imposter syndrome devise a pla
 
 Productivity and happiness are waiting to be unleashed by your team members suffering from imposter syndrome, which has the happy side effect of levelling up the environment for everyone on the team when you address them.
 
+_Recognise yourself in this? I do [1:1 coaching for folks in tech](/coaching/folks-in-tech/), for people who are good at the job and done being treated like a maybe._
+
 ### References
 - CNET. "Tech Employees Likely To Suffer From Imposter Syndrome" [Online]. Available: [https://www.cnet.com/science/tech-employees-likely-to-suffer-from-impostor-syndrome/]
 - LHD. "Addressing Imposter Syndrome In The Workplace" [Online]. Available: [https://www.lhdbenefits.com/blog/hr-tips/addressing-imposter-syndrome-in-the-workplace]

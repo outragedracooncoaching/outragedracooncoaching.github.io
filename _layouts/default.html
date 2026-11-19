@@ -37,8 +37,14 @@
             "https://www.linkedin.com/in/outragedpinkracoon/",
             "https://www.instagram.com/outragedracoonpaws/",
             "https://cara.app/outragedpinkracoon",
-            "https://outragedpinkracoon.substack.com/"
-          ]
+            "https://outragedpinkracoon.substack.com/",
+            "https://outragedpinkracoon.com"
+          ],
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "ILM Level 5 Certificate in Coaching and Mentoring",
+            "credentialCategory": "certificate"
+          }
         }{% if page.url == '/coaching/' or page.url == '/coaching' or page.url == '/coaching/engineering-managers/' or page.url == '/coaching/managers' or page.url == '/coaching/folks-in-tech/' or page.url == '/coaching/folks-in-tech' or page.url == '/coaching/founders/' or page.url == '/coaching/founders' or page.url == '/coaching/funding/' or page.url == '/coaching/funding' %},
         {
           "@type": "Service",
@@ -75,51 +81,35 @@
               }{% endfor %}
             ]
           }{% endif %}
-        },
+        }{% endif %}{% if page.url == '/holy-shit-im-a-manager/' %},
         {
-          "@type": "FAQPage",
-          "@id": "{{ site.url }}{{ page.url }}#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Who do you coach?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "I work with engineering managers of all levels, and folks in tech who are capable, ambitious, and tired of being treated like a maybe. Specialist support for neurodivergent, queer, and disabled people."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does coaching work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Sessions are remote and one-to-one. They blend coaching — direct questions, genuine challenge, and reflection — with mentoring drawn from nearly two decades as an engineer, manager and executive. Direct, no waffle, no bullshit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How much does coaching cost?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Pricing varies by audience and format. One-off sessions, short campaign packages, and monthly retainers are available. See the pricing section on each coaching page for current rates."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Are sessions in person or remote?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "All sessions are remote and private, one-to-one. Clients work with me from anywhere in the world."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do I book a session?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Use the contact form, email outragedracooncoaching@gmail.com or message me on LinkedIn with a sentence or two about what's going on. I'll reply with the right format and price, and nothing is booked or paid until we've agreed it."
-              }
-            }
+          "@type": "Course",
+          "@id": "{{ site.url }}{{ page.url }}#course",
+          "name": "Holy Shit, I'm a Manager!",
+          "description": {{ page.description | jsonify }},
+          "url": "{{ site.url }}{{ page.url }}",
+          "provider": { "@id": "{{ site.url }}/#person" },
+          "inLanguage": "en-GB",
+          "educationalLevel": "Beginner",
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "New engineering managers"
+          },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "courseWorkload": "Self-paced"
+          },
+          "offers": [
+            {% for offer in page.schema_offers %}{% unless forloop.first %},{% endunless %}{
+              "@type": "Offer",
+              "category": "Paid",
+              "price": {{ offer.price | jsonify }},
+              "priceCurrency": {{ offer.priceCurrency | jsonify }},
+              "priceValidUntil": {{ offer.priceValidUntil | jsonify }},
+              "url": "{{ site.url }}{{ page.url }}",
+              "availability": "https://schema.org/InStock"
+            }{% endfor %}
           ]
         }{% endif %}
       ]

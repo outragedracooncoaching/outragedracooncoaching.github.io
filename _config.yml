@@ -6,7 +6,7 @@ locale: 'en_GB'
 permalink: /:year/:month/:day/:title.html
 twitter:
   username: outragedracoon
-  card: summary
+  card: summary_large_image
 # Course sale. Set active: false to end it and revert all prices to full.
 sale:
   active: false
@@ -28,7 +28,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/site/racoon.jpg
+      image: /assets/images/og/default.png
       subtitle: VP Eng | ILM Executive Coach | Neurodivergent | Chief Racoon Officer
   - scope:
       path: ""

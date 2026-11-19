@@ -1,5 +1,6 @@
 ---
-title: Continuous, Inescapeable Failure.
+title: "How to react to failure at work: be more Efren Reyes"
+display_title: Continuous, inescapable failure.
 description: When deciding how to react to failure and mishaps, be more Efren Reyes and keep on smiling your way to success.
 layout: post
 categories: [personal-development]

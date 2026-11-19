@@ -97,3 +97,5 @@ You may also want to use an agenda where your line report can add items in advan
 ## Building Trust in One-to-Ones
 
 Now that we’ve discussed the purpose and structure of an effective one-to-one, it's time to read about how to effectively build trust in your precious one-to-one time to create that safe space we aim for. Head to the [next article about BRAVING trust](/2022/06/06/braving-trust-in-one-to-ones.html) to learn more.
+
+_Still winging your one-to-ones, or the rest of the job? I do [1:1 coaching for engineering managers](/coaching/engineering-managers/), or there's my course for new managers, [Holy Shit, I'm a Manager!](/holy-shit-im-a-manager/)._
