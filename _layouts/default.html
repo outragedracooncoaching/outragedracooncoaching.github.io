@@ -131,8 +131,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
   </head>
   <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -149,9 +147,6 @@
       </button>
       <div class="display-settings-panel" id="display-settings-panel" role="dialog" aria-modal="true" aria-label="Display settings" aria-hidden="true">
         <div class="panel-close"><button aria-label="Close display settings">✕</button></div>
-        <label class="setting-row">
-          <input type="checkbox" id="toggle-reading-mode"> Calm mode
-        </label>
         <div class="font-scale-row">
           <span class="font-scale-label">Text size</span>
           <div class="font-scale-controls">
@@ -160,19 +155,6 @@
             <button class="font-scale-btn" id="font-scale-up" aria-label="Increase text size">+</button>
           </div>
         </div>
-        <p class="setting-group-label">Colour-safe palette</p>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-none" value="none" checked> Standard colours
-        </label>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-red-green" value="red-green"> Red/green safe
-        </label>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-blue-yellow" value="blue-yellow"> Blue/yellow safe
-        </label>
-        <label class="setting-row">
-          <input type="radio" name="colour-mode" id="toggle-cb-greyscale" value="greyscale"> Greyscale
-        </label>
       </div>
     </div>
   </nav>
@@ -197,9 +179,6 @@
       var body = document.body;
       var toggleBtn = document.querySelector('.display-settings-toggle');
       var panel = document.getElementById('display-settings-panel');
-      var readingCheck = document.getElementById('toggle-reading-mode');
-      var colourModes = ['red-green', 'blue-yellow', 'greyscale'];
-      var colourClasses = { 'red-green': 'cb-red-green', 'blue-yellow': 'cb-blue-yellow', 'greyscale': 'cb-greyscale' };
 
       // Font scale
       var scaleSteps = [80, 90, 100, 110, 120, 130, 140];
@@ -213,6 +192,7 @@
         scaleValueEl.textContent = scaleSteps[scaleIndex] + '%';
         scaleDownBtn.disabled = scaleIndex === 0;
         scaleUpBtn.disabled = scaleIndex === scaleSteps.length - 1;
+        toggleBtn.dataset.active = String(scaleIndex !== 2);
       }
 
       applyFontScale();
@@ -223,32 +203,6 @@
       scaleUpBtn.addEventListener('click', function() {
         if (scaleIndex < scaleSteps.length - 1) { scaleIndex++; localStorage.setItem('font-scale-index', scaleIndex); applyFontScale(); }
       });
-
-      // Restore saved preferences
-      var readingOn = localStorage.getItem('reading-mode') === 'true';
-      var savedColour = localStorage.getItem('colour-mode') || 'none';
-
-      function applyModes() {
-        // Calm mode — also kills animations
-        body.classList.toggle('reading-mode', readingOn);
-        body.classList.toggle('reduce-motion', readingOn);
-        readingCheck.checked = readingOn;
-
-        // Colour mode — remove all, apply saved
-        colourModes.forEach(function(m) { body.classList.remove(colourClasses[m]); });
-        if (savedColour !== 'none' && colourClasses[savedColour]) {
-          body.classList.add(colourClasses[savedColour]);
-        }
-
-        // Sync radio buttons
-        var radio = document.querySelector('input[name="colour-mode"][value="' + savedColour + '"]');
-        if (radio) radio.checked = true;
-
-        // Display button active state
-        toggleBtn.dataset.active = String(readingOn || savedColour !== 'none' || scaleIndex !== 2);
-      }
-
-      applyModes();
 
       // Focus trap helpers
       function getFocusable() {
@@ -310,22 +264,6 @@
           panel.setAttribute('aria-hidden', 'true');
           toggleBtn.focus();
         }
-      });
-
-      // Reading mode checkbox
-      readingCheck.addEventListener('change', function() {
-        readingOn = this.checked;
-        localStorage.setItem('reading-mode', readingOn);
-        applyModes();
-      });
-
-      // Colour mode radio group
-      document.querySelectorAll('input[name="colour-mode"]').forEach(function(radio) {
-        radio.addEventListener('change', function() {
-          savedColour = this.value;
-          localStorage.setItem('colour-mode', savedColour);
-          applyModes();
-        });
       });
     })();
   </script>

@@ -1,7 +1,6 @@
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // DISPLAY SETTINGS PANEL
-// The toggle button and dropdown panel for accessibility mode switching.
-// Not mode-specific — always rendered.
+// The toggle button and dropdown panel. Always rendered.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 .display-settings {
@@ -56,7 +55,7 @@
     outline-offset: 2px;
   }
 
-  // Filled when any mode is active
+  // Filled when any setting differs from default
   &[data-active="true"] {
     background: #eeeadd;
     color: #191917;
@@ -133,30 +132,6 @@
     text-shadow: none;
   }
 
-  .setting-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1.4;
-    cursor: pointer;
-    padding: 0.4rem 0;
-    border-top: 1px solid rgba(#eeeadd, 0.15);
-
-    &:first-of-type { border-top: none; }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      margin-top: 0.15em;
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: #eeeadd;
-    }
-  }
-
   .font-scale-row {
     display: flex;
     flex-direction: column;
@@ -214,13 +189,4 @@
     }
   }
 
-  .setting-group-label {
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(#eeeadd, 0.5);
-    margin: 0.8rem 0 0.2rem;
-    padding: 0;
-  }
 }
