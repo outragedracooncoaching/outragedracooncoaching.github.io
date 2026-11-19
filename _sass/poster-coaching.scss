@@ -1,0 +1,464 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// COACHING HUB (/coaching/). Built from the homepage components in poster.scss;
+// only the page-specific arrangement lives here. Scope: body.poster-coaching.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$cc-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
+
+@mixin cc-caps {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  text-transform: uppercase;
+}
+
+@mixin cc-mono {
+  font: 700 0.78rem/1.3 $mono;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+// a pink button that presses like .sticker; cream shadow by default
+@mixin cc-press($angle, $shadow: $ink) {
+  display: inline-block;
+  padding: 0.95rem 1.4rem 1rem;
+  background: $magenta;
+  color: $cream;
+  font: 800 clamp(0.95rem, 1.4vw, 1.1rem)/1 $font-primary;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: rotate($angle);
+  box-shadow: 6px 6px 0 $shadow;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &::after { content: ' →'; }
+  &:hover, &:focus-visible {
+    color: $cream;
+    transform: rotate($angle) translate(3px, 3px);
+    box-shadow: 3px 3px 0 $shadow;
+  }
+  &:active { transform: rotate($angle) translate(6px, 6px); box-shadow: none; }
+}
+
+body.poster-coaching {
+  // riso leftovers: no stray h2 underline unless opted in with .underscore
+  .poster h2:not(.underscore)::after,
+  .poster h3::after { display: none; }
+}
+
+.cc-hero, .cc-routes, .cc-fund-wrap, .cc-final {
+  width: $cc-col;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ─── HERO: words left, Val right ─────────────────────────────────────────────
+.cc-hero {
+  display: grid;
+  grid-template-areas: "kicker" "title" "sub" "actions" "art";
+  padding: 1.5rem 0 2rem;
+
+  @include respond-to('medium') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas:
+      "kicker  art"
+      "title   art"
+      "sub     art"
+      "actions art";
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  &__kicker {
+    grid-area: kicker;
+    justify-self: start;
+    margin: 0 0 1.6rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    @include cc-mono;
+    transform: rotate(-3deg);
+    transform-origin: left;
+
+    span { opacity: 0.75; }
+  }
+
+  &__title {
+    grid-area: title;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    line-height: 0.9;
+
+    .cond {
+      display: block;
+      @include cc-caps;
+      font-size: clamp(4.4rem, 11.5vw, 10.5rem);
+      line-height: 0.82;
+      letter-spacing: -0.03em;
+      color: $ink;
+    }
+    em { display: block; margin-top: 0.08em; font-style: normal; }
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font: italic 500 clamp(3rem, 8vw, 7.2rem)/1 $font-display;
+      letter-spacing: -0.05em;
+      padding: 0.02em 0.16em 0.14em 0.08em;
+      transform: rotate(-3deg);
+      transform-origin: left;
+      box-shadow: 8px 8px 0 $ink;
+    }
+  }
+
+  &__sub {
+    grid-area: sub;
+    margin: 2.4rem 0 0;
+    max-width: 26ch;
+    font: italic 400 clamp(1.5rem, 2.6vw, 2.2rem)/1.12 $font-display;
+    letter-spacing: -0.03em;
+    color: $ink;
+    text-wrap: pretty;
+
+    em {
+      font-style: italic;
+      color: inherit;
+      text-decoration: none;
+      background: linear-gradient($magenta, $magenta) 0 92% / 100% 0.2em no-repeat;
+    }
+  }
+
+  &__art {
+    grid-area: art;
+    position: relative;
+    width: min(78%, 22rem);
+    margin: 2.8rem 0 4rem 6%;
+
+    @include respond-to('medium') {
+      width: 100%;
+      max-width: 26rem;
+      margin: 3.2rem 0 0 auto;
+      align-self: start;
+    }
+  }
+
+  &__actions {
+    grid-area: actions;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6rem 2.2rem;
+    margin-top: 2.8rem;
+    align-self: start;
+  }
+}
+
+.cc-hero .cc-hero__photo {
+  margin: 0;
+  width: 100%;
+  transform: rotate(4deg);
+}
+
+// the practical fact, slammed on the photo as a rubber stamp
+.cc-stamp {
+  position: absolute;
+  z-index: 3;
+  left: -12%;
+  bottom: -2.2rem;
+  margin: 0;
+  padding: 0.5rem 0.9rem 0.6rem;
+  border: 3px solid $magenta;
+  outline: 2px solid $magenta;
+  outline-offset: 3px;
+  background: $cream;
+  color: $magenta;
+  text-align: left;
+  transform: rotate(-6deg);
+
+  small {
+    display: block;
+    @include cc-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: $ink;
+  }
+  b {
+    display: block;
+    @include cc-caps;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin: 0.1rem 0 0.15rem;
+  }
+}
+
+.cc-jump {
+  font: italic 400 1.25rem/1.3 $font-display;
+  color: $ink;
+  text-decoration: underline;
+  text-decoration-color: $magenta;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  &:hover, &:focus-visible { color: $magenta; }
+}
+
+// ─── ROUTES: two full-width spreads, not a pair of cards ────────────────────
+.cc-routes {
+  padding-top: 1rem;
+  scroll-margin-top: 1rem;
+
+  .mega { margin-top: 4rem; margin-bottom: 4rem; }
+}
+
+.cc-route {
+  position: relative;
+  display: grid;
+  grid-template-areas: "head" "tags" "go";
+  gap: 2rem;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+  box-shadow: 12px 12px 0 $magenta;
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas: "head tags" "go tags";
+    grid-template-rows: auto 1fr;
+    gap: 0.4rem 3.5rem;
+    align-items: start;
+  }
+
+  &__head { grid-area: head; }
+  &__tags { grid-area: tags; align-self: center; }
+  &__go { grid-area: go; margin: 1.4rem 0 0; }
+
+  & + & { margin-top: 4.5rem; }
+
+  &__label {
+    margin: 0 0 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    @include cc-mono;
+    font-size: 0.82rem;
+  }
+
+  &__num {
+    @include cc-caps;
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    line-height: 1;
+    padding: 0.15rem 0.4rem 0.2rem;
+    background: $magenta;
+    color: $cream;
+    transform: rotate(-4deg);
+  }
+
+  &__title {
+    margin: 0 0 1.4rem;
+    font: 700 clamp(2.3rem, 5.2vw, 4.4rem)/0.96 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
+    color: inherit;
+
+    a { color: inherit; text-decoration: none; }
+    a:hover mark, a:focus-visible mark { transform: rotate(-4deg) translate(-2px, -2px); }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      padding: 0 0.14em 0.06em 0.06em;
+      transform: rotate(-2.5deg);
+      transition: transform 0.12s ease;
+    }
+  }
+
+  &__keeper {
+    margin: 0;
+    max-width: 40ch;
+    font: italic 400 clamp(1.25rem, 1.8vw, 1.5rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+  }
+
+  &__cta { @include cc-press(-2deg); }
+
+  // what we work on: a ruled list of condensed-caps tags
+  &__tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      margin: 0;
+      padding: 0.55rem 0 0.6rem 1.6rem;
+      border-top: 1px solid currentColor;
+      @include cc-caps;
+      font-size: clamp(1.35rem, 2.1vw, 1.8rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+
+      &::before {
+        content: '/';
+        position: absolute;
+        left: 0;
+        color: $magenta;
+      }
+      &:last-child { border-bottom: 1px solid currentColor; }
+    }
+  }
+
+  // cream paper spread, pink shadow, charcoal button shadow
+  // charcoal card, heavy cream border; the topic list is a cream slip pinned on it
+  &--one {
+    border: 3px solid $ink;
+    transform: rotate(-1deg);
+    margin-right: 3%;
+
+    .cc-route__tags {
+      background: $ink;
+      color: $cream;
+      padding: 1.1rem 1.4rem 1.3rem;
+      box-shadow: 8px 8px 0 $magenta;
+      transform: rotate(2.5deg);
+
+      li:first-child { border-top: 0; }
+      li:last-child { border-bottom: 0; }
+    }
+
+    @include respond-to('large') {
+      .cc-route__tags { margin-right: calc(-1 * clamp(1.6rem, 4vw, 3.2rem) - 2.2rem); }
+    }
+  }
+
+  // CV-style ruled box with a pink tab down the left edge, mirrored, opposite tilt
+  &--two {
+    border: 1.5px solid $ink;
+    transform: rotate(1deg);
+    margin-left: 3%;
+    padding-left: calc(clamp(1.6rem, 4vw, 3.2rem) + 0.6rem);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -1.5px;
+      top: -1.5px;
+      bottom: -1.5px;
+      width: 0.8rem;
+      background: $magenta;
+    }
+
+    @include respond-to('large') {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      grid-template-areas: "tags head" "tags go";
+    }
+  }
+}
+
+// funding pointer: CV-style ruled callout with a pink tab
+.cc-fund {
+  position: relative;
+  margin: 5rem 0 0 auto;
+  max-width: 34rem;
+  padding: 1.4rem 1.6rem 1.6rem 2.2rem;
+  border: 1.5px solid $ink;
+  box-shadow: 10px 10px 0 $magenta;
+  transform: rotate(-2deg);
+
+  @include respond-to('medium') { margin-right: 6%; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5px;
+    top: -1.5px;
+    bottom: -1.5px;
+    width: 0.7rem;
+    background: $magenta;
+  }
+
+  &__label { margin: 0 0 0.5rem; @include cc-mono; color: $magenta; }
+  &__line {
+    margin: 0 0 1rem;
+    font: 600 clamp(1.5rem, 2.6vw, 2.1rem)/1.08 $font-display;
+    letter-spacing: -0.04em;
+  }
+  &__link {
+    display: inline-block;
+    font: italic 400 1.25rem/1.3 $font-display;
+    color: $ink;
+    text-decoration: underline;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+}
+
+// lead testimonial straight after the routes: pink slip, cream shadow
+.cc-proof {
+  margin-top: 6.5rem;
+  margin-bottom: 1rem;
+  transform: rotate(1.5deg);
+  p { max-width: 26ch; font-size: clamp(1.8rem, 3.8vw, 3.3rem); line-height: 1.02; }
+}
+
+body.poster-coaching .slash { margin-top: 7rem; margin-bottom: 5rem; }
+
+// ─── FINAL CTA ───────────────────────────────────────────────────────────────
+.cc-final {
+  margin-top: 5rem;
+
+  &__line {
+    margin: 0;
+    max-width: 18ch;
+    font: 700 clamp(2.4rem, 6.4vw, 5.6rem)/0.98 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.05em;
+    word-spacing: 0.08em;
+    text-wrap: balance;
+
+    mark {
+      display: inline;
+      background: none;
+      color: $magenta;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6rem 2.2rem;
+    margin-top: 3rem;
+
+    @include respond-to('medium') { margin-left: 8%; }
+  }
+}
+
+@media (max-width: 767px) {
+  .cc-hero__title .cond { font-size: 21vw; }
+  .cc-hero__title mark { font-size: 17vw; }
+  .cc-hero__sub { font-size: 1.45rem; margin-top: 1.8rem; }
+  .cc-hero__kicker span { display: block; margin-top: 0.3rem; }
+  .cc-hero__actions { margin-top: 2.2rem; gap: 1.4rem; }
+  .cc-hero__art { width: 66%; margin: 3.4rem 0 3.6rem 8%; }
+  .cc-stamp { left: auto; right: -14%; bottom: -2.6rem; }
+  .cc-hero .sticker, .cc-final .sticker { font-size: 1.2rem; padding: 1.2rem 1.8rem; }
+  .cc-route { padding: 1.6rem 1.3rem 1.8rem; }
+  .cc-route--one { margin-right: 0; }
+  .cc-route__cta { white-space: nowrap; letter-spacing: 0.06em; padding: 0.95rem 1.1rem 1rem; }
+  .cc-route--two { margin-left: 0; }
+  .cc-route__title { font-size: 11vw; }
+  .cc-fund { margin-top: 4rem; margin-right: 2%; }
+  .cc-final__line { font-size: 12vw; }
+  .cc-routes .mega { margin-top: 2.6rem; margin-bottom: 3rem; }
+}

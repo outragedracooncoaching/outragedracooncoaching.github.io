@@ -1,47 +1,94 @@
 ---
-layout: info_page
+layout: poster
+body_class: poster-home poster-coaching
+show_cta: false
+subtitle: false
 permalink: /coaching/
 title: No-bullshit coaching for engineering managers and folks in tech
-display_title: No-bullshit coaching
-title_sub: pick your adventure.
 description: Coaching for engineering managers and folks in tech from a VP Engineering and ILM-certified executive coach. Lived-experience support for neurodivergent, autistic, ADHD, queer and disabled people.
 ---
-<strong>All sessions are remote 1:1, by video or phone.</strong>
 
-<p>No-bullshit coaching for the messy, human, hard parts of working in tech. From someone who has been in almost every situation this work takes you to.</p>
+{% assign contact_url = "mailto:outragedracooncoaching@gmail.com?subject=Coaching%20Enquiry&body=Hi%20Val%2C%20I%27d%20like%20to%20book%20a%201%3A1%20coaching%20session." %}
 
-<p>I help you work out what is actually going on, what matters, and what the hell to do next.</p>
+<div class="poster">
 
-<p class="pull-quote">You can get training from someone who has read about management. Or from someone who has lived it.</p>
+<section class="cc-hero" aria-labelledby="hero-title">
+  <p class="cc-hero__kicker">1:1 coaching <span>&middot; Outraged Racoon Coaching&reg;</span></p>
+  <h1 id="hero-title" class="cc-hero__title"><span class="cond">No-bullshit</span> <em><mark>coaching</mark></em></h1>
+  <p class="cc-hero__sub">for the messy, human, <em>hard parts</em> of working in tech. From someone who has been in almost every situation this work takes you to.</p>
 
-<h2 class="sr-only">Pick the one that feels closest</h2>
+  <div class="cc-hero__art">
+    <figure class="taped cc-hero__photo">
+      <img src="/assets/images/brand-images/Me.webp" alt="Val smiling in a garden" width="600" height="600" fetchpriority="high" decoding="async">
+    </figure>
+    <p class="cc-stamp"><small>All sessions are</small> <b>remote 1:1,</b> <small>by video or phone.</small></p>
+  </div>
 
-<div class="audience-grid">
-  <section class="audience-panel audience-panel--manager" id="new-manager-support">
-    <p class="audience-label">New and growing managers</p>
-    <h3><a href="/coaching/engineering-managers/">I'm a manager now. Help!</a></h3>
-    <ul class="audience-panel__tags">
+  <div class="cc-hero__actions">
+    <a class="sticker" data-goatcounter-click="coaching-hero" href="{{ contact_url }}">Get in touch</a>
+    <a class="cc-jump" href="#routes">Or pick your adventure <span aria-hidden="true">↓</span></a>
+  </div>
+</section>
+
+<section class="cc-routes" id="routes" aria-labelledby="routes-title">
+  <h2 id="routes-title" class="mega mega--mix underscore"><em>Pick the one that</em> <span class="cond">feels closest.</span></h2>
+
+  <article class="cc-route cc-route--one" id="new-manager-support">
+    <div class="cc-route__head">
+      <p class="cc-route__label"><span class="cc-route__num" aria-hidden="true">01</span> New and growing managers</p>
+      <h3 class="cc-route__title"><a href="/coaching/engineering-managers/">I'm a manager now. <mark>Help!</mark></a></h3>
+      <p class="cc-route__keeper">There's no undo button for people! You're in the right place to get the support you need to stop fretting at 2 in the morning.</p>
+    </div>
+    <ul class="cc-route__tags" aria-label="What we work on">
       <li>Feedback and hard conversations</li>
       <li>Messy people stuff</li>
       <li>Your first hire, fire, or reorg</li>
       <li>Managing up</li>
       <li>Growing into Senior EM/Head of Engineering</li>
     </ul>
-    <p class="audience-panel__keeper">There's no undo button for people! You're in the right place to get the support you need to stop fretting at 2 in the morning.</p>
-    <p><a class="pricing-cta" href="/coaching/engineering-managers/">Help me manage humans</a></p>
-  </section>
+    <p class="cc-route__go"><a class="cc-route__cta" href="/coaching/engineering-managers/">Help me manage humans</a></p>
+  </article>
 
-  <section class="audience-panel audience-panel--coaching">
-    <p class="audience-label">For folks in tech</p>
-    <h3><a href="/coaching/folks-in-tech/">I want more power, more credit, and less bullshit</a></h3>
-    <ul class="audience-panel__tags">
+  <article class="cc-route cc-route--two">
+    <div class="cc-route__head">
+      <p class="cc-route__label"><span class="cc-route__num" aria-hidden="true">02</span> For folks in tech</p>
+      <h3 class="cc-route__title"><a href="/coaching/folks-in-tech/">I want more power, more credit, and <mark>less bullshit</mark></a></h3>
+      <p class="cc-route__keeper">Especially if you're neurodivergent, queer, disabled, or done making yourself easier to digest.</p>
+    </div>
+    <ul class="cc-route__tags" aria-label="What we work on">
       <li>Career decisions and crossroads</li>
       <li>A redundancy and what's next</li>
       <li>Burnout, masking, visibility</li>
       <li>Dealing with your manager/peers</li>
       <li>Imposter syndrome</li>
     </ul>
-    <p class="audience-panel__keeper">Especially if you're neurodivergent, queer, disabled, or done making yourself easier to digest.</p>
-    <p><a class="pricing-cta" href="/coaching/folks-in-tech/">Help me get unstuck</a></p>
-  </section>
+    <p class="cc-route__go"><a class="cc-route__cta" href="/coaching/folks-in-tech/">Help me get unstuck</a></p>
+  </article>
+
+</section>
+
+<blockquote class="proof cc-proof"><p>"She is authentic, tough, compassionate, and <mark>absolutely will not give you an easy ride.</mark> I have learnt more from working with Val than I ever thought possible."</p><footer>— Olwen Milne, Senior Engineering Manager @ Oak National Academy</footer></blockquote>
+
+<div class="cc-fund-wrap">
+<aside class="cc-fund" aria-label="Funding">
+  <p class="cc-fund__label">How to fund coaching</p>
+  <p class="cc-fund__line">There's a good chance someone else should be paying for this.</p>
+  <a class="cc-fund__link" href="/coaching/funding/">Employer L&amp;D or Access to Work <span aria-hidden="true">→</span></a>
+</aside>
+</div>
+
+<p class="slash">You can get training from someone who has read about management. <mark>Or from someone who has lived it.</mark></p>
+
+{% include credibility-strip.html %}
+
+<section class="cc-final" aria-label="Get in touch">
+  <p class="cc-final__line">I help you work out what is actually going on, what matters, and <mark>what the hell to do next.</mark></p>
+  <div class="cc-final__actions">
+    <a class="sticker" data-goatcounter-click="coaching-footer" href="{{ contact_url }}">Get in touch</a>
+    <p class="hero__next">Send me a sentence or two about what's going on. I'll reply and tell you honestly whether I can help.</p>
+  </div>
+</section>
+
+<p class="sign-off" aria-hidden="true">Outraged <mark>Racoon.</mark></p>
+
 </div>
