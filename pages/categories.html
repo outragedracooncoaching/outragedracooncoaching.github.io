@@ -34,7 +34,7 @@ description: Browse no-bullshit writing on leadership, management, hiring, neuro
   <section id="posts-{{ category_name | slugize }}" class="hidden bl-catposts">
     <div class="bl-cathead">
       <p class="bl-cathead__count">{{ category[1].size }} {% if category[1].size == 1 %}post{% else %}posts{% endif %}</p>
-      <h1 class="bl-cathead__title category-name"><span class="cond">{{ category_name | replace: '-', ' ' }}</span></h1>
+      <h2 class="bl-cathead__title category-name"><span class="cond">{{ category_name | replace: '-', ' ' }}</span></h2>
     </div>
     <ul class="bl-list">
       {%- for post in site.categories[category_name] %}

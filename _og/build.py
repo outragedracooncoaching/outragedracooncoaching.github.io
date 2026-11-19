@@ -33,3 +33,11 @@ for p in PAGES:
         f"--screenshot={out}", f"file://{f}"], check=True, capture_output=True)
     f.unlink()
     print(out)
+
+# LinkedIn profile banner, 1584x396 (profile photo covers bottom-left, so content sits right of x=480)
+b = root/"_og/out-banner.html"
+b.write_text((root/"_og/banner.html").read_text().replace("ROOT", str(root)))
+out = root/"assets/images/og/linkedin-banner.png"
+subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
+    "--window-size=1584,396", "--virtual-time-budget=8000", f"--screenshot={out}", f"file://{b}"], check=True, capture_output=True)
+b.unlink(); print(out)
