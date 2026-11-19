@@ -1,8 +1,8 @@
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // CALM MODE  (:root[data-calm], toggled in the Display menu)
-// The poster as a bare printed-magazine page: one typewriter-rhythm font built
-// for legibility (Atkinson Hyperlegible Mono), one ragged-right column, hairline
-// rules, a small masthead. No tilts, shadows, tape, stickers, caps or motion.
+// The poster as a bare printed-magazine page: a proportional body built for
+// legibility (Atkinson Hyperlegible Next), its mono sister for the masthead,
+// labels and buttons, one ragged-right column, hairline rules, a small masthead. No tilts, shadows, tape, stickers, caps or motion.
 //
 // These are GENERIC rules on purpose: wipe everything, then set a small type
 // system. Don't add per-component overrides unless a page actually breaks;
@@ -10,13 +10,18 @@
 // Imported last.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-$calm-font: 'Atkinson Hyperlegible Mono', ui-monospace, Menlo, monospace;
+$calm-font: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+$calm-mono: 'Atkinson Hyperlegible Mono', ui-monospace, Menlo, monospace;
 $calm-zone: 'body > header, main, body > footer';
 $calm-rule: 1px solid fade($text, 0.3);
-$calm-measure: 62ch;
+$calm-measure: 38rem;
 
 :root[data-calm] {
   scroll-behavior: auto;
+  // Full-strength cream on charcoal glares in a long read; soften it in dark
+  // only (still far above AA). Light keeps full charcoal.
+  --calm-text: #{$text};
+  &:not([data-theme="light"]) { --calm-text: #{fade($text, 0.86)}; }
 
   body::before { display: none; }   // grain overlay
 
@@ -47,7 +52,7 @@ $calm-measure: 62ch;
       white-space: normal !important;
       text-overflow: clip !important;
       background: none !important;
-      color: $text !important;
+      color: var(--calm-text) !important;
       border: 0 !important;
       border-radius: 0 !important;
       position: static !important;
@@ -81,11 +86,15 @@ $calm-measure: 62ch;
       align-self: auto !important;
       gap: 0 !important;
     }
+    // Decorative outlines go (stamps); focus rings stay
+    & :not(:focus-visible) { outline: 0 !important; }
+    // Inline-flex badges (credibility strip) would run together on one line
+    & .credibility-badge { display: block !important; }
     // Running text never flexes: a flex <p> splits words onto separate lines
     & :is(p, blockquote, figcaption, dd, dt) { display: block !important; }
     // Highlights and pink boxes become plain words again (inline-block lets
     // a line break strand the next comma)
-    & :is(p, li, h1, h2, h3, h4) :is(span, mark, em, strong, b, i, s, del, cite) { display: inline !important; }
+    & :is(p, li, h1, h2, h3, h4) :is(span, mark, em, strong, b, i, s, del, cite, small) { display: inline !important; }
 
     // Upright everywhere except short emphasis: long italic mono is hard to read
     & *:not(:is(em, i)) { font-style: normal !important; }
@@ -133,16 +142,17 @@ $calm-measure: 62ch;
     font-size: 1.05rem !important;
     line-height: 1.75 !important;
 
-    h1 { font-size: 1.75rem !important; line-height: 1.3 !important; font-weight: 700 !important; margin: 0 0 1.4rem !important; }
+    h1 { font-size: 2.4rem !important; line-height: 1.15 !important; font-weight: 700 !important; margin: 0 0 1.2rem !important; text-wrap: balance; }
     h2 {
-      font-size: 1.3rem !important;
-      line-height: 1.35 !important;
+      font-size: 1.6rem !important;
+      line-height: 1.25 !important;
+      text-wrap: balance;
       font-weight: 700 !important;
       margin: 3rem 0 1rem !important;
       padding-top: 1.4rem !important;
       border-top: $calm-rule !important;
     }
-    h3, h4 { font-size: 1.05rem !important; line-height: 1.5 !important; font-weight: 700 !important; margin: 1.8rem 0 0.4rem !important; }
+    h3, h4 { font-size: 1.2rem !important; line-height: 1.4 !important; font-weight: 700 !important; margin: 1.8rem 0 0.5rem !important; }
     // Inline bits inside a heading (pink boxes, condensed caps) read as one line
     :is(h1, h2, h3, h4) * { display: inline !important; font-weight: inherit !important; }
 
@@ -152,7 +162,18 @@ $calm-measure: 62ch;
     li { display: list-item !important; margin-bottom: 0.5rem !important; }
     li::marker { color: $text; }
 
-    section, article, aside { display: block !important; margin-top: 1.6rem !important; }
+    section, article, aside { display: block !important; margin-top: 2.2rem !important; }
+    // A box's first heading shouldn't double the gap above it
+    :is(section, article, aside, div) > :is(h3, h4):first-child { margin-top: 0 !important; }
+    // Links that ARE headings: the heading size says "click me"; keep a quiet underline
+    :is(h1, h2, h3, h4) a { text-decoration-thickness: 1px !important; text-decoration-color: currentColor !important; }
+
+    // Typewriter voice for the small stuff: labels, kickers, citations, captions
+    :is([class*="label"], [class*="kicker"], [class*="eyebrow"], figcaption, cite, blockquote footer) {
+      font-family: $calm-mono !important;
+      font-size: 0.85rem !important;
+      &, & * { font-family: $calm-mono !important; }
+    }
 
     blockquote {
       padding-left: 2ch !important;
@@ -183,17 +204,23 @@ $calm-measure: 62ch;
 
     // Buttons read as a typed instruction in a thin box
     a.button, a.header-cta, a.sticker, a.hs-pay__link, .button, button:not(.font-scale-btn), [class*="btn"], [class*="cta"] a, a[class*="cta"] {
-      display: inline-block !important;
+      // table: shrink-wraps like inline-block but sits on its own line, so
+      // the text after a button (rating lines) doesn't wrap around it
+      display: table !important;
       padding: 0.35rem 0.9ch !important;
-      border: 1px solid $text !important;
+      border: 1px solid var(--calm-text) !important;
       text-decoration: none !important;
+      font-family: $calm-mono !important;
       font-weight: 700 !important;
       margin: 0.2rem 0 1.2rem !important;
+      * { font-family: $calm-mono !important; }
     }
   }
 
   // ─── 4. Masthead and colophon ────────────────────────────────────────────
   body > header {
+    font-family: $calm-mono !important;
+    * { font-family: $calm-mono !important; }
     max-width: $calm-measure !important;
     margin: 1.5rem auto 0 !important;
     padding: 0 1rem 0.6rem !important;
@@ -205,6 +232,7 @@ $calm-measure: 62ch;
   }
 
   body > footer {
+    &, * { font-family: $calm-mono !important; }
     max-width: $calm-measure !important;
     margin: 0 auto !important;
     padding: 1.4rem 1rem 3rem !important;
@@ -213,5 +241,45 @@ $calm-measure: 62ch;
     line-height: 1.7 !important;
 
     nav { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; gap: 0 2ch !important; margin-top: 0.6rem !important; }
+  }
+
+  // ─── 5. Main nav and Display button: plain typed links ───────────────────
+  body > nav {
+    max-width: $calm-measure !important;
+    justify-content: flex-start !important;
+    gap: 0.2rem 1.6ch !important;
+    padding: 1.4rem 1rem 0 !important;
+    font-family: $calm-mono !important;
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+
+    > a {
+      padding: 0 !important;
+      color: var(--calm-text) !important;
+      background: none !important;
+      text-decoration: none !important;
+      &:hover, &.active-link {
+        background: none !important;
+        color: var(--calm-text) !important;
+        text-decoration: underline !important;
+        text-decoration-color: $magenta !important;
+        text-decoration-thickness: 2px !important;
+        text-underline-offset: 0.22em !important;
+      }
+    }
+    .display-settings { margin-left: auto !important; &::before { display: none !important; } }
+    .display-settings-toggle {
+      background: none !important;
+      color: var(--calm-text) !important;
+      border: 1px solid fade($text, 0.4) !important;
+      box-shadow: none !important;
+      transform: none !important;
+      font-family: $calm-mono !important;
+      font-weight: 400 !important;
+      letter-spacing: normal !important;
+      text-transform: none !important;
+    }
   }
 }
