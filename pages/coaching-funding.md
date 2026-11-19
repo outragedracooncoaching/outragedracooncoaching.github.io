@@ -6,7 +6,7 @@ subtitle: false
 permalink: /coaching/funding/
 title: "How to fund coaching: employer L&D and Access to Work"
 display_title: How to fund coaching
-description: How to fund coaching through L&D or Access to Work. No-bullshit support from an ILM-certified executive coach and CTO/VP Engineering.
+description: "Get your employer's L&D budget or Access to Work to pay for coaching. Scripts and steps from a VP Engineering and ILM-certified coach."
 ---
 
 <div class="poster info">
@@ -66,7 +66,7 @@ description: How to fund coaching through L&D or Access to Work. No-bullshit sup
         <p>Happy to talk through it if useful. Let me know if you need anything from me to get this approved.</p>
         <p>Thanks,<br><span class="fill-blank">[Your name]</span></p>
       </div>
-      <p class="fund-email__send"><a class="fund-btn" href="mailto:?subject=L%26D%20budget%20request%20for%20coaching&body=Hi%20%5BName%5D%2C%0A%0AI%27d%20like%20to%20use%20my%20L%26D%20budget%20for%20a%20coaching%20session.%20I%27ve%20found%20a%20coach%20I%20think%20would%20be%20genuinely%20useful%3A%20Val%20Dryden%20at%20Outraged%20Racoon%20Coaching.%20She%27s%20an%20ILM-certified%20executive%20coach%20and%20former%20CTO%2FVP%20Engineering%20with%20nearly%20two%20decades%20in%20tech%2C%20so%20she%20understands%20this%20industry%20and%20the%20specific%20situations%20I%27m%20navigating.%0A%0AA%20single%20session%20is%20%C2%A3350%2C%20which%20fits%20within%20my%20L%26D%20allowance.%20I%27m%20looking%20at%20it%20as%20a%20way%20to%20%5Bget%20sharper%20on%20X%20%2F%20work%20through%20Y%20%2F%20develop%20faster%20in%20Z%5D.%0A%0AHappy%20to%20talk%20through%20it%20if%20useful.%20Let%20me%20know%20if%20you%20need%20anything%20from%20me%20to%20get%20this%20approved.%0A%0AThanks%2C%0A%5BYour%20name%5D">Send this to your manager</a> <span>Opens in your email, ready to edit and send.</span></p>
+      <p class="fund-email__send"><a class="fund-btn" href="mailto:?subject=L%26D%20budget%20request%20for%20coaching&body=Hi%20%5BName%5D%2C%0A%0AI%27d%20like%20to%20use%20my%20L%26D%20budget%20for%20a%20coaching%20session.%20I%27ve%20found%20a%20coach%20I%20think%20would%20be%20genuinely%20useful%3A%20Val%20Dryden%20at%20Outraged%20Racoon%20Coaching.%20She%27s%20an%20ILM-certified%20executive%20coach%20and%20practising%20VP%20Engineering%20with%20nearly%20two%20decades%20in%20tech%2C%20so%20she%20understands%20this%20industry%20and%20the%20specific%20situations%20I%27m%20navigating.%0A%0AA%20single%20session%20is%20%C2%A3350%2C%20which%20fits%20within%20my%20L%26D%20allowance.%20I%27m%20looking%20at%20it%20as%20a%20way%20to%20%5Bget%20sharper%20on%20X%20%2F%20work%20through%20Y%20%2F%20develop%20faster%20in%20Z%5D.%0A%0AHappy%20to%20talk%20through%20it%20if%20useful.%20Let%20me%20know%20if%20you%20need%20anything%20from%20me%20to%20get%20this%20approved.%0A%0AThanks%2C%0A%5BYour%20name%5D">Send this to your manager</a> <span>Opens in your email, ready to edit and send.</span></p>
     </article>
 
     <article class="fund-email fund-email--two">
@@ -79,7 +79,7 @@ description: How to fund coaching through L&D or Access to Work. No-bullshit sup
         <p>Happy to talk through it if useful. Let me know if you need anything from me to get this approved.</p>
         <p>Thanks,<br><span class="fill-blank">[Your name]</span></p>
       </div>
-      <p class="fund-email__send"><a class="fund-btn" href="mailto:?subject=L%26D%20budget%20request%20for%20coaching&body=Hi%20%5BName%5D%2C%0A%0AI%27d%20like%20to%20use%20my%20L%26D%20budget%20toward%20a%20block%20of%20three%20coaching%20sessions%20with%20Val%20Dryden%20at%20Outraged%20Racoon%20Coaching.%20She%27s%20an%20ILM-certified%20executive%20coach%20and%20former%20CTO%2FVP%20Engineering%20with%20nearly%20two%20decades%20in%20tech.%0A%0AThe%20block%20is%20%C2%A3800%20in%20total.%20I%27m%20looking%20at%20this%20as%20a%20way%20to%20%5Bget%20support%20on%20X%20%2F%20develop%20faster%20in%20Y%20%2F%20work%20through%20Z%5D%20over%20the%20next%20few%20months.%0A%0AHappy%20to%20talk%20through%20it%20if%20useful.%20Let%20me%20know%20if%20you%20need%20anything%20from%20me%20to%20get%20this%20approved.%0A%0AThanks%2C%0A%5BYour%20name%5D">Send this to your manager</a> <span>Opens in your email, ready to edit and send.</span></p>
+      <p class="fund-email__send"><a class="fund-btn" href="mailto:?subject=L%26D%20budget%20request%20for%20coaching&body=Hi%20%5BName%5D%2C%0A%0AI%27d%20like%20to%20use%20my%20L%26D%20budget%20toward%20a%20block%20of%20three%20coaching%20sessions%20with%20Val%20Dryden%20at%20Outraged%20Racoon%20Coaching.%20She%27s%20an%20ILM-certified%20executive%20coach%20and%20practising%20VP%20Engineering%20with%20nearly%20two%20decades%20in%20tech.%0A%0AThe%20block%20is%20%C2%A3800%20in%20total.%20I%27m%20looking%20at%20this%20as%20a%20way%20to%20%5Bget%20support%20on%20X%20%2F%20develop%20faster%20in%20Y%20%2F%20work%20through%20Z%5D%20over%20the%20next%20few%20months.%0A%0AHappy%20to%20talk%20through%20it%20if%20useful.%20Let%20me%20know%20if%20you%20need%20anything%20from%20me%20to%20get%20this%20approved.%0A%0AThanks%2C%0A%5BYour%20name%5D">Send this to your manager</a> <span>Opens in your email, ready to edit and send.</span></p>
     </article>
   </div>
 </section>
