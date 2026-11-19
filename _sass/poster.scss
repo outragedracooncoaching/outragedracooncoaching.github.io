@@ -155,6 +155,22 @@ body.poster-home {
     letter-spacing: -0.01em;
   }
 
+  &__price {
+    flex-basis: 100%;
+    margin: -0.4rem 0 0;
+    font: italic 400 1.1rem/1.4 $font-display;
+    letter-spacing: -0.01em;
+    b { font-style: normal; font-weight: 700; }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-color: $magenta;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+      &:hover, &:focus-visible { color: $magenta; }
+    }
+  }
+
   // creds: a sticker strip slapped right across the page (full bleed),
   // set like the CV's role line. Tilts against the pull-quote band.
   &__tag {
