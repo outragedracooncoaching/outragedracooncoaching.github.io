@@ -155,30 +155,6 @@ body.poster-home {
     letter-spacing: -0.01em;
   }
 
-  .sticker {
-    display: inline-block;
-    padding: 1.2rem 2.2rem 1.25rem;
-    background: $magenta;
-    color: $cream;
-    font: 800 clamp(1.05rem, 2.2vw, 1.6rem)/1 $font-primary;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transform: rotate(-4deg);
-    box-shadow: 8px 8px 0 $ink;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-
-    &::after { content: ' →'; }
-
-    &:hover,
-    &:focus-visible {
-      color: $cream;
-      transform: rotate(-4deg) translate(3px, 3px);
-      box-shadow: 4px 4px 0 $ink;
-    }
-    &:active { transform: rotate(-4deg) translate(8px, 8px); box-shadow: none; }
-  }
-
   // creds: a sticker strip slapped right across the page (full bleed),
   // set like the CV's role line. Tilts against the pull-quote band.
   &__tag {
@@ -270,6 +246,31 @@ body.poster-home {
       width: calc(#{clamp(12rem, 26vw, 24rem)} + 1rem);
     }
   }
+}
+
+// the main pink button (hero + any page CTA)
+.poster .sticker {
+  display: inline-block;
+  padding: 1.2rem 2.2rem 1.25rem;
+  background: $magenta;
+  color: $cream;
+  font: 800 clamp(1.05rem, 2.2vw, 1.6rem)/1 $font-primary;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: rotate(-4deg);
+  box-shadow: 8px 8px 0 $ink;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &::after { content: ' →'; }
+
+  &:hover,
+  &:focus-visible {
+    color: $cream;
+    transform: rotate(-4deg) translate(3px, 3px);
+    box-shadow: 4px 4px 0 $ink;
+  }
+  &:active { transform: rotate(-4deg) translate(8px, 8px); box-shadow: none; }
 }
 
 // ─── HERO PHOTO (your face on the first screen) ──────────────────────────────
