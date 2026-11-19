@@ -1,11 +1,15 @@
-// ─── Risograph Palette ────────────────────────────────────────────────────────
-$cream:          #f7f2e8;    // uncoated risograph paper
-$ink:            #1c1714;    // warm near-black
-$magenta:        #d91a5e;    // fluorescent pink — the brand colour, non-negotiable
-$teal:           #008c84;    // risograph teal
-$yellow:         #f0c000;    // risograph yellow
-$orange:         #c8421a;    // risograph orange (darkened for AA contrast with cream)
-$lavender:       #6f4f94;    // soft purple/lavender (darkened for AA contrast with cream)
+// ─── Dark palette (matches CV, outragedpinkracoon.github.io, Roots and Roses) ─
+// Naming note: $cream is now the SURFACE (charcoal) and $ink is now the TEXT
+// colour (warm cream). Names are kept from the old light riso theme so ~300
+// existing usages flip correctly: "$ink text on $cream bg" stays "text on bg",
+// and "$cream text on a pink fill" becomes charcoal on pink, as on the CV.
+$cream:          #191917;    // charcoal surface
+$ink:            #eeeadd;    // warm cream text
+$magenta:        #ff66a5;    // the one accent: soft pink
+$teal:           $magenta;   // single-accent: secondary inks collapse to pink
+$yellow:         $magenta;
+$orange:         $magenta;
+$lavender:       $magenta;
 
 // ─── Compatibility aliases ─────────────────────────────────────────────────────
 // Old variable names kept so post/posts/categories scss still compile
@@ -33,4 +37,4 @@ $gradient-title: $magenta;
 // ─── Typography ───────────────────────────────────────────────────────────────
 $font-display:   'Fraunces', serif;          // site title + h1 — editorial inky serif
 $font-primary:   'Bricolage Grotesque', sans-serif; // h2–h6, nav, labels — hand-set irregular grotesque
-$font-secondary: 'Space Grotesk', sans-serif; // body — warm readable
+$font-secondary: 'Source Serif 4', Georgia, serif; // body — editorial serif, matches the CV

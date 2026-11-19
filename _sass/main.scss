@@ -111,7 +111,7 @@ h1 {
   .title-sub {
     display: block;
     font-size: 0.55em;
-    color: rgba($teal, 0.6);
+    color: rgba($ink, 0.78);
     text-shadow: none;
     letter-spacing: 0.02em;
     margin-top: 0.15em;
@@ -119,29 +119,40 @@ h1 {
   }
 }
 
-// h2 — full-bleed banner with diagonal hatch overlay
+// h2 — editorial heading with a thick tilted pink "slash" rule underneath
+// (the rulebook / CV heading move), replacing the old full-bleed banner.
 h2 {
-  font-family: $font-primary;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  font-size: 1.9rem;
-  color: $cream;
-  background-color: $magenta;
-  padding: 0.5rem 1.5rem;
-  margin-top: 2.8rem;
-  margin-left: -24px;
-  margin-right: -24px;
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: 900;
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: 0;
+  line-height: 1.1;
+  font-size: 2.1rem;
+  color: $ink;
+  margin: 3.2rem 0 1.4rem;
+  padding: 0 0 0.45rem;
   position: relative;
-  box-shadow: none;
   overflow-wrap: break-word;
   hyphens: auto;
 
-  // links inside the magenta banner must stay readable
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: min(100%, 22rem);
+    height: 7px;
+    background: $magenta;
+    transform: rotate(-0.6deg);
+    transform-origin: left;
+    clip-path: polygon(0 12%, 97% 0, 100% 80%, 3% 100%);
+  }
+
   a {
-    color: $cream;
-    text-decoration-color: rgba($cream, 0.5);
-    &:hover { color: $cream; text-decoration-color: $cream; }
+    color: $ink;
+    text-decoration-color: rgba($ink, 0.4);
+    &:hover { color: $magenta; text-decoration-color: $magenta; }
   }
 }
 
@@ -294,6 +305,19 @@ nav {
 // SITE HEADER — the masthead
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+header .burst {
+  position: absolute;
+  right: -0.2rem;
+  top: -2.1rem;
+  width: clamp(2.4rem, 7vw, 4.6rem);
+  height: auto;
+  color: $magenta;
+  transform: rotate(14deg);
+  pointer-events: none;
+
+  @include respond-to('large') { right: -3.4rem; top: -2.4rem; }
+}
+
 header {
   max-width: map-get($breakpoints, 'large');
   margin: 1.2rem auto 0;
@@ -331,23 +355,23 @@ header {
   }
 
   a {
-    color: $magenta;
+    color: $ink;
     text-decoration: none;
     display: inline-block;
     transition: text-shadow 0.2s ease;
 
     @include respond-to('medium') {
-      // off-register risograph shadow — teal layer shifted down-right
-      text-shadow: 5px 5px 0 rgba($teal, 0.38);
+      // off-register print shadow: cream type, pink layer shifted down-right
+      text-shadow: 5px 5px 0 rgba($magenta, 0.9);
 
       &:hover {
-        text-shadow: 7px 7px 0 rgba($teal, 0.5), -3px -2px 0 rgba($lavender, 0.2);
+        text-shadow: 7px 7px 0 $magenta;
       }
     }
 
     &:hover {
       text-decoration: none;
-      color: $magenta;
+      color: $ink;
     }
   }
 }
@@ -443,11 +467,11 @@ hr {
   font-size: 0.88rem;
   background: darken($magenta, 6%);
   color: $cream;
-  box-shadow: 4px 4px 0 $teal;
+  box-shadow: 4px 4px 0 $ink;
 
   &:hover {
     color: $cream;
-    box-shadow: 6px 6px 0 $teal;
+    box-shadow: 6px 6px 0 $ink;
   }
 }
 
@@ -460,7 +484,7 @@ hr {
   color: $cream;
   padding: 2rem;
   margin: 1.8rem 0 2rem;
-  box-shadow: 10px 10px 0 $teal;
+  box-shadow: 10px 10px 0 $ink;
   transform: rotate(-0.8deg);
 
   @include respond-to('medium') {
@@ -538,8 +562,10 @@ hr {
   grid-template-columns: 1fr;
   gap: 0;
   margin: 1.8rem 0 2.6rem;
-  background: darken($magenta, 6%);
-  box-shadow: 12px 12px 0 $teal;
+  background:
+    linear-gradient($magenta, $magenta) 62% 100% / 30% 9px no-repeat,
+    $cream;
+  border: 1px solid $ink;
   transform: rotate(-0.8deg);
   overflow: hidden;
   clear: both;
@@ -572,7 +598,7 @@ hr {
 
 .home-course__body {
   padding: 1.8rem 1.6rem 2rem;
-  color: $cream;
+  color: $ink;
 
   @include respond-to('medium') { padding: 2.4rem 2.2rem; }
 
@@ -583,7 +609,7 @@ hr {
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba($cream, 0.85);
+    color: rgba($ink, 0.85);
   }
 
   .home-course__title {
@@ -597,16 +623,16 @@ hr {
     padding: 0;
     border-left: none;
     background: none;
-    color: $cream;
+    color: $magenta;
 
     @include respond-to('medium') { font-size: 2.9rem; }
 
     a {
       color: inherit;
-      text-decoration-color: rgba($cream, 0.4);
+      text-decoration-color: rgba($ink, 0.4);
 
-      &:hover { color: inherit; text-decoration-color: $cream; }
-      &:focus-visible { outline-color: $cream; }
+      &:hover { color: inherit; text-decoration-color: $ink; }
+      &:focus-visible { outline-color: $ink; }
     }
   }
 
@@ -614,7 +640,7 @@ hr {
     margin: 0 0 1rem;
     font-size: 1.05rem;
     line-height: 1.55;
-    color: rgba($cream, 0.95);
+    color: rgba($ink, 0.95);
   }
 
   .home-course__rating {
@@ -625,12 +651,12 @@ hr {
     font-family: $font-primary;
     font-size: 0.95rem;
     font-weight: 800;
-    color: $cream;
+    color: $ink;
 
     .home-course__stars {
       font-size: 1.2rem;
       line-height: 1;
-      color: $yellow;
+      color: $magenta;
       letter-spacing: 0.08em;
     }
   }
@@ -643,18 +669,18 @@ hr {
     margin: 0;
 
     .button {
-      background: $cream;
-      color: $magenta;
+      background: $magenta;
+      color: $cream;
       box-shadow: 4px 4px 0 $ink;
 
-      &:hover { color: $magenta; box-shadow: 6px 6px 0 $ink; }
+      &:hover { color: $cream; box-shadow: 6px 6px 0 $ink; }
     }
 
     .home-course__note {
       font-family: $font-primary;
       font-size: 0.82rem;
       font-weight: 700;
-      color: rgba($cream, 0.82);
+      color: rgba($ink, 0.82);
     }
   }
 }
@@ -843,37 +869,38 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     }
   }
 
-  // each card gets a solid colour background + contrasting shadow + its own tilt
+  // cards: charcoal box, thin cream outline, pink slash along the bottom edge.
+  // Small tilt per card; hover straightens (as on outragedpinkracoon.github.io).
   @for $i from 1 through 4 {
-    $bg:  nth($_card-accents, $i);
-    $shadow: nth($_card-shadows, $i);
     $rot: nth($_card-rotations, $i);
     &:nth-child(#{$i}) {
-      background: $bg;
-      box-shadow: 8px 8px 0 $shadow;
-      color: $cream;
-      transform: rotate($rot);
+      background:
+        linear-gradient($magenta, $magenta) 6% 100% / 34% 7px no-repeat,
+        $cream;
+      border: 1px solid $ink;
+      box-shadow: none;
+      color: $ink;
+      transform: rotate($rot * 0.45);
 
       &:hover {
-        transform: rotate(0deg) translate(-3px, -3px);
-        box-shadow: 12px 12px 0 $shadow;
+        transform: rotate(0deg) translate(-2px, -2px);
       }
 
-      h3 { color: $cream; }
+      h3 { color: $ink; }
 
-      p { color: rgba($cream, 0.85); }
+      p { color: rgba($ink, 0.88); }
 
       .card-cta {
-        color: $cream;
-        border-bottom: 2px solid rgba($cream, 0.7);
+        color: $magenta;
+        border-bottom: 2px solid $magenta;
         padding-bottom: 1px;
 
         &:hover {
-          border-bottom-color: $cream;
+          color: $ink;
+          border-bottom-color: $ink;
           transform: translate(-1px, -1px);
         }
       }
-
     }
   }
 
@@ -885,27 +912,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
       transition: none;
 
       &:hover {
-        transform: rotate($rot);
-        box-shadow: 8px 8px 0 $shadow;
+        transform: rotate($rot * 0.45);
       }
     }
-  }
-
-  // yellow card: ink text for sufficient contrast
-  &:nth-child(4) {
-    color: $ink;
-    h3 { color: $ink; }
-    p { color: rgba($ink, 0.8); }
-    .card-cta {
-      color: $ink;
-      border-bottom-color: rgba($ink, 0.7);
-
-      &:hover {
-        border-bottom-color: $ink;
-        transform: translate(-1px, -1px);
-      }
-    }
-    h3 a:focus-visible { outline-color: $ink; }
   }
 }
 
@@ -2913,7 +2922,7 @@ footer {
 
 // Code pill: quiet monospace, readable on cream or magenta
 .sale-code {
-  font-family: 'Space Grotesk', monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -3121,3 +3130,6 @@ main table:not(.pricing-table) {
     aspect-ratio: 3 / 4;
   }
 }
+
+// Poster homepage (loaded last so it wins over global element styles)
+@import "poster";

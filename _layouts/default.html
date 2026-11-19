@@ -129,11 +129,11 @@
     <link rel="stylesheet" href='/assets/css/styles.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,144,900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
   </head>
-  <body>
+  <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <nav aria-label="Main navigation">
     <a href='/' {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
@@ -175,7 +175,7 @@
       </div>
     </div>
   </nav>
-  <header><a href='/'>OUTRAGED RACOON COACHING</a></header>
+  <header><svg class="burst" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 4v92M4 50h92M17.5 17.5l65 65M17.5 82.5l65-65" fill="none" stroke="currentColor" stroke-width="12"/></svg><a href='/'>OUTRAGED RACOON COACHING</a></header>
   <main id="main-content">
     {% if page.subtitle %}<p class="page-subtitle">{{ page.subtitle }}</p>{% endif %}
     {% unless page.show_cta == false %}<p class="text-center page-header-cta"><a class="header-cta" href="{{ page.cta_href | default: 'mailto:outragedracooncoaching@gmail.com?subject=Coaching%20Enquiry&body=Hi%20Val%2C%20I%27d%20like%20to%20book%20a%201%3A1%20coaching%20session.' }}">{{ page.cta_label | default: 'Get in touch' }}</a></p>{% endunless %}
