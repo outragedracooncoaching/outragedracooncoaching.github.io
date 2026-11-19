@@ -58,7 +58,7 @@ body.poster-coaching {
 .cc-hero {
   display: grid;
   grid-template-areas: "kicker" "title" "sub" "actions" "art";
-  padding: 1.5rem 0 2rem;
+  padding: 3rem 0 2rem;
 
   @include respond-to('medium') {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);

@@ -29,7 +29,7 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
 .hs-hero {
   display: grid;
   grid-template-areas: "kicker" "title" "sub" "art" "buy" "q";
-  padding: 1.5rem 0 3rem;
+  padding: 3rem 0 3rem;
 
   @include respond-to('large') {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
