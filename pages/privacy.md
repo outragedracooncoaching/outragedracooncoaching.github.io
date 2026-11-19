@@ -38,7 +38,9 @@ Contact: <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoachin
 
 <h3>Enquiries</h3>
 
-<p>If you contact us by email, we collect your name, email address, and anything you choose to share. We use this to respond to you and, if relevant, to follow up about services.</p>
+<p>If you contact us by email or through the <a href="/contact-form/">contact form</a>, we collect your name, email address, and anything you choose to share. We use this to respond to you and, if relevant, to follow up about services.</p>
+
+<p>The contact form also records which coaching package you picked (if any), which button you clicked to reach the form, and which page on this site you came from. We use this to understand which pages help people get in touch. Form enquiries are stored in a private Google Sheet in our Google account and sent to our inbox by email. The form does not use cookies. It includes an automated spam check that does not collect anything extra about you.</p>
 
 <h3>Coaching clients</h3>
 
@@ -66,11 +68,11 @@ Contact: <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoachin
 
 <h2>Data sharing</h2>
 
-<p>We do not sell your data. We may use trusted service providers (email, payment processing) who handle data on our behalf under appropriate data protection agreements. Some providers may process data outside the UK; where they do, appropriate safeguards apply under UK GDPR.</p>
+<p>We do not sell your data. We use trusted service providers to run the business, including Google (Gmail and Google Sheets) for email and contact form enquiries, and payment processors. They handle data on our behalf under appropriate data protection agreements. Some providers may process data outside the UK; where they do, appropriate safeguards apply under UK GDPR.</p>
 
 <h2>How long we keep it</h2>
 
-<p>Enquiry data is retained for a reasonable follow-up period. Client session notes and records are held for up to six months after the coaching relationship ends, in line with our <a href="/coaching-disclaimer-and-terms/">terms and conditions</a>. Invoice and payment records are kept for six years as required by HMRC. You can request deletion of other data at any time.</p>
+<p>Enquiries that don't lead to coaching are deleted within 12 months. Client session notes and records are held for up to six months after the coaching relationship ends, in line with our <a href="/coaching-disclaimer-and-terms/">terms and conditions</a>. Invoice and payment records are kept for six years as required by HMRC. You can request deletion of other data at any time.</p>
 
 <h2>Your rights</h2>
 
@@ -86,7 +88,7 @@ Contact: <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoachin
 
 <p>We may update this policy from time to time. The current version is always at this URL. Continued use of our services after a change means you accept the updated policy.</p>
 
-<p class="info-updated"><em>Last updated: May 2026</em></p>
+<p class="info-updated"><em>Last updated: November 2026</em></p>
 
 </div>
 </div>
