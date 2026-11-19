@@ -117,11 +117,52 @@ body.poster-blog {
       color: $magenta;
     }
 
+    // vandalised: a statement, marked up in pink marker
     &__intro {
-      margin: 2rem 0 0 7%;
-      max-width: 52ch;
-      font-size: 1.2rem;
-      line-height: 1.7;
+      margin: 2.4rem 0 0 7%;
+      max-width: 22ch;
+      font: 600 clamp(1.7rem, 2.9vw, 2.5rem)/1.22 $font-display;
+      letter-spacing: -0.04em;
+      text-wrap: pretty;
+    }
+  }
+
+  // slapped-on pink box
+  .bl-v-box {
+    display: inline-block;
+    padding: 0 0.14em 0.04em 0.08em;
+    background: $magenta;
+    color: $cream;
+    font-style: italic;
+    font-weight: 500;
+    transform: rotate(-3deg);
+    box-shadow: 4px 4px 0 $ink;
+  }
+
+  // scrawled wavy underline
+  .bl-v-wave {
+    text-decoration: underline wavy $magenta;
+    text-decoration-thickness: 0.07em;
+    text-underline-offset: 0.2em;
+    text-decoration-skip-ink: none;
+  }
+
+  // circled in marker, a bit too fast
+  .bl-v-circle {
+    position: relative;
+    display: inline-block;
+    margin: 0.15em 0 0 0.3em;
+    white-space: nowrap;
+    font-style: italic;
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -0.32em -0.4em -0.28em -0.38em;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'%3E%3Cpath d='M18 14 C 60 2, 160 0, 190 18 C 204 30, 186 52, 120 56 C 60 59, 6 52, 6 34 C 6 20, 30 10, 70 7 C 100 5, 140 6, 160 10' fill='none' stroke='%23ff66a5' stroke-width='3.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+      transform: rotate(-2.5deg);
+      pointer-events: none;
     }
   }
 
@@ -539,7 +580,7 @@ body.poster-blog {
     #cats-intro:not(.hidden) + .bl-cats a { font-size: 0.85rem; }
     .bl-hero__title .cond { font-size: 1.62em; }
     .bl-hero__line, .bl-hero__sub, .bl-hero__intro { margin-left: 0; }
-    .bl-hero__intro { font-size: 1.1rem; }
+    .bl-hero__intro { font-size: 7.2vw; max-width: none; }
 
     .bl-feature { margin-top: 4.5rem; }
     .bl-feature__title { font-size: 12.5vw; }
