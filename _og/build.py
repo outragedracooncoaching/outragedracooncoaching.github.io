@@ -16,7 +16,7 @@ PAGES = [
   dict(slug="home", kicker="1:1 coaching · for the hard parts of tech", l1="No-bullshit", l2="coaching", sub="for engineering managers and folks in tech.", img="scream", foot="Val Dryden · VP Engineering · ILM executive coach"),
   dict(slug="engineering-managers", kicker="Coaching · engineering managers", l1="Engineering managers", size="84", l2="coaching", sub="Because there's no undo button for people.", img="hsiam", foot="Val Dryden · VP Engineering · ILM executive coach"),
   dict(slug="folks-in-tech", kicker="Coaching · folks in tech", l1="Coaching for", l2="folks in tech", sub="More power, more credit, less bullshit.", img="scream", foot="Val Dryden · VP Engineering · ILM executive coach"),
-  dict(slug="course", kicker="Online course · engineering management first aid", l1="Holy shit,", l2="I'm a Manager!", sub="Nobody prepares you for this job.", img="hsiam", foot="★★★★★ Every review · 100+ managers · 52+ lessons · £400"),
+  dict(slug="course", kicker="Online course · engineering management first aid", l1="Holy shit,", l2="I'm a Manager!", sub="Nobody prepares you for this job. <span class=\"pk\">So I wrote the manual.</span>", img="hsiam", foot="★★★★★ Every review · 100+ managers · 52+ lessons · £400"),
 ]
 TPL = (root/"_og/template.html").read_text()
 for p in PAGES:
