@@ -205,7 +205,6 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
 .val-out a.human-link { margin-top: clamp(4rem, 8vw, 7rem); }
 
 @media (max-width: 767px) {
-  .hero--val .hero__title { font-size: 32vw; }
   .val-values .weeds__title { font-size: 15vw; }
 }
 
@@ -318,4 +317,15 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
   text-decoration: underline;
   text-underline-offset: 0.2em;
   &:hover, &:focus-visible { text-decoration-thickness: 3px; }
+}
+
+// hero title: "Who is" shares one line so the stack isn't a tower; "Val?" stays the big pink hit
+.hero--val .hero__title {
+  .t1, .t2 { display: inline-block; vertical-align: baseline; }
+  .t2 { margin-left: 0.18em; transform: rotate(2deg); transform-origin: left bottom; }
+  .t3 { margin-top: 0.12em; }
+  .t3 mark { font-size: 1.25em; }
+}
+@media (max-width: 767px) {
+  .hero--val .hero__title { font-size: 31vw; }
 }
