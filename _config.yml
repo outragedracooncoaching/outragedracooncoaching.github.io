@@ -17,7 +17,7 @@ sale:
   blurb: "Celebrating 3 years of holy shit!"
 # Contact form: the Google Apps Script web app URL (see apps-script/contact-form.gs).
 # Empty = the form shows the email fallback instead of sending.
-contact_form_endpoint: "https://script.google.com/macros/s/AKfycbyQoPWjw_g0S1ZjYehzvqTkzxjOAYyY4keN3vuVxcv6zPQKB4mK_xI-zmvRV7O4Zt2C/exec"
+contact_form_endpoint: "https://script.google.com/macros/s/AKfycbyrSH3RnU_aZeRpKyAheNw72UDzMUXegDzlxouagbVdSyZyvKArv-5YdUXkEGd2QxBc/exec"
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
