@@ -322,7 +322,7 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
 // hero title: "Who is" shares one line so the stack isn't a tower; "Val?" stays the big pink hit
 .hero--val .hero__title {
   .t1, .t2 { display: inline-block; vertical-align: baseline; }
-  .t2 { margin-left: 0.18em; transform: rotate(2deg); transform-origin: left bottom; }
+  .t2 { margin-left: 0.18em; transform: rotate(4.5deg); transform-origin: left bottom; }
   .t3 { margin-top: 0.12em; }
   .t3 mark { font-size: 1.25em; }
 }
