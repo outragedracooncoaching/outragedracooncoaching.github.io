@@ -3185,3 +3185,5 @@ a.human-link {
     svg { transform: translate(0.08em, -0.08em); }
   }
 }
+
+@import "calm-mode";  // last: it flattens everything above

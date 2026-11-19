@@ -125,7 +125,23 @@
       ]
     }
     </script>
-    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
+    <script>
+      // Apply saved Display settings before paint so nothing flashes
+      window.loadCalmFont = function() {
+        if (document.getElementById('calm-font')) return;
+        var l = document.createElement('link');
+        l.id = 'calm-font'; l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,400;0,700;1,400&display=swap';
+        document.head.appendChild(l);
+      };
+      try {
+        var calm = localStorage.getItem('calm') === 'on';
+        // No theme chosen yet? Calm mode defaults to light (a printed page); otherwise dark.
+        var theme = localStorage.getItem('theme') || (calm ? 'light' : 'dark');
+        if (theme === 'light') document.documentElement.dataset.theme = 'light';
+        if (calm) { document.documentElement.dataset.calm = ''; loadCalmFont(); }
+      } catch (e) {}
+    </script>
     <link rel="stylesheet" href='/assets/css/normalize.css'>
     <link rel="stylesheet" href='/assets/css/code-syntax.css'>
     <link rel="stylesheet" href='/assets/css/styles.css'>
@@ -153,6 +169,13 @@
           <div class="theme-options">
             <label><input type="radio" name="theme" value="dark" checked><span>Dark</span></label>
             <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="theme-row">
+          <legend class="font-scale-label">Calm mode</legend>
+          <div class="theme-options">
+            <label><input type="radio" name="calm" value="off" checked><span>Off</span></label>
+            <label><input type="radio" name="calm" value="on"><span>On</span></label>
           </div>
         </fieldset>
         <div class="font-scale-row">
@@ -207,12 +230,28 @@
       var root = document.documentElement;
       function currentTheme() { return root.dataset.theme === 'light' ? 'light' : 'dark'; }
       function syncActive() {
-        toggleBtn.dataset.active = String(scaleIndex !== 2 || currentTheme() === 'light');
+        toggleBtn.dataset.active = String(scaleIndex !== 2 || currentTheme() === 'light' || calmOn());
       }
+      function calmOn() { return 'calm' in root.dataset; }
+      function setTheme(t) {
+        if (t === 'light') { root.dataset.theme = 'light'; } else { delete root.dataset.theme; }
+        document.querySelectorAll('input[name="theme"]').forEach(function(r) { r.checked = r.value === t; });
+      }
+      function savedTheme() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
+      document.querySelectorAll('input[name="calm"]').forEach(function(radio) {
+        radio.checked = radio.value === (calmOn() ? 'on' : 'off');
+        radio.addEventListener('change', function() {
+          if (this.value === 'on') { root.dataset.calm = ''; window.loadCalmFont(); } else { delete root.dataset.calm; }
+          try { localStorage.setItem('calm', this.value); } catch (e) {}
+          // Visitor never picked a theme: calm follows paper (light), off goes back to dark
+          if (!savedTheme()) setTheme(this.value === 'on' ? 'light' : 'dark');
+          syncActive();
+        });
+      });
       document.querySelectorAll('input[name="theme"]').forEach(function(radio) {
         radio.checked = radio.value === currentTheme();
         radio.addEventListener('change', function() {
-          if (this.value === 'light') { root.dataset.theme = 'light'; } else { delete root.dataset.theme; }
+          setTheme(this.value);
           try { localStorage.setItem('theme', this.value); } catch (e) {}
           syncActive();
         });
