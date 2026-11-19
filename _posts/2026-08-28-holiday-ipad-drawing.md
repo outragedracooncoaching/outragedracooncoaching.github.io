@@ -2,7 +2,7 @@
 title: Drawing Without a Goal, No Reference and No Judgement
 description: What happened when I sat with my iPad on holiday and drew whatever came to mind, with no reference image, no goal, and no plan.
 layout: post
-categories: [self-care, personal-development]
+categories: [making]
 ---
 
 When I was on holiday I decided to just sit with my iPad and draw whatever came to mind. No reference image, no goal, no judgement.

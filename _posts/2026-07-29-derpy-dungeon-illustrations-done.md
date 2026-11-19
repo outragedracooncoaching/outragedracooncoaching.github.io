@@ -3,7 +3,7 @@ title: What Building a Solo Card Game Taught Me About Design
 display_title: Escape the Derpy Dungeon, Illustrations Done!
 description: 52 hand-drawn cards, months of playtesting, and a rulebook redesign later. What making a physical card game taught me about constraints and system design.
 layout: post
-categories: [personal-development]
+categories: [making]
 ---
 
 A huge moment! I've completed the whole set of 52 hand drawn cards for my solo card game, Escape the Derpy Dungeon. 🎉

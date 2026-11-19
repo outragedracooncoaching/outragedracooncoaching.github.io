@@ -2,7 +2,7 @@
 title: Roots and Roses Is Live on Itch.io
 description: My second solo tablet/print game is out, a vampire novella you write yourself with a notebook, a pen and a few dice. No assembly required.
 layout: post
-categories: [personal-development]
+categories: [making]
 ---
 
 You are definitely just a normal person. With a normal farm. And a normal love life.

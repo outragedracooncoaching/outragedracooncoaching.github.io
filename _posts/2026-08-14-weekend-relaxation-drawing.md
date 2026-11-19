@@ -2,7 +2,7 @@
 title: Relaxation Takes Practice Too
 description: A hand-drawn reminder that rest isn't automatic. It's a skill, same as anything else worth getting good at.
 layout: post
-categories: [self-care]
+categories: [making]
 ---
 
 A hand-drawn reminder that it's the weekend, and relaxation takes practice too. I hope you find some calm.

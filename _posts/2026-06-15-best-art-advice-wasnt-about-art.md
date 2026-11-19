@@ -3,7 +3,7 @@ title: What Actually Helps You Find Your Creative Style
 display_title: The Best Art Advice I Got Wasn't About Art
 description: I asked what course would teach me to be an artist. The real answer had nothing to do with technique, and everything to do with giving myself permission.
 layout: post
-categories: [personal-development]
+categories: [making]
 ---
 
 Seven months ago, I asked what I thought was a sensible question.
