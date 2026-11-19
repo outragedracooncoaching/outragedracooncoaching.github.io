@@ -9,6 +9,8 @@ You are definitely just a normal person. With a normal farm. And a normal love l
 
 Try not to get caught eating anyone.
 
+![The Roots and Roses rulebook cover: a hand-drawn vampire woman with wild white hair and bared fangs on a charcoal background, the title in blackletter, and a pink strip reading "You are definitely a normal farmer, with a normal love life. Try not to get caught eating anyone."](/assets/images/roots-and-roses/rulebook-cover.webp)
+
 My second tablet/print game just went live on Itch: Roots and Roses 🌹🩸
 
 No assembly required this time, just a fancy notebook, a pen, and a few dice. Solo play, roughly 45 minutes if you're being efficient about it, or however long it takes if you fall in love with your own vampire novella like I did.
