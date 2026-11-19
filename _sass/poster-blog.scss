@@ -127,7 +127,7 @@ body.poster-blog {
 
   // ─── CATEGORY TAGS (mono labels; press like the stickers) ─────────────────
   .bl-cats {
-    margin: 3.2rem 0 0;
+    margin: 2.4rem 0 0;
 
     &__label {
       margin: 0 0 1rem;
@@ -135,57 +135,58 @@ body.poster-blog {
       color: $magenta;
     }
 
+    // one run of mono text, pink slashes between: quiet until you point at it
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem 0.7rem;
+      align-items: baseline;
+      row-gap: 0.15rem;
+      line-height: 1.4;
     }
 
-    li { margin: 0; }
-    li:nth-child(odd) a  { transform: rotate(-1.5deg); }
-    li:nth-child(even) a { transform: rotate(1.2deg); }
-    li:nth-child(3n) a   { transform: rotate(-0.6deg); }
+    li {
+      margin: 0;
+      &:not(:last-child)::after {
+        content: '/';
+        margin: 0 0.45em;
+        color: $magenta;
+        font: 700 0.85rem/1 $mono;
+      }
+    }
 
     a {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.5em;
-      padding: 0.5rem 0.75rem 0.45rem;
-      border: 1.5px solid $ink;
-      background: $cream;
+      display: inline-block;
+      padding: 0.1rem 0.2rem;
       color: $ink;
-      font: 700 0.85rem/1 $mono;
+      font: 700 0.8rem/1.3 $mono;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 4px 4px 0 $magenta;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.1s, color 0.1s;
+      transition: background 0.1s, color 0.1s, transform 0.12s ease;
 
       &:hover, &:focus-visible {
         background: $magenta;
-        border-color: $magenta;
         color: $cream;
-        box-shadow: 2px 2px 0 $ink;
-        translate: 2px 2px;
+        transform: rotate(-2deg);
         outline: none;
       }
-      &:active { translate: 4px 4px; box-shadow: none; }
 
+      // the chosen category is the one sticker
       &.active-link {
         background: $magenta;
-        border-color: $magenta;
         color: $cream;
-        box-shadow: 4px 4px 0 $ink;
-        outline: none;
+        padding: 0.2rem 0.45rem;
+        box-shadow: 3px 3px 0 $ink;
+        transform: rotate(-2deg);
       }
     }
 
     &__n {
-      font-size: 0.72em;
-      opacity: 0.7;
+      font-size: 0.8em;
+      opacity: 0.55;
     }
   }
 
@@ -518,7 +519,7 @@ body.poster-blog {
   }
 
   // the intro (no ?q) shows the list as the poster
-  #cats-intro:not(.hidden) + .bl-cats a { font-size: 1rem; padding: 0.65rem 0.95rem 0.6rem; }
+  #cats-intro:not(.hidden) + .bl-cats a { font-size: 1rem; }
 
   // ─── WIDE: show the year inside the date when the year column is gone ─────
   @media (max-width: 991px) {
@@ -534,9 +535,8 @@ body.poster-blog {
   @media (max-width: 767px) {
     .bl-hero__title { font-size: 13.8vw; }
     .bl-archive .mega--outline .cond { font-size: 1.62em; -webkit-text-stroke-width: 3px; }
-    .bl-cats ul { gap: 0.6rem 0.5rem; }
-    .bl-cats a { font-size: 0.74rem; padding: 0.42rem 0.55rem 0.38rem; letter-spacing: 0.05em; box-shadow: 3px 3px 0 $magenta; }
-    #cats-intro:not(.hidden) + .bl-cats a { font-size: 0.82rem; padding: 0.5rem 0.65rem 0.45rem; }
+    .bl-cats a { font-size: 0.74rem; letter-spacing: 0.05em; }
+    #cats-intro:not(.hidden) + .bl-cats a { font-size: 0.85rem; }
     .bl-hero__title .cond { font-size: 1.62em; }
     .bl-hero__line, .bl-hero__sub, .bl-hero__intro { margin-left: 0; }
     .bl-hero__intro { font-size: 1.1rem; }
