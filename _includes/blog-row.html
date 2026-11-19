@@ -1,0 +1,18 @@
+{%- comment -%} One row of the poster blog index. Pass post=..., optional level= (heading level, default 3). {%- endcomment -%}
+{%- assign hl = include.level | default: 3 -%}
+<li class="bl-row">
+  <time class="bl-row__date" datetime="{{ include.post.date | date: '%Y-%m-%d' }}">{{ include.post.date | date: '%d %b' }}<span class="bl-row__year"> {{ include.post.date | date: '%Y' }}</span></time>
+  <div class="bl-row__body">
+    <h{{ hl }} class="bl-row__title"><a href="{{ site.baseurl }}{{ include.post.url }}">{{ include.post.display_title | default: include.post.title }}</a></h{{ hl }}>
+    {%- if include.post.description %}
+    <p class="bl-row__desc">{{ include.post.description }}</p>
+    {%- endif %}
+  </div>
+  {%- if include.post.categories != empty %}
+  <p class="bl-row__tags">
+      {%- for category in include.post.categories -%}
+      <a href="{{ site.baseurl }}/categories?q={{ category | slugize }}">{{ category | replace: '-', ' ' }}</a>
+      {%- endfor -%}
+  </p>
+  {%- endif %}
+</li>
