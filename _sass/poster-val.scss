@@ -297,3 +297,11 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
 .val-proof { margin-top: 4rem; margin-bottom: 5rem; }
 .val-proof + .vibe, .val-values + .val-proof { margin-top: 5rem; }
 .val-values + .val-proof { transform: rotate(1.4deg); }
+
+// stat source line: links keep the footer's colour, pink-slip friendly underline
+.val-stat footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  &:hover, &:focus-visible { text-decoration-thickness: 3px; }
+}
