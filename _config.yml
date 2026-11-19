@@ -31,4 +31,5 @@ defaults:
       path: ""
       type: posts
     values:
-      show_cta: true
+      show_cta: false
+      body_class: poster-home poster-post
