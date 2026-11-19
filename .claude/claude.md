@@ -30,8 +30,8 @@ For legal review, drafting, or T&Cs questions use '/legal'.
 Tasks are tracked in `tasks.md` at the project root. Tick tasks off as you complete them. The file is gitignored, so it never goes into a commit.
 
 # Assets
-We're using ../cv, ../outragedpinkracoon.github.io, ../games/roots-and-roses/ A4 digital rulebook as our graphic design inspiration but the homepage on this special branch captures what we are going for.
+We're using ../cv, ../outragedpinkracoon.github.io, ../games/roots-and-roses/ A4 digital rulebook as our graphic design inspiration but the homepage (the dark poster design) captures what we are going for.
 
-# Accessibility display settings (parked)
+# Accessibility display settings
 
-Ignore the a11y display modes (`_sass/a11y-*.scss`, `display-settings.scss`, reading mode, colour-blind modes, reduce motion) during the dark redesign. Don't style for them, test them, or flag them. Val will fix them later as a separate pass. Core accessibility still applies: semantic HTML, alt text, contrast, focus states.
+Light mode, calm mode and the other display modes (`_sass/a11y-*.scss`, `display-settings.scss`, `calm-mode.scss`) are finished, not parked. Treat them as part of the site: when you change a page, check it in dark (the default and design target), light and calm. See `/design` for the rules. Core accessibility always applies: semantic HTML, alt text, contrast, focus states.
