@@ -362,53 +362,51 @@ body.poster-coaching-page {
   list-style: none;
   margin: 4rem 0 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 4rem;
 
   @include respond-to('large') {
-    columns: 2;
-    column-gap: 4rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  // the rest: a clean ruled list, everything on one left edge
   li {
     position: relative;
-    break-inside: avoid;
-    margin: 0 0 1.5rem;
-    padding-left: 1.1em;
-    max-width: 30ch;
-    font: italic 400 clamp(1.45rem, 2.2vw, 1.9rem)/1.18 $font-display;
-    letter-spacing: -0.03em;
+    margin: 0;
+    padding: 1rem 0 1.05rem 1.6em;
+    border-top: 1px solid rgba($ink, 0.28);
+    font: italic 400 clamp(1.3rem, 1.8vw, 1.6rem)/1.25 $font-display;
+    letter-spacing: -0.025em;
     text-wrap: pretty;
 
-    // pink open-quote mark hanging in front
     &::before {
       content: '\201C';
       position: absolute;
       left: 0;
-      top: -0.08em;
-      font: italic 700 1.6em/1 $font-display;
+      top: 0.85rem;
+      font: italic 700 1.5em/1 $font-display;
       color: $magenta;
     }
-
-    // ragged indents, like lines overheard in a 1:1
-    &:nth-child(3n + 2) { margin-left: 12%; }
-    &:nth-child(3n) { margin-left: 6%; }
   }
 
-  // the two loud ones: pink slips, charcoal text, cream shadow
+  // the two loud ones lead, side by side, as a pair
   .cp-worries__slip {
-    z-index: 1;
-    margin: 0.6rem 0 2.4rem;
-    padding: 1rem 1.3rem 1.15rem 2.3rem;
-    max-width: 24ch;
+    order: -1;
+    align-self: start;
+    margin: 0 0 3.2rem;
+    padding: 1.1rem 1.4rem 1.25rem 2.4rem;
+    border: 0;
     background: $magenta;
     color: $cream;
-    font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+    font-size: clamp(1.6rem, 2.4vw, 2.15rem);
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1.12;
     box-shadow: 8px 8px 0 $ink;
-    transform: rotate(-2deg);
+    transform: rotate(-1.5deg);
 
-    &::before { left: 0.45rem; top: 0.6rem; color: $cream; }
-    & ~ .cp-worries__slip { transform: rotate(2deg); margin-left: 8%; }
+    &::before { left: 0.5rem; top: 0.75rem; color: $cream; }
+    & ~ .cp-worries__slip { transform: rotate(1.5deg); }
   }
 }
 
@@ -866,9 +864,8 @@ body.poster-coaching-page {
   .poster-folks .cp-hero__art { margin-left: auto; margin-right: 8%; }
   .poster-folks .cp-hero .cc-stamp { left: -22%; right: auto; transform: rotate(-5deg); }
   .poster-folks .cp-final__line { font-size: 9vw; }
-  .cp-worries li { font-size: 6vw; max-width: none; margin-left: 0; }
-  .cp-worries li:nth-child(3n + 2) { margin-left: 8%; }
-  .cp-worries li.cp-worries__slip, .cp-worries li.cp-worries__slip ~ .cp-worries__slip { margin-left: 0; margin-right: 0; font-size: 7vw; }
+  .cp-worries li { font-size: 5.6vw; }
+  .cp-worries .cp-worries__slip { font-size: 6.6vw; margin-bottom: 2rem; }
   .poster-managers .cp-hero__title .cond { font-size: 17vw; }
   .poster-managers .cp-hero__title mark { font-size: 13.5vw; }
   .cp-hero__sub { font-size: 1.45rem; margin-top: 0.4rem; }
