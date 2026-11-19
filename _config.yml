@@ -44,6 +44,7 @@ exclude:
   - node_modules
   - AGENTS.md
   - context
+  - linkedin
   - blogs_todo
   - tasks.md
   - todo.md
