@@ -68,7 +68,7 @@ Contact: <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoachin
 
 <h2>Data sharing</h2>
 
-<p>We do not sell your data. We use trusted service providers to run the business, including Google (Gmail and Google Sheets) for email and contact form enquiries, and payment processors. They handle data on our behalf under appropriate data protection agreements. Some providers may process data outside the UK; where they do, appropriate safeguards apply under UK GDPR.</p>
+<p>We do not sell your data. We use trusted service providers to run the business, including Google (Gmail and Google Sheets) for email and contact form enquiries, and payment processors. These providers process data under their own terms and privacy policies, and we only share what's needed to run the service. Some, including Google, may process data outside the UK. Where they do, they rely on transfer safeguards recognised under UK GDPR.</p>
 
 <h2>How long we keep it</h2>
 
