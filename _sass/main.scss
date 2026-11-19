@@ -27,15 +27,15 @@
   left: 1rem;
   z-index: 9999;
   padding: 0.5rem 1rem;
-  background: $ink;
-  color: $cream;
+  background: $text;
+  color: $paper;
   font-family: $font-primary;
   font-weight: 700;
   text-decoration: none;
 
   &:focus {
     top: 1rem;
-    outline: 3px solid $cream;
+    outline: 3px solid $paper;
     outline-offset: 2px;
   }
 }
@@ -71,8 +71,8 @@ html {
 }
 
 body {
-  background-color: $cream;
-  color: $ink;
+  background-color: $paper;
+  color: $text;
   font-family: $font-secondary;
   font-size: 1.1875rem;
   line-height: 1.8;
@@ -81,7 +81,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid $ink;
+  outline: 3px solid $text;
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -123,7 +123,7 @@ h1 {
   .title-sub {
     display: block;
     font-size: 0.55em;
-    color: fade($ink, 0.78);
+    color: fade($text, 0.78);
     text-shadow: none;
     letter-spacing: 0.02em;
     margin-top: 0.15em;
@@ -141,7 +141,7 @@ h2 {
   letter-spacing: 0;
   line-height: 1.1;
   font-size: 2.1rem;
-  color: $ink;
+  color: $text;
   margin: 3.2rem 0 1.4rem;
   padding: 0 0 0.45rem;
   position: relative;
@@ -162,8 +162,8 @@ h2 {
   }
 
   a {
-    color: $ink;
-    text-decoration-color: fade($ink, 0.4);
+    color: $text;
+    text-decoration-color: fade($text, 0.4);
     &:hover { color: $magenta; text-decoration-color: $magenta; }
   }
 }
@@ -194,7 +194,7 @@ h4 {
 h5, h6 {
   font-family: $font-primary;
   font-weight: 800;
-  color: $ink;
+  color: $text;
 }
 
 code, pre {
@@ -206,7 +206,7 @@ code, pre {
 
 pre {
   overflow-x: auto;
-  background: fade($ink, 0.05);
+  background: fade($text, 0.05);
   padding: 1.1rem 1.3rem;
   border-left: 4px solid $teal;
   margin: 1.5rem 0;
@@ -214,11 +214,11 @@ pre {
 
 strong {
   font-weight: 700;
-  color: $ink;
+  color: $text;
 }
 
 em {
-  color: fade($ink, 0.8);
+  color: fade($text, 0.8);
 }
 
 ul, ol {
@@ -294,7 +294,7 @@ nav {
       color: $c;
       &:hover, &.active-link {
         background: $c;
-        color: $cream;
+        color: $paper;
       }
     }
   }
@@ -305,10 +305,10 @@ nav {
     transition: background 0.15s ease, color 0.15s ease;
 
     &:focus-visible {
-      outline: 3px solid $cream;
+      outline: 3px solid $paper;
       outline-offset: 0;
       border-radius: 2px;
-      box-shadow: 0 0 0 5px $ink;
+      box-shadow: 0 0 0 5px $text;
     }
   }
 }
@@ -367,7 +367,7 @@ header {
   }
 
   a {
-    color: $ink;
+    color: $text;
     text-decoration: none;
     display: inline-block;
     transition: text-shadow 0.2s ease;
@@ -383,7 +383,7 @@ header {
 
     &:hover {
       text-decoration: none;
-      color: $ink;
+      color: $text;
     }
   }
 }
@@ -395,7 +395,7 @@ header {
 hr {
   border: none;
   height: 3px;
-  background: fade($ink, 0.15);
+  background: fade($text, 0.15);
   margin: 2.5rem 0;
   position: relative;
 
@@ -430,7 +430,7 @@ hr {
   text-transform: uppercase;
   text-align: center;
   margin: 0 0 1.6rem;
-  color: $ink;
+  color: $text;
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -463,12 +463,12 @@ hr {
   padding: 0.9rem 2.8rem;
   font-size: 1rem;
   background: shade($magenta, 6%);
-  color: $cream;
+  color: $paper;
   // off-register ink shadow
   box-shadow: 4px 4px 0 $teal;
 
   &:hover {
-    color: $cream;
+    color: $paper;
     box-shadow: 6px 6px 0 $teal;
   }
 }
@@ -478,12 +478,12 @@ hr {
   padding: 0.6rem 1.6rem;
   font-size: 0.88rem;
   background: shade($magenta, 6%);
-  color: $cream;
-  box-shadow: 4px 4px 0 $ink;
+  color: $paper;
+  box-shadow: 4px 4px 0 $text;
 
   &:hover {
-    color: $cream;
-    box-shadow: 6px 6px 0 $ink;
+    color: $paper;
+    box-shadow: 6px 6px 0 $text;
   }
 }
 
@@ -493,10 +493,10 @@ hr {
 
 .flagship-offer {
   background: shade($magenta, 6%);
-  color: $cream;
+  color: $paper;
   padding: 2rem;
   margin: 1.8rem 0 2rem;
-  box-shadow: 10px 10px 0 $ink;
+  box-shadow: 10px 10px 0 $text;
   transform: rotate(-0.8deg);
 
   @include respond-to('medium') {
@@ -513,7 +513,7 @@ hr {
     margin: 0 0 1rem;
     border-left: none;
     padding-left: 0;
-    color: $cream;
+    color: $paper;
 
     @include respond-to('medium') {
       font-size: 3rem;
@@ -522,19 +522,19 @@ hr {
 
   h2 a {
     color: inherit;
-    text-decoration-color: fade($cream, 0.45);
+    text-decoration-color: fade($paper, 0.45);
 
     &:hover {
       color: inherit;
-      text-decoration-color: $cream;
+      text-decoration-color: $paper;
     }
 
-    &:focus-visible { outline-color: $cream; }
+    &:focus-visible { outline-color: $paper; }
   }
 
   p {
     max-width: 48rem;
-    color: fade($cream, 0.93);
+    color: fade($paper, 0.93);
   }
 
   .offer-moment {
@@ -542,18 +542,18 @@ hr {
     font-size: 1.02rem;
     font-weight: 800;
     line-height: 1.45;
-    color: $cream;
+    color: $paper;
   }
 
   .button {
     margin-top: 0.3rem;
-    background: $cream;
+    background: $paper;
     color: $magenta;
-    box-shadow: 4px 4px 0 $ink;
+    box-shadow: 4px 4px 0 $text;
 
     &:hover {
       color: $magenta;
-      box-shadow: 6px 6px 0 $ink;
+      box-shadow: 6px 6px 0 $text;
     }
   }
 }
@@ -576,8 +576,8 @@ hr {
   margin: 1.8rem 0 2.6rem;
   background:
     linear-gradient($magenta, $magenta) 62% 100% / 30% 9px no-repeat,
-    $cream;
-  border: 1px solid $ink;
+    $paper;
+  border: 1px solid $text;
   transform: rotate(-0.8deg);
   overflow: hidden;
   clear: both;
@@ -610,7 +610,7 @@ hr {
 
 .home-course__body {
   padding: 1.8rem 1.6rem 2rem;
-  color: $ink;
+  color: $text;
 
   @include respond-to('medium') { padding: 2.4rem 2.2rem; }
 
@@ -621,7 +621,7 @@ hr {
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: fade($ink, 0.85);
+    color: fade($text, 0.85);
   }
 
   .home-course__title {
@@ -641,10 +641,10 @@ hr {
 
     a {
       color: inherit;
-      text-decoration-color: fade($ink, 0.4);
+      text-decoration-color: fade($text, 0.4);
 
-      &:hover { color: inherit; text-decoration-color: $ink; }
-      &:focus-visible { outline-color: $ink; }
+      &:hover { color: inherit; text-decoration-color: $text; }
+      &:focus-visible { outline-color: $text; }
     }
   }
 
@@ -652,7 +652,7 @@ hr {
     margin: 0 0 1rem;
     font-size: 1.05rem;
     line-height: 1.55;
-    color: fade($ink, 0.95);
+    color: fade($text, 0.95);
   }
 
   .home-course__rating {
@@ -663,7 +663,7 @@ hr {
     font-family: $font-primary;
     font-size: 0.95rem;
     font-weight: 800;
-    color: $ink;
+    color: $text;
 
     .home-course__stars {
       font-size: 1.2rem;
@@ -682,17 +682,17 @@ hr {
 
     .button {
       background: $magenta;
-      color: $cream;
-      box-shadow: 4px 4px 0 $ink;
+      color: $paper;
+      box-shadow: 4px 4px 0 $text;
 
-      &:hover { color: $cream; box-shadow: 6px 6px 0 $ink; }
+      &:hover { color: $paper; box-shadow: 6px 6px 0 $text; }
     }
 
     .home-course__note {
       font-family: $font-primary;
       font-size: 0.82rem;
       font-weight: 700;
-      color: fade($ink, 0.82);
+      color: fade($text, 0.82);
     }
   }
 }
@@ -715,7 +715,7 @@ hr {
   flex-direction: column;
   padding: 1.4rem;
   border: 3px solid $teal;
-  background: fade($cream, 0.65);
+  background: fade($paper, 0.65);
   box-shadow: 5px 5px 0 fade($teal, 0.28);
 
   h3 {
@@ -843,7 +843,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     flex: 1;
     margin: 0 0 1.2rem;
     font-size: 1.05rem;
-    color: fade($cream, 0.95);
+    color: fade($paper, 0.95);
     line-height: 1.6;
   }
 
@@ -875,7 +875,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     &:hover { text-decoration: underline; }
 
     &:focus-visible {
-      outline: 3px solid $cream;
+      outline: 3px solid $paper;
       outline-offset: 3px;
       border-radius: 2px;
     }
@@ -888,19 +888,19 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     &:nth-child(#{$i}) {
       background:
         linear-gradient($magenta, $magenta) 6% 100% / 34% 7px no-repeat,
-        $cream;
-      border: 1px solid $ink;
+        $paper;
+      border: 1px solid $text;
       box-shadow: none;
-      color: $ink;
+      color: $text;
       transform: rotate($rot * 0.45);
 
       &:hover {
         transform: rotate(0deg) translate(-2px, -2px);
       }
 
-      h3 { color: $ink; }
+      h3 { color: $text; }
 
-      p { color: fade($ink, 0.88); }
+      p { color: fade($text, 0.88); }
 
       .card-cta {
         color: $magenta;
@@ -908,8 +908,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
         padding-bottom: 1px;
 
         &:hover {
-          color: $ink;
-          border-bottom-color: $ink;
+          color: $text;
+          border-bottom-color: $text;
           transform: translate(-1px, -1px);
         }
       }
@@ -953,7 +953,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     $rot: nth($_post-rotations, $i);
     li:nth-child(#{$i}) {
       background: $c;
-      box-shadow: 5px 5px 0 $ink;
+      box-shadow: 5px 5px 0 $text;
       transform: rotate($rot);
     }
   }
@@ -961,11 +961,11 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   li:nth-child(4) {
     a,
     .date {
-      color: $ink;
+      color: $text;
     }
 
     a:hover {
-      color: $ink;
+      color: $text;
     }
   }
 
@@ -982,7 +982,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
     &:hover {
       transform: rotate(0deg) translate(-2px, -2px) !important;
-      box-shadow: 8px 8px 0 $ink !important;
+      box-shadow: 8px 8px 0 $text !important;
     }
   }
 
@@ -992,7 +992,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     font-weight: 900;
     font-size: 1.15rem;
     text-decoration: none;
-    color: $cream;
+    color: $paper;
     cursor: pointer;
 
     &::after {
@@ -1002,7 +1002,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
       cursor: pointer;
     }
 
-    &:hover { color: $cream; text-decoration: underline; }
+    &:hover { color: $paper; text-decoration: underline; }
   }
 
   .date {
@@ -1011,7 +1011,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: $cream;
+    color: $paper;
   }
 
   @include respond-to('medium') {
@@ -1045,7 +1045,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     list-style: none;
     padding: 0;
     margin: 1rem 0 0;
-    border-top: 2px solid fade($ink, 0.12);
+    border-top: 2px solid fade($text, 0.12);
 
     @include respond-to('medium') {
       columns: 2;
@@ -1055,9 +1055,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   li {
     break-inside: avoid;
     padding: 0.68rem 0 0.68rem 1rem;
-    border-bottom: 2px solid fade($ink, 0.12);
+    border-bottom: 2px solid fade($text, 0.12);
     border-left: 5px solid fade($teal, 0.7);
-    color: fade($ink, 0.82);
+    color: fade($text, 0.82);
     font-family: $font-primary;
     font-size: 0.98rem;
     font-weight: 750;
@@ -1086,13 +1086,13 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 .pricing-card {
   position: relative;
-  background: $cream;
-  border: 3px solid fade($ink, 0.16);
-  border-bottom: 7px solid fade($ink, 0.16);
+  background: $paper;
+  border: 3px solid fade($text, 0.16);
+  border-bottom: 7px solid fade($text, 0.16);
   padding: 1.7rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 7px 7px 0 fade($ink, 0.09);
+  box-shadow: 7px 7px 0 fade($text, 0.09);
   font-size: 1rem;
 
   @include respond-to('medium') {
@@ -1129,7 +1129,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: $ink;
+  color: $text;
 }
 
 .pricing-subtitle {
@@ -1147,7 +1147,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $ink;
+  color: $text;
   background: $yellow;
   display: inline-block;
   padding: 0.15rem 0.5rem;
@@ -1156,7 +1156,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 }
 
 .pricing-detail {
-  color: fade($ink, 0.72);
+  color: fade($text, 0.72);
   font-size: 1rem;
   line-height: 1.6;
   margin-top: 0.65rem !important;
@@ -1170,7 +1170,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   border-top: 2px solid fade($teal, 0.35);
   font-size: 0.95rem;
   line-height: 1.55;
-  color: fade($ink, 0.82);
+  color: fade($text, 0.82);
 
   strong { color: $teal; font-weight: 800; }
 }
@@ -1178,7 +1178,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .pricing-includes {
   padding-left: 1.2rem;
   margin: 1rem 0 1.4rem;
-  color: fade($ink, 0.78);
+  color: fade($text, 0.78);
   font-size: 1rem;
   line-height: 1.6;
 
@@ -1194,29 +1194,29 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   padding: 0.72rem 1.4rem;
   font-size: 0.96rem;
   background: shade($magenta, 6%);
-  color: $cream;
+  color: $paper;
   box-shadow: 4px 4px 0 $teal;
   margin-top: auto;
 
   &:hover {
-    color: $cream;
+    color: $paper;
     box-shadow: 6px 6px 0 $teal;
   }
 }
 
 .pricing-terms {
   font-size: 0.8rem;
-  color: fade($ink, 0.55);
+  color: fade($text, 0.55);
   margin-top: 1rem;
   text-align: center;
 
-  a { color: fade($ink, 0.55); }
+  a { color: fade($text, 0.55); }
 }
 
 .pricing-badge {
   display: inline-block;
   background: $teal;
-  color: $cream;
+  color: $paper;
   padding: 0.22rem 0.9rem;
   font-family: $font-primary;
   font-size: 0.72rem;
@@ -1226,7 +1226,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   margin-bottom: 0.8rem;
   transform: rotate(-1.5deg);
   width: max-content;
-  box-shadow: 3px 3px 0 fade($ink, 0.2);
+  box-shadow: 3px 3px 0 fade($text, 0.2);
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1238,7 +1238,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   padding: 1rem 1.2rem;
   background: fade($yellow, 0.45);
   border-left: 7px solid $orange;
-  color: $ink;
+  color: $text;
   font-family: $font-primary;
   font-size: 1.05rem;
   font-weight: 800;
@@ -1252,7 +1252,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     display: inline-block;
     padding: 0.65rem 1rem;
     background: shade($teal, 7%);
-    color: $cream;
+    color: $paper;
     font-family: $font-primary;
     font-size: 0.82rem;
     font-weight: 800;
@@ -1263,13 +1263,13 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     box-shadow: 4px 4px 0 $magenta;
 
     &:hover {
-      color: $cream;
+      color: $paper;
       text-decoration: none;
       transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 $magenta;
     }
 
-    &:focus-visible { outline-color: $cream; }
+    &:focus-visible { outline-color: $paper; }
   }
 }
 
@@ -1290,9 +1290,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   display: flex;
   flex-direction: column;
   padding: 1.6rem;
-  background: $cream;
-  border: 3px solid fade($ink, 0.14);
-  box-shadow: 7px 7px 0 fade($ink, 0.12);
+  background: $paper;
+  border: 3px solid fade($text, 0.14);
+  box-shadow: 7px 7px 0 fade($text, 0.12);
   cursor: default;
 
   @include respond-to('medium') {
@@ -1349,7 +1349,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
         top: 0.42em;
         width: 0.7rem;
         height: 0.7rem;
-        background: fade($ink, 0.3); // overridden per variant
+        background: fade($text, 0.3); // overridden per variant
         clip-path: polygon(0 35%, 38% 100%, 100% 0, 80% 0, 35% 65%, 18% 35%);
       }
     }
@@ -1361,7 +1361,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     margin: 0 0 1.2rem !important;
     font-size: 0.92rem;
     line-height: 1.45;
-    color: fade($ink, 0.72);
+    color: fade($text, 0.72);
     font-style: italic;
   }
 
@@ -1384,10 +1384,10 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     font-size: 0.85rem;
     font-family: $font-primary;
     font-weight: 700;
-    color: $cream;
+    color: $paper;
     background: $teal; // fallback; overridden per variant
-    border: 2px solid $ink;
-    box-shadow: 2px 2px 0 $ink;
+    border: 2px solid $text;
+    box-shadow: 2px 2px 0 $text;
     transform: rotate(3deg);
     letter-spacing: 0.03em;
     min-width: 5rem;
@@ -1406,8 +1406,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
       height: 12px;
       border-radius: 50%;
       background: $magenta;
-      border: 2px solid $ink;
-      box-shadow: inset 2px 2px 0 fade($cream, 0.4);
+      border: 2px solid $text;
+      box-shadow: inset 2px 2px 0 fade($paper, 0.4);
     }
   }
 
@@ -1426,7 +1426,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     box-shadow: 8px 8px 0 $magenta;
 
     h3 { color: $magenta; }
-    .audience-label { background: $teal; color: $cream; }
+    .audience-label { background: $teal; color: $paper; }
     .audience-panel__price { background: $magenta; }
     .audience-panel__tags li::before { background: $teal; }
   }
@@ -1436,7 +1436,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     box-shadow: 8px 8px 0 $teal;
 
     h3 { color: $teal; }
-    .audience-label { background: $magenta; color: $cream; }
+    .audience-label { background: $magenta; color: $paper; }
     .audience-panel__price { background: $teal; }
     .audience-panel__tags li::before { background: $magenta; }
   }
@@ -1446,7 +1446,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     box-shadow: 8px 8px 0 $orange;
 
     h3 { color: $orange; }
-    .audience-label { background: $orange; color: $cream; }
+    .audience-label { background: $orange; color: $paper; }
     .audience-panel__price { background: $orange; }
   }
 
@@ -1455,7 +1455,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     box-shadow: 8px 8px 0 $lavender;
 
     h3 { color: $lavender; }
-    .audience-label { background: $lavender; color: $cream; }
+    .audience-label { background: $lavender; color: $paper; }
     .audience-panel__price { background: $lavender; }
   }
 
@@ -1464,7 +1464,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     box-shadow: 8px 8px 0 shade($yellow, 10%);
 
     h3 { color: shade($yellow, 20%); }
-    .audience-label { background: shade($yellow, 10%); color: $ink; }
+    .audience-label { background: shade($yellow, 10%); color: $text; }
   }
 }
 
@@ -1472,8 +1472,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   display: inline-block;
   margin: 0 0 0.5rem;
   padding: 0.2rem 0.7rem;
-  background: $ink;
-  color: $cream;
+  background: $text;
+  color: $paper;
   font-family: $font-primary;
   font-size: 0.72rem;
   font-weight: 800;
@@ -1499,8 +1499,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   margin: 0;
   padding: 1.25rem 1.35rem;
   background: $yellow;
-  color: $ink;
-  box-shadow: 6px 6px 0 fade($ink, 0.72);
+  color: $text;
+  box-shadow: 6px 6px 0 fade($text, 0.72);
   transform: rotate(-0.9deg);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
   cursor: default;
@@ -1510,7 +1510,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   &:nth-child(3)  { background: $teal;     color: white; }
   &:nth-child(4)  { background: $orange;   color: white; }
   &:nth-child(5)  { background: $lavender; color: white; }
-  &:nth-child(6)  { background: $yellow;   color: $ink;  }
+  &:nth-child(6)  { background: $yellow;   color: $text;  }
   &:nth-child(7)  { background: $magenta;  color: white; }
   &:nth-child(8)  { background: $teal;     color: white; }
   &:nth-child(9)  { background: $orange;   color: white; }
@@ -1541,7 +1541,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   &:hover {
     transform: rotate(0deg) translate(-2px, -2px);
-    box-shadow: 10px 10px 0 fade($ink, 0.75);
+    box-shadow: 10px 10px 0 fade($text, 0.75);
   }
 
   blockquote {
@@ -1580,7 +1580,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .outcome-item {
   padding: 1.2rem;
   background: shade($magenta, 6%);
-  color: $cream;
+  color: $paper;
   border-top: none;
   box-shadow: 5px 5px 0 $teal;
   transform: rotate(-0.8deg);
@@ -1599,7 +1599,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   &:nth-child(4) {
     background: $yellow;
-    color: fade($ink, 0.82);
+    color: fade($text, 0.82);
     box-shadow: 5px 5px 0 $magenta;
     transform: rotate(-0.5deg);
   }
@@ -1628,27 +1628,27 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   margin: 1.6rem -8px 2.3rem;
   padding: 1.5rem;
   background: $teal;
-  color: $cream;
-  box-shadow: 7px 7px 0 $ink;
+  color: $paper;
+  box-shadow: 7px 7px 0 $text;
   transform: rotate(-0.8deg);
 
   p {
     margin: 0 0 0.85rem;
-    color: fade($cream, 0.94);
+    color: fade($paper, 0.94);
   }
 
   p:last-child { margin-bottom: 0; }
 
   a {
-    color: $cream;
+    color: $paper;
     font-family: $font-primary;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    text-decoration-color: fade($cream, 0.65);
+    text-decoration-color: fade($paper, 0.65);
 
-    &:hover { text-decoration-color: $cream; }
-    &:focus-visible { outline-color: $cream; }
+    &:hover { text-decoration-color: $paper; }
+    &:focus-visible { outline-color: $paper; }
   }
 }
 
@@ -1665,8 +1665,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 .next-steps {
   position: relative;
-  background: $cream;
-  border: 3px solid $ink;
+  background: $paper;
+  border: 3px solid $text;
   box-shadow: 8px 8px 0 $teal;
   margin: 2rem 0 2.5rem;
   padding: 2rem 1.6rem 1.6rem;
@@ -1682,7 +1682,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     transform: translateX(-50%);
     width: 72px;
     height: 20px;
-    background: $ink;
+    background: $text;
     border-radius: 6px 6px 0 0;
   }
 
@@ -1696,8 +1696,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
-    background: $cream;
-    border: 3px solid fade($ink, 0.5);
+    background: $paper;
+    border: 3px solid fade($text, 0.5);
     border-radius: 50%;
     z-index: 1;
   }
@@ -1728,7 +1728,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   align-items: baseline;
   gap: 0.75rem;
   padding: 0.75rem 0;
-  border-bottom: 2px dashed fade($ink, 0.18);
+  border-bottom: 2px dashed fade($text, 0.18);
   margin-bottom: 0;
 
   &:last-child {
@@ -1748,12 +1748,12 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .next-steps__content {
   font-size: 1rem;
   line-height: 1.6;
-  color: $ink;
+  color: $text;
 
   strong {
     font-family: $font-primary;
     font-weight: 800;
-    color: $ink;
+    color: $text;
     display: block;
     margin-bottom: 0.1rem;
   }
@@ -1775,9 +1775,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   li {
     position: relative;
     padding: 1.35rem;
-    background: $cream;
+    background: $paper;
     border-left: 6px solid $magenta;
-    box-shadow: 5px 5px 0 fade($ink, 0.09);
+    box-shadow: 5px 5px 0 fade($text, 0.09);
 
     &:nth-child(even) {
       border-left-color: $teal;
@@ -1792,7 +1792,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     margin: 0.35rem 0 0.55rem;
     padding: 0;
     border: none;
-    color: $ink;
+    color: $text;
   }
 
   p { margin: 0; }
@@ -1832,11 +1832,11 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .testimonial-card {
   margin: 0;
   padding: 1.45rem 1.5rem;
-  background: $cream;
-  border: 2px solid fade($ink, 0.12);
+  background: $paper;
+  border: 2px solid fade($text, 0.12);
   border-top: 6px solid $magenta;
-  box-shadow: 5px 5px 0 fade($ink, 0.09);
-  color: $ink;
+  box-shadow: 5px 5px 0 fade($text, 0.09);
+  color: $text;
   font-size: 1rem;
   line-height: 1.65;
   transform: rotate(-0.4deg);
@@ -1883,7 +1883,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   .testimonial-pullquote {
     margin: 0 0 1rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid fade($ink, 0.1);
+    border-bottom: 2px solid fade($text, 0.1);
     font-family: $font-display;
     font-size: 1.5rem;
     font-style: italic;
@@ -1964,11 +1964,11 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   gap: 0.75rem;
   min-height: 4.4rem;
   padding: 0.8rem 0.9rem;
-  background: $cream;
-  border: 2px solid fade($ink, 0.12);
+  background: $paper;
+  border: 2px solid fade($text, 0.12);
   border-bottom: 5px solid $magenta;
-  box-shadow: 4px 4px 0 fade($ink, 0.08);
-  color: $ink;
+  box-shadow: 4px 4px 0 fade($text, 0.08);
+  color: $text;
   font-family: $font-primary;
   font-size: 0.95rem;
   font-weight: 800;
@@ -1995,7 +1995,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   width: 2.7rem;
   height: 2.7rem;
   background: shade($magenta, 6%);
-  color: $cream;
+  color: $paper;
   border-radius: 50%;
   font-size: 0.76rem;
   font-weight: 900;
@@ -2012,15 +2012,15 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   .credibility-badge:nth-child(4) & {
     background: $yellow;
-    color: $ink;
+    color: $text;
   }
 }
 
 .story-stamp {
   margin: 2rem -8px;
   padding: 1.4rem 1.6rem;
-  background: fade($cream, 0.72);
-  color: $ink;
+  background: fade($paper, 0.72);
+  color: $text;
   border-left: 8px solid $magenta;
   box-shadow: 7px 7px 0 fade($teal, 0.72);
   transform: rotate(-0.7deg);
@@ -2053,10 +2053,10 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 .value-card {
   padding: 1.35rem;
-  background: $cream;
-  border: 2px solid fade($ink, 0.12);
+  background: $paper;
+  border: 2px solid fade($text, 0.12);
   border-left: 6px solid $magenta;
-  box-shadow: 5px 5px 0 fade($ink, 0.09);
+  box-shadow: 5px 5px 0 fade($text, 0.09);
 
   &:nth-child(even) {
     border-left-color: $teal;
@@ -2069,7 +2069,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     margin: 0 0 0.7rem;
     padding: 0;
     border: none;
-    color: $ink;
+    color: $text;
   }
 
   p {
@@ -2088,7 +2088,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   li {
     padding: 0.9rem 0;
-    border-bottom: 2px solid fade($ink, 0.1);
+    border-bottom: 2px solid fade($text, 0.1);
 
     &:last-child {
       border-bottom: none;
@@ -2100,14 +2100,14 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     }
 
     span {
-      color: fade($ink, 0.7);
+      color: fade($text, 0.7);
     }
   }
 }
 
 .credentials-grid .card:nth-child(1) {
   background: shade($orange, 4%);
-  color: $cream;
+  color: $paper;
   box-shadow: 8px 8px 0 $lavender;
 
   &:hover {
@@ -2117,16 +2117,16 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 .credentials-grid .card:nth-child(2) {
   background: $yellow;
-  color: $ink;
+  color: $text;
   box-shadow: 8px 8px 0 $teal;
 
   h3,
   a {
-    color: $ink;
+    color: $text;
   }
 
   p {
-    color: fade($ink, 0.8);
+    color: fade($text, 0.8);
   }
 
   &:hover {
@@ -2168,7 +2168,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   img {
     width: 100%;
     display: block;
-    box-shadow: 5px 5px 0 fade($ink, 0.1);
+    box-shadow: 5px 5px 0 fade($text, 0.1);
   }
 }
 
@@ -2190,7 +2190,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     display: block;
     aspect-ratio: 1;
     object-fit: cover;
-    border: 2px solid $ink;
+    border: 2px solid $text;
     // slight contrast/saturation boost — feels more printed than photographed
     filter: contrast(1.06) saturate(1.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
@@ -2281,7 +2281,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 blockquote {
   background: $yellow;
-  color: $ink;
+  color: $text;
   clear: both;
   margin: 3.5rem -8px;
   padding: 1.8rem 1.8rem 1.8rem 4.2rem;
@@ -2290,7 +2290,7 @@ blockquote {
   font-size: 1.05rem;
   position: relative;
   transform: rotate(-2deg);
-  box-shadow: 5px 5px 0 $ink;
+  box-shadow: 5px 5px 0 $text;
 
   &:nth-child(even) {
     transform: rotate(1.5deg);
@@ -2320,12 +2320,12 @@ blockquote {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 0.82rem;
-  color: $ink;
+  color: $text;
   font-style: normal;
   display: block;
   margin-top: 0.8rem;
   padding-top: 0.6rem;
-  border-top: 2px solid fade($ink, 0.2);
+  border-top: 2px solid fade($text, 0.2);
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -2340,7 +2340,7 @@ blockquote {
   border-left: 5px solid $magenta;
   padding: 0.5rem 0 0.5rem 1.25rem;
   margin: 2rem 0;
-  color: $ink;
+  color: $text;
 }
 
 .callout {
@@ -2351,7 +2351,7 @@ blockquote {
   padding: 1.4rem 1.6rem;
   margin: 2.5rem -8px;
   background: $yellow;
-  color: $ink;
+  color: $text;
   transform: rotate(1.8deg);
   box-shadow: 6px 6px 0 $magenta;
 
@@ -2359,38 +2359,38 @@ blockquote {
 
   &--teal {
     background: $teal;
-    color: $cream;
-    box-shadow: 6px 6px 0 $ink;
+    color: $paper;
+    box-shadow: 6px 6px 0 $text;
     transform: rotate(-1.8deg);
 
-    strong { color: $cream; }
+    strong { color: $paper; }
 
     a {
-      color: $cream;
+      color: $paper;
       text-decoration: underline;
       text-decoration-thickness: 2px;
       text-underline-offset: 0.16em;
-      text-decoration-color: fade($cream, 0.7);
+      text-decoration-color: fade($paper, 0.7);
 
       &:hover {
-        color: $cream;
-        text-decoration-color: $cream;
+        color: $paper;
+        text-decoration-color: $paper;
       }
 
-      &:focus-visible { outline-color: $cream; }
+      &:focus-visible { outline-color: $paper; }
     }
   }
 
   &--yellow {
     background: $yellow;
-    color: $ink;
+    color: $text;
     box-shadow: 6px 6px 0 $magenta;
     transform: rotate(1.5deg);
   }
 
   &--email {
     background: $yellow;
-    color: $ink;
+    color: $text;
     box-shadow: 6px 6px 0 $magenta;
     transform: rotate(1.5deg);
     font-weight: 600;
@@ -2404,7 +2404,7 @@ blockquote {
 
 .fill-blank {
   background: $teal;
-  color: $cream;
+  color: $paper;
   padding: 0.1em 0.35em;
   border-radius: 2px;
   font-weight: 700;
@@ -2412,7 +2412,7 @@ blockquote {
 }
 
 .email-subject {
-  color: $ink;
+  color: $text;
   font-style: italic;
   font-weight: 700;
   font-size: 1.35rem;
@@ -2440,7 +2440,7 @@ footer {
 
   .footer-copy {
     margin: 0 0 0.8rem;
-    color: fade($ink, 0.7);
+    color: fade($text, 0.7);
   }
 
   .footer-social {
@@ -2451,7 +2451,7 @@ footer {
 
     a {
       text-decoration: none;
-      color: $ink;
+      color: $text;
 
       &:hover { text-decoration: underline; }
     }
@@ -2481,7 +2481,7 @@ footer {
     display: block;
     width: 100%;
     height: auto;
-    border: 4px solid $ink;
+    border: 4px solid $text;
     box-shadow: 10px 10px 0 $magenta;
     transform: rotate(-1.4deg);
   }
@@ -2492,7 +2492,7 @@ footer {
     margin: 0 0 1rem;
     font-size: 1.15rem;
 
-    strong { color: $ink; }
+    strong { color: $text; }
   }
 
   > :first-child {
@@ -2518,7 +2518,7 @@ footer {
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    color: fade($ink, 0.72);
+    color: fade($text, 0.72);
   }
 }
 
@@ -2547,8 +2547,8 @@ footer {
     font-family: $font-secondary;
     font-size: 1.04rem;
     line-height: 1.4;
-    background: $cream;
-    border: 2px solid $ink;
+    background: $paper;
+    border: 2px solid $text;
     box-shadow: 4px 4px 0 $teal;
 
     &::before {
@@ -2587,7 +2587,7 @@ footer {
     padding: 0.55rem 0 0.55rem 2.2rem;
     font-size: 1.06rem;
     line-height: 1.5;
-    border-bottom: 1px solid fade($ink, 0.12);
+    border-bottom: 1px solid fade($text, 0.12);
 
     &:last-child { border-bottom: none; }
 
@@ -2604,7 +2604,7 @@ footer {
       font-family: $font-primary;
       font-size: 0.9rem;
       font-weight: 900;
-      color: $cream;
+      color: $paper;
       background: $teal;
       border-radius: 50%;
     }
@@ -2638,7 +2638,7 @@ footer {
     font-size: 1rem;
     font-weight: 700;
     line-height: 1;
-    color: fade($ink, 0.45);
+    color: fade($text, 0.45);
   }
 }
 
@@ -2648,9 +2648,9 @@ footer {
 }
 
 .course-chapter {
-  background: $cream;
-  border: 2px solid $ink;
-  box-shadow: 6px 6px 0 fade($ink, 0.18);
+  background: $paper;
+  border: 2px solid $text;
+  box-shadow: 6px 6px 0 fade($text, 0.18);
   margin-bottom: 1.1rem;
 
   &[open] {
@@ -2693,7 +2693,7 @@ footer {
     align-items: center;
     justify-content: center;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     border-radius: 50%;
     font-weight: 800;
     font-size: 0.95rem;
@@ -2703,7 +2703,7 @@ footer {
     font-weight: 800;
     font-size: 1.05rem;
     line-height: 1.25;
-    color: $ink;
+    color: $text;
   }
 
   .course-chapter__count {
@@ -2728,8 +2728,8 @@ footer {
       padding: 0.35rem 0;
       font-size: 1rem;
       line-height: 1.4;
-      color: fade($ink, 0.85);
-      border-bottom: 1px solid fade($ink, 0.08);
+      color: fade($text, 0.85);
+      border-bottom: 1px solid fade($text, 0.08);
 
       &:last-child { border-bottom: none; }
     }
@@ -2744,21 +2744,21 @@ footer {
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
-      color: $cream;
+      color: $paper;
       background: $magenta;
-      box-shadow: 3px 3px 0 $ink;
+      box-shadow: 3px 3px 0 $text;
       transform: rotate(-2.2deg);
       white-space: nowrap;
       transition: transform 0.12s ease, box-shadow 0.12s ease;
 
       &:hover {
-        color: $cream;
+        color: $paper;
         transform: rotate(0deg) translate(-1px, -1px);
-        box-shadow: 5px 5px 0 $ink;
+        box-shadow: 5px 5px 0 $text;
       }
 
       &:focus-visible {
-        outline: 3px solid $ink;
+        outline: 3px solid $text;
         outline-offset: 2px;
       }
     }
@@ -2782,7 +2782,7 @@ footer {
 // ── Buy / price block ───────────────────────────────────────────────────────
 .course-buy {
   background: shade($magenta, 6%);
-  color: $cream;
+  color: $paper;
   padding: 2.2rem 1.6rem;
   margin: 2.5rem 0;
   box-shadow: 12px 12px 0 $teal;
@@ -2799,7 +2799,7 @@ footer {
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: fade($cream, 0.85);
+    color: fade($paper, 0.85);
     margin: 0 0 0.4rem;
   }
 
@@ -2810,7 +2810,7 @@ footer {
     font-variation-settings: 'opsz' 144;
     font-size: 2.2rem;
     line-height: 1.05;
-    color: $cream;
+    color: $paper;
     border-left: none;
     padding-left: 0;
     margin: 0 0 0.8rem;
@@ -2841,7 +2841,7 @@ footer {
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: fade($cream, 0.85);
+    color: fade($paper, 0.85);
   }
 
   .course-buy__pitch {
@@ -2849,7 +2849,7 @@ footer {
     margin: 0 auto 1.4rem;
     font-size: 1.05rem;
     line-height: 1.55;
-    color: fade($cream, 0.95);
+    color: fade($paper, 0.95);
   }
 
   .course-buy__list {
@@ -2864,7 +2864,7 @@ footer {
       padding: 0.4rem 0 0.4rem 1.9rem;
       font-size: 1.02rem;
       line-height: 1.4;
-      color: $cream;
+      color: $paper;
 
       &::before {
         content: "✓";
@@ -2880,21 +2880,21 @@ footer {
 
   .course-buy__cta {
     background: $yellow;
-    color: $ink;
-    box-shadow: 4px 4px 0 $ink;
+    color: $text;
+    box-shadow: 4px 4px 0 $text;
     font-size: 1.15rem;
     padding: 1.05rem 2.8rem;
 
     &:hover {
-      color: $ink;
-      box-shadow: 6px 6px 0 $ink;
+      color: $text;
+      box-shadow: 6px 6px 0 $text;
     }
   }
 
   .course-buy__fineprint {
     margin: 1.2rem 0 0;
     font-size: 0.88rem;
-    color: fade($cream, 0.8);
+    color: fade($paper, 0.8);
 
     & + & { margin-top: 0.55rem; }
   }
@@ -2909,9 +2909,9 @@ footer {
   margin: 0 0 1.6rem;
   padding: 0.7rem 1rem;
   background: $teal;
-  color: $cream;
-  border: 2px solid $ink;
-  box-shadow: 4px 4px 0 $ink;
+  color: $paper;
+  border: 2px solid $text;
+  box-shadow: 4px 4px 0 $text;
   font-family: $font-primary;
 
   .sale-ribbon__tag {
@@ -2924,7 +2924,7 @@ footer {
   .sale-ribbon__deal {
     font-weight: 600;
     font-size: 0.92rem;
-    color: fade($cream, 0.95);
+    color: fade($paper, 0.95);
   }
 }
 
@@ -2936,13 +2936,13 @@ footer {
   white-space: nowrap;
   padding: 0.08em 0.45em;
   border-radius: 3px;
-  background: fade($ink, 0.14);
+  background: fade($text, 0.14);
   color: inherit;
 }
 .sale-ribbon .sale-code,
 .sale-code--light {
-  background: fade($cream, 0.22);
-  color: $cream;
+  background: fade($paper, 0.22);
+  color: $paper;
 }
 
 // Strikethrough on old prices wherever it appears in a CTA
@@ -2956,7 +2956,7 @@ footer {
   font-family: $font-display;
   font-weight: 700;
   font-size: 1.9rem;
-  color: fade($cream, 0.6);
+  color: fade($paper, 0.6);
 }
 
 .course-buy__sale {
@@ -2973,9 +2973,9 @@ footer {
   margin: 1.5rem 0 2.5rem;
 
   .course-faq__item {
-    border-bottom: 2px solid fade($ink, 0.14);
+    border-bottom: 2px solid fade($text, 0.14);
 
-    &:first-child { border-top: 2px solid fade($ink, 0.14); }
+    &:first-child { border-top: 2px solid fade($text, 0.14); }
 
     summary {
       display: flex;
@@ -2988,7 +2988,7 @@ footer {
       font-weight: 800;
       font-size: 1.1rem;
       line-height: 1.3;
-      color: $ink;
+      color: $text;
 
       &::-webkit-details-marker { display: none; }
 
@@ -3014,7 +3014,7 @@ footer {
       padding: 0 0.2rem;
       font-size: 1.02rem;
       line-height: 1.6;
-      color: fade($ink, 0.88);
+      color: fade($text, 0.88);
     }
   }
 }
@@ -3028,7 +3028,7 @@ footer {
   text-align: center;
   max-width: 36rem;
   margin: 2.5rem auto 1.5rem;
-  color: $ink;
+  color: $text;
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -3057,7 +3057,7 @@ main table:not(.pricing-table) {
   border-collapse: separate;
   border-spacing: 0;
   margin: 2rem 0;
-  border: 3px solid $ink;
+  border: 3px solid $text;
   box-shadow: 6px 6px 0 $teal;
   font-family: $font-secondary;
   overflow: hidden;
@@ -3065,15 +3065,15 @@ main table:not(.pricing-table) {
   th, td {
     padding: 0.85rem 1rem;
     text-align: left;
-    border-bottom: 2px solid $ink;
+    border-bottom: 2px solid $text;
   }
 
   thead th {
     background: $magenta;
-    color: $cream;
+    color: $paper;
     font-family: $font-primary;
     font-weight: 700;
-    border-bottom: 3px solid $ink;
+    border-bottom: 3px solid $text;
   }
 
   tbody tr:last-child td {
@@ -3081,7 +3081,7 @@ main table:not(.pricing-table) {
   }
 
   tbody tr:nth-child(even) td {
-    background: fade($ink, 0.04);
+    background: fade($text, 0.04);
   }
 
   // Not-applicable cells read quieter

@@ -26,8 +26,8 @@
     font: 700 clamp(9rem, 38vw, 30rem)/0.8 $font-display;
     font-variation-settings: 'opsz' 144;
     letter-spacing: -0.08em;
-    color: $cream;                          // page colour fill hides contour overlaps
-    -webkit-text-stroke: 3px $ink;
+    color: $paper;                          // page colour fill hides contour overlaps
+    -webkit-text-stroke: 3px $text;
     paint-order: stroke fill;
     transform: rotate(-4deg);
     transform-origin: left bottom;
@@ -50,19 +50,19 @@
       line-height: 0.84;
       letter-spacing: -0.03em;
       text-transform: uppercase;
-      color: $ink;
+      color: $text;
     }
     em { display: block; font-style: normal; margin-top: 0.1em; }
     mark {
       display: inline-block;
       background: $magenta;
-      color: $cream;
+      color: $paper;
       font: italic 500 clamp(2.2rem, 7vw, 5.2rem)/1 $font-display;
       letter-spacing: -0.045em;
       padding: 0.02em 0.16em 0.12em 0.08em;
       transform: rotate(-3deg);
       transform-origin: left;
-      box-shadow: 8px 8px 0 $ink;
+      box-shadow: 8px 8px 0 $text;
     }
   }
 
@@ -100,9 +100,9 @@
       font: 700 0.85rem/1.4 $mono;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: $ink;
+      color: $text;
       text-decoration: none;
-      &:hover, &:focus-visible { background: $magenta; color: $cream; outline: none; }
+      &:hover, &:focus-visible { background: $magenta; color: $paper; outline: none; }
     }
   }
 }

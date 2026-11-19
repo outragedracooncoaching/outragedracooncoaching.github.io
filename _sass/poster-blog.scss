@@ -30,7 +30,7 @@ body.poster-blog {
   // ── neutralise riso leftovers from main.scss ──
   // (:where keeps these at low specificity so component rules below win)
   :where(.poster) :where(h1, h2, h3, h4) {
-    color: $ink;
+    color: $text;
     font-style: normal;
     border-left: 0;
     padding-left: 0;
@@ -51,8 +51,8 @@ body.poster-blog {
     transform: rotate(-3deg);
     transform-origin: left;
 
-    span { color: fade($ink, 0.75); }
-    a { color: $ink; text-decoration: none; }
+    span { color: fade($text, 0.75); }
+    a { color: $text; text-decoration: none; }
     a:hover, a:focus-visible { color: $magenta; }
   }
 
@@ -99,14 +99,14 @@ body.poster-blog {
     mark {
       display: inline-block;
       background: $magenta;
-      color: $cream;
+      color: $paper;
       font-style: italic;
       font-weight: 500;
       letter-spacing: -0.05em;
       padding: 0 0.16em 0.1em 0.06em;
       transform: rotate(-3.5deg);
       line-height: 0.9;
-      box-shadow: 6px 6px 0 $ink;
+      box-shadow: 6px 6px 0 $text;
     }
 
     &__sub {
@@ -132,11 +132,11 @@ body.poster-blog {
     display: inline-block;
     padding: 0 0.14em 0.04em 0.08em;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     font-style: italic;
     font-weight: 500;
     transform: rotate(-3deg);
-    box-shadow: 4px 4px 0 $ink;
+    box-shadow: 4px 4px 0 $text;
   }
 
   // scrawled wavy underline
@@ -203,7 +203,7 @@ body.poster-blog {
     a {
       display: inline-block;
       padding: 0.1rem 0.2rem;
-      color: $ink;
+      color: $text;
       font: 700 0.8rem/1.3 $mono;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -212,7 +212,7 @@ body.poster-blog {
 
       &:hover, &:focus-visible {
         background: $magenta;
-        color: $cream;
+        color: $paper;
         transform: rotate(-2deg);
         outline: none;
       }
@@ -220,9 +220,9 @@ body.poster-blog {
       // the chosen category is the one sticker
       &.active-link {
         background: $magenta;
-        color: $cream;
+        color: $paper;
         padding: 0.2rem 0.45rem;
-        box-shadow: 3px 3px 0 $ink;
+        box-shadow: 3px 3px 0 $text;
         transform: rotate(-2deg);
       }
     }
@@ -238,7 +238,7 @@ body.poster-blog {
     position: relative;
     margin-top: 6rem;
     padding-top: 2.6rem;
-    border-top: 1.5px solid $ink;
+    border-top: 1.5px solid $text;
 
     @include respond-to('large') {
       display: grid;
@@ -260,7 +260,7 @@ body.poster-blog {
       align-items: center;
       gap: 0.9rem;
       @include bl-mono;
-      background: $cream;
+      background: $paper;
       padding-right: 0.9rem;
 
       span {
@@ -268,10 +268,10 @@ body.poster-blog {
         font-size: 1.15rem;
         letter-spacing: 0.06em;
         background: $magenta;
-        color: $cream;
+        color: $paper;
         padding: 0.35rem 0.7rem 0.3rem;
         transform: rotate(-4deg);
-        box-shadow: 4px 4px 0 $ink;
+        box-shadow: 4px 4px 0 $text;
       }
     }
 
@@ -284,12 +284,12 @@ body.poster-blog {
       text-wrap: balance;
 
       a {
-        color: $ink;
+        color: $text;
         text-decoration: none;
         background: linear-gradient($magenta, $magenta) 0 88% / 0 0.16em no-repeat;
         transition: background-size 0.25s ease;
       }
-      a:hover, a:focus-visible { color: $ink; background-size: 100% 0.16em; outline: none; }
+      a:hover, a:focus-visible { color: $text; background-size: 100% 0.16em; outline: none; }
     }
 
     &__body {
@@ -337,7 +337,7 @@ body.poster-blog {
     width: min(88%, 26rem);
     margin: 2.8rem 0 1rem;
     padding: 0.65rem 0.65rem 2.2rem;
-    background: $ink;
+    background: $text;
     box-shadow: 12px 12px 0 $magenta;
     transform: rotate(3.5deg);
 
@@ -358,20 +358,20 @@ body.poster-blog {
     display: inline-block;
     padding: 1rem 1.8rem 1.05rem;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     font: 800 clamp(1rem, 1.6vw, 1.25rem)/1 $font-primary;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
     transform: rotate(-3deg);
-    box-shadow: 7px 7px 0 $ink;
+    box-shadow: 7px 7px 0 $text;
     transition: transform 0.12s ease, box-shadow 0.12s ease;
 
     &::after { content: ' →'; }
     &:hover, &:focus-visible {
-      color: $cream;
+      color: $paper;
       transform: rotate(-3deg) translate(3px, 3px);
-      box-shadow: 4px 4px 0 $ink;
+      box-shadow: 4px 4px 0 $text;
     }
     &:active { transform: rotate(-3deg) translate(7px, 7px); box-shadow: none; }
   }
@@ -398,7 +398,7 @@ body.poster-blog {
       font: 700 clamp(3.6rem, 16vw, 6.5rem)/0.85 $font-display;
       font-variation-settings: 'opsz' 144;
       letter-spacing: -0.06em;
-      color: $ink;
+      color: $text;
 
       @include respond-to('large') {
         position: sticky;
@@ -425,10 +425,10 @@ body.poster-blog {
     align-items: baseline;
     margin: 0;
     padding: 1.15rem 0.6rem 1.25rem;
-    border-top: 1px solid fade($ink, 0.45);
+    border-top: 1px solid fade($text, 0.45);
     transition: transform 0.14s cubic-bezier(0.3, 1.6, 0.5, 1), background 0.1s, box-shadow 0.14s;
 
-    &:last-child { border-bottom: 1px solid fade($ink, 0.45); }
+    &:last-child { border-bottom: 1px solid fade($text, 0.45); }
 
     .bl-row__tags { grid-column: 2; margin-top: -0.6rem; }
 
@@ -448,7 +448,7 @@ body.poster-blog {
       word-spacing: 0;
 
       a {
-        color: $ink;
+        color: $text;
         text-decoration: none;
         // whole row is the click target
         &::before { content: ''; position: absolute; inset: 0; z-index: 1; }
@@ -462,7 +462,7 @@ body.poster-blog {
       max-width: 68ch;
       font-size: 1.02rem;
       line-height: 1.55;
-      color: $ink;
+      color: $text;
     }
 
     // hover = slapped on as a pink sticker strip (same move as the homepage)
@@ -470,11 +470,11 @@ body.poster-blog {
       z-index: 2;
       background: $magenta;
       border-color: transparent;
-      box-shadow: 7px 7px 0 $ink;
+      box-shadow: 7px 7px 0 $text;
       transform: rotate(-0.8deg) translate(-4px, -4px);
 
-      .bl-row__date, .bl-row__title a, .bl-row__desc, .bl-row__tags a { color: $cream; }
-      .bl-row__tags a { border-color: fade($cream, 0.6); }
+      .bl-row__date, .bl-row__title a, .bl-row__desc, .bl-row__tags a { color: $paper; }
+      .bl-row__tags a { border-color: fade($paper, 0.6); }
       .bl-row__title a::after { opacity: 1; }
     }
     &:nth-child(even):hover, &:nth-child(even):focus-within {
@@ -502,9 +502,9 @@ body.poster-blog {
       border: 1px solid fade($magenta, 0.55);
 
       &:hover, &:focus-visible {
-        background: $cream;
-        color: $ink !important;
-        border-color: $cream;
+        background: $paper;
+        color: $text !important;
+        border-color: $paper;
         outline: none;
       }
     }
@@ -555,10 +555,10 @@ body.poster-blog {
   .bl-catposts .bl-cathead__title .cond {
     display: inline-block;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     padding: 0.06em 0.14em 0.02em;
     transform: rotate(-2deg);
-    box-shadow: 10px 10px 0 $ink;
+    box-shadow: 10px 10px 0 $text;
   }
 
   // the intro (no ?q) shows the list as the poster
@@ -616,6 +616,6 @@ body.poster-blog {
       li { flex: none; }
     }
     .bl-catpage:has(.active-posts) .bl-cathead { margin-top: 2.6rem; }
-    .bl-catposts .bl-cathead__title .cond { box-shadow: 6px 6px 0 $ink; }
+    .bl-catposts .bl-cathead__title .cond { box-shadow: 6px 6px 0 $text; }
   }
 }

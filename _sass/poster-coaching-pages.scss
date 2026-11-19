@@ -31,7 +31,7 @@ body.poster-coaching-page {
 
   // body links in copy: cream text, pink marker underline
   .cp-intro a, .cp-who a, .cp-session a, .cp-pricing__terms a, .cp-reviews a {
-    color: $ink;
+    color: $text;
     text-decoration-color: $magenta;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2em;
@@ -81,7 +81,7 @@ body.poster-coaching-page {
     line-height: 1;
     padding: 0.15rem 0.4rem 0.2rem;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     transform: rotate(-4deg);
   }
 
@@ -108,7 +108,7 @@ body.poster-coaching-page {
     max-width: 24ch;
     font: italic 400 clamp(1.5rem, 2.6vw, 2.2rem)/1.12 $font-display;
     letter-spacing: -0.03em;
-    color: $ink;
+    color: $text;
     text-wrap: pretty;
 
     em {
@@ -155,19 +155,19 @@ body.poster-coaching-page {
     font-size: clamp(3.8rem, 8.6vw, 8.4rem);
     line-height: 0.84;
     letter-spacing: -0.03em;
-    color: $ink;
+    color: $text;
   }
   em { display: block; margin-top: 0.12em; font-style: normal; }
   mark {
     display: inline-block;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     font: italic 500 clamp(2.8rem, 6.4vw, 6rem)/1 $font-display;
     letter-spacing: -0.05em;
     padding: 0.02em 0.16em 0.14em 0.08em;
     transform: rotate(-3deg);
     transform-origin: left;
-    box-shadow: 8px 8px 0 $ink;
+    box-shadow: 8px 8px 0 $text;
   }
 }
 
@@ -196,7 +196,7 @@ body.poster-coaching-page {
   font-variation-settings: 'opsz' 144;
   letter-spacing: -0.065em;
   word-spacing: 0.04em;
-  color: $ink;
+  color: $text;
   text-wrap: balance;
 
   em {
@@ -215,7 +215,7 @@ body.poster-coaching-page {
       right: 0.1em;
       bottom: -0.04em;
       height: clamp(8px, 1.2vw, 14px);
-      background: $ink;
+      background: $text;
       transform: rotate(-1.2deg);
       clip-path: polygon(0 12%, 97% 0, 100% 80%, 3% 100%);
     }
@@ -262,14 +262,14 @@ body.poster-coaching-page {
   margin: 1.5rem 0 0 calc(50% - 50vw);
   padding: 0.7rem 5vw 0.8rem;
   background: $magenta;
-  color: $cream;
+  color: $paper;
   @include cc-caps;
   font-size: 6.6vw;
   line-height: 1.08;
   letter-spacing: -0.01em;
   text-align: center;
   transform: rotate(1.8deg);
-  box-shadow: 0 9px 0 $ink;
+  box-shadow: 0 9px 0 $text;
 
   @include respond-to('medium') { font-size: min(2.2rem, 2.65vw); white-space: nowrap; }
 
@@ -277,8 +277,8 @@ body.poster-coaching-page {
   b {
     font-weight: 800;
     display: inline-block;
-    background: $ink;
-    color: $cream;
+    background: $text;
+    color: $paper;
     padding: 0 0.25em 0.04em;
     transform: rotate(-2.5deg);
   }
@@ -319,7 +319,7 @@ body.poster-coaching-page {
   position: relative;
   margin: 0;
   padding: 1.5rem 1.6rem 1.7rem 2.2rem;
-  border: 1.5px solid $ink;
+  border: 1.5px solid $text;
   box-shadow: 10px 10px 0 $magenta;
   transform: rotate(-2deg);
   font: italic 400 clamp(1.3rem, 2vw, 1.6rem)/1.3 $font-display;
@@ -362,14 +362,14 @@ body.poster-coaching-page {
   list-style: none;
   margin: 4rem 0 0;
   padding: 0;
-  border-bottom: 1px solid fade($ink, 0.35);
+  border-bottom: 1px solid fade($text, 0.35);
 
   // the structure: one column of big confessions on full-width rules
   li {
     position: relative;
     margin: 0;
     padding: 1.1rem 0 1.15rem 1.5em;
-    border-top: 1px solid fade($ink, 0.35);
+    border-top: 1px solid fade($text, 0.35);
     font: 600 clamp(1.5rem, 2.9vw, 2.6rem)/1.08 $font-display;
     letter-spacing: -0.045em;
     text-wrap: balance;
@@ -393,12 +393,12 @@ body.poster-coaching-page {
     padding: 1rem 1.4rem 1.15rem 2.3rem;
     border: 0;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     font: italic 500 clamp(1.7rem, 3.2vw, 2.8rem)/1.06 $font-display;
-    box-shadow: 9px 9px 0 $ink;
+    box-shadow: 9px 9px 0 $text;
     transform: rotate(-3deg);
 
-    &::before { left: 0.5rem; top: 0.7rem; color: $cream; }
+    &::before { left: 0.5rem; top: 0.7rem; color: $paper; }
     & ~ .cp-worries__slip { margin: 0 auto 1rem 6%; transform: rotate(2.5deg); }
   }
 }
@@ -448,7 +448,7 @@ body.poster-coaching-page {
       text-decoration-color: $magenta;
       text-decoration-thickness: 0.12em;
       text-decoration-skip-ink: none;
-      color: $ink;
+      color: $text;
     }
   }
 }
@@ -496,7 +496,7 @@ body.poster-coaching-page {
     position: relative;
     margin: 0;
     padding-top: 1.1rem;
-    border-top: 2px solid $ink;
+    border-top: 2px solid $text;
   }
 
   &__num {
@@ -553,7 +553,7 @@ body.poster-coaching-page {
     margin: 0;
     padding: 1.6rem 1.6rem 1.8rem 2.4rem !important;
     position: relative;
-    border: 1.5px solid $ink;
+    border: 1.5px solid $text;
     box-shadow: 10px 10px 0 $magenta;
     transform: rotate(1.2deg);
 
@@ -572,7 +572,7 @@ body.poster-coaching-page {
       padding: 0.9rem 0 0.9rem 2.8rem;
       font-size: 1.12rem;
       line-height: 1.6;
-      border-bottom: 1px dashed fade($ink, 0.35);
+      border-bottom: 1px dashed fade($text, 0.35);
       &:last-child { border-bottom: 0; }
 
       // an empty box, waiting for you to tick it
@@ -583,7 +583,7 @@ body.poster-coaching-page {
         top: 1.05rem;
         width: 1.4rem;
         height: 1.4rem;
-        border: 2px solid $ink;
+        border: 2px solid $text;
         transform: rotate(-4deg);
       }
       &:nth-child(even)::before { transform: rotate(5deg); }
@@ -636,7 +636,7 @@ body.poster-coaching-page {
   display: flex;
   flex-direction: column;
   padding: 1.8rem 1.7rem 0;
-  border: 3px solid $ink;
+  border: 3px solid $text;
   box-shadow: 12px 12px 0 $magenta;
   max-width: 34rem;
 
@@ -647,7 +647,7 @@ body.poster-coaching-page {
     margin-bottom: 1.2rem !important;
     padding: 0.3rem 0.6rem 0.35rem;
     background: $magenta;
-    color: $cream;
+    color: $paper;
     @include cc-mono;
     font-size: 0.72rem;
     transform: rotate(-3deg);
@@ -699,7 +699,7 @@ body.poster-coaching-page {
     border: 3px solid $magenta;
     outline: 2px solid $magenta;
     outline-offset: 3px;
-    background: $cream;
+    background: $paper;
     color: $magenta;
     @include cc-caps;
     font-size: 1.15rem;
@@ -719,13 +719,13 @@ body.poster-coaching-page {
 
   // featured: the cream ticket, pink shadow; its button gets a charcoal shadow
   &--hour {
-    background: $ink;
-    color: $cream;
-    border-color: $ink;
+    background: $text;
+    color: $paper;
+    border-color: $text;
     transform: rotate(-1.5deg);
 
     .cp-ticket__price span { color: $magenta; }
-    .cp-ticket__cta { @include cc-press(-2deg, $cream); }
+    .cp-ticket__cta { @include cc-press(-2deg, $paper); }
   }
 
   &--campaign { transform: rotate(1deg); }
@@ -762,9 +762,9 @@ body.poster-coaching-page {
   break-inside: avoid;
   margin: 0 0 3rem;
   padding: 1.5rem 1.6rem 1.4rem;
-  border: 1px solid $ink;
+  border: 1px solid $text;
   background: transparent;
-  color: $ink;
+  color: $text;
   box-shadow: none;
   transform: none;
   font-size: 1.05rem;
@@ -816,7 +816,7 @@ body.poster-coaching-page {
   }
   // dashed cut-out, opposite tilt
   &:nth-child(3n) {
-    border: 2px dashed $ink;
+    border: 2px dashed $text;
   }
 }
 

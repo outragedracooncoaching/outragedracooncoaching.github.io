@@ -94,7 +94,7 @@ body.poster-info {
   font-family: $font-secondary;
   font-size: 1.15rem;
   line-height: 1.75;
-  color: $ink;
+  color: $text;
 
   > :first-child { margin-top: 0; }
 
@@ -113,7 +113,7 @@ body.poster-info {
     font: normal 700 clamp(2.1rem, 4vw, 3.1rem)/0.95 $font-display;
     font-variation-settings: 'opsz' 144;
     letter-spacing: -0.055em;
-    color: $ink;
+    color: $text;
     text-wrap: balance;
     scroll-margin-top: 1.5rem;
   }
@@ -134,11 +134,11 @@ body.poster-info {
     margin: 2.2rem 0 0.6rem;
     font: italic 500 1.4rem/1.2 $font-display;
     letter-spacing: -0.02em;
-    color: $ink;
+    color: $text;
   }
 
   a {
-    color: $ink;
+    color: $text;
     text-decoration: underline;
     text-decoration-color: $magenta;
     text-decoration-thickness: 2px;
@@ -171,22 +171,22 @@ body.poster-info {
   // fees table
   table {
     margin: 1.6rem 0 2.4rem;
-    border: 1.5px solid $ink;
+    border: 1.5px solid $text;
     box-shadow: 8px 8px 0 $magenta;
     font-size: 1.02rem;
     line-height: 1.45;
 
-    th, td { border-bottom: 1px solid fade($ink, 0.4); }
+    th, td { border-bottom: 1px solid fade($text, 0.4); }
 
     thead th {
       background: $magenta;
-      color: $cream;
+      color: $paper;
       @include info-caps;
       font-size: 1.05rem;
       letter-spacing: 0.02em;
-      border-bottom: 1.5px solid $ink;
+      border-bottom: 1.5px solid $text;
     }
-    tbody tr:nth-child(even) td { background: fade($ink, 0.05); }
+    tbody tr:nth-child(even) td { background: fade($text, 0.05); }
   }
 }
 
@@ -195,7 +195,7 @@ body.poster-info {
   max-width: 68ch;
   margin: 0 0 3.5rem;
   padding: 1.1rem 0 0;
-  border-top: 3px solid $ink;
+  border-top: 3px solid $text;
 
   @media (min-width: 1100px) {
     position: sticky;
@@ -220,7 +220,7 @@ body.poster-info {
     font: 400 0.8rem/1.3 $mono;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: $ink;
+    color: $text;
     text-decoration: none;
     &:hover, &:focus-visible { color: $magenta; }
   }
@@ -234,7 +234,7 @@ body.poster-info {
   #markdown-toc > li:first-child > a { margin-top: 0; }
 
   #markdown-toc ul {
-    border-left: 2px solid fade($ink, 0.3);
+    border-left: 2px solid fade($text, 0.3);
     padding-left: 0.8rem;
     margin: 0.2rem 0 0 0.1rem;
 
@@ -243,7 +243,7 @@ body.poster-info {
 }
 
 // beats the leftover-killer above, which zeroes heading borders
-body.poster-info .info-text h2 { border-top: 3px solid $ink; }
+body.poster-info .info-text h2 { border-top: 3px solid $text; }
 
 .poster-info .sign-off { margin-top: 7rem; }
 
@@ -280,7 +280,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
     border-bottom: 3px solid $magenta;
     @include info-mono;
     font-size: 0.85rem;
-    color: $ink;
+    color: $text;
     transform: rotate(-3deg);
     transform-origin: left;
   }
@@ -296,14 +296,14 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
     mark {
       display: inline-block;
       background: $magenta;
-      color: $cream;
+      color: $paper;
       font-style: italic;
       font-weight: 600;
       letter-spacing: -0.05em;
       padding: 0 0.14em 0.12em 0.06em;
       line-height: 0.9;
       transform: rotate(-2.5deg);
-      box-shadow: 8px 8px 0 $ink;
+      box-shadow: 8px 8px 0 $text;
     }
   }
 
@@ -330,10 +330,10 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   a {
     display: inline-block;
     padding-bottom: 0.3rem;
-    border-bottom: 2px solid fade($ink, 0.5);
+    border-bottom: 2px solid fade($text, 0.5);
     @include info-mono;
     font-size: 0.82rem;
-    color: $ink;
+    color: $text;
     text-decoration: none;
     span { color: $magenta; margin-right: 0.4rem; }
     &:hover, &:focus-visible { color: $magenta; border-color: $magenta; }
@@ -366,7 +366,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
 .fund-card--box {
   position: relative;
   padding: 2.6rem 2rem 1.6rem;
-  border: 3px solid $ink;
+  border: 3px solid $text;
   box-shadow: 10px 10px 0 $magenta;
   transform: rotate(-1deg);
 
@@ -375,7 +375,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
     top: -2.2rem;
     right: 1.4rem;
     padding: 0 0.3rem;
-    background: $cream;
+    background: $paper;
     transform: rotate(4deg);
   }
 
@@ -389,7 +389,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   font-size: clamp(2.6rem, 5vw, 4rem);
   line-height: 0.88;
   letter-spacing: -0.02em;
-  color: $ink;
+  color: $text;
 }
 
 .fund-card__sub {
@@ -403,7 +403,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
 .fund-script {
   position: relative;
   padding: 1.5rem 1.6rem 1.6rem 2.3rem;
-  border: 1.5px solid $ink;
+  border: 1.5px solid $text;
 
   @include respond-to('large') { margin-top: 2.5rem; }
 
@@ -437,7 +437,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
       position: relative;
       margin: 0;
       padding: 0.8rem 0 0.8rem 2.6rem;
-      border-top: 1px dashed fade($ink, 0.5);
+      border-top: 1px dashed fade($text, 0.5);
       font-size: 1.08rem;
       line-height: 1.55;
 
@@ -450,7 +450,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
         color: $magenta;
       }
     }
-    li:last-child { border-bottom: 1px dashed fade($ink, 0.5); }
+    li:last-child { border-bottom: 1px dashed fade($text, 0.5); }
   }
 
   &__close { margin: 0; font-size: 1.08rem; line-height: 1.6; }
@@ -502,7 +502,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
 
   &__paper {
     padding: 1.4rem 1.6rem 1.2rem;
-    border: 2px dashed $ink;
+    border: 2px dashed $text;
 
     p { margin: 0 0 0.85rem; font-size: 1.06rem; line-height: 1.6; }
   }
@@ -510,7 +510,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   &__subject {
     margin: -0.2rem 0 1.1rem !important;
     padding-bottom: 0.7rem;
-    border-bottom: 1.5px solid $ink;
+    border-bottom: 1.5px solid $text;
     font: 700 0.82rem/1.4 $mono !important;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -521,7 +521,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
 
   .fill-blank {
     background: $magenta;
-    color: $cream;
+    color: $paper;
     padding: 0 0.3em 0.05em;
     border-radius: 0;
     font: italic 600 1em/1.4 $font-display;
@@ -546,20 +546,20 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   display: inline-block;
   padding: 1rem 1.5rem 1.05rem;
   background: $magenta;
-  color: $cream;
+  color: $paper;
   font: 800 clamp(0.95rem, 1.6vw, 1.1rem)/1 $font-primary;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 6px 6px 0 $ink;
+  box-shadow: 6px 6px 0 $text;
   transform: rotate(-2deg);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 
   &::after { content: ' →'; }
   &:hover, &:focus-visible {
-    color: $cream;
+    color: $paper;
     transform: rotate(-2deg) translate(3px, 3px);
-    box-shadow: 3px 3px 0 $ink;
+    box-shadow: 3px 3px 0 $text;
   }
   &:active { transform: rotate(-2deg) translate(6px, 6px); box-shadow: none; }
 }
@@ -620,7 +620,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
 
 .fund-step {
   padding-top: 1rem;
-  border-top: 3px solid $ink;
+  border-top: 3px solid $text;
 
   &__label {
     margin: 0 0 0.9rem;
@@ -628,13 +628,13 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
     font-size: clamp(1.7rem, 2.4vw, 2.1rem);
     line-height: 0.95;
     letter-spacing: 0;
-    color: $ink;
+    color: $text;
     span { font: 700 0.85rem/1 $mono; color: $magenta; vertical-align: 0.35em; margin-right: 0.3rem; }
   }
 
   p { margin: 0 0 1rem; font-size: 1.08rem; line-height: 1.65; }
   a {
-    color: $ink;
+    color: $text;
     text-decoration-color: $magenta;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.18em;
@@ -648,8 +648,8 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   margin: 3.5rem 0 0 auto;
   padding: 1.5rem 1.8rem 1.6rem;
   background: $magenta;
-  color: $cream;
-  box-shadow: 10px 10px 0 $ink;
+  color: $paper;
+  box-shadow: 10px 10px 0 $text;
   transform: rotate(1.5deg);
 
   @include respond-to('medium') { margin-right: 4%; }
@@ -657,14 +657,14 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   p { margin: 0; font: italic 500 clamp(1.25rem, 2vw, 1.5rem)/1.4 $font-display !important; letter-spacing: -0.02em; }
 
   a {
-    color: $cream;
+    color: $paper;
     font-weight: 700;
     text-decoration: underline;
-    text-decoration-color: $cream;
+    text-decoration-color: $paper;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.16em;
-    &:hover, &:focus-visible { color: $cream; text-decoration-thickness: 4px; }
-    &:focus-visible { outline-color: $cream; }
+    &:hover, &:focus-visible { color: $paper; text-decoration-thickness: 4px; }
+    &:focus-visible { outline-color: $paper; }
   }
 }
 
@@ -680,7 +680,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
     margin: 0.3rem 0 1.4rem;
     font: italic 400 clamp(2.8rem, 7vw, 5.6rem)/0.95 $font-display;
     letter-spacing: -0.05em;
-    color: $ink;
+    color: $text;
   }
 
   p:last-child {
@@ -694,7 +694,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   }
 
   a {
-    color: $ink;
+    color: $text;
     text-decoration-color: $magenta;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.18em;
@@ -718,7 +718,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
 
 .fund-back {
   font: italic 400 1.35rem/1.3 $font-display;
-  color: $ink;
+  color: $text;
   text-decoration: underline;
   text-decoration-color: $magenta;
   text-decoration-thickness: 2px;

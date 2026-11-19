@@ -12,7 +12,7 @@
 
 $calm-font: 'Atkinson Hyperlegible Mono', ui-monospace, Menlo, monospace;
 $calm-zone: 'body > header, main, body > footer';
-$calm-rule: 1px solid fade($ink, 0.3);
+$calm-rule: 1px solid fade($text, 0.3);
 $calm-measure: 62ch;
 
 :root[data-calm] {
@@ -47,7 +47,7 @@ $calm-measure: 62ch;
       white-space: normal !important;
       text-overflow: clip !important;
       background: none !important;
-      color: $ink !important;
+      color: $text !important;
       border: 0 !important;
       border-radius: 0 !important;
       position: static !important;
@@ -150,7 +150,7 @@ $calm-measure: 62ch;
     ul, ol { padding-left: 2.5ch !important; list-style: square !important; }
     ol { list-style: decimal !important; }
     li { display: list-item !important; margin-bottom: 0.5rem !important; }
-    li::marker { color: $ink; }
+    li::marker { color: $text; }
 
     section, article, aside { display: block !important; margin-top: 1.6rem !important; }
 
@@ -185,7 +185,7 @@ $calm-measure: 62ch;
     a.button, a.header-cta, a.sticker, a.hs-pay__link, .button, button:not(.font-scale-btn), [class*="btn"], [class*="cta"] a, a[class*="cta"] {
       display: inline-block !important;
       padding: 0.35rem 0.9ch !important;
-      border: 1px solid $ink !important;
+      border: 1px solid $text !important;
       text-decoration: none !important;
       font-weight: 700 !important;
       margin: 0.2rem 0 1.2rem !important;

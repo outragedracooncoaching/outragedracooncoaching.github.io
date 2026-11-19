@@ -1,14 +1,14 @@
 // ─── Dark palette (matches CV, outragedpinkracoon.github.io, Roots and Roses) ─
-// Naming note: $cream is now the SURFACE (charcoal) and $ink is now the TEXT
+// Naming note: $paper is now the SURFACE (charcoal) and $text is now the TEXT
 // colour (warm cream). Names are kept from the old light riso theme so ~300
-// existing usages flip correctly: "$ink text on $cream bg" stays "text on bg",
-// and "$cream text on a pink fill" becomes charcoal on pink, as on the CV.
+// existing usages flip correctly: "$text text on $paper bg" stays "text on bg",
+// and "$paper text on a pink fill" becomes charcoal on pink, as on the CV.
 // Runtime tokens: the values live on :root (see main.scss THEME) so the
 // Display menu can swap them for light mode without a rebuild.
-$cream:          var(--paper);   // charcoal surface (cream in light mode)
-$ink:            var(--ink);     // warm cream text (charcoal in light mode)
+$paper:          var(--paper);   // charcoal surface (cream in light mode)
+$text:           var(--ink);     // warm cream text (charcoal in light mode)
 $magenta:        var(--pink);    // the one accent: soft pink (deep pink in light mode)
-$pink-on-ink:    var(--pink-on-ink); // pink text on an $ink slip: the other theme's pink, so it passes AA
+$pink-on-ink:    var(--pink-on-ink); // pink text on a cream $text slip: the other theme's pink, so it passes AA
 
 // Raw values, for the :root definitions only
 $dark-paper:     #191917;
@@ -32,18 +32,18 @@ $lavender:       $magenta;
 
 // ─── Compatibility aliases ─────────────────────────────────────────────────────
 // Old variable names kept so post/posts/categories scss still compile
-$void:            $ink;
+$void:            $text;
 $hot-pink:        $magenta;
 $electric-purple: $lavender;
 $acid-teal:       $teal;
 $acid-lime:       $yellow;
 $amber:           $orange;
-$off-white:       $cream;
+$off-white:       $paper;
 
 // ─── Semantic ─────────────────────────────────────────────────────────────────
-$bg-color:       $cream;
+$bg-color:       $paper;
 $primary-color:  $magenta;
-$text-color:     $ink;
+$text-color:     $text;
 
 // ─── Card accent rotation ─────────────────────────────────────────────────────
 $card-accents: $magenta, $teal, $orange, $lavender;

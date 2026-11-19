@@ -46,7 +46,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     padding-bottom: 0.4rem;
     border-bottom: 3px solid $magenta;
     @include pp-mono;
-    color: $ink;
+    color: $text;
     text-decoration: none;
     transform: rotate(-3deg);
     transform-origin: left;
@@ -64,7 +64,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     line-height: 0.9;
     letter-spacing: -0.065em;
     text-wrap: balance;
-    color: $ink;
+    color: $text;
     overflow-wrap: break-word;
     hyphens: manual;
 
@@ -79,7 +79,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     gap: 0.7rem 1.4rem;
     margin: 2.4rem 0 0;
     @include pp-mono;
-    color: $ink;
+    color: $text;
 
     time { color: $magenta; }
   }
@@ -93,13 +93,13 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     a {
       padding: 0.3rem 0.55rem 0.32rem;
-      border: 1.5px solid $ink;
-      color: $ink;
+      border: 1.5px solid $text;
+      color: $text;
       text-decoration: none;
       transition: transform 0.12s ease, background 0.1s, color 0.1s;
       &:nth-child(odd)  { transform: rotate(-2deg); }
       &:nth-child(even) { transform: rotate(1.5deg); }
-      &:hover, &:focus-visible { background: $magenta; border-color: $magenta; color: $cream; }
+      &:hover, &:focus-visible { background: $magenta; border-color: $magenta; color: $paper; }
     }
   }
 
@@ -113,7 +113,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .post .post-body {
   padding: 3rem 0 1rem;
   font: 400 1.2rem/1.75 $font-secondary;
-  color: $ink;
+  color: $text;
 
   > * { max-width: $pp-measure; }
 
@@ -123,18 +123,18 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   }
 
   p { margin: 0 0 1.45em; }
-  strong { color: $ink; font-weight: 700; }
-  em { color: $ink; font-style: italic; }
+  strong { color: $text; font-weight: 700; }
+  em { color: $text; font-style: italic; }
 
   a {
-    color: $ink;
+    color: $text;
     text-decoration: underline;
     text-decoration-color: $magenta;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2em;
     overflow-wrap: anywhere;
     &:hover, &:focus-visible {
-      color: $cream;
+      color: $paper;
       background: $magenta;
       text-decoration-color: $magenta;
     }
@@ -147,7 +147,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     font-weight: 700;
     font-variation-settings: 'opsz' 144;
     letter-spacing: 0;
-    color: $cream;
+    color: $paper;
     text-transform: uppercase;   // lowercase haiku ('another reorg') still get a full-height cap
     background: $pp-cap-bg no-repeat 0 0 / 100% 100%;
     :root[data-theme="light"] & { background-image: $pp-cap-bg-light; }
@@ -185,7 +185,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     font: 700 clamp(1.9rem, 3.4vw, 2.7rem)/1.02 $font-display;
     font-variation-settings: 'opsz' 144;
     letter-spacing: -0.045em;
-    color: $ink;
+    color: $text;
   }
 
   h3 {
@@ -194,7 +194,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     font-size: clamp(1.5rem, 2.4vw, 1.9rem);
     line-height: 1;
     letter-spacing: -0.005em;
-    color: $ink;
+    color: $text;
   }
 
   h4, h5, h6 {
@@ -220,7 +220,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     border-left: 8px solid $magenta;
     box-shadow: none;
     transform: none;
-    color: $ink;
+    color: $text;
     font: italic 400 clamp(1.4rem, 2.2vw, 1.7rem)/1.35 $font-display;
     letter-spacing: -0.02em;
     &::before { content: none; }
@@ -231,7 +231,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   // code
   code {
     font: 400 0.86em/1.5 $mono;
-    background: fade($ink, 0.1);
+    background: fade($text, 0.1);
     padding: 0.1em 0.35em;
     overflow-wrap: anywhere;
   }
@@ -243,7 +243,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     padding: 1.2rem 1.3rem;
     overflow-x: auto;
     background: #10100f;
-    border: 1px solid fade($ink, 0.3);
+    border: 1px solid fade($text, 0.3);
     border-left: 6px solid $magenta;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -271,14 +271,14 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     overflow-x: auto;
     margin: 2rem 0;
     border-collapse: collapse;
-    border: 1.5px solid $ink;
+    border: 1.5px solid $text;
     box-shadow: 8px 8px 0 $magenta;
     font-size: 1rem;
     line-height: 1.5;
 
-    th, td { padding: 0.7rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid fade($ink, 0.35); }
-    thead th { @include pp-mono; background: none; color: $magenta; border-bottom: 1.5px solid $ink; }
-    tbody tr:nth-child(even) td { background: fade($ink, 0.04); }
+    th, td { padding: 0.7rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid fade($text, 0.35); }
+    thead th { @include pp-mono; background: none; color: $magenta; border-bottom: 1.5px solid $text; }
+    tbody tr:nth-child(even) td { background: fade($text, 0.04); }
   }
 
   // single images: cream frame, pink tape, small tilt. Never tilted enough to hurt
@@ -288,7 +288,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     max-width: min(100%, #{$pp-measure});
     margin: 3rem 0 3.4rem;
     padding: 0.55rem 0.55rem 1.6rem;
-    background: $ink;
+    background: $text;
     box-shadow: 10px 10px 0 $magenta;
     line-height: 0;
     transform: rotate(-1.2deg);
@@ -306,7 +306,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-style: normal;
-      color: $cream;
+      color: $paper;
     }
     &:has(> em) { padding-bottom: 1rem; }
 
@@ -329,7 +329,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     margin-top: 0.8rem;
     @include pp-mono;
     font-size: 0.72rem;
-    color: $ink;
+    color: $text;
   }
 
   // galleries
@@ -339,7 +339,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     margin: 2.6rem 0 3rem;
     img {
       border-radius: 0;
-      border: 1.5px solid $ink;
+      border: 1.5px solid $text;
       box-shadow: 6px 6px 0 $magenta;
       filter: none;
     }
@@ -352,7 +352,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     @media (min-width: 560px) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 0.8rem); }
   }
 
-  iframe, video { display: block; max-width: 100%; margin: 2.4rem 0; border: 1.5px solid $ink; box-shadow: 8px 8px 0 $magenta; }
+  iframe, video { display: block; max-width: 100%; margin: 2.4rem 0; border: 1.5px solid $text; box-shadow: 8px 8px 0 $magenta; }
 
   // the old riso callouts, re-cut as poster objects
   .callout {
@@ -360,9 +360,9 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     margin: 2.8rem 0;
     padding: 1.3rem 1.5rem 1.4rem 2rem;
     background: none;
-    border: 1.5px solid $ink;
+    border: 1.5px solid $text;
     box-shadow: 9px 9px 0 $magenta;
-    color: $ink;
+    color: $text;
     font: italic 400 clamp(1.3rem, 2vw, 1.55rem)/1.3 $font-display;
     letter-spacing: -0.02em;
     transform: rotate(-1deg);
@@ -377,8 +377,8 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   .callout--teal {
     background: $magenta;
     border-color: $magenta;
-    color: $cream;
-    box-shadow: 9px 9px 0 $ink;
+    color: $paper;
+    box-shadow: 9px 9px 0 $text;
     font-style: normal;
     font-weight: 600;
     transform: rotate(1deg);
@@ -397,7 +397,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     position: relative;
     max-width: 40rem;
     padding: 1.8rem 1.8rem 2.2rem 2.4rem;
-    border: 1.5px solid $ink;
+    border: 1.5px solid $text;
     box-shadow: 12px 12px 0 $magenta;
     transform: rotate(-1.5deg);
 
@@ -414,7 +414,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     margin: 0 0 1.8rem;
     font: italic 400 clamp(1.45rem, 2.4vw, 1.95rem)/1.22 $font-display;
     letter-spacing: -0.03em;
-    color: $ink;
+    color: $text;
     text-wrap: pretty;
   }
 
@@ -439,7 +439,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     border-bottom: 3px solid $magenta;
     @include pp-mono;
     font-style: normal;
-    color: $ink;
+    color: $text;
     transform: rotate(-2deg);
     transform-origin: left;
     &::after { content: none; display: none; }
@@ -488,7 +488,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     margin: 0;
     font: italic 400 5.4vw/1.32 $font-display;   // phone: the largest size where 25-26 char lines fit beside the 3-line cap
     letter-spacing: -0.03em;
-    color: $ink;
+    color: $text;
 
     @include respond-to('medium') { font-size: 4.6vw; }
     @include respond-to('large') { font-size: clamp(2.3rem, 3vw, 3.3rem); }
@@ -502,11 +502,11 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     grid-row: 2;
     margin: 2.2rem 0 0;
     padding-top: 0.8rem;
-    border-top: 1.5px solid $ink;
+    border-top: 1.5px solid $text;
     max-width: 30rem;
     @include pp-mono;
     font-size: 0.72rem;
-    color: $ink;
+    color: $text;
   }
 
   // "Come comment with your own haiku on LinkedIn": a small italic aside
@@ -515,7 +515,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     grid-row: 3;
     margin: 1.4rem 0 0;
     font: italic 400 1.1rem/1.4 $font-display;
-    color: fade($ink, 0.85);
+    color: fade($text, 0.85);
     a { color: inherit; }
   }
 
@@ -548,7 +548,7 @@ $pp-cap-bg-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   }
   > p:first-of-type:has(br) { margin-top: 0.8rem; }
   > p:first-of-type:has(br)::first-letter { padding: 0.66em 1.05em 0.3em 0.56em; }   // lh 1.45 -> cap ~3.5 para-em
-  > p:not(:has(br)):not(:has(img)) { font-size: 1.1rem; font-style: italic; color: fade($ink, 0.85); }
+  > p:not(:has(br)):not(:has(img)) { font-size: 1.1rem; font-style: italic; color: fade($text, 0.85); }
   > p:not(:has(br)):not(:has(img)) + p:not(:has(br)):not(:has(img)) { margin-top: -0.6rem; }
 }
 
