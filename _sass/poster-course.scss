@@ -1,0 +1,750 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// HOLY SHIT, I'M A MANAGER (poster sales page). Built from the homepage
+// components in poster.scss; only the page-specific arrangement lives here.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+$hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
+
+.hs-hero, .hs-wins, .hs-how, .hs-toc, .hs-reviews, .hs-ticket-wrap, .hs-val, .hs-faq, .hs-final {
+  width: $hs-col;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin cond-caps {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  text-transform: uppercase;
+}
+
+@mixin mono-label {
+  font: 700 0.78rem/1.3 $mono;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+// ─── HERO: words left, the panicking raccoon right ──────────────────────────
+.hs-hero {
+  display: grid;
+  grid-template-areas: "kicker" "title" "sub" "art" "buy" "q";
+  padding: 1.5rem 0 3rem;
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas:
+      "kicker art"
+      "title  art"
+      "sub    art"
+      "q      art"
+      "buy    art";
+    grid-template-rows: auto auto auto auto 1fr;
+    column-gap: 4.5rem;
+  }
+
+  &__kicker {
+    grid-area: kicker;
+    justify-self: start;
+    margin: 0 0 1.6rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    @include mono-label;
+    transform: rotate(-3deg);
+    transform-origin: left;
+  }
+
+  &__title {
+    grid-area: title;
+    margin: 0;
+    line-height: 0.9;
+    position: relative;
+    z-index: 2;
+
+    .cond {
+      display: block;
+      @include cond-caps;
+      font-size: clamp(4.6rem, 21vw, 10.5rem);
+      line-height: 0.82;
+      letter-spacing: -0.03em;
+      color: $ink;
+    }
+    em { display: block; margin-top: 0.06em; font-style: normal; }
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font: italic 500 clamp(2.5rem, 10vw, 5.4rem)/1 $font-display;
+      letter-spacing: -0.045em;
+      padding: 0.02em 0.16em 0.12em 0.08em;
+      transform: rotate(-3deg);
+      transform-origin: left;
+      box-shadow: 8px 8px 0 $ink;
+    }
+  }
+
+  &__sub {
+    grid-area: sub;
+    margin: 2rem 0 0;
+    font: italic 400 clamp(1.7rem, 3.2vw, 2.5rem)/1.08 $font-display;
+    letter-spacing: -0.035em;
+    color: $magenta;
+    transform: rotate(-1.5deg);
+    transform-origin: left;
+  }
+
+  &__art {
+    grid-area: art;
+    position: relative;
+    width: min(84%, 30rem);
+    margin: 3rem auto 4.5rem;
+
+    @include respond-to('large') {
+      width: 100%;
+      margin: 3.5rem 0 0;
+      align-self: start;
+    }
+
+    .course__art { margin: 0; }
+    .course__stamp {
+      top: 6%;
+      right: -5%;
+      transform: rotate(9deg);
+      font-size: clamp(1.4rem, 2.6vw, 2rem);
+      small { display: block; font: 700 0.62rem/1.6 $mono; letter-spacing: 0.16em; }
+    }
+    .course__coupon { bottom: -3.4rem; }
+  }
+
+  &__q {
+    grid-area: q;
+    margin: 2.6rem 0 0;
+    max-width: 28ch;
+    font: italic 400 clamp(1.35rem, 2vw, 1.7rem)/1.2 $font-display;
+    letter-spacing: -0.025em;
+
+    span { display: block; margin-bottom: 0.4em; text-wrap: balance; }
+    b { font-weight: 400; color: $magenta; }
+  }
+}
+
+// the main buy unit: button, terms, rating, free-preview escape hatch
+.hs-buy {
+  grid-area: buy;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 0.5rem;
+
+  @include respond-to('large') { margin-top: 3rem; }
+
+  .sticker { margin-bottom: 0.8rem; }
+  .sticker s { opacity: 0.7; text-decoration-thickness: 2px; }
+
+  &__terms {
+    margin: 0;
+    max-width: 36ch;
+    @include mono-label;
+    font-size: 0.74rem;
+    line-height: 1.6;
+  }
+}
+
+.hs-rating {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.6rem;
+  margin: 0;
+  font: 800 0.95rem/1.3 $font-primary;
+
+  &__stars { color: $magenta; font-size: 1.3rem; letter-spacing: 0.08em; }
+  b { color: $magenta; white-space: nowrap; }
+
+  &--big {
+    display: flex;
+    justify-content: flex-end;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    .hs-rating__stars { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+  }
+}
+
+// the soft second door: read before you buy
+.hs-peek {
+  font: italic 400 1.2rem/1.3 $font-display;
+  letter-spacing: -0.01em;
+  color: $ink;
+  text-decoration: underline;
+  text-decoration-color: $magenta;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  &:hover, &:focus-visible { color: $magenta; }
+
+  &--big {
+    display: inline-block;
+    margin-top: 2.4rem;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  }
+}
+
+// ─── STRIP: full-bleed sticker band, pink with a cream layer behind ─────────
+.hs-strip {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  margin: 2rem 0 0 calc(50% - 50vw);
+  padding: 0.7rem 5vw 0.8rem;
+  background: $magenta;
+  color: $cream;
+  @include cond-caps;
+  font-size: 7vw;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-align: center;
+  white-space: nowrap;
+  transform: rotate(-1.6deg);
+  box-shadow: 0 9px 0 $ink;
+
+  @include respond-to('medium') { font-size: min(3rem, 4.6vw); }
+
+  i { font-style: normal; opacity: 0.55; padding: 0 0.2em; }
+  .sep-break {
+    display: block; height: 0; overflow: hidden; font-size: 0;
+    @include respond-to('medium') { display: inline; height: auto; font-size: inherit; }
+  }
+  b {
+    font-weight: 800;
+    display: inline-block;
+    background: $ink;
+    color: $cream;
+    padding: 0 0.25em 0.04em;
+    transform: rotate(2.5deg);
+  }
+}
+
+.hs-proof {
+  margin-top: 6rem;
+  p { max-width: 30ch; font-size: clamp(1.7rem, 3.4vw, 2.9rem); line-height: 1.04; }
+}
+
+// ─── WINS: what you'll be able to do ─────────────────────────────────────────
+.hs-wins {
+  .mega { margin-top: 2rem; }
+
+  &__body {
+    display: grid;
+    gap: 2.6rem;
+    margin-top: 3rem;
+
+    @include respond-to('large') {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 4.5rem;
+      align-items: start;
+    }
+  }
+
+  &__lead {
+    margin: 0;
+    font: italic 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 $font-display;
+    letter-spacing: -0.03em;
+    em { color: $magenta; }
+  }
+
+  &__label {
+    margin: 0 0 1.4rem;
+    @include mono-label;
+    color: $magenta;
+  }
+}
+
+// a checklist that's already been ticked in marker
+.hs-ticks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.3rem;
+
+  li {
+    position: relative;
+    margin: 0;
+    padding-left: 3.2rem;
+    font: 600 clamp(1.3rem, 2vw, 1.65rem)/1.2 $font-display;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+
+    em { font-weight: 400; color: $magenta; }
+
+    // the box
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.05em;
+      width: 1.6rem;
+      height: 1.6rem;
+      border: 2px solid $ink;
+      transform: rotate(-4deg);
+    }
+    // the tick, scrawled over the edge
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0.35rem;
+      top: -0.35rem;
+      width: 0.9rem;
+      height: 1.7rem;
+      border: solid $magenta;
+      border-width: 0 0.42rem 0.42rem 0;
+      transform: rotate(38deg);
+    }
+    &:nth-child(even)::before { transform: rotate(5deg); }
+  }
+}
+
+.hs-arc { margin-top: 4rem; }
+
+// ─── HOW IT WORKS ────────────────────────────────────────────────────────────
+.hs-how {
+  .mega { margin-top: 2rem; }
+
+  &__text {
+    max-width: 44rem;
+    margin: 2.4rem 0 0 auto;
+
+    p { font-size: 1.2rem; line-height: 1.75; margin: 0 0 1.2rem; }
+  }
+
+  &__lead {
+    font: italic 400 clamp(1.5rem, 2.4vw, 2rem)/1.2 $font-display !important;
+    letter-spacing: -0.03em;
+  }
+
+  &__cards { margin-top: 3.6rem; }
+}
+
+// ─── CONTENTS: the course as a rulebook contents page ────────────────────────
+.hs-toc {
+  margin-top: 4rem;
+
+  &__lead {
+    max-width: 40rem;
+    margin: 0 0 3rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    em { display: block; margin-top: 0.8rem; font: italic 400 1.4rem/1.3 $font-display; color: $magenta; }
+  }
+}
+
+.hs-chapters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid $ink;
+
+  > li { margin: 0; border-bottom: 1px solid rgba($ink, 0.45); }
+}
+
+.hs-ch {
+  summary {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0.4rem 1.2rem;
+    padding: 1.1rem 0.4rem 1.2rem;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.1s, color 0.1s;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::after {
+      content: '+';
+      grid-column: 3;
+      grid-row: 1;
+      font: 400 2rem/1 $font-display;
+      color: $magenta;
+      transition: transform 0.15s;
+    }
+
+    &:hover, &:focus-visible {
+      background: $magenta;
+      color: $cream;
+      outline: none;
+      .hs-ch__num { color: $cream; }
+      .hs-ch__count { color: $cream; }
+      &::after { color: $cream; }
+    }
+  }
+  &[open] summary::after { transform: rotate(45deg); }
+
+  &__num {
+    font: italic 400 clamp(2.6rem, 5vw, 4rem)/0.9 $font-display;
+    letter-spacing: -0.05em;
+    color: $magenta;
+    min-width: 2.1ch;
+  }
+
+  &__title {
+    font: 600 clamp(1.35rem, 2.6vw, 2.2rem)/1.08 $font-display;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  &__count {
+    grid-column: 2;
+    @include mono-label;
+    font-size: 0.7rem;
+    color: $magenta;
+
+    @include respond-to('medium') { grid-column: auto; }
+  }
+
+  @include respond-to('medium') {
+    summary { grid-template-columns: auto minmax(0, 1fr) auto auto; }
+    summary::after { grid-column: 4; }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 1.8rem;
+    padding: 0 0 0 calc(2.1ch * 1.9 + 1.2rem);
+    columns: 1;
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    @include respond-to('medium') { columns: 2; column-gap: 2.5rem; }
+
+    li {
+      break-inside: avoid;
+      margin: 0;
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed rgba($ink, 0.25);
+    }
+  }
+}
+
+// little pink sticker slapped on a free lesson
+.hs-free {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem 0.25rem;
+  background: $magenta;
+  color: $cream;
+  @include mono-label;
+  font-size: 0.66rem;
+  text-decoration: none;
+  transform: rotate(-4deg);
+  box-shadow: 3px 3px 0 $ink;
+  &:hover, &:focus-visible { color: $cream; transform: rotate(-4deg) translate(2px, 2px); box-shadow: 1px 1px 0 $ink; }
+}
+
+// ─── REVIEWS: a wall of mixed card types, not a grid of clones ───────────────
+.hs-reviews {
+  margin-top: 3rem;
+  .mega { margin-bottom: 1.2rem; }
+}
+
+.hs-wall {
+  margin-top: 3.5rem;
+  columns: 1;
+  column-gap: 2.4rem;
+
+  @include respond-to('medium') { columns: 2; }
+  @include respond-to('large') { columns: 3; }
+}
+
+.hs-q {
+  break-inside: avoid;
+  margin: 0 0 2.6rem;
+  padding: 1.4rem 1.5rem 1.3rem;
+  border: 1px solid $ink;
+  background: transparent;
+  box-shadow: none;
+
+  &::before, &::after { content: none !important; }
+
+  p {
+    margin: 0 0 1rem;
+    font: italic 400 1.3rem/1.3 $font-display;
+    letter-spacing: -0.02em;
+  }
+  footer {
+    all: unset;
+    display: block;
+    font: 700 0.7rem/1.45 $mono;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+
+  // cream slip, pink shadow
+  &:nth-child(3n + 1) {
+    background: $ink;
+    color: $cream;
+    border-color: $ink;
+    box-shadow: 8px 8px 0 $magenta;
+    transform: rotate(-1.5deg);
+    footer { color: $cream; }
+  }
+  // pink rule, no box, bigger
+  &:nth-child(3n + 2) {
+    border: 0;
+    border-left: 8px solid $magenta;
+    padding: 0.3rem 0 0.3rem 1.3rem;
+    p { font-size: 1.45rem; line-height: 1.2; }
+  }
+  // outlined, pink shadow, opposite tilt
+  &:nth-child(3n) {
+    border-width: 2px;
+    box-shadow: 8px 8px 0 $magenta;
+    transform: rotate(1.2deg);
+  }
+}
+
+// ─── TICKET: the buy box as a torn-off admission ticket ──────────────────────
+.hs-ticket-wrap { margin-top: 5rem; }
+
+.hs-ticket {
+  position: relative;
+  display: grid;
+  max-width: 54rem;
+  margin: 0 auto;
+  border: 3px solid $ink;
+  box-shadow: 14px 14px 0 $magenta;
+  transform: rotate(-1.2deg);
+
+  @include respond-to('medium') { grid-template-columns: minmax(0, 1fr) auto; }
+
+  &__main {
+    padding: clamp(1.8rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.6rem;
+    @include mono-label;
+    color: $magenta;
+  }
+
+  &__title {
+    margin: 0;
+    @include cond-caps;
+    font-size: clamp(3rem, 9vw, 5.6rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: $ink;
+    &::after { display: none; }
+  }
+
+  &__price {
+    margin: 1.2rem 0 0;
+    font: 700 clamp(4rem, 12vw, 7.5rem)/0.9 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.07em;
+
+    s { margin-right: 0.15em; font-size: 0.45em; font-weight: 400; opacity: 0.6; text-decoration-color: $magenta; text-decoration-thickness: 0.12em; }
+    span {
+      display: inline-block;
+      margin-left: 0.4rem;
+      font: italic 400 1.3rem/1 $font-display;
+      letter-spacing: -0.02em;
+      color: $magenta;
+      vertical-align: middle;
+    }
+  }
+
+  &__sale {
+    margin: 0.8rem 0 0;
+    @include mono-label;
+    .sale-code { background: $magenta; color: $cream; padding: 0.2rem 0.45rem; }
+  }
+
+  &__pitch {
+    margin: 1.6rem 0 0;
+    max-width: 40ch;
+    font: italic 400 clamp(1.3rem, 2vw, 1.55rem)/1.3 $font-display;
+    letter-spacing: -0.02em;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 1.6rem 0 2.6rem;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0.45rem 0 0.45rem 1.8rem;
+      position: relative;
+      font-size: 1.12rem;
+      border-bottom: 1px dashed rgba($ink, 0.3);
+      &::before {
+        content: '✳';
+        position: absolute;
+        left: 0;
+        color: $magenta;
+      }
+    }
+  }
+
+  .sticker s { opacity: 0.7; text-decoration-thickness: 2px; }
+
+  &__expense {
+    margin: 2.4rem 0 0;
+    font: italic 400 1.3rem/1.3 $font-display;
+    color: $magenta;
+  }
+
+  &__fine {
+    margin: 0.6rem 0 0;
+    max-width: 52ch;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+
+  // the tear-off stub: perforated edge, sideways caps
+  &__stub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 1rem;
+    border-top: 3px dashed $ink;
+    background: $magenta;
+    color: $cream;
+    @include cond-caps;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    line-height: 1;
+
+    span { font: 700 0.75rem/1 $mono; letter-spacing: 0.18em; }
+    b { font-weight: 800; }
+
+    @include respond-to('medium') {
+      flex-direction: column;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      border-top: 0;
+      border-right: 3px dashed $ink;   // the perforation, after the flip
+      padding: 1.6rem 1.1rem;
+    }
+  }
+}
+
+// ─── WHO'S TEACHING ──────────────────────────────────────────────────────────
+.hs-val {
+  display: grid;
+  gap: 2rem;
+  margin-top: 6rem;
+
+  @include respond-to('large') {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  &__photo.taped {
+    margin: 2rem auto 0;
+    width: min(70%, 20rem);
+    transform: rotate(4deg);
+  }
+
+  .mega { margin-top: 0; }
+  .whoami {
+    margin-top: 1rem;
+    p + p { margin-top: 1rem; }
+    em { color: $magenta; }
+  }
+}
+
+// ─── FAQ ─────────────────────────────────────────────────────────────────────
+.hs-faq {
+  &__list {
+    max-width: 52rem;
+    border-top: 2px solid $ink;
+  }
+
+  details { border-bottom: 1px solid rgba($ink, 0.45); }
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1.1rem 0.4rem;
+    cursor: pointer;
+    list-style: none;
+    font: 500 clamp(1.3rem, 2.4vw, 1.8rem)/1.15 $font-display;
+    letter-spacing: -0.035em;
+
+    &::-webkit-details-marker { display: none; }
+    &::after {
+      content: '+';
+      flex: none;
+      font: 400 2rem/1 $font-display;
+      color: $magenta;
+      transition: transform 0.15s;
+    }
+    &:hover, &:focus-visible { color: $magenta; outline: none; }
+  }
+  details[open] summary::after { transform: rotate(45deg); }
+
+  details p {
+    margin: 0 0 1.6rem;
+    padding: 0 0.4rem;
+    max-width: 62ch;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    a { color: $magenta; text-decoration-thickness: 2px; }
+  }
+}
+
+// ─── FINAL CALL ──────────────────────────────────────────────────────────────
+.hs-final {
+  margin-top: 6rem;
+  text-align: center;
+
+  &__line {
+    margin: 0 0 3rem;
+    line-height: 0.9;
+
+    .cond {
+      display: block;
+      @include cond-caps;
+      font-size: clamp(3.6rem, 15vw, 9rem);
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+    }
+    em { display: block; font-style: normal; margin-top: 0.1em; }
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font: italic 500 clamp(2.2rem, 7vw, 4.6rem)/1 $font-display;
+      letter-spacing: -0.045em;
+      padding: 0.02em 0.16em 0.12em 0.08em;
+      transform: rotate(2.5deg);
+      box-shadow: 8px 8px 0 $ink;
+    }
+  }
+
+  .sticker { transform: rotate(2deg); }
+  .sticker:hover, .sticker:focus-visible { transform: rotate(2deg) translate(3px, 3px); }
+  .sticker:active { transform: rotate(2deg) translate(8px, 8px); }
+}
+
+.poster-course .sticker .hs-nowrap { white-space: nowrap; }
+
+// ─── phones ──────────────────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .hs-hero .sticker { font-size: 1.15rem; padding: 1.15rem 1.6rem; }
+  .hs-hero__art .course__stamp { right: -2%; }
+  .hs-hero__art:has(.course__coupon) { margin-bottom: 7.5rem; }
+  .hs-hero__art .course__coupon { bottom: -5.5rem; }
+  .hs-ch ul { padding-left: 0.4rem; }
+  .hs-ticket { transform: rotate(-0.8deg); }
+}

@@ -31,3 +31,7 @@ Tasks are tracked in `tasks.md` at the project root. Tick tasks off as you compl
 
 # Assets
 We're using ../cv, ../outragedpinkracoon.github.io, ../games/roots-and-roses/ A4 digital rulebook as our graphic design inspiration but the homepage on this special branch captures what we are going for.
+
+# Accessibility display settings (parked)
+
+Ignore the a11y display modes (`_sass/a11y-*.scss`, `display-settings.scss`, reading mode, colour-blind modes, reduce motion) during the dark redesign. Don't style for them, test them, or flag them. Val will fix them later as a separate pass. Core accessibility still applies: semantic HTML, alt text, contrast, focus states.

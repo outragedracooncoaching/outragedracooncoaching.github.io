@@ -21,7 +21,7 @@ Contact: <a href="mailto:outragedracooncoaching@gmail.com">outragedracooncoachin
 
 <h3>Website visits</h3>
 
-<p>We use <a href="https://www.simpleanalytics.com" target="_blank" rel="noopener noreferrer">Simple Analytics<span class="sr-only"> (opens in new tab)</span></a> for website analytics. It does not use cookies and does not collect or store personal data. No tracking, no fingerprinting, no consent banner needed.</p>
+<p>We use <a href="https://www.goatcounter.com" target="_blank" rel="noopener noreferrer">GoatCounter<span class="sr-only"> (opens in new tab)</span></a> for website analytics. It does not use cookies and does not store personal data such as IP addresses. No tracking across sites, no consent banner needed.</p>
 
 <h3>Enquiries</h3>
 
