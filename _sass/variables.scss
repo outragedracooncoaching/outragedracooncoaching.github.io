@@ -3,9 +3,27 @@
 // colour (warm cream). Names are kept from the old light riso theme so ~300
 // existing usages flip correctly: "$ink text on $cream bg" stays "text on bg",
 // and "$cream text on a pink fill" becomes charcoal on pink, as on the CV.
-$cream:          #191917;    // charcoal surface
-$ink:            #eeeadd;    // warm cream text
-$magenta:        #ff66a5;    // the one accent: soft pink
+// Runtime tokens: the values live on :root (see main.scss THEME) so the
+// Display menu can swap them for light mode without a rebuild.
+$cream:          var(--paper);   // charcoal surface (cream in light mode)
+$ink:            var(--ink);     // warm cream text (charcoal in light mode)
+$magenta:        var(--pink);    // the one accent: soft pink (deep pink in light mode)
+
+// Raw values, for the :root definitions only
+$dark-paper:     #191917;
+$dark-ink:       #eeeadd;
+$dark-pink:      #ff66a5;
+$light-paper:    #eeeadd;
+$light-ink:      #191917;
+$light-pink:     #c2185b;    // passes AA as text on cream AND under cream text
+
+// rgba()/darken() can't take a CSS variable; these do the same job at runtime.
+@function fade($c, $a) {
+  @return color-mix(in srgb, #{$c} #{$a * 100%}, transparent);
+}
+@function shade($c, $amount) {
+  @return color-mix(in srgb, #{$c}, black #{$amount * 1.6});
+}
 $teal:           $magenta;   // single-accent: secondary inks collapse to pink
 $yellow:         $magenta;
 $orange:         $magenta;

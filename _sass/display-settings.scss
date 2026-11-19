@@ -10,7 +10,7 @@
 
   &::before {
     content: '|';
-    color: rgba(#eeeadd, 0.45);
+    color: fade($ink, 0.45);
     margin: 0 0.3rem 0 0.1rem;
     font-weight: 700;
   }
@@ -30,7 +30,7 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #eeeadd;
+  color: $ink;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
   min-height: 44px;
@@ -46,19 +46,19 @@
   }
 
   &:hover {
-    background: #eeeadd;
-    color: #191917;
+    background: $ink;
+    color: $cream;
   }
 
   &:focus-visible {
-    outline: 3px solid #eeeadd;
+    outline: 3px solid $ink;
     outline-offset: 2px;
   }
 
   // Filled when any setting differs from default
   &[data-active="true"] {
-    background: #eeeadd;
-    color: #191917;
+    background: $ink;
+    color: $cream;
   }
 }
 
@@ -68,9 +68,9 @@
   top: calc(100% + 0.5rem);
   right: 0;
   z-index: 1000;
-  background: #191917;
-  border: 3px solid #eeeadd;
-  box-shadow: 5px 5px 0 #eeeadd;
+  background: $cream;
+  border: 3px solid $ink;
+  box-shadow: 5px 5px 0 $ink;
   padding: 1.2rem 1.4rem;
   min-width: 240px;
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -87,7 +87,7 @@
     border-left: none;
     border-right: none;
     border-top: none;
-    box-shadow: 0 5px 0 #eeeadd;
+    box-shadow: 0 5px 0 $ink;
     padding: 1rem 1.2rem 1.4rem;
   }
 
@@ -101,7 +101,7 @@
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
-      color: #eeeadd;
+      color: $ink;
       padding: 0.2rem 0.4rem;
       line-height: 1;
       min-height: 44px;
@@ -111,7 +111,7 @@
       justify-content: center;
 
       &:focus-visible {
-        outline: 3px solid #eeeadd;
+        outline: 3px solid $ink;
         outline-offset: 2px;
       }
     }
@@ -122,7 +122,7 @@
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #eeeadd;
+    color: $ink;
     margin: 0 0 1rem;
     padding: 0;
     background: none;
@@ -132,12 +132,69 @@
     text-shadow: none;
   }
 
+  // Dark / Light as a pair of hard-edged segments; the chosen one fills cream
+  .theme-row {
+    border: none;
+    margin: 0;
+    padding: 0.4rem 0 0.8rem;
+    min-width: 0;
+
+    legend {
+      padding: 0;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  .theme-options {
+    display: flex;
+    border: 2px solid $ink;
+
+    label {
+      flex: 1;
+      position: relative;
+      cursor: pointer;
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $ink;
+    }
+
+    label + label span { border-left: 2px solid $ink; }
+
+    input:checked + span {
+      background: $ink;
+      color: $cream;
+    }
+
+    input:focus-visible + span {
+      outline: 3px solid $magenta;
+      outline-offset: 2px;
+    }
+  }
+
   .font-scale-row {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     padding: 0.4rem 0;
-    border-top: 1px solid rgba(#eeeadd, 0.15);
+    border-top: 1px solid fade($ink, 0.15);
 
     .font-scale-label {
       font-size: 0.85rem;
@@ -151,8 +208,8 @@
     }
 
     .font-scale-btn {
-      background: #eeeadd;
-      color: #191917;
+      background: $ink;
+      color: $cream;
       border: none;
       border-radius: 2px;
       width: 28px;
@@ -170,13 +227,13 @@
       &:hover { opacity: 0.75; }
       &:disabled {
         background: transparent;
-        color: rgba(#eeeadd, 0.4);
-        border: 2px solid rgba(#eeeadd, 0.3);
+        color: fade($ink, 0.4);
+        border: 2px solid fade($ink, 0.3);
         cursor: default;
       }
 
       &:focus-visible {
-        outline: 3px solid #eeeadd;
+        outline: 3px solid $ink;
         outline-offset: 2px;
       }
     }

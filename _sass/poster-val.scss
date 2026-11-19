@@ -222,7 +222,7 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
     left: 50%;
     width: 6rem;
     height: 1.7rem;
-    background: rgba($magenta, 0.92);
+    background: fade($magenta, 0.92);
     transform: translateX(-50%) rotate(-4deg);
     clip-path: polygon(0 10%, 4% 0, 8% 12%, 96% 0, 100% 90%, 94% 100%, 4% 88%);
   }

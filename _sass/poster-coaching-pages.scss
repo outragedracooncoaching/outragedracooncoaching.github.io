@@ -362,14 +362,14 @@ body.poster-coaching-page {
   list-style: none;
   margin: 4rem 0 0;
   padding: 0;
-  border-bottom: 1px solid rgba($ink, 0.35);
+  border-bottom: 1px solid fade($ink, 0.35);
 
   // the structure: one column of big confessions on full-width rules
   li {
     position: relative;
     margin: 0;
     padding: 1.1rem 0 1.15rem 1.5em;
-    border-top: 1px solid rgba($ink, 0.35);
+    border-top: 1px solid fade($ink, 0.35);
     font: 600 clamp(1.5rem, 2.9vw, 2.6rem)/1.08 $font-display;
     letter-spacing: -0.045em;
     text-wrap: balance;
@@ -572,7 +572,7 @@ body.poster-coaching-page {
       padding: 0.9rem 0 0.9rem 2.8rem;
       font-size: 1.12rem;
       line-height: 1.6;
-      border-bottom: 1px dashed rgba($ink, 0.35);
+      border-bottom: 1px dashed fade($ink, 0.35);
       &:last-child { border-bottom: 0; }
 
       // an empty box, waiting for you to tick it

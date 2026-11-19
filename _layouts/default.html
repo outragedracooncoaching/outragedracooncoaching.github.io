@@ -125,6 +125,7 @@
       ]
     }
     </script>
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
     <link rel="stylesheet" href='/assets/css/normalize.css'>
     <link rel="stylesheet" href='/assets/css/code-syntax.css'>
     <link rel="stylesheet" href='/assets/css/styles.css'>
@@ -147,6 +148,13 @@
       </button>
       <div class="display-settings-panel" id="display-settings-panel" role="dialog" aria-modal="true" aria-label="Display settings" aria-hidden="true">
         <div class="panel-close"><button aria-label="Close display settings">✕</button></div>
+        <fieldset class="theme-row">
+          <legend class="font-scale-label">Theme</legend>
+          <div class="theme-options">
+            <label><input type="radio" name="theme" value="dark" checked><span>Dark</span></label>
+            <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+          </div>
+        </fieldset>
         <div class="font-scale-row">
           <span class="font-scale-label">Text size</span>
           <div class="font-scale-controls">
@@ -192,8 +200,23 @@
         scaleValueEl.textContent = scaleSteps[scaleIndex] + '%';
         scaleDownBtn.disabled = scaleIndex === 0;
         scaleUpBtn.disabled = scaleIndex === scaleSteps.length - 1;
-        toggleBtn.dataset.active = String(scaleIndex !== 2);
+        syncActive();
       }
+
+      // Theme (the head script applies it before paint; this keeps the radios in step)
+      var root = document.documentElement;
+      function currentTheme() { return root.dataset.theme === 'light' ? 'light' : 'dark'; }
+      function syncActive() {
+        toggleBtn.dataset.active = String(scaleIndex !== 2 || currentTheme() === 'light');
+      }
+      document.querySelectorAll('input[name="theme"]').forEach(function(radio) {
+        radio.checked = radio.value === currentTheme();
+        radio.addEventListener('change', function() {
+          if (this.value === 'light') { root.dataset.theme = 'light'; } else { delete root.dataset.theme; }
+          try { localStorage.setItem('theme', this.value); } catch (e) {}
+          syncActive();
+        });
+      });
 
       applyFontScale();
 

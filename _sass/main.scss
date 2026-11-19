@@ -44,6 +44,21 @@
 // BASE
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+// ━━━ THEME ━━━ dark is the brand default; light is opt-in via the Display menu
+:root {
+  --paper: #{$dark-paper};
+  --ink:   #{$dark-ink};
+  --pink:  #{$dark-pink};
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --paper: #{$light-paper};
+  --ink:   #{$light-ink};
+  --pink:  #{$light-pink};
+  color-scheme: light;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -106,7 +121,7 @@ h1 {
   .title-sub {
     display: block;
     font-size: 0.55em;
-    color: rgba($ink, 0.78);
+    color: fade($ink, 0.78);
     text-shadow: none;
     letter-spacing: 0.02em;
     margin-top: 0.15em;
@@ -146,7 +161,7 @@ h2 {
 
   a {
     color: $ink;
-    text-decoration-color: rgba($ink, 0.4);
+    text-decoration-color: fade($ink, 0.4);
     &:hover { color: $magenta; text-decoration-color: $magenta; }
   }
 }
@@ -189,7 +204,7 @@ code, pre {
 
 pre {
   overflow-x: auto;
-  background: rgba($ink, 0.05);
+  background: fade($ink, 0.05);
   padding: 1.1rem 1.3rem;
   border-left: 4px solid $teal;
   margin: 1.5rem 0;
@@ -201,7 +216,7 @@ strong {
 }
 
 em {
-  color: rgba($ink, 0.8);
+  color: fade($ink, 0.8);
 }
 
 ul, ol {
@@ -219,13 +234,13 @@ ul, ol {
 a {
   color: $magenta;
   text-decoration: underline;
-  text-decoration-color: rgba($magenta, 0.35);
+  text-decoration-color: fade($magenta, 0.35);
   text-underline-offset: 3px;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
-  color: darken($magenta, 10%);
+  color: shade($magenta, 10%);
   text-decoration-color: $magenta;
   text-shadow: none;
 }
@@ -357,7 +372,7 @@ header {
 
     @include respond-to('medium') {
       // off-register print shadow: cream type, pink layer shifted down-right
-      text-shadow: 5px 5px 0 rgba($magenta, 0.9);
+      text-shadow: 5px 5px 0 fade($magenta, 0.9);
 
       &:hover {
         text-shadow: 7px 7px 0 $magenta;
@@ -378,7 +393,7 @@ header {
 hr {
   border: none;
   height: 3px;
-  background: rgba($ink, 0.15);
+  background: fade($ink, 0.15);
   margin: 2.5rem 0;
   position: relative;
 
@@ -390,7 +405,7 @@ hr {
     right: -12px;
     top: 5px;
     height: 2px;
-    background: rgba($magenta, 0.35);
+    background: fade($magenta, 0.35);
   }
 }
 
@@ -445,7 +460,7 @@ hr {
   @extend %btn-base;
   padding: 0.9rem 2.8rem;
   font-size: 1rem;
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   // off-register ink shadow
   box-shadow: 4px 4px 0 $teal;
@@ -460,7 +475,7 @@ hr {
   @extend %btn-base;
   padding: 0.6rem 1.6rem;
   font-size: 0.88rem;
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   box-shadow: 4px 4px 0 $ink;
 
@@ -475,7 +490,7 @@ hr {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 .flagship-offer {
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   padding: 2rem;
   margin: 1.8rem 0 2rem;
@@ -505,7 +520,7 @@ hr {
 
   h2 a {
     color: inherit;
-    text-decoration-color: rgba($cream, 0.45);
+    text-decoration-color: fade($cream, 0.45);
 
     &:hover {
       color: inherit;
@@ -517,7 +532,7 @@ hr {
 
   p {
     max-width: 48rem;
-    color: rgba($cream, 0.93);
+    color: fade($cream, 0.93);
   }
 
   .offer-moment {
@@ -604,7 +619,7 @@ hr {
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba($ink, 0.85);
+    color: fade($ink, 0.85);
   }
 
   .home-course__title {
@@ -624,7 +639,7 @@ hr {
 
     a {
       color: inherit;
-      text-decoration-color: rgba($ink, 0.4);
+      text-decoration-color: fade($ink, 0.4);
 
       &:hover { color: inherit; text-decoration-color: $ink; }
       &:focus-visible { outline-color: $ink; }
@@ -635,7 +650,7 @@ hr {
     margin: 0 0 1rem;
     font-size: 1.05rem;
     line-height: 1.55;
-    color: rgba($ink, 0.95);
+    color: fade($ink, 0.95);
   }
 
   .home-course__rating {
@@ -675,7 +690,7 @@ hr {
       font-family: $font-primary;
       font-size: 0.82rem;
       font-weight: 700;
-      color: rgba($ink, 0.82);
+      color: fade($ink, 0.82);
     }
   }
 }
@@ -698,8 +713,8 @@ hr {
   flex-direction: column;
   padding: 1.4rem;
   border: 3px solid $teal;
-  background: rgba($cream, 0.65);
-  box-shadow: 5px 5px 0 rgba($teal, 0.28);
+  background: fade($cream, 0.65);
+  box-shadow: 5px 5px 0 fade($teal, 0.28);
 
   h3 {
     margin: 0 0 0.7rem;
@@ -723,7 +738,7 @@ hr {
 
 .supporting-offer--manager {
   border-color: $orange;
-  box-shadow: 5px 5px 0 rgba($orange, 0.28);
+  box-shadow: 5px 5px 0 fade($orange, 0.28);
 
   h3 {
     color: $orange;
@@ -796,7 +811,7 @@ hr {
   }
 }
 
-$_card-accents:    darken($magenta, 6%),  darken($teal, 7%),    darken($orange, 4%),   $yellow;
+$_card-accents:    shade($magenta, 6%),  shade($teal, 7%),    shade($orange, 4%),   $yellow;
 $_card-shadows:    $teal,     $magenta, $lavender, $magenta;
 $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
@@ -826,7 +841,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     flex: 1;
     margin: 0 0 1.2rem;
     font-size: 1.05rem;
-    color: rgba($cream, 0.95);
+    color: fade($cream, 0.95);
     line-height: 1.6;
   }
 
@@ -883,7 +898,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
       h3 { color: $ink; }
 
-      p { color: rgba($ink, 0.88); }
+      p { color: fade($ink, 0.88); }
 
       .card-cta {
         color: $magenta;
@@ -928,7 +943,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     gap: 1.4rem 1.7rem;
   }
 
-  $_post-colors:    darken($teal, 7%), darken($orange, 4%), darken($magenta, 6%), $yellow, $lavender, darken($teal, 7%), darken($orange, 4%);
+  $_post-colors:    shade($teal, 7%), shade($orange, 4%), shade($magenta, 6%), $yellow, $lavender, shade($teal, 7%), shade($orange, 4%);
   $_post-rotations: -0.8deg, 1deg, -0.7deg, 0.8deg, -0.55deg, 0.9deg, -0.85deg;
 
   @for $i from 1 through length($_post-colors) {
@@ -1028,7 +1043,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     list-style: none;
     padding: 0;
     margin: 1rem 0 0;
-    border-top: 2px solid rgba($ink, 0.12);
+    border-top: 2px solid fade($ink, 0.12);
 
     @include respond-to('medium') {
       columns: 2;
@@ -1038,20 +1053,20 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   li {
     break-inside: avoid;
     padding: 0.68rem 0 0.68rem 1rem;
-    border-bottom: 2px solid rgba($ink, 0.12);
-    border-left: 5px solid rgba($teal, 0.7);
-    color: rgba($ink, 0.82);
+    border-bottom: 2px solid fade($ink, 0.12);
+    border-left: 5px solid fade($teal, 0.7);
+    color: fade($ink, 0.82);
     font-family: $font-primary;
     font-size: 0.98rem;
     font-weight: 750;
     line-height: 1.45;
 
     &:nth-child(3n + 2) {
-      border-left-color: rgba($orange, 0.8);
+      border-left-color: fade($orange, 0.8);
     }
 
     &:nth-child(3n) {
-      border-left-color: rgba($magenta, 0.72);
+      border-left-color: fade($magenta, 0.72);
     }
   }
 }
@@ -1070,12 +1085,12 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .pricing-card {
   position: relative;
   background: $cream;
-  border: 3px solid rgba($ink, 0.16);
-  border-bottom: 7px solid rgba($ink, 0.16);
+  border: 3px solid fade($ink, 0.16);
+  border-bottom: 7px solid fade($ink, 0.16);
   padding: 1.7rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 7px 7px 0 rgba($ink, 0.09);
+  box-shadow: 7px 7px 0 fade($ink, 0.09);
   font-size: 1rem;
 
   @include respond-to('medium') {
@@ -1100,7 +1115,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   font-size: 3.8rem;
   line-height: 1;
   color: $magenta;
-  text-shadow: 3px 3px 0 rgba($teal, 0.3);
+  text-shadow: 3px 3px 0 fade($teal, 0.3);
   margin-top: 0;
   margin-bottom: 0.4rem;
   display: block;
@@ -1139,7 +1154,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 }
 
 .pricing-detail {
-  color: rgba($ink, 0.72);
+  color: fade($ink, 0.72);
   font-size: 1rem;
   line-height: 1.6;
   margin-top: 0.65rem !important;
@@ -1150,10 +1165,10 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   margin-bottom: 0;
   padding-top: 0.7rem;
   padding-bottom: 1.4rem;
-  border-top: 2px solid rgba($teal, 0.35);
+  border-top: 2px solid fade($teal, 0.35);
   font-size: 0.95rem;
   line-height: 1.55;
-  color: rgba($ink, 0.82);
+  color: fade($ink, 0.82);
 
   strong { color: $teal; font-weight: 800; }
 }
@@ -1161,7 +1176,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .pricing-includes {
   padding-left: 1.2rem;
   margin: 1rem 0 1.4rem;
-  color: rgba($ink, 0.78);
+  color: fade($ink, 0.78);
   font-size: 1rem;
   line-height: 1.6;
 
@@ -1176,7 +1191,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   width: 100%;
   padding: 0.72rem 1.4rem;
   font-size: 0.96rem;
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   box-shadow: 4px 4px 0 $teal;
   margin-top: auto;
@@ -1189,11 +1204,11 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 .pricing-terms {
   font-size: 0.8rem;
-  color: rgba($ink, 0.55);
+  color: fade($ink, 0.55);
   margin-top: 1rem;
   text-align: center;
 
-  a { color: rgba($ink, 0.55); }
+  a { color: fade($ink, 0.55); }
 }
 
 .pricing-badge {
@@ -1209,7 +1224,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   margin-bottom: 0.8rem;
   transform: rotate(-1.5deg);
   width: max-content;
-  box-shadow: 3px 3px 0 rgba($ink, 0.2);
+  box-shadow: 3px 3px 0 fade($ink, 0.2);
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -1219,7 +1234,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .hero-moment {
   margin: 1.4rem 0 1.6rem;
   padding: 1rem 1.2rem;
-  background: rgba($yellow, 0.45);
+  background: fade($yellow, 0.45);
   border-left: 7px solid $orange;
   color: $ink;
   font-family: $font-primary;
@@ -1234,7 +1249,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   a {
     display: inline-block;
     padding: 0.65rem 1rem;
-    background: darken($teal, 7%);
+    background: shade($teal, 7%);
     color: $cream;
     font-family: $font-primary;
     font-size: 0.82rem;
@@ -1274,8 +1289,8 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   flex-direction: column;
   padding: 1.6rem;
   background: $cream;
-  border: 3px solid rgba($ink, 0.14);
-  box-shadow: 7px 7px 0 rgba($ink, 0.12);
+  border: 3px solid fade($ink, 0.14);
+  box-shadow: 7px 7px 0 fade($ink, 0.12);
   cursor: default;
 
   @include respond-to('medium') {
@@ -1332,7 +1347,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
         top: 0.42em;
         width: 0.7rem;
         height: 0.7rem;
-        background: rgba($ink, 0.3); // overridden per variant
+        background: fade($ink, 0.3); // overridden per variant
         clip-path: polygon(0 35%, 38% 100%, 100% 0, 80% 0, 35% 65%, 18% 35%);
       }
     }
@@ -1344,7 +1359,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     margin: 0 0 1.2rem !important;
     font-size: 0.92rem;
     line-height: 1.45;
-    color: rgba($ink, 0.72);
+    color: fade($ink, 0.72);
     font-style: italic;
   }
 
@@ -1390,7 +1405,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
       border-radius: 50%;
       background: $magenta;
       border: 2px solid $ink;
-      box-shadow: inset 2px 2px 0 rgba($cream, 0.4);
+      box-shadow: inset 2px 2px 0 fade($cream, 0.4);
     }
   }
 
@@ -1444,10 +1459,10 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   &--exec {
     border: 4px solid $yellow;
-    box-shadow: 8px 8px 0 darken($yellow, 10%);
+    box-shadow: 8px 8px 0 shade($yellow, 10%);
 
-    h3 { color: darken($yellow, 20%); }
-    .audience-label { background: darken($yellow, 10%); color: $ink; }
+    h3 { color: shade($yellow, 20%); }
+    .audience-label { background: shade($yellow, 10%); color: $ink; }
   }
 }
 
@@ -1483,7 +1498,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   padding: 1.25rem 1.35rem;
   background: $yellow;
   color: $ink;
-  box-shadow: 6px 6px 0 rgba($ink, 0.72);
+  box-shadow: 6px 6px 0 fade($ink, 0.72);
   transform: rotate(-0.9deg);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
   cursor: default;
@@ -1524,7 +1539,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   &:hover {
     transform: rotate(0deg) translate(-2px, -2px);
-    box-shadow: 10px 10px 0 rgba($ink, 0.75);
+    box-shadow: 10px 10px 0 fade($ink, 0.75);
   }
 
   blockquote {
@@ -1562,27 +1577,27 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
 .outcome-item {
   padding: 1.2rem;
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   border-top: none;
   box-shadow: 5px 5px 0 $teal;
   transform: rotate(-0.8deg);
 
   &:nth-child(2) {
-    background: darken($teal, 7%);
+    background: shade($teal, 7%);
     box-shadow: 5px 5px 0 $magenta;
     transform: rotate(0.7deg);
   }
 
   &:nth-child(3) {
-    background: darken($orange, 4%);
+    background: shade($orange, 4%);
     box-shadow: 5px 5px 0 $lavender;
     transform: rotate(0.6deg);
   }
 
   &:nth-child(4) {
     background: $yellow;
-    color: rgba($ink, 0.82);
+    color: fade($ink, 0.82);
     box-shadow: 5px 5px 0 $magenta;
     transform: rotate(-0.5deg);
   }
@@ -1617,7 +1632,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   p {
     margin: 0 0 0.85rem;
-    color: rgba($cream, 0.94);
+    color: fade($cream, 0.94);
   }
 
   p:last-child { margin-bottom: 0; }
@@ -1628,7 +1643,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    text-decoration-color: rgba($cream, 0.65);
+    text-decoration-color: fade($cream, 0.65);
 
     &:hover { text-decoration-color: $cream; }
     &:focus-visible { outline-color: $cream; }
@@ -1680,7 +1695,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     width: 20px;
     height: 20px;
     background: $cream;
-    border: 3px solid rgba($ink, 0.5);
+    border: 3px solid fade($ink, 0.5);
     border-radius: 50%;
     z-index: 1;
   }
@@ -1711,7 +1726,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   align-items: baseline;
   gap: 0.75rem;
   padding: 0.75rem 0;
-  border-bottom: 2px dashed rgba($ink, 0.18);
+  border-bottom: 2px dashed fade($ink, 0.18);
   margin-bottom: 0;
 
   &:last-child {
@@ -1760,7 +1775,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     padding: 1.35rem;
     background: $cream;
     border-left: 6px solid $magenta;
-    box-shadow: 5px 5px 0 rgba($ink, 0.09);
+    box-shadow: 5px 5px 0 fade($ink, 0.09);
 
     &:nth-child(even) {
       border-left-color: $teal;
@@ -1788,7 +1803,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   font-weight: 900;
   font-size: 2.2rem;
   line-height: 1;
-  color: rgba($magenta, 0.72);
+  color: fade($magenta, 0.72);
 }
 
 .testimonial-grid {
@@ -1816,9 +1831,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   margin: 0;
   padding: 1.45rem 1.5rem;
   background: $cream;
-  border: 2px solid rgba($ink, 0.12);
+  border: 2px solid fade($ink, 0.12);
   border-top: 6px solid $magenta;
-  box-shadow: 5px 5px 0 rgba($ink, 0.09);
+  box-shadow: 5px 5px 0 fade($ink, 0.09);
   color: $ink;
   font-size: 1rem;
   line-height: 1.65;
@@ -1838,7 +1853,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   &:nth-child(4) {
     border-top-color: $yellow;
-    box-shadow: 5px 5px 0 rgba($magenta, 0.18);
+    box-shadow: 5px 5px 0 fade($magenta, 0.18);
     transform: rotate(0.25deg);
   }
 
@@ -1852,10 +1867,10 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     display: inline-block;
     margin: 0 0 0.8rem;
     padding: 0.24rem 0.55rem;
-    background: rgba($magenta, 0.1);
-    border: 1px solid rgba($magenta, 0.32);
+    background: fade($magenta, 0.1);
+    border: 1px solid fade($magenta, 0.32);
     border-radius: 6px;
-    color: darken($magenta, 12%);
+    color: shade($magenta, 12%);
     font-family: $font-primary;
     font-size: 0.76rem;
     font-weight: 800;
@@ -1866,7 +1881,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   .testimonial-pullquote {
     margin: 0 0 1rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid rgba($ink, 0.1);
+    border-bottom: 2px solid fade($ink, 0.1);
     font-family: $font-display;
     font-size: 1.5rem;
     font-style: italic;
@@ -1883,37 +1898,37 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   &:nth-child(even) {
     .testimonial-tag {
-      background: rgba($teal, 0.12);
-      border-color: rgba($teal, 0.38);
-      color: darken($teal, 16%);
+      background: fade($teal, 0.12);
+      border-color: fade($teal, 0.38);
+      color: shade($teal, 16%);
     }
 
     .testimonial-pullquote {
-      color: darken($teal, 10%);
+      color: shade($teal, 10%);
     }
   }
 
   &:nth-child(3) {
     .testimonial-tag {
-      background: rgba($orange, 0.12);
-      border-color: rgba($orange, 0.42);
-      color: darken($orange, 16%);
+      background: fade($orange, 0.12);
+      border-color: fade($orange, 0.42);
+      color: shade($orange, 16%);
     }
 
     .testimonial-pullquote {
-      color: darken($orange, 10%);
+      color: shade($orange, 10%);
     }
   }
 
   &:nth-child(4) {
     .testimonial-tag {
-      background: rgba($yellow, 0.22);
-      border-color: rgba($yellow, 0.72);
-      color: darken($orange, 20%);
+      background: fade($yellow, 0.22);
+      border-color: fade($yellow, 0.72);
+      color: shade($orange, 20%);
     }
 
     .testimonial-pullquote {
-      color: darken($orange, 14%);
+      color: shade($orange, 14%);
     }
   }
 
@@ -1948,9 +1963,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   min-height: 4.4rem;
   padding: 0.8rem 0.9rem;
   background: $cream;
-  border: 2px solid rgba($ink, 0.12);
+  border: 2px solid fade($ink, 0.12);
   border-bottom: 5px solid $magenta;
-  box-shadow: 4px 4px 0 rgba($ink, 0.08);
+  box-shadow: 4px 4px 0 fade($ink, 0.08);
   color: $ink;
   font-family: $font-primary;
   font-size: 0.95rem;
@@ -1977,7 +1992,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   flex: 0 0 2.7rem;
   width: 2.7rem;
   height: 2.7rem;
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   border-radius: 50%;
   font-size: 0.76rem;
@@ -1986,11 +2001,11 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   text-align: center;
 
   .credibility-badge:nth-child(even) & {
-    background: darken($teal, 7%);
+    background: shade($teal, 7%);
   }
 
   .credibility-badge:nth-child(3) & {
-    background: darken($orange, 4%);
+    background: shade($orange, 4%);
   }
 
   .credibility-badge:nth-child(4) & {
@@ -2002,10 +2017,10 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .story-stamp {
   margin: 2rem -8px;
   padding: 1.4rem 1.6rem;
-  background: rgba($cream, 0.72);
+  background: fade($cream, 0.72);
   color: $ink;
   border-left: 8px solid $magenta;
-  box-shadow: 7px 7px 0 rgba($teal, 0.72);
+  box-shadow: 7px 7px 0 fade($teal, 0.72);
   transform: rotate(-0.7deg);
 
   p {
@@ -2019,7 +2034,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   p + p {
     margin-top: 0.9rem;
     padding-top: 0.9rem;
-    border-top: 2px solid rgba($magenta, 0.18);
+    border-top: 2px solid fade($magenta, 0.18);
   }
 }
 
@@ -2037,9 +2052,9 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 .value-card {
   padding: 1.35rem;
   background: $cream;
-  border: 2px solid rgba($ink, 0.12);
+  border: 2px solid fade($ink, 0.12);
   border-left: 6px solid $magenta;
-  box-shadow: 5px 5px 0 rgba($ink, 0.09);
+  box-shadow: 5px 5px 0 fade($ink, 0.09);
 
   &:nth-child(even) {
     border-left-color: $teal;
@@ -2071,7 +2086,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
 
   li {
     padding: 0.9rem 0;
-    border-bottom: 2px solid rgba($ink, 0.1);
+    border-bottom: 2px solid fade($ink, 0.1);
 
     &:last-child {
       border-bottom: none;
@@ -2083,13 +2098,13 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
     }
 
     span {
-      color: rgba($ink, 0.7);
+      color: fade($ink, 0.7);
     }
   }
 }
 
 .credentials-grid .card:nth-child(1) {
-  background: darken($orange, 4%);
+  background: shade($orange, 4%);
   color: $cream;
   box-shadow: 8px 8px 0 $lavender;
 
@@ -2109,7 +2124,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   }
 
   p {
-    color: rgba($ink, 0.8);
+    color: fade($ink, 0.8);
   }
 
   &:hover {
@@ -2151,7 +2166,7 @@ $_card-rotations:  -1.8deg,   1.5deg,   -1.2deg,   2deg;
   img {
     width: 100%;
     display: block;
-    box-shadow: 5px 5px 0 rgba($ink, 0.1);
+    box-shadow: 5px 5px 0 fade($ink, 0.1);
   }
 }
 
@@ -2308,7 +2323,7 @@ blockquote {
   display: block;
   margin-top: 0.8rem;
   padding-top: 0.6rem;
-  border-top: 2px solid rgba($ink, 0.2);
+  border-top: 2px solid fade($ink, 0.2);
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -2353,7 +2368,7 @@ blockquote {
       text-decoration: underline;
       text-decoration-thickness: 2px;
       text-underline-offset: 0.16em;
-      text-decoration-color: rgba($cream, 0.7);
+      text-decoration-color: fade($cream, 0.7);
 
       &:hover {
         color: $cream;
@@ -2423,7 +2438,7 @@ footer {
 
   .footer-copy {
     margin: 0 0 0.8rem;
-    color: rgba($ink, 0.6);
+    color: fade($ink, 0.6);
   }
 
   .footer-social {
@@ -2501,7 +2516,7 @@ footer {
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    color: rgba($ink, 0.72);
+    color: fade($ink, 0.72);
   }
 }
 
@@ -2570,7 +2585,7 @@ footer {
     padding: 0.55rem 0 0.55rem 2.2rem;
     font-size: 1.06rem;
     line-height: 1.5;
-    border-bottom: 1px solid rgba($ink, 0.12);
+    border-bottom: 1px solid fade($ink, 0.12);
 
     &:last-child { border-bottom: none; }
 
@@ -2621,7 +2636,7 @@ footer {
     font-size: 1rem;
     font-weight: 700;
     line-height: 1;
-    color: rgba($ink, 0.45);
+    color: fade($ink, 0.45);
   }
 }
 
@@ -2633,7 +2648,7 @@ footer {
 .course-chapter {
   background: $cream;
   border: 2px solid $ink;
-  box-shadow: 6px 6px 0 rgba($ink, 0.18);
+  box-shadow: 6px 6px 0 fade($ink, 0.18);
   margin-bottom: 1.1rem;
 
   &[open] {
@@ -2711,8 +2726,8 @@ footer {
       padding: 0.35rem 0;
       font-size: 1rem;
       line-height: 1.4;
-      color: rgba($ink, 0.85);
-      border-bottom: 1px solid rgba($ink, 0.08);
+      color: fade($ink, 0.85);
+      border-bottom: 1px solid fade($ink, 0.08);
 
       &:last-child { border-bottom: none; }
     }
@@ -2764,7 +2779,7 @@ footer {
 
 // ── Buy / price block ───────────────────────────────────────────────────────
 .course-buy {
-  background: darken($magenta, 6%);
+  background: shade($magenta, 6%);
   color: $cream;
   padding: 2.2rem 1.6rem;
   margin: 2.5rem 0;
@@ -2782,7 +2797,7 @@ footer {
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba($cream, 0.85);
+    color: fade($cream, 0.85);
     margin: 0 0 0.4rem;
   }
 
@@ -2824,7 +2839,7 @@ footer {
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba($cream, 0.85);
+    color: fade($cream, 0.85);
   }
 
   .course-buy__pitch {
@@ -2832,7 +2847,7 @@ footer {
     margin: 0 auto 1.4rem;
     font-size: 1.05rem;
     line-height: 1.55;
-    color: rgba($cream, 0.95);
+    color: fade($cream, 0.95);
   }
 
   .course-buy__list {
@@ -2877,7 +2892,7 @@ footer {
   .course-buy__fineprint {
     margin: 1.2rem 0 0;
     font-size: 0.88rem;
-    color: rgba($cream, 0.8);
+    color: fade($cream, 0.8);
 
     & + & { margin-top: 0.55rem; }
   }
@@ -2907,7 +2922,7 @@ footer {
   .sale-ribbon__deal {
     font-weight: 600;
     font-size: 0.92rem;
-    color: rgba($cream, 0.95);
+    color: fade($cream, 0.95);
   }
 }
 
@@ -2919,12 +2934,12 @@ footer {
   white-space: nowrap;
   padding: 0.08em 0.45em;
   border-radius: 3px;
-  background: rgba($ink, 0.14);
+  background: fade($ink, 0.14);
   color: inherit;
 }
 .sale-ribbon .sale-code,
 .sale-code--light {
-  background: rgba($cream, 0.22);
+  background: fade($cream, 0.22);
   color: $cream;
 }
 
@@ -2939,7 +2954,7 @@ footer {
   font-family: $font-display;
   font-weight: 700;
   font-size: 1.9rem;
-  color: rgba($cream, 0.6);
+  color: fade($cream, 0.6);
 }
 
 .course-buy__sale {
@@ -2956,9 +2971,9 @@ footer {
   margin: 1.5rem 0 2.5rem;
 
   .course-faq__item {
-    border-bottom: 2px solid rgba($ink, 0.14);
+    border-bottom: 2px solid fade($ink, 0.14);
 
-    &:first-child { border-top: 2px solid rgba($ink, 0.14); }
+    &:first-child { border-top: 2px solid fade($ink, 0.14); }
 
     summary {
       display: flex;
@@ -2997,7 +3012,7 @@ footer {
       padding: 0 0.2rem;
       font-size: 1.02rem;
       line-height: 1.6;
-      color: rgba($ink, 0.88);
+      color: fade($ink, 0.88);
     }
   }
 }
@@ -3064,7 +3079,7 @@ main table:not(.pricing-table) {
   }
 
   tbody tr:nth-child(even) td {
-    background: rgba($ink, 0.04);
+    background: fade($ink, 0.04);
   }
 
   // Not-applicable cells read quieter

@@ -176,7 +176,7 @@ body.poster-info {
     font-size: 1.02rem;
     line-height: 1.45;
 
-    th, td { border-bottom: 1px solid rgba($ink, 0.4); }
+    th, td { border-bottom: 1px solid fade($ink, 0.4); }
 
     thead th {
       background: $magenta;
@@ -186,7 +186,7 @@ body.poster-info {
       letter-spacing: 0.02em;
       border-bottom: 1.5px solid $ink;
     }
-    tbody tr:nth-child(even) td { background: rgba($ink, 0.05); }
+    tbody tr:nth-child(even) td { background: fade($ink, 0.05); }
   }
 }
 
@@ -234,7 +234,7 @@ body.poster-info {
   #markdown-toc > li:first-child > a { margin-top: 0; }
 
   #markdown-toc ul {
-    border-left: 2px solid rgba($ink, 0.3);
+    border-left: 2px solid fade($ink, 0.3);
     padding-left: 0.8rem;
     margin: 0.2rem 0 0 0.1rem;
 
@@ -330,7 +330,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
   a {
     display: inline-block;
     padding-bottom: 0.3rem;
-    border-bottom: 2px solid rgba($ink, 0.5);
+    border-bottom: 2px solid fade($ink, 0.5);
     @include info-mono;
     font-size: 0.82rem;
     color: $ink;
@@ -437,7 +437,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
       position: relative;
       margin: 0;
       padding: 0.8rem 0 0.8rem 2.6rem;
-      border-top: 1px dashed rgba($ink, 0.5);
+      border-top: 1px dashed fade($ink, 0.5);
       font-size: 1.08rem;
       line-height: 1.55;
 
@@ -450,7 +450,7 @@ body.poster-info .info-text h2 { border-top: 3px solid $ink; }
         color: $magenta;
       }
     }
-    li:last-child { border-bottom: 1px dashed rgba($ink, 0.5); }
+    li:last-child { border-bottom: 1px dashed fade($ink, 0.5); }
   }
 
   &__close { margin: 0; font-size: 1.08rem; line-height: 1.6; }

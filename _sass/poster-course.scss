@@ -343,7 +343,7 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
   padding: 0;
   border-top: 2px solid $ink;
 
-  > li { margin: 0; border-bottom: 1px solid rgba($ink, 0.45); }
+  > li { margin: 0; border-bottom: 1px solid fade($ink, 0.45); }
 }
 
 .hs-ch {
@@ -420,7 +420,7 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
       break-inside: avoid;
       margin: 0;
       padding: 0.35rem 0;
-      border-bottom: 1px dashed rgba($ink, 0.25);
+      border-bottom: 1px dashed fade($ink, 0.25);
     }
   }
 }
@@ -580,7 +580,7 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
       padding: 0.45rem 0 0.45rem 1.8rem;
       position: relative;
       font-size: 1.12rem;
-      border-bottom: 1px dashed rgba($ink, 0.3);
+      border-bottom: 1px dashed fade($ink, 0.3);
       &::before {
         content: '✳';
         position: absolute;
@@ -800,7 +800,7 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
     border-top: 2px solid $ink;
   }
 
-  details { border-bottom: 1px solid rgba($ink, 0.45); }
+  details { border-bottom: 1px solid fade($ink, 0.45); }
 
   summary {
     display: flex;
