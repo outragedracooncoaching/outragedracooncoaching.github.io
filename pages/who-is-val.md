@@ -39,6 +39,8 @@ description: "Val Dryden is an ILM-certified executive coach and VP Engineering.
 
 <p>I will not sit there nodding while you try to decode your life alone. I will ask challenging questions. I will reflect patterns back. I will challenge you when the story you are telling yourself seems too small, too cruel, or too inherited from someone else.</p>
 
+<p>I also run TTRPG campaigns: storytelling, improv, and keeping six chaotic players from damaging themselves. Turns out it grows the same skills as running an exec team.</p>
+
 <p>I know what it is to become a manager without any help and figure it out anyway. I know what it takes to navigate unreasonable standards, build something real under pressure, and come out the other side wearing a f*cking crown like the queen you are.</p>
 
 <div class="callout">I coach people in the situations I've been in, as someone who is neurodivergent, disabled, queer, and still very much here.</div>
@@ -70,60 +72,4 @@ description: "Val Dryden is an ILM-certified executive coach and VP Engineering.
 
 <p>If you want someone direct, kind, experienced, and very hard to bullshit, <a href="/coaching/">come work with me.</a></p>
 
-<h2>The human bit</h2>
-
-<p>I am not only a coach. I make things because making things is how I play, process, and breathe. Play is how we stay kind to ourselves. It is also where the best ideas hide.</p>
-
-<div class="creative-showcase card-grid" aria-label="Creative work by Val">
-  <div class="card creative-feature">
-    <p class="offer-label">Art on Cara</p>
-    <h3><a href="https://cara.app/outragedpinkracoon" target="_blank" rel="noopener noreferrer">Outraged Racoon Paws<span class="sr-only"> (opens in new tab)</span></a></h3>
-    <p>I draw strange little beings, haunting portraits, and whatever my brain needs to put somewhere outside my body. It is messy, playful, tender, dramatic, and extremely mine.</p>
-    <a class="card-cta" href="https://cara.app/outragedpinkracoon" target="_blank" rel="noopener noreferrer">See the art <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
-  </div>
-
-  <div class="card creative-feature">
-    <p class="offer-label">Corporate vampire romance</p>
-    <h3><a href="https://outragedpinkracoon.substack.com/s/stakeholders-book" target="_blank" rel="noopener noreferrer">Stakeholders&trade;<span class="sr-only"> (opens in new tab)</span></a></h3>
-    <p>Stakeholders is corporate vampire fiction about power, politics, influence, and the absolute absurdity of tech. It is ridiculous on purpose. It is also, inconveniently, quite serious.</p>
-    <a class="card-cta" href="https://outragedpinkracoon.substack.com/s/stakeholders-book" target="_blank" rel="noopener noreferrer">Read Stakeholders <span aria-hidden="true">→</span><span class="sr-only"> (opens in new tab)</span></a>
-  </div>
-</div>
-
-<div class="next-steps next-steps--human" aria-label="Things Val actually does">
-  <ol class="next-steps__list">
-    <li class="next-steps__item">
-      <span class="next-steps__check" aria-hidden="true">🐾</span>
-      <div class="next-steps__content"><strong>I draw.</strong> My brain shifts into a different mode and half my best ideas show up uninvited. I run art sessions for others because creativity and play matter, and I want more people to have access to both.</div>
-    </li>
-    <li class="next-steps__item">
-      <span class="next-steps__check" aria-hidden="true">🐾</span>
-      <div class="next-steps__content"><strong>I write.</strong> Because life needs more whimsy and corporate vampire romance to get us through hard days.</div>
-    </li>
-    <li class="next-steps__item">
-      <span class="next-steps__check" aria-hidden="true">🐾</span>
-      <div class="next-steps__content"><strong>I sew.</strong> Because I want to wear colourful, fun shit and the shops won't provide.</div>
-    </li>
-    <li class="next-steps__item">
-      <span class="next-steps__check" aria-hidden="true">🐾</span>
-      <div class="next-steps__content"><strong>I run and create TTRPG campaigns and solo play mechanics.</strong> Storytelling, improv, and keeping six chaotic players from damaging themselves. Turns out it grows the same skills as running an exec team.</div>
-    </li>
-    <li class="next-steps__item">
-      <span class="next-steps__check" aria-hidden="true">🐾</span>
-      <div class="next-steps__content"><strong>I play video games.</strong> Because catching Pokémon counts as spiritual rest.</div>
-    </li>
-    <li class="next-steps__item">
-      <span class="next-steps__check" aria-hidden="true">🐾</span>
-      <div class="next-steps__content"><strong>I read an unreasonable amount of romantasy.</strong> No notes.</div>
-    </li>
-  </ol>
-</div>
-
-<div class="image-gallery">
-  <img src="/assets/images/brand-images/bat-eating-grapefruit-pink-bg.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a demon bat eating a grapefruit on a hot pink background">
-  <img src="/assets/images/brand-images/vampire-woman-wild-hair.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a haunting vampire woman with wild hair, chalk linework">
-  <img src="/assets/images/brand-images/rabbit-ears-cracked-flower-pot.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a tiny anxious bunny hiding in a cracked terracotta pot">
-  <img src="/assets/images/brand-images/skeleton-tuxedo-bouquet.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a dapper skeleton in a top hat holding a bouquet of roses">
-  <img src="/assets/images/brand-images/toad-jeans-smoking-pipe.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a very chill orange toad in jeans smoking a pipe">
-  <img src="/assets/images/brand-images/lighthouse-butterflies-night.jpeg" loading="lazy" decoding="async" width="886" height="886" alt="a lighthouse at night with butterflies drawn into the beam of light">
-</div>
+<a class="human-link" href="https://outragedpinkracoon.com"><span class="human-link__label">outragedpinkracoon.com</span><span>The <em>human</em> bit</span><span aria-hidden="true"><svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false"><path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></a>
