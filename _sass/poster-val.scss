@@ -292,3 +292,8 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
   font-size: clamp(1.7rem, 3.6vw, 3rem);
   em { white-space: nowrap; }
 }
+
+// testimonial slips between sections: alternate the tilt
+.val-proof { margin-top: 4rem; margin-bottom: 5rem; }
+.val-proof + .vibe, .val-values + .val-proof { margin-top: 5rem; }
+.val-values + .val-proof { transform: rotate(1.4deg); }
