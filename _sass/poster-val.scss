@@ -42,7 +42,21 @@ $val-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
   }
 }
 
-// the stat gets the pink slip
+// the stat gets the pink slip; the opener sits above it as a crooked pink voice line
+.val-stat-wrap {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 5rem auto 6.5rem;
+
+  .val-stat { width: 100%; margin: 0; }
+}
+.val-stat__lead {
+  margin: 0 0 1.6rem 0.5rem;
+  font: italic 400 clamp(1.9rem, 4.4vw, 3.4rem)/1.05 $font-display;
+  letter-spacing: -0.04em;
+  color: $text;
+  transform: rotate(1.5deg);
+  transform-origin: left bottom;
+}
 .val-stat p {
   max-width: 26ch;
   font-size: clamp(1.9rem, 4.2vw, 3.6rem);
