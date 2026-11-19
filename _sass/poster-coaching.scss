@@ -360,6 +360,20 @@ body.poster-coaching {
   }
 }
 
+.cc-routes__note {
+  margin: 1rem 0 2.2rem;
+  font: italic 400 1.25rem/1.35 $font-display;
+  strong { font-style: normal; font-weight: 700; }
+  a {
+    color: $text;
+    text-decoration: underline;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    &:hover, &:focus-visible { color: $magenta; }
+  }
+}
+
 // funding pointer: CV-style ruled callout with a pink tab
 .cc-fund {
   position: relative;
