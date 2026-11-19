@@ -1,0 +1,115 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 404: one loud number, one pink-box line, a way home.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+.lost {
+  position: relative;
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 0 auto;
+  padding: 2rem 0 2rem;
+
+  &__kicker {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 3px solid $magenta;
+    font: 700 0.78rem/1 $mono;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    transform-origin: left;
+  }
+
+  // the giant outlined number, sat behind the headline
+  &__num {
+    margin: 0;
+    font: 700 clamp(9rem, 38vw, 30rem)/0.8 $font-display;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: -0.08em;
+    color: $cream;                          // page colour fill hides contour overlaps
+    -webkit-text-stroke: 3px $ink;
+    paint-order: stroke fill;
+    transform: rotate(-4deg);
+    transform-origin: left bottom;
+    user-select: none;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    margin: -0.35em 0 0 6%;
+    line-height: 0.9;
+    &::after { display: none; }
+
+    .cond {
+      display: block;
+      font-family: $font-primary;
+      font-weight: 800;
+      font-variation-settings: 'wdth' 75, 'opsz' 96;
+      font-size: clamp(3.2rem, 11vw, 8rem);
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: $ink;
+    }
+    em { display: block; font-style: normal; margin-top: 0.1em; }
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font: italic 500 clamp(2.2rem, 7vw, 5.2rem)/1 $font-display;
+      letter-spacing: -0.045em;
+      padding: 0.02em 0.16em 0.12em 0.08em;
+      transform: rotate(-3deg);
+      transform-origin: left;
+      box-shadow: 8px 8px 0 $ink;
+    }
+  }
+
+  &__sub {
+    margin: 2.4rem 0 0 6%;
+    max-width: 26ch;
+    font: italic 400 clamp(1.5rem, 2.6vw, 2.1rem)/1.15 $font-display;
+    letter-spacing: -0.03em;
+    em { color: $magenta; }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6rem 2.4rem;
+    margin: 3rem 0 0 6%;
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+
+    li { margin: 0; }
+    li:not(:last-child)::after {
+      content: '/';
+      margin: 0 0.5em;
+      color: $magenta;
+      font: 700 0.85rem/1 $mono;
+    }
+    a {
+      font: 700 0.85rem/1.4 $mono;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $ink;
+      text-decoration: none;
+      &:hover, &:focus-visible { background: $magenta; color: $cream; outline: none; }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .lost__title, .lost__sub, .lost__actions { margin-left: 0; }
+  .lost__title .cond { font-size: 17vw; }
+  .lost__title mark { font-size: 11vw; }
+  .lost__num { -webkit-text-stroke-width: 2px; }
+}
