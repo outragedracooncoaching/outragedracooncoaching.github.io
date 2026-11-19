@@ -8,6 +8,7 @@
 $cream:          var(--paper);   // charcoal surface (cream in light mode)
 $ink:            var(--ink);     // warm cream text (charcoal in light mode)
 $magenta:        var(--pink);    // the one accent: soft pink (deep pink in light mode)
+$pink-on-ink:    var(--pink-on-ink); // pink text on an $ink slip: the other theme's pink, so it passes AA
 
 // Raw values, for the :root definitions only
 $dark-paper:     #191917;

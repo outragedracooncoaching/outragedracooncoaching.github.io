@@ -49,6 +49,7 @@
   --paper: #{$dark-paper};
   --ink:   #{$dark-ink};
   --pink:  #{$dark-pink};
+  --pink-on-ink: #{$light-pink};
   color-scheme: dark;
 }
 
@@ -56,6 +57,7 @@
   --paper: #{$light-paper};
   --ink:   #{$light-ink};
   --pink:  #{$light-pink};
+  --pink-on-ink: #{$dark-pink};
   color-scheme: light;
 }
 
@@ -2438,7 +2440,7 @@ footer {
 
   .footer-copy {
     margin: 0 0 0.8rem;
-    color: fade($ink, 0.6);
+    color: fade($ink, 0.7);
   }
 
   .footer-social {

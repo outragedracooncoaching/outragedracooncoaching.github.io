@@ -492,6 +492,7 @@ body.poster-home {
     transform: rotate(-2.5deg);
     margin-right: 8%;
     em { color: $cream; }
+    h3.maybe__tag { color: $pink-on-ink; }  // h3 tags would get the page pink, which fails on the slip
   }
 
   // outlined box, pink shadow, opposite tilt

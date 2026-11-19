@@ -728,7 +728,7 @@ $hs-col: min(calc(100% - (2 * #{$gutter})), #{$wide});
     box-shadow: 10px 10px 0 $magenta;
     transform: rotate(1.5deg);
     @include respond-to('medium') { margin-top: 2.5rem; }
-    .hs-pay__tag { color: $magenta; }
+    .hs-pay__tag { color: $pink-on-ink; }
   }
 
   &__head {
