@@ -41,3 +41,11 @@ out = root/"assets/images/og/linkedin-banner.png"
 subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
     "--window-size=1584,396", "--virtual-time-budget=8000", f"--screenshot={out}", f"file://{b}"], check=True, capture_output=True)
 b.unlink(); print(out)
+
+# Course-led LinkedIn banner
+c = root/"_og/out-banner-course.html"
+c.write_text((root/"_og/banner-course.html").read_text().replace("ROOT", str(root)))
+out = root/"assets/images/og/linkedin-banner-course.png"
+subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
+    "--window-size=1584,396", "--virtual-time-budget=8000", f"--screenshot={out}", f"file://{c}"], check=True, capture_output=True)
+c.unlink(); print(out)
