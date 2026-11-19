@@ -556,6 +556,23 @@ $pp-cap-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
   .post-head__title--short { font-size: 19vw; }
   .post-head__title--long { font-size: 10.4vw; }
   .post--haiku .post-head__title { font-size: 8vw; }
+
+  // haiku on phones: bolder. No drop cap: an oversized pink-box letter on
+  // line 1, every line full width, the poem at poster size.
+  .post--haiku .post-body > p:first-of-type:not(:has(img)) {
+    font-size: 7.2vw;
+    line-height: 1.28;
+
+    &::first-letter {
+      -webkit-initial-letter: normal;
+      initial-letter: normal;
+      font-size: 2em;
+      line-height: 1;
+      vertical-align: 0.14em;
+      padding: 0.06em 0.16em 0 0.1em;
+      margin-right: 0.08em;
+    }
+  }
   .post .post-body { font-size: 1.15rem; padding-top: 2.4rem; }
   .post-cta__box { padding: 1.5rem 1.3rem 1.9rem 1.8rem; box-shadow: 8px 8px 0 $magenta; }
   .post-cta .sticker { font-size: 1.1rem; padding: 1.1rem 1.5rem; }
