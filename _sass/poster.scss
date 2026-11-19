@@ -383,6 +383,7 @@ body.poster-home {
   }
 
   &__yes {
+    .nowrap { white-space: nowrap; }
     margin: 0;
     max-width: 24ch;
     font: 600 clamp(2rem, 4.4vw, 3.8rem)/1.02 $font-display;
@@ -678,10 +679,7 @@ body.poster-home {
   margin: 5rem 0 2rem;
   padding: 0 0 0.12em;
 
-  &::after {
-    width: min(100%, 30rem);
-    height: clamp(8px, 1.4vw, 14px);
-  }
+  &::after { display: none; } // opt in with .underscore
 
   &--small {
     font-size: clamp(2.4rem, 8.5vw, 6.4rem);
@@ -850,9 +848,7 @@ body.poster-home {
   position: relative;
   padding: 3.4rem 1.8rem 1.8rem;
   border: 1px solid $ink;
-  background:
-    linear-gradient($magenta, $magenta) 8% 100% / 38% 9px no-repeat,
-    $cream;
+  background: $cream;
   counter-increment: pick;
 
   &::before {
@@ -886,24 +882,57 @@ body.poster-home {
     color: $cream;
     background: $magenta;
     padding: 0.8rem 1.2rem;
-    &:hover { color: $cream; transform: translate(-2px, -2px); }
+    // press like the hero sticker; shadow is cream on dark cards
+    box-shadow: 5px 5px 0 $ink;
+    transform: rotate(-2deg);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    &:hover, &:focus-visible {
+      color: $cream;
+      transform: rotate(-2deg) translate(3px, 3px);
+      box-shadow: 2px 2px 0 $ink;
+    }
+    &:active { transform: rotate(-2deg) translate(5px, 5px); box-shadow: none; }
   }
 
   &--one {
-    background:
-      linear-gradient($magenta, $magenta) 8% 100% / 38% 9px no-repeat,
-      $ink;
+    background: $ink;
     color: $cream;
     border-color: $ink;
     box-shadow: 10px 10px 0 $magenta;
 
     h3, p { color: $cream; }
+    // cream card, so the button's shadow goes charcoal
+    .pick__cta { box-shadow: 5px 5px 0 $cream; }
+    .pick__cta:hover, .pick__cta:focus-visible { box-shadow: 2px 2px 0 $cream; }
+    .pick__cta:active { box-shadow: none; }
     &::before { color: $magenta; -webkit-text-stroke: 0; }
   }
   &--two { @include respond-to('medium') { margin-top: 3rem; } }
 }
 .picks { counter-reset: pick; }
 .picks-wrap .picks { margin-top: 4.5rem; }
+
+// ─── UNDERSCORE (reusable: a thick crooked pink bar under any heading) ──────
+.underscore {
+  position: relative;
+  padding-bottom: 0.12em;
+
+  &::after,
+  &.mega::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: min(100%, 30rem);
+    height: clamp(8px, 1.4vw, 14px);
+    background: $magenta;
+    transform: rotate(-0.6deg);
+    transform-origin: left;
+    clip-path: polygon(0 12%, 97% 0, 100% 80%, 3% 100%);
+  }
+}
 
 // ─── MIXED HEADINGS (editorial italic + condensed caps, like the top site) ───
 .mega--mix {
@@ -936,8 +965,6 @@ body.poster-home {
   margin-left: auto;
   font-size: clamp(3rem, 9vw, 7.5rem);
 
-  &::after { display: none; }
-
   em {
     font-size: 0.62em;
     color: $ink;
@@ -955,8 +982,6 @@ body.poster-home {
 }
 
 .mega--outline {
-  &::after { display: none; }
-
   .cond {
     font-size: 1.5em;
     color: $cream;                 // fill with the page colour to hide contour overlaps
@@ -1105,13 +1130,34 @@ body.poster-home {
     align-items: baseline;
     margin: 0;
     padding: 0.9rem 0.4rem;
+    position: relative;
     border-top: 1px solid rgba($ink, 0.55);
-    transition: transform 0.15s ease, background 0.15s ease;
+    transition: transform 0.14s cubic-bezier(0.3, 1.6, 0.5, 1), background 0.1s, box-shadow 0.14s;
 
     &:last-child { border-bottom: 1px solid rgba($ink, 0.55); }
 
-    &:hover { background: $magenta; transform: translateX(6px); }
-    &:hover a, &:hover .blog-index__date { color: $cream; }
+    // hover = the row gets slapped on as a pink sticker strip, cream shadow
+    &:hover, &:focus-within {
+      z-index: 2;
+      background: $magenta;
+      border-color: transparent;
+      box-shadow: 7px 7px 0 $ink;
+      transform: rotate(-1.4deg) translate(-4px, -4px);
+    }
+    &:nth-child(even):hover, &:nth-child(even):focus-within {
+      transform: rotate(1.2deg) translate(-4px, -4px);
+    }
+    &:hover a, &:hover .blog-index__date,
+    &:focus-within a, &:focus-within .blog-index__date { color: $cream; }
+    &:hover + li, &:focus-within + li { border-top-color: transparent; }
+
+    a::after {
+      content: ' →';
+      opacity: 0;
+      transition: opacity 0.1s;
+    }
+    &:hover a::after, &:focus-within a::after { opacity: 1; }
+    a:focus-visible { outline: none; }
   }
 
   a {
@@ -1138,7 +1184,17 @@ body.poster-home {
   background: $magenta;
   padding: 0.9rem 1.4rem;
   text-decoration: none;
-  &:hover { color: $cream; transform: translate(-2px, -2px); }
+  // same press as the hero sticker: hard cream shadow, push into it
+  box-shadow: 6px 6px 0 $ink;
+  transform: rotate(2deg);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+  &:hover, &:focus-visible {
+    color: $cream;
+    transform: rotate(2deg) translate(3px, 3px);
+    box-shadow: 3px 3px 0 $ink;
+  }
+  &:active { transform: rotate(2deg) translate(6px, 6px); box-shadow: none; }
 }
 
 // ─── small screens: keep the chaos, protect the text ──────────────────────────
