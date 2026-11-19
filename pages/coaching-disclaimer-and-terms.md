@@ -78,8 +78,8 @@ Clients who have concerns about any part of this agreement should raise them wit
 ### Session expiry
 Sessions purchased as part of a bundle or programme must be used within the following periods from the date of the first session:
 
-* The Campaign (3 sessions): 3 months
-* The Advisory: Monthly sessions expire at the end of each calendar month and cannot be
+* The Sort-It Sequence (3 sessions): 3 months
+* In Your Corner: Monthly sessions expire at the end of each calendar month and cannot be
   carried forward or refunded.
 
 Sessions not used within these periods lapse without refund. Extensions are not available as a matter of course, but may be considered at the Coach's sole discretion in exceptional circumstances.
@@ -116,33 +116,33 @@ All fees are quoted and payable exclusively in GBP (£). For international clien
       <td>n/a</td>
     </tr>
     <tr>
-      <td>The Campaign (block of 3)</td>
+      <td>The Sort-It Sequence (block of 3)</td>
       <td>n/a</td>
       <td>£800.00 (save £250)</td>
     </tr>
   </tbody>
 </table>
 
-#### Upgrading a single session to The Campaign
+#### Upgrading a single session to The Sort-It Sequence
 
-A Client who has booked a single session may choose to upgrade to The Campaign within 7 days of that session. The first session then counts as the first of the three, and the Client pays the balance between the single-session fee already invoiced and the full Campaign price (£450, being the £800 Campaign price less the £350 single-session fee already invoiced). This balance is invoiced on upgrade and is payable within 7 days of the invoice date. The second session is booked once the balance has been paid.
+A Client who has booked a single session may choose to upgrade to The Sort-It Sequence within 7 days of that session. The first session then counts as the first of the three, and the Client pays the balance between the single-session fee already invoiced and the full Sort-It Sequence price (£450, being the £800 Sort-It Sequence price less the £350 single-session fee already invoiced). This balance is invoiced on upgrade and is payable within 7 days of the invoice date. The second session is booked once the balance has been paid.
 
-Once upgraded, the standard Campaign terms apply. Because the first session counts as the first of the three, the 3-month expiry runs from the date of that first session, not from the date of upgrade. All three sessions must therefore be used within 3 months of the first session.
+Once upgraded, the standard Sort-It Sequence terms apply. Because the first session counts as the first of the three, the 3-month expiry runs from the date of that first session, not from the date of upgrade. All three sessions must therefore be used within 3 months of the first session.
 
-### The Advisory retainer
+### In Your Corner retainer
 
-The Advisory operates on a fixed monthly structure. Clients receive:
+In Your Corner operates on a fixed monthly structure. Clients receive:
 
 * **Week 1:** one email update sent by the Client. The Coach will respond by email within 3 working days with either a brief acknowledgement or up to 3 questions or observations. Email responses are not extended written coaching sessions.
 * **Week 2:** no scheduled contact. This is intentional working time for the Client.
 * **Week 3:** one email update, on the same terms as week 1.
 * **Week 4:** one 30-minute call, booked by email at a mutually convenient time.
 
-Questions and observations offered by the Coach in response to Advisory emails are coaching tools, not instructions or professional advice. All decisions and actions taken by the Client remain solely the Client's own responsibility.
+Questions and observations offered by the Coach in response to In Your Corner emails are coaching tools, not instructions or professional advice. All decisions and actions taken by the Client remain solely the Client's own responsibility.
 
-The Advisory does not include additional calls, WhatsApp or other messaging, ad hoc emails outside the above structure, or any other form of synchronous or asynchronous contact beyond what is described here. Emails sent outside the week 1 and 3 structure will not receive a substantive response within the retainer.
+In Your Corner does not include additional calls, WhatsApp or other messaging, ad hoc emails outside the above structure, or any other form of synchronous or asynchronous contact beyond what is described here. Emails sent outside the week 1 and 3 structure will not receive a substantive response within the retainer.
 
-The Advisory is billed monthly at £250. Either party may cancel with written notice, effective from the following billing month.
+In Your Corner is billed monthly at £250. Either party may cancel with written notice, effective from the following billing month.
 
 ### Procedure
 Coaching sessions will take place remotely, by video call or telephone as mutually agreed between the Coach and the Client, at times mutually agreed. A calendar invitation will be provided for each session, including a Google Meet link where the session is held by video.
@@ -178,9 +178,9 @@ If the Coach needs to cancel or reschedule a session, the Client will be notifie
 ### Payment terms
 For single sessions, an invoice is issued by email after the session takes place and is payable within 7 days via the payment methods specified on the invoice. Where multiple single sessions occur within the same month, fees may be grouped into a single invoice issued at month end.
 
-For bundles and programmes, an invoice for the full bundle or programme price is issued by email after the first session and is payable within 7 days of the invoice date. The second and any later sessions are booked once payment has been received. Where a single session is upgraded to The Campaign, the balance is invoiced on upgrade and is payable within 7 days of the invoice date, as set out under Upgrading a single session to The Campaign.
+For bundles and programmes, an invoice for the full bundle or programme price is issued by email after the first session and is payable within 7 days of the invoice date. The second and any later sessions are booked once payment has been received. Where a single session is upgraded to The Sort-It Sequence, the balance is invoiced on upgrade and is payable within 7 days of the invoice date, as set out under Upgrading a single session to The Sort-It Sequence.
 
-For The Advisory retainer, invoices are issued monthly.
+For the In Your Corner retainer, invoices are issued monthly.
 
 Where an invoice remains unpaid after its due date, the Coach may decline to book or hold further sessions until the outstanding amount has been paid. This does not affect any session already delivered, which remains payable.
 
@@ -198,7 +198,7 @@ Refunds are not available for single sessions, since the invoice for a single se
 
 Bundles and programmes are invoiced in full after the first session. If the Client cancels before that invoice has been paid, only the full single-session rate for each session already delivered is payable. Where a Client cancels a bundle or programme after paying, a refund will be issued within 14 days of written cancellation notice. The refund is calculated by deducting the full single-session rate for each session already delivered from the amount paid, and refunding the remainder. Sessions that lapse due to expiry are not refundable.
 
-For The Advisory, no refund is due for a month already invoiced.
+For In Your Corner, no refund is due for a month already invoiced.
 
 This does not affect your statutory rights.
 

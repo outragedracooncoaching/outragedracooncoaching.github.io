@@ -70,7 +70,7 @@ description: "Get your employer's L&D budget or Access to Work to pay for coachi
     </article>
 
     <article class="fund-email fund-email--two">
-      <h3 class="fund-email__tag">The Campaign: three sessions, £800</h3>
+      <h3 class="fund-email__tag">The Sort-It Sequence: three sessions, £800</h3>
       <div class="fund-email__paper">
         <p class="fund-email__subject">Subject: L&amp;D budget request for coaching</p>
         <p>Hi <span class="fill-blank">[Name]</span>,</p>

@@ -15,7 +15,7 @@
   var slowTimer = null;
   var loadedAt = Date.now();
 
-  // Where they came from: ?from=<cta>&package=<hour|campaign|advisory|course>
+  // Where they came from: ?from=<cta>&package=<one_session|three_sessions|monthly|course>
   var params = new URLSearchParams(window.location.search);
   var from = (params.get('from') || 'direct').replace(/[^a-z0-9-]/gi, '').slice(0, 60) || 'direct';
   form.elements.from.value = from;
@@ -25,7 +25,7 @@
   } catch (e) { form.elements.page.value = ''; }
 
   var pkg = params.get('package');
-  if (pkg && form.elements['package'].querySelector('option[value="' + pkg.replace(/[^a-z]/g, '') + '"]')) {
+  if (pkg && form.elements['package'].querySelector('option[value="' + pkg.replace(/[^a-z_]/g, '') + '"]')) {
     form.elements['package'].value = pkg;
   }
 

@@ -33,9 +33,9 @@ var HEADERS = ['Timestamp', 'Name', 'Email', 'Message', 'Package', 'From', 'Page
 var MIN_ELAPSED_MS = 3000;
 var LIMITS = { name: 200, email: 320, message: 5000, package: 40, from: 60, page: 300 };
 var PACKAGES = {
-  hour: 'The Decisive Hour',
-  campaign: 'The Campaign',
-  advisory: 'The Advisory',
+  one_session: 'The Decisive Hour',
+  three_sessions: 'The Sort-It Sequence',
+  monthly: 'In Your Corner',
   course: 'Course invoice'
 };
 
