@@ -217,6 +217,35 @@ $calm-measure: 38rem;
     }
   }
 
+  // ─── 3b. Forms and [hidden] ──────────────────────────────────────────────
+  // The generic rules above strip borders and force <p> to display:block, which
+  // left the contact form with no visible fields and un-hid its status messages.
+  #{$calm-zone} {
+    [hidden] { display: none !important; }
+
+    input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+    textarea,
+    select {
+      display: block !important;
+      width: 100% !important;
+      max-width: $calm-measure !important;
+      box-sizing: border-box !important;
+      margin: 0.3rem 0 1.2rem !important;
+      padding: 0.5rem 0.7rem !important;
+      border: 1px solid var(--calm-text) !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      color: var(--calm-text) !important;
+      font-family: $calm-mono !important;
+      font-size: 1rem !important;
+      box-shadow: none !important;
+    }
+    // calm's grid rule shrink-wraps children, so each field would size to its own content
+    .cf-form, .cf-form__field { display: block !important; width: 100% !important; max-width: $calm-measure !important; }
+    textarea { min-height: 7rem !important; }
+    label { display: block !important; font-weight: 700 !important; }
+  }
+
   // ─── 4. Masthead and colophon ────────────────────────────────────────────
   body > header {
     font-family: $calm-mono !important;
