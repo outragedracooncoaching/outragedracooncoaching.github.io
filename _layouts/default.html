@@ -151,12 +151,14 @@
   </head>
   <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <nav aria-label="Main navigation">
-    <a href='/' {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
-    <a href='/who-is-val' {% if page.url == '/who-is-val/' or page.url == '/who-is-val' %}aria-current="page"{% endif %}>Who is Val?</a>
-    <a href='/coaching' {% if page.url == '/coaching/' or page.url == '/coaching' or page.url contains '/coaching/' %}aria-current="page"{% endif %}>Coaching</a>
-    <a href='/holy-shit-im-a-manager' {% if page.url == '/holy-shit-im-a-manager/' or page.url == '/holy-shit-im-a-manager' %}aria-current="page"{% endif %}>Online course</a>
-    <a href='/blog' {% if page.url == '/blog/' or page.url == '/blog' %}aria-current="page"{% endif %}>Blog</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-nav__mark" href='/' {% if page.url == '/' %}aria-current="page"{% endif %}><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M50 4v92M4 50h92M17.5 17.5l65 65M17.5 82.5l65-65" fill="none" stroke="currentColor" stroke-width="14"/></svg><span>Outraged <em>Racoon</em></span><span class="sr-only"> Coaching, home</span></a>
+    <div class="site-nav__links">
+      <a href='/who-is-val' {% if page.url == '/who-is-val/' or page.url == '/who-is-val' %}aria-current="page"{% endif %}>Who is Val?</a>
+      <a href='/coaching' {% if page.url contains '/coaching' %}aria-current="page"{% endif %}>Coaching</a>
+      <a href='/holy-shit-im-a-manager' {% if page.url contains '/holy-shit-im-a-manager' %}aria-current="page"{% endif %}>Online course</a>
+      <a href='/blog' {% if page.url contains '/blog' or page.layout == 'post' %}aria-current="page"{% endif %}>Blog</a>
+    </div>
     <div class="display-settings">
       <button class="display-settings-toggle" aria-expanded="false" aria-controls="display-settings-panel" aria-label="Open display settings">
         <span class="settings-icon" aria-hidden="true">⚙</span>

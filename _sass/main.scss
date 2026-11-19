@@ -266,52 +266,8 @@ img {
 // NAV
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-nav {
-  max-width: map-get($breakpoints, 'large');
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 1.4rem 1rem 0;
-  font-family: $font-primary;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+// Moved to _sass/site-nav.scss (wordmark + sticker nav).
 
-  @include respond-to('small') {
-    font-size: 0.92rem;
-    letter-spacing: 0.1em;
-  }
-
-  $_nav-colors: $magenta, $teal, $orange, $lavender, $teal;
-
-  @for $i from 1 through 5 {
-    $c: nth($_nav-colors, $i);
-    a:nth-child(#{$i}) {
-      color: $c;
-      &:hover, &.active-link {
-        background: $c;
-        color: $paper;
-      }
-    }
-  }
-
-  a {
-    padding: 0.25rem 0.8rem;
-    text-decoration: none;
-    transition: background 0.15s ease, color 0.15s ease;
-
-    &:focus-visible {
-      outline: 3px solid $paper;
-      outline-offset: 0;
-      border-radius: 2px;
-      box-shadow: 0 0 0 5px $text;
-    }
-  }
-}
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // SITE HEADER — the masthead
@@ -2448,12 +2404,20 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.4rem 1.2rem;
+    // these used to come from the old generic `nav` rule
+    padding-top: 1.4rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    @include respond-to('small') { font-size: 0.92rem; letter-spacing: 0.1em; }
 
     a {
       text-decoration: none;
       color: $text;
+      padding: 0.25rem 0.8rem;
+      transition: background 0.15s ease, color 0.15s ease;
 
-      &:hover { text-decoration: underline; }
+      &:hover { background: $magenta; color: $paper; }
     }
   }
 }
@@ -3149,6 +3113,7 @@ main table:not(.pricing-table) {
 @import "poster-coaching-pages";
 @import "poster-info";
 @import "poster-404";
+@import "site-nav";
 
 // Big ruled link-out to the top site (same object as "Follow me on Cara" there)
 a.human-link {

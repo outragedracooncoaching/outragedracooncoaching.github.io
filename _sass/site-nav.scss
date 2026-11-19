@@ -1,0 +1,139 @@
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// SITE NAV  (shared, _layouts/default.html)
+// Wordmark left (asterisk sticker + Fraunces, doubles as Home), cream condensed
+// caps links, the current page as a pink sticker, Display at the end.
+// Phone: wordmark + Display on one row, the links on a tidy row under it.
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+nav.site-nav {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  max-width: none;
+  margin: 0 auto;
+  padding: 1.3rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "mark display" "links links";
+  align-items: center;
+  gap: 0.9rem 1rem;
+  // reset main.scss nav type
+  font-family: $font-primary;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+
+  // one row only once there's room for it (two rows below 1200px)
+  @media (min-width: 1200px) {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "mark links display";
+    gap: 1.5rem;
+    padding-top: 1.6rem;
+  }
+
+  a { text-decoration: none; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid $magenta;
+    outline-offset: 3px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+// ─── Wordmark ────────────────────────────────────────────────────────────────
+.site-nav__mark {
+  grid-area: mark;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $text;
+  font-family: $font-display;
+  font-weight: 700;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(1.35rem, 6.4vw, 1.9rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+
+  @include respond-to('medium') { font-size: 2.4rem; }
+  @media (min-width: 1200px) { font-size: 2.7rem; }
+
+  svg {
+    width: 1.05em;
+    height: 1.05em;
+    flex: none;
+    color: $magenta;
+    transform: rotate(14deg);
+    transition: transform 0.35s ease;
+  }
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+    color: $magenta;
+    letter-spacing: -0.02em;
+  }
+
+  &:hover svg { transform: rotate(59deg); }
+}
+
+// ─── Links ───────────────────────────────────────────────────────────────────
+.site-nav__links {
+  grid-area: links;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.15rem;
+  justify-content: space-between;
+
+  @include respond-to('medium') { justify-content: flex-start; gap: 0.2rem 0.8rem; }
+  @media (min-width: 1200px) { justify-content: flex-end; gap: 0.2rem 0.5rem; }
+
+  a {
+    display: inline-block;
+    padding: 0.3rem 0.35rem 0.25rem;
+    color: $text;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: clamp(0.95rem, 4.3vw, 1.3rem);
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+
+    @include respond-to('medium') { font-size: 1.55rem; padding: 0.35rem 0.6rem 0.3rem; }
+    @media (min-width: 1200px) { font-size: 1.7rem; padding: 0.35rem 0.7rem 0.3rem; }
+
+    &:hover { color: $magenta; }
+
+    // you are here: pink sticker, cream shadow
+    &[aria-current="page"] {
+      background: $magenta;
+      color: $paper;
+      box-shadow: 3px 3px 0 $text;
+      transform: rotate(-2deg);
+    }
+    &:nth-child(even)[aria-current="page"] { transform: rotate(2deg); }
+  }
+}
+
+// ─── Display button ──────────────────────────────────────────────────────────
+.site-nav .display-settings {
+  grid-area: display;
+  justify-self: end;
+
+  &::before { display: none; }   // old "|" separator
+}
+
+.site-nav .display-settings-toggle {
+  color: fade($text, 0.75);
+  border: 2px solid fade($text, 0.3);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.9rem;
+  @media (min-width: 1200px) { font-size: 1rem; padding: 0.45rem 0.8rem; }
+  &:hover, &[aria-expanded="true"] { color: $text; border-color: $text; }
+  // a setting differs from default: pink frame, not a glaring filled block
+  &[data-active="true"] { background: none; color: $text; border-color: $magenta; }
+}
