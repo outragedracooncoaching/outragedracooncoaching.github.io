@@ -43,21 +43,23 @@ description: Coaching for engineering managers and folks in tech from a VP Engin
     </article>
   </div>
   <article class="course">
-    <a class="course__art" href="/holy-shit-im-a-manager/" aria-hidden="true" tabindex="-1">
-      <img src="/assets/images/site/hsiam-raccoon-1100.webp" srcset="/assets/images/site/hsiam-raccoon-600.webp 600w, /assets/images/site/hsiam-raccoon-1100.webp 1100w" sizes="(min-width: 768px) 480px, 90vw" alt="" width="1100" height="1100" loading="lazy" decoding="async">
-      <span class="course__stamp">No videos.<br>On purpose.</span>
-    </a>
+    <div class="course__visual">
+      <a class="course__art" href="/holy-shit-im-a-manager/" aria-hidden="true" tabindex="-1">
+        <img src="/assets/images/site/hsiam-raccoon-1100.webp" srcset="/assets/images/site/hsiam-raccoon-600.webp 600w, /assets/images/site/hsiam-raccoon-1100.webp 1100w" sizes="(min-width: 768px) 480px, 90vw" alt="" width="1100" height="1100" loading="lazy" decoding="async">
+        <span class="course__stamp">No videos.<br>On purpose.</span>
+      </a>
+      {% if site.sale.active %}<p class="course__coupon"><span class="course__deal">{{ site.sale.saving }} off</span> <span class="course__blurb">{{ site.sale.blurb }}</span> <span class="course__code">Code <span class="sale-code">{{ site.sale.code }}</span></span></p>{% endif %}
+    </div>
     <div class="course__body">
-      <p class="course__label">Online course &middot; Engineering Management First Aid</p>
+      <p class="course__label">Online course <span class="course__label-sub">&middot; Engineering Management First Aid</span></p>
       <h3 class="course__title"><a href="/holy-shit-im-a-manager/"><span class="cond">Holy shit,</span> <em><mark>I'm a Manager!</mark></em></a></h3>
-      <p class="course__pitch">Should you still be coding? How do you have the conversation you've rehearsed in the shower for a week? What does good even look like? <strong class="hl">52+ bite-sized lessons</strong>, direct access to me, and the manual nobody handed you on day one. No videos, on purpose. Built for how busy managers actually work.</p>
-      <p class="course__rating"><span class="course__stars" aria-hidden="true">★★★★★</span> <span>5/5 from 14 managers</span></p>
+      <p class="course__q"><span>Should you still be coding?</span> <span>How do you have the conversation you've <b>rehearsed in the shower for a week?</b></span> <span>What does good even look like?</span></p>
       {% if site.sale.active %}<p class="course__cta">
-        <a class="button" href="/holy-shit-im-a-manager/">See the course · <s>{{ site.sale.full_price }}</s> {{ site.sale.price }}</a>
-        <span class="course__note">{{ site.sale.blurb }}: {{ site.sale.saving }} off with code <span class="sale-code">{{ site.sale.code }}</span>. One-time payment, no subscription, maximum racoons.</span>
+        <a class="button" href="/holy-shit-im-a-manager/">Get the answers <span aria-hidden="true">→</span></a>
+        <span class="course__rating"><span class="course__stars" aria-hidden="true">★★★★★</span> <span>Every single review: five stars. <span class="course__count">100+ managers</span></span></span>
       </p>{% else %}<p class="course__cta">
-        <a class="button" href="/holy-shit-im-a-manager/">See the course · £400</a>
-        <span class="course__note">One-time payment. No subscription. No boring corporate crap. Maximum racoons.</span>
+        <a class="button" href="/holy-shit-im-a-manager/">Get the answers <span aria-hidden="true">→</span></a>
+        <span class="course__rating"><span class="course__stars" aria-hidden="true">★★★★★</span> <span>Every single review: five stars. <span class="course__count">100+ managers</span></span></span>
       </p>{% endif %}
     </div>
   </article>

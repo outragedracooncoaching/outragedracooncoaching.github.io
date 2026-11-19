@@ -702,12 +702,12 @@ body.poster-home {
 
 .course {
   display: grid;
-  gap: 2rem;
-  margin: 5rem 0 2rem;
+  gap: 3.5rem;
+  margin: 8rem 0 7rem;
 
   @include respond-to('medium') {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 3.5rem;
+    gap: 5.5rem;
     align-items: center;
   }
 
@@ -768,11 +768,12 @@ body.poster-home {
     color: $ink;
     transform: rotate(-3deg);
     transform-origin: left;
+    margin-bottom: 2rem;
   }
 
   // title: condensed caps shout + the pink-box italic, like the hero
   &__title {
-    margin: 0 0 1.6rem;
+    margin: 0 0 2.4rem;
     line-height: 0.9;
 
     a { color: $ink; text-decoration: none; display: block; }
@@ -804,8 +805,22 @@ body.poster-home {
     a:hover .cond { color: $magenta; }
   }
 
+  // the three questions, pulled out as the spoken lead
+  // three questions, one per line, cream; the funny bit in pink
+  &__q {
+    margin: 0 0 2.4rem;
+    max-width: 30ch;
+    font: italic 400 clamp(1.4rem, 2.2vw, 1.85rem)/1.2 $font-display;
+    letter-spacing: -0.025em;
+    color: $ink;
+
+    span { display: block; margin-bottom: 0.45em; text-wrap: balance; }
+    span:last-child { margin-bottom: 0; }
+    b { font-weight: 400; color: $magenta; }
+  }
+
   &__pitch {
-    font-size: 1.12rem; line-height: 1.7; margin: 0 0 1.2rem; max-width: 52ch;
+    font-size: 1.12rem; line-height: 1.7; margin: 0 0 1.8rem; max-width: 52ch;
 
     .hl {
       font-weight: 700;
@@ -816,19 +831,81 @@ body.poster-home {
 
   &__rating {
     display: inline-flex; align-items: center; gap: 0.6rem;
-    margin: 0 0 1.6rem;
-    padding: 0.45rem 0.8rem;
-    border: 1px dashed $magenta;
-    font: 800 0.95rem/1 $font-primary;
-    transform: rotate(2deg);
+    margin: 0.4rem 0 0;
+    font: 800 0.95rem/1.3 $font-primary;
   }
   &__stars { color: $magenta; font-size: 1.3rem; letter-spacing: 0.08em; }
+  &__count { color: $magenta; white-space: nowrap; }
 
   &__cta {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem; margin: 0;
-    .button:hover { transform: translate(-2px, -2px); }
+    display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; margin: 0;
+    // the one true pink + the same press as every other button on the poster
+    .button {
+      background: $magenta;
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      padding: 1.05rem 2rem 1.1rem;
+      box-shadow: 7px 7px 0 $ink;
+      transform: rotate(-2deg);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .button:hover, .button:focus-visible {
+      transform: rotate(-2deg) translate(3px, 3px);
+      box-shadow: 3px 3px 0 $ink;
+    }
+    .button:active { transform: rotate(-2deg) translate(6px, 6px); box-shadow: none; }
   }
-  &__note { font: 700 0.82rem/1.45 $font-primary; opacity: 0.85; max-width: 42ch; }
+  &__visual { position: relative; }
+
+  // sale coupon: a cut-out slip stuck over the bottom corner of the art,
+  // opposite the stamp
+  &__coupon {
+    position: absolute;
+    z-index: 4;
+    left: -1.2rem;
+    bottom: -3.2rem;
+    margin: 0;
+    padding: 0.9rem 1.2rem 1rem;
+    max-width: 19rem;
+    background: $cream;
+    border: 2px dashed $ink;
+    box-shadow: 8px 8px 0 $magenta;
+    transform: rotate(4deg);
+    @include respond-to('medium') { left: -2.4rem; }
+  }
+  &__deal {
+    display: block;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75;
+    font-size: clamp(2.2rem, 3.6vw, 3rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: $magenta;
+  }
+  &__blurb {
+    display: block;
+    margin: 0.4rem 0 0.7rem;
+    font: italic 400 1.15rem/1.3 $font-display;
+    text-wrap: balance;
+  }
+  &__code {
+    display: block;
+    font: 700 0.78rem/1 $mono;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    .sale-code {
+      display: inline-block;
+      margin-left: 0.4rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0;
+      background: $magenta;
+      color: $cream;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      transform: rotate(-2deg);
+    }
+  }
 }
 
 // ─── PICKS (1:1) ──────────────────────────────────────────────────────────────
@@ -1220,5 +1297,12 @@ body.poster-home {
     mark { display: block; margin-left: 0.2em; }
   }
   .slash mark { white-space: normal; }
+  .course { margin: 6rem 0 5rem; }
+  .course__title .cond { font-size: 22vw; }
+  .course__label-sub { display: block; }
+  // make room for the sale coupon hanging off the art
+  .course__visual:has(.course__coupon) { margin-bottom: 3.5rem; }
+  .course__coupon { left: -0.4rem; bottom: -4rem; max-width: 16rem; padding: 0.7rem 1rem 0.8rem; }
+  .course__title mark { font-size: 10vw; }
   .slash { width: 124%; margin-left: -12%; padding: 2rem 14% 2.4rem; }
 }
