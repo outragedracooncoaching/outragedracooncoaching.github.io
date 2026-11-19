@@ -15,7 +15,7 @@ Aim bolder, clearer, and more commercially alive. Don't flatter work that is not
 I was selling to founders and CTOs and doing fractional, you'll see unpublished pages for these. I am no longer doing this so don't think about that market or those pages in our sessions.
 
 For copywriting tasks, use `/copywrite`.
-For making design use '/design'
+For making design use '/design' (dark poster redesign; the old riso skill is archived).
 for both '/page'
 
 There is also 'strategy' to check approach.

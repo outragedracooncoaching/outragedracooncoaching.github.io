@@ -45,11 +45,12 @@ description: Coaching for engineering managers and folks in tech from a VP Engin
   <article class="course">
     <a class="course__art" href="/holy-shit-im-a-manager/" aria-hidden="true" tabindex="-1">
       <img src="/assets/images/site/hsiam-raccoon-1100.webp" srcset="/assets/images/site/hsiam-raccoon-600.webp 600w, /assets/images/site/hsiam-raccoon-1100.webp 1100w" sizes="(min-width: 768px) 480px, 90vw" alt="" width="1100" height="1100" loading="lazy" decoding="async">
+      <span class="course__stamp">No videos.<br>On purpose.</span>
     </a>
     <div class="course__body">
       <p class="course__label">Online course &middot; Engineering Management First Aid</p>
-      <h3 class="course__title"><a href="/holy-shit-im-a-manager/">Holy Shit, I'm a Manager!</a></h3>
-      <p class="course__pitch">Should you still be coding? How do you have the conversation you've rehearsed in the shower for a week? What does good even look like? 52+ bite-sized lessons, direct access to me, and the manual nobody handed you on day one. No videos, on purpose. Built for how busy managers actually work.</p>
+      <h3 class="course__title"><a href="/holy-shit-im-a-manager/"><span class="cond">Holy shit,</span> <em><mark>I'm a Manager!</mark></em></a></h3>
+      <p class="course__pitch">Should you still be coding? How do you have the conversation you've rehearsed in the shower for a week? What does good even look like? <strong class="hl">52+ bite-sized lessons</strong>, direct access to me, and the manual nobody handed you on day one. No videos, on purpose. Built for how busy managers actually work.</p>
       <p class="course__rating"><span class="course__stars" aria-hidden="true">★★★★★</span> <span>5/5 from 14 managers</span></p>
       {% if site.sale.active %}<p class="course__cta">
         <a class="button" href="/holy-shit-im-a-manager/">See the course · <s>{{ site.sale.full_price }}</s> {{ site.sale.price }}</a>
@@ -74,11 +75,10 @@ description: Coaching for engineering managers and folks in tech from a VP Engin
 
 <p class="slash">You can get training from someone who has read about management. <mark>Or from someone who has lived it.</mark></p>
 
-<section class="intro intro--after">
-  <p>If you want corporate polish, I am probably not your person. If you want autistic directness, kindness, hard-won judgement, and someone who knows the messy, ambiguous life of working in tech, you are in the right place.</p>
+<section class="vibe" aria-label="Who I'm for">
+  <p class="vibe__no">If you want <span class="vibe__strike">corporate polish</span>, I am probably not your person.</p>
+  <p class="vibe__yes">If you want <mark>autistic directness</mark>, kindness, hard-won judgement, and someone who knows the messy, ambiguous life of working in tech, <em>you are in the right place.</em></p>
 </section>
-
-{% include credibility-strip.html %}
 
 <section class="chorus-wrap">
   <h2 class="mega mega--mix mega--right"><span class="cond">Real people</span> <em>saying <mark>real things</mark></em></h2>
@@ -88,6 +88,8 @@ description: Coaching for engineering managers and folks in tech from a VP Engin
     <blockquote class="say say--c"><p>"It gave me the space to grow, learn, and become a better version of myself in an environment that truly felt safe and inclusive."</p><footer>— Chamodi Lokuge, Software Engineer @ Thirdfort</footer></blockquote>
   </div>
 </section>
+
+{% include credibility-strip.html %}
 
 <section class="blog-wrap">
   <h2 class="mega mega--mix mega--outline"><em>From the</em> <span class="cond">blog</span></h2>

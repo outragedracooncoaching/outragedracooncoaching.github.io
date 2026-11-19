@@ -356,6 +356,59 @@ body.poster-home {
   &::after  { top: -0.7rem; right: -2.2rem; transform: rotate(33deg); }
 }
 
+// ─── VIBE CHECK (who I'm for / not for) ──────────────────────────────────────
+.vibe {
+  width: min(calc(100% - (2 * #{$gutter})), #{$wide});
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+
+  @include respond-to('medium') { padding-left: 8%; padding-right: 6%; }
+
+  &__no {
+    display: inline-block;
+    margin: 0 0 1.6rem;
+    font: 700 clamp(1rem, 1.8vw, 1.35rem)/1.5 $mono;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+    transform-origin: left;
+  }
+
+  // crossed out in marker
+  &__strike {
+    white-space: nowrap;
+    text-decoration: line-through;
+    text-decoration-color: $magenta;
+    text-decoration-thickness: 0.32em;
+  }
+
+  &__yes {
+    margin: 0;
+    max-width: 24ch;
+    font: 600 clamp(2rem, 4.4vw, 3.8rem)/1.02 $font-display;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font-style: italic;
+      font-weight: 500;
+      padding: 0 0.12em 0.06em 0.06em;
+      transform: rotate(-2.5deg);
+    }
+
+    em {
+      display: block;
+      margin-top: 0.35em;
+      color: $magenta;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+  }
+}
+
 // ─── THE SLASH (pull-quote band, bleeds off both edges) ───────────────────────
 .slash {
   width: 118%;
@@ -380,28 +433,46 @@ body.poster-home {
 }
 
 // ─── CREDIBILITY (existing include, re-set as stamps) ────────────────────────
+// second sticker strip: the inverse of the hero strip (cream tape, pink layer
+// peeking out above), tilted the other way. Full bleed.
 .poster .credibility-strip {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem 0;
-  width: fit-content;
-  max-width: min(calc(100% - (2 * #{$gutter})), #{$wide});
-  margin: 3.5rem auto 1rem;
-  padding: 0.8rem 1.2rem;
-  border: 1px solid $ink;
+  gap: 0.2rem 0;
+  width: 100vw;
+  max-width: none;
+  margin: 4.5rem 0 2rem calc(50% - 50vw);
+  padding: 0.75rem 5vw 0.8rem;
+  border: 0;
+  background: $ink;
+  color: $cream;
+  box-shadow: 0 -9px 0 $magenta;
+  transform: rotate(-2deg);
 
   .credibility-badge {
     all: unset;
-    font: 700 0.8rem/1.4 $mono;
-    letter-spacing: 0.08em;
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: 6.4vw;                       // phone: one credential per line
+    line-height: 1.1;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: $ink;
+    text-align: center;
+    color: $cream;
+    white-space: nowrap;
+    flex-basis: 100%;
 
-    & + .credibility-badge::before {
-      content: '/';
-      color: $magenta;
-      margin: 0 0.9rem;
+    @include respond-to('medium') {
+      flex-basis: auto;
+      font-size: min(2.1rem, 2.15vw);
+
+      & + .credibility-badge::before {
+        content: '/';
+        color: $magenta;
+        margin: 0 0.45em;
+      }
     }
   }
 
@@ -457,38 +528,116 @@ body.poster-home {
     align-items: center;
   }
 
+  // the poster has been got at: taped up crooked, stamped, scrawled on
   &__art {
+    position: relative;
     display: block;
     box-shadow: 14px 14px 0 $ink;
     border: 1px solid $ink;
     line-height: 0;
+    transform: rotate(-4deg);
 
     img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      width: 7rem;
+      height: 2rem;
+      background: rgba($magenta, 0.92);
+      clip-path: polygon(0 10%, 4% 0, 8% 12%, 96% 0, 100% 90%, 94% 100%, 4% 88%);
+    }
+    &::before { top: -0.9rem; left: -2.2rem; transform: rotate(-34deg); }
+    &::after  { bottom: -0.8rem; right: -2.4rem; transform: rotate(-30deg); }
+  }
+
+  // rubber stamp slammed on the art
+  &__stamp {
+    position: absolute;
+    z-index: 3;
+    top: 7%;
+    right: 3%;
+    @include respond-to('medium') { right: -6%; }
+    padding: 0.5rem 0.8rem 0.55rem;
+    border: 4px solid $ink;
+    color: $ink;
+    background: rgba($cream, 0.82);
+    font-family: $font-primary;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-align: center;
+    transform: rotate(14deg);
+    box-shadow: 6px 6px 0 $magenta;
   }
 
   &__label {
-    margin: 0 0 0.9rem;
+    display: inline-block;
+    margin: 0 0 1.3rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid $magenta;
     font: 700 0.78rem/1.3 $mono;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: $magenta;
+    color: $ink;
+    transform: rotate(-3deg);
+    transform-origin: left;
   }
 
+  // title: condensed caps shout + the pink-box italic, like the hero
   &__title {
-    margin: 0 0 1.2rem;
-    font: 700 clamp(2.6rem, 7.4vw, 5.8rem)/0.9 $font-display;
-    letter-spacing: -0.065em;
+    margin: 0 0 1.6rem;
+    line-height: 0.9;
 
-    a { color: $ink; text-decoration: none; }
-    a:hover { color: $magenta; }
+    a { color: $ink; text-decoration: none; display: block; }
+
+    .cond {
+      display: block;
+      font-family: $font-primary;
+      font-weight: 800;
+      font-variation-settings: 'wdth' 75, 'opsz' 96;
+      font-size: clamp(3.4rem, 9vw, 7.4rem);
+      line-height: 0.84;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    em { display: block; margin-top: 0.08em; }
+
+    mark {
+      display: inline-block;
+      background: $magenta;
+      color: $cream;
+      font: italic 500 clamp(2rem, 4.6vw, 3.6rem)/1 $font-display;
+      letter-spacing: -0.04em;
+      padding: 0.04em 0.18em 0.12em 0.1em;
+      transform: rotate(-3deg);
+      transform-origin: left;
+    }
+
+    a:hover .cond { color: $magenta; }
   }
 
-  &__pitch { font-size: 1.12rem; line-height: 1.7; margin: 0 0 1rem; max-width: 52ch; }
+  &__pitch {
+    font-size: 1.12rem; line-height: 1.7; margin: 0 0 1.2rem; max-width: 52ch;
+
+    .hl {
+      font-weight: 700;
+      background: linear-gradient(transparent 68%, rgba($magenta, 0.8) 68%, rgba($magenta, 0.8) 100%);
+      padding: 0 0.1em;
+    }
+  }
 
   &__rating {
-    display: flex; align-items: center; gap: 0.6rem;
-    margin: 0 0 1.4rem;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    margin: 0 0 1.6rem;
+    padding: 0.45rem 0.8rem;
+    border: 1px dashed $magenta;
     font: 800 0.95rem/1 $font-primary;
+    transform: rotate(2deg);
   }
   &__stars { color: $magenta; font-size: 1.3rem; letter-spacing: 0.08em; }
 
@@ -828,11 +977,6 @@ body.poster-home {
     font-size: 26vw;
     line-height: 0.82;
     mark { display: block; margin-left: 0.2em; }
-  }
-  .poster .credibility-strip {
-    flex-direction: column;
-    align-items: center;
-    .credibility-badge + .credibility-badge::before { content: none; }
   }
   .slash mark { white-space: normal; }
   .slash { width: 124%; margin-left: -12%; padding: 2rem 14% 2.4rem; }
