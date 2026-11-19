@@ -56,7 +56,7 @@ body.poster-home {
     position: absolute;
     z-index: 0;
     color: $magenta;
-    width: clamp(15rem, 52vw, 42rem);
+    width: clamp(15rem, 46vw, 38rem);
     height: auto;
     right: -14%;
     top: -4%;
@@ -141,29 +141,39 @@ body.poster-home {
     gap: 1.4rem 2rem;
     margin-top: 2.8rem;
     max-width: 62%;
+
+    // sits straight under the subtitle, on the reading path
+    @include respond-to('medium') { margin-left: 8%; }
   }
 
   &__next {
     margin: 0;
     max-width: 32ch;
-    font: 1.05rem/1.5 $font-secondary;
+    font: 1.1rem/1.5 $font-secondary;
   }
 
   .sticker {
     display: inline-block;
-    padding: 1rem 1.7rem 1.05rem;
+    padding: 1.2rem 2.2rem 1.25rem;
     background: $magenta;
     color: $cream;
-    font: 800 clamp(0.95rem, 2.4vw, 1.25rem)/1 $font-primary;
+    font: 800 clamp(1.05rem, 2.2vw, 1.6rem)/1 $font-primary;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
-    transform: rotate(-5deg);
-    box-shadow: 6px 6px 0 $ink;
-    clip-path: polygon(0 4%, 98% 0, 100% 94%, 2% 100%);
-    transition: transform 0.15s ease;
+    transform: rotate(-4deg);
+    box-shadow: 8px 8px 0 $ink;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
 
-    &:hover { transform: rotate(0deg) scale(1.04); color: $cream; }
+    &::after { content: ' →'; }
+
+    &:hover,
+    &:focus-visible {
+      color: $cream;
+      transform: rotate(-4deg) translate(3px, 3px);
+      box-shadow: 4px 4px 0 $ink;
+    }
+    &:active { transform: rotate(-4deg) translate(8px, 8px); box-shadow: none; }
   }
 
   &__tag {
@@ -428,22 +438,99 @@ body.poster-home {
     &:hover { color: $cream; transform: translate(-2px, -2px); }
   }
 
+  &--one {
+    background:
+      linear-gradient($magenta, $magenta) 8% 100% / 38% 9px no-repeat,
+      $ink;
+    color: $cream;
+    border-color: $ink;
+    box-shadow: 10px 10px 0 $magenta;
+
+    h3, p { color: $cream; }
+    &::before { color: $magenta; -webkit-text-stroke: 0; }
+  }
   &--two { @include respond-to('medium') { margin-top: 3rem; } }
 }
 .picks { counter-reset: pick; }
+
+// ─── MIXED HEADINGS (editorial italic + condensed caps, like the top site) ───
+.mega--mix {
+  font-size: clamp(3.4rem, 11vw, 9rem);
+  line-height: 0.86;
+  max-width: none;
+
+  em {
+    display: block;
+    font: italic 400 0.42em/1 $font-display;
+    letter-spacing: -0.04em;
+    margin: 0 0 0.04em 0.06em;
+    color: $magenta;
+  }
+
+  .cond {
+    display: block;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: 800;
+    font-variation-settings: 'wdth' 75, 'opsz' 96;
+    text-transform: uppercase;
+    letter-spacing: -0.035em;
+    line-height: 0.84;
+  }
+}
+
+.mega--right {
+  text-align: right;
+  margin-left: auto;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+
+  &::after { display: none; }
+
+  em {
+    font-size: 0.62em;
+    color: $ink;
+    margin: 0.06em 0 0;
+  }
+
+  mark {
+    display: inline-block;
+    background: $magenta;
+    color: $cream;
+    padding: 0 0.14em 0.08em 0.06em;
+    transform: rotate(-2.5deg);
+    line-height: 0.95;
+  }
+}
+
+.mega--outline {
+  &::after { display: none; }
+
+  .cond {
+    font-size: 1.5em;
+    color: $cream;                 // fill with the page colour to hide contour overlaps
+    -webkit-text-stroke: 4px $ink;
+    paint-order: stroke fill;
+    letter-spacing: 0.01em;
+  }
+}
 
 // ─── PROOF (lead testimonial, straight after the offers) ─────────────────────
 .proof {
   width: min(calc(100% - (2 * #{$gutter})), #{$wide});
   margin: 5rem auto 4rem;
   padding: clamp(1.8rem, 4vw, 3.2rem);
+  position: relative;
+  overflow: hidden;
   background: $magenta;
   color: $cream;
   border: 0;
   box-shadow: none;
   transform: none;
+  clip-path: polygon(0 3%, 22% 0, 58% 2.5%, 100% 0, 99.2% 97%, 64% 100%, 30% 97.5%, 0.6% 100%);
 
   &::before, &::after { content: none !important; }
+
+  p, footer { position: relative; z-index: 1; }
 
   p {
     margin: 0 0 1.4rem;
@@ -468,8 +555,9 @@ body.poster-home {
   margin-top: 2rem;
 
   @include respond-to('medium') {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.6rem;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 2rem 1.6rem;
+    align-items: start;
   }
 }
 
@@ -503,6 +591,53 @@ body.poster-home {
     text-align: left;
   }
 
+}
+
+// three different objects, not three identical boxes
+.say--a {
+  background: $ink;
+  border-color: $ink;
+  color: $cream;
+  footer { color: $cream; }
+  box-shadow: 8px 8px 0 $magenta;
+  p { font-size: 1.9rem; }
+}
+.say--b {
+  border: 0;
+  border-left: 8px solid $magenta;
+  background: transparent;
+  padding: 0.4rem 0 0.4rem 1.6rem;
+  p { font-size: clamp(1.7rem, 2.3vw, 2.1rem); line-height: 1.1; color: $magenta; }
+}
+.say--c { border-style: dashed; }
+
+@include respond-to('medium') {
+  .say--a { grid-column: 1 / span 4; }
+  .say--b { grid-column: 5 / span 4; margin-top: 1.5rem; }
+  .say--c { grid-column: 9 / span 4; }
+  .say--a:nth-child(n) { transform: rotate(-2deg); }
+  .say--c:nth-child(n) { transform: rotate(1.5deg); }
+}
+
+// ─── SIGN-OFF (giant wordmark bleeding off the page, like the top site) ──────
+.sign-off {
+  margin: 6rem 0 -0.1em;
+  padding-left: $gutter;
+  white-space: nowrap;
+  font: 700 clamp(3.4rem, 13.6vw, 14rem)/0.8 $font-display;
+  letter-spacing: -0.08em;
+  color: $ink;
+  user-select: none;
+
+  mark {
+    display: inline-block;
+    background: none;
+    color: $magenta;
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 0.12em;
+    letter-spacing: -0.06em;
+  }
 }
 
 // ─── BLOG INDEX ───────────────────────────────────────────────────────────────
@@ -558,6 +693,7 @@ body.poster-home {
 @media (max-width: 767px) {
   .hero { min-height: 0; padding-bottom: 2rem; }
   .hero__actions { max-width: 100%; }
+  .picks { gap: 4rem; }
   .hero__title { font-size: 21vw; }
   .hero__sub { margin-left: 0; max-width: 12ch; }
   .poster .credibility-strip {
