@@ -362,51 +362,44 @@ body.poster-coaching-page {
   list-style: none;
   margin: 4rem 0 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  column-gap: 4rem;
+  border-bottom: 1px solid rgba($ink, 0.35);
 
-  @include respond-to('large') {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  // the rest: a clean ruled list, everything on one left edge
+  // the structure: one column of big confessions on full-width rules
   li {
     position: relative;
     margin: 0;
-    padding: 1rem 0 1.05rem 1.6em;
-    border-top: 1px solid rgba($ink, 0.28);
-    font: italic 400 clamp(1.3rem, 1.8vw, 1.6rem)/1.25 $font-display;
-    letter-spacing: -0.025em;
-    text-wrap: pretty;
+    padding: 1.1rem 0 1.15rem 1.5em;
+    border-top: 1px solid rgba($ink, 0.35);
+    font: 600 clamp(1.5rem, 2.9vw, 2.6rem)/1.08 $font-display;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
 
     &::before {
       content: '\201C';
       position: absolute;
       left: 0;
-      top: 0.85rem;
-      font: italic 700 1.5em/1 $font-display;
+      top: 0.95rem;
+      font: italic 700 1.4em/1 $font-display;
       color: $magenta;
     }
   }
 
-  // the two loud ones lead, side by side, as a pair
+  // the two loud ones: stickers slapped across the rules
   .cp-worries__slip {
-    order: -1;
-    align-self: start;
-    margin: 0 0 3.2rem;
-    padding: 1.1rem 1.4rem 1.25rem 2.4rem;
+    z-index: 2;
+    width: fit-content;
+    max-width: min(100%, 24ch);
+    margin: -0.7rem 0 1rem auto;
+    padding: 1rem 1.4rem 1.15rem 2.3rem;
     border: 0;
     background: $magenta;
     color: $cream;
-    font-size: clamp(1.6rem, 2.4vw, 2.15rem);
-    font-weight: 500;
-    line-height: 1.12;
-    box-shadow: 8px 8px 0 $ink;
-    transform: rotate(-1.5deg);
+    font: italic 500 clamp(1.7rem, 3.2vw, 2.8rem)/1.06 $font-display;
+    box-shadow: 9px 9px 0 $ink;
+    transform: rotate(-3deg);
 
-    &::before { left: 0.5rem; top: 0.75rem; color: $cream; }
-    & ~ .cp-worries__slip { transform: rotate(1.5deg); }
+    &::before { left: 0.5rem; top: 0.7rem; color: $cream; }
+    & ~ .cp-worries__slip { margin: 0 auto 1rem 6%; transform: rotate(2.5deg); }
   }
 }
 
@@ -864,8 +857,8 @@ body.poster-coaching-page {
   .poster-folks .cp-hero__art { margin-left: auto; margin-right: 8%; }
   .poster-folks .cp-hero .cc-stamp { left: -22%; right: auto; transform: rotate(-5deg); }
   .poster-folks .cp-final__line { font-size: 9vw; }
-  .cp-worries li { font-size: 5.6vw; }
-  .cp-worries .cp-worries__slip { font-size: 6.6vw; margin-bottom: 2rem; }
+  .cp-worries li { font-size: 6.4vw; }
+  .cp-worries .cp-worries__slip, .cp-worries .cp-worries__slip ~ .cp-worries__slip { font-size: 7vw; margin: 0.4rem 0; max-width: 100%; }
   .poster-managers .cp-hero__title .cond { font-size: 17vw; }
   .poster-managers .cp-hero__title mark { font-size: 13.5vw; }
   .cp-hero__sub { font-size: 1.45rem; margin-top: 0.4rem; }
