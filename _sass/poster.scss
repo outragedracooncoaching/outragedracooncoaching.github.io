@@ -977,6 +977,7 @@ body.poster-home {
     color: $cream;
     border-color: $ink;
     box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(-1.5deg);
 
     h3, p { color: $cream; }
     // cream card, so the button's shadow goes charcoal
@@ -985,7 +986,12 @@ body.poster-home {
     .pick__cta:active { box-shadow: none; }
     &::before { color: $magenta; -webkit-text-stroke: 0; }
   }
-  &--two { @include respond-to('medium') { margin-top: 3rem; } }
+  &--two {
+    border-width: 2px;
+    box-shadow: 10px 10px 0 $magenta;
+    transform: rotate(1.5deg);
+    @include respond-to('medium') { margin-top: 3rem; }
+  }
 }
 .picks { counter-reset: pick; }
 .picks-wrap .picks { margin-top: 4.5rem; }
@@ -1071,16 +1077,17 @@ body.poster-home {
 // ─── PROOF (lead testimonial, straight after the offers) ─────────────────────
 .proof {
   width: min(calc(100% - (2 * #{$gutter})), #{$wide});
-  margin: 5rem auto 4rem;
+  margin: 5rem auto 6.5rem;
   padding: clamp(1.8rem, 4vw, 3.2rem);
   position: relative;
   overflow: hidden;
+  overflow: visible;
+  // pink slip, charcoal text, cream shadow (never pink on pink)
   background: $magenta;
   color: $cream;
   border: 0;
-  box-shadow: none;
-  transform: none;
-  clip-path: polygon(0 3%, 22% 0, 58% 2.5%, 100% 0, 99.2% 97%, 64% 100%, 30% 97.5%, 0.6% 100%);
+  box-shadow: 12px 12px 0 $ink;
+  transform: rotate(-1.5deg);
 
   &::before, &::after { content: none !important; }
 
@@ -1092,6 +1099,15 @@ body.poster-home {
     font: 700 clamp(2.2rem, 5.4vw, 4.6rem)/0.98 $font-display;
     letter-spacing: -0.06em;
     text-wrap: balance;
+
+    // highlighter on the payoff, lower third only
+    mark {
+      color: inherit;
+      background: linear-gradient(transparent 62%, $ink 62%, $ink 92%, transparent 92%);
+      padding: 0 0.04em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
   }
   footer {
     all: unset;
