@@ -622,6 +622,7 @@ body.poster-home {
   color: $paper;
   font: 600 clamp(1.9rem, 5.2vw, 4.3rem)/1.04 $font-display;
   letter-spacing: -0.05em;
+  text-align: center;   // the band bleeds off both edges, so centre the words under the page's middle
   transform: rotate(-2.4deg);
   clip-path: polygon(0 5%, 31% 1%, 63% 4%, 100% 0, 99% 94%, 70% 100%, 38% 96%, 1% 100%);
 
