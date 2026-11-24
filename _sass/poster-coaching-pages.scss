@@ -615,6 +615,20 @@ body.poster-coaching-page {
   margin-top: 4rem;
   scroll-margin-top: 1.5rem;
 
+  // wide screens: the funding note (last in the HTML, so prices come first on
+  // phones and in calm mode) slots into the gap beside the intro
+  @media (min-width: 1100px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 30rem;
+    column-gap: 4rem;
+    align-items: start;
+    > .mega { grid-column: 1 / -1; grid-row: 1; }
+    > .cp-pricing__lead { grid-column: 1; grid-row: 2; }
+    > .cc-fund { grid-column: 2; grid-row: 2; margin-top: 2.4rem; justify-self: end; }
+    > .cp-tickets { grid-column: 1 / -1; grid-row: 3; }
+    > .cp-pricing__terms { grid-column: 1 / -1; grid-row: 4; }
+  }
+
   &__lead {
     max-width: 30ch;
     margin: 2rem 0 0;
@@ -787,21 +801,27 @@ body.poster-coaching-page {
 
 // funding: the payoff to "can I afford this?" — pink slip, cream shadow
 .cc-fund.cp-fund {
-  margin: 3.5rem 0 0 auto;
-  max-width: 36rem;
-  border: 0;
-  background: $magenta;
-  color: $paper;
-  box-shadow: 10px 10px 0 $text;
-  transform: rotate(1.5deg);
+  margin: 3rem 0 0 auto;
+  max-width: 30rem;
+  padding: 1.1rem 1.4rem 1.2rem;
+  border: 4px dashed $magenta;
+  background: none;
+  color: $text;
+  box-shadow: none;
+  transform: rotate(2deg);
 
   &::before { content: none; }
-  .cc-fund__label { color: $paper; }
-  .cc-fund__line { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+  .cc-fund__label { margin-bottom: 0.4rem; color: $magenta; }
+  .cc-fund__line {
+    margin-bottom: 0.7rem;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    line-height: 1.12;
+  }
   .cc-fund__link {
-    color: $paper;
-    text-decoration-color: $paper;
-    &:hover, &:focus-visible { color: $paper; text-decoration-thickness: 4px; }
+    font-size: 1.1rem;
+    color: $magenta;
+    text-decoration-color: $magenta;
+    &:hover, &:focus-visible { color: $text; text-decoration-thickness: 3px; }
   }
 }
 
