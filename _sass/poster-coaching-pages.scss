@@ -958,6 +958,54 @@ body.poster-coaching-page {
   }
 }
 
+// highlighter: one key phrase per card, using the client's own words
+.cp-q mark {
+  background: linear-gradient(transparent 58%, fade($magenta, 0.5) 58%);
+  color: inherit;
+  padding: 0 0.1em;
+}
+
+// tape across the top of a dashed cut-out (decoration only)
+.cp-q.cp-q--tape { position: relative; }
+.cp-q__tape {
+  // in flow (not absolute): abs-positioned children leave ghosts when multicol
+  // pushes a card to the next column. Net height contribution is zero.
+  display: block;
+  width: 6.5rem;
+  height: 1.8rem;
+  margin: -2.7rem auto 0.9rem;
+  background: fade($magenta, 0.85);
+  transform: rotate(-4deg);
+  pointer-events: none;
+}
+
+// wide finale: breaks out of the two columns; pull quote left, words right
+.cp-q.cp-q--wide {
+  column-span: all;
+  margin: 1rem 0 3rem;
+  padding: 1.8rem 1.4rem 1.6rem;
+  border: 2px solid $text;
+  box-shadow: 10px 10px 0 $magenta;
+
+  .cp-q__lede { margin-bottom: 1.6rem; }
+  .cp-q__body p:last-child { margin-bottom: 0; }
+
+  @include respond-to('large') {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: 4rem;
+    align-items: center;
+    padding: 2.4rem 2.6rem 2.2rem;
+    .cp-q__lede { margin-bottom: 0; }
+  }
+}
+:root:not([data-calm]) .cp-q--wide .cp-q__pull {
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.4rem !important;
+}
+
 // big pull quote (not in calm mode, which sets its own type)
 :root:not([data-calm]) .cp-q--lead .cp-q__pull {
   font-size: clamp(1.9rem, 3.6vw, 3rem) !important;
