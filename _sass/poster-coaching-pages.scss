@@ -349,6 +349,17 @@ body.poster-coaching-page {
 
 // ─── WHO: the 2am thoughts, set as one run of overheard type ───────────────
 .cp-who {
+  // wide screens: the UK note fills the gap beside the intro
+  @media (min-width: 1100px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 30rem;
+    column-gap: 4rem;
+    align-items: center;
+    > * { grid-column: 1 / -1; }
+    > .cp-who__lead { grid-column: 1; }
+    > .cp-where { grid-column: 2; align-self: start; margin-top: 1.5rem; justify-self: end; transform: rotate(3.5deg); }
+  }
+
   &__lead {
     max-width: 44rem;
     margin: 3rem 0 0;
@@ -604,19 +615,6 @@ body.poster-coaching-page {
   margin-top: 4rem;
   scroll-margin-top: 1.5rem;
 
-  // wide screens: the callout fills the gap beside the intro
-  &__head {
-    @media (min-width: 1100px) {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
-      column-gap: 4rem;
-      align-items: center;
-
-      .mega { grid-column: 1 / -1; }
-      .cp-where { margin-top: 2rem; justify-self: end; transform: rotate(2deg); }
-    }
-  }
-
   &__lead {
     max-width: 30ch;
     margin: 2rem 0 0;
@@ -637,7 +635,7 @@ body.poster-coaching-page {
   margin: 2.2rem 0 0;
   padding: 1.1rem 1.4rem 1.2rem;
   border: 2px dotted fade($text, 0.7);
-  transform: rotate(-2deg);
+  transform: rotate(-3deg);
 
   &__head {
     margin: 0;
@@ -657,6 +655,7 @@ body.poster-coaching-page {
     margin: 0.6rem 0 0;
     font-size: 1.05rem;
     line-height: 1.45;
+    text-wrap: balance;
   }
 }
 
@@ -781,10 +780,49 @@ body.poster-coaching-page {
   }
 }
 
-.cp-fund {
-  margin-top: 5.5rem;
-  .cc-fund__line { font-size: clamp(1.35rem, 2.2vw, 1.8rem); }
-  &--course { margin: 3rem auto 0 0; transform: rotate(1.5deg); }
+.cp-course {
+  margin-top: 4.5rem;
+  border-top: 2px dashed fade($text, 0.5);
+}
+
+// funding: the payoff to "can I afford this?" — pink slip, cream shadow
+.cc-fund.cp-fund {
+  margin: 3.5rem 0 0 auto;
+  max-width: 36rem;
+  border: 0;
+  background: $magenta;
+  color: $paper;
+  box-shadow: 10px 10px 0 $text;
+  transform: rotate(1.5deg);
+
+  &::before { content: none; }
+  .cc-fund__label { color: $paper; }
+  .cc-fund__line { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+  .cc-fund__link {
+    color: $paper;
+    text-decoration-color: $paper;
+    &:hover, &:focus-visible { color: $paper; text-decoration-thickness: 4px; }
+  }
+}
+
+// course: an alternative route, so no box — an open statement under a rule
+.cc-fund.cp-fund--course {
+  max-width: 44rem;
+  margin: 0;
+  padding: 2.4rem 0 0;
+  border: 0;
+  background: none;
+  color: $text;
+  box-shadow: none;
+  transform: none;
+
+  .cc-fund__label { color: $magenta; }
+  .cc-fund__line { font-size: clamp(1.7rem, 3.2vw, 2.6rem); max-width: 26ch; text-wrap: balance; }
+  .cc-fund__link {
+    color: $text;
+    text-decoration-color: $magenta;
+    &:hover, &:focus-visible { color: $magenta; text-decoration-thickness: 2px; }
+  }
 }
 
 // ─── REVIEWS: a wall of mixed card types ────────────────────────────────────
