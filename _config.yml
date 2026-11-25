@@ -15,6 +15,9 @@ sale:
   saving: "30%"
   code: "BLACKFRIDAY30"
   blurb: "Black Friday. Holy Shit. Ends Monday."
+  # LinkedIn sale banner only (python3 _og/build.py sale)
+  name: "Black Friday"
+  ends: "Monday"
 # Contact form: the Google Apps Script web app URL (see apps-script/contact-form.gs).
 # Empty = the form shows the email fallback instead of sending.
 contact_form_endpoint: "https://script.google.com/macros/s/AKfycbyrSH3RnU_aZeRpKyAheNw72UDzMUXegDzlxouagbVdSyZyvKArv-5YdUXkEGd2QxBc/exec"

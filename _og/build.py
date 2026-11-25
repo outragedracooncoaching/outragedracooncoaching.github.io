@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Builds 1200x630 share-image HTML from _og/ templates, then screenshots to assets/images/og/ with headless Chrome.
-Run from repo root: python3 _og/build.py"""
-import os, subprocess, pathlib
+Run from repo root: python3 _og/build.py
+LinkedIn sale banner only, using the sale values in _config.yml: python3 _og/build.py sale"""
+import re, subprocess, pathlib, sys
 root = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 IMGS = {
@@ -11,6 +12,32 @@ IMGS = {
   "scream": "assets/images/site/racoon-screaming-900.jpg",
   "hsiam": "assets/images/site/hsiam-raccoon-1100.webp",
 }
+
+def shoot(html, out, size):
+    f = root/f"_og/out-{out.stem}.html"
+    f.write_text(html)
+    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+        "--force-device-scale-factor=1", f"--window-size={size}", "--virtual-time-budget=8000",
+        f"--screenshot={out}", f"file://{f}"], check=True, capture_output=True)
+    f.unlink()
+    print(out)
+
+# LinkedIn profile banner, 1584x396 (profile photo covers bottom-left, so content sits right of x=480)
+BANNER = (root/"_og/banner.html").read_text().replace("ROOT", str(root))
+
+if sys.argv[1:] == ["sale"]:
+    block = re.search(r"^sale:\n((?:[ \t]+.*\n)+)", (root/"_config.yml").read_text(), re.M).group(1)
+    sale = dict(re.findall(r'^\s+(\w+):\s*"([^"]*)"', block, re.M))
+    sticker = (root/"_og/banner-sale.html").read_text()
+    for k in ("name", "saving", "code", "ends"):
+        sticker = sticker.replace("{{%s}}" % k, sale[k])
+    style, div = sticker.split("</style>")
+    html, n = re.subn(r'<div class="also">.*?</div>', lambda m: div.strip(), BANNER, flags=re.S)
+    assert n == 1, "sticker not found in banner.html"
+    html = html.replace("</head>", style + "</style></head>")
+    shoot(html, root/"linkedin/linkedin-banner-sale.png", "1584,396")
+    sys.exit()
+
 PAGES = [
   dict(slug="default", kicker="Outraged Racoon Coaching", l1="Outraged", l2="Racoon", sub="No-bullshit coaching for the messy, human, hard parts of working in tech.", img="scream", foot="Val Dryden · VP Engineering · ILM executive coach"),
   dict(slug="home", kicker="1:1 coaching · for the hard parts of tech", l1="No-bullshit", l2="coaching", sub="for engineering managers and folks in tech.", img="scream", foot="Val Dryden · VP Engineering · ILM executive coach"),
@@ -25,20 +52,6 @@ for p in PAGES:
     for k, v in p.items():
         html = html.replace("{{%s}}" % k, v)
     html = html.replace("{{imgsrc}}", "file://%s/%s" % (root, IMGS[p["img"]]))
-    f = root/f"_og/out-{p['slug']}.html"
-    f.write_text(html)
-    out = root/f"assets/images/og/{p['slug']}.png"
-    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
-        "--force-device-scale-factor=1", "--window-size=1200,630", "--virtual-time-budget=8000",
-        f"--screenshot={out}", f"file://{f}"], check=True, capture_output=True)
-    f.unlink()
-    print(out)
+    shoot(html, root/f"assets/images/og/{p['slug']}.png", "1200,630")
 
-# LinkedIn profile banner, 1584x396 (profile photo covers bottom-left, so content sits right of x=480)
-b = root/"_og/out-banner.html"
-b.write_text((root/"_og/banner.html").read_text().replace("ROOT", str(root)))
-out = root/"linkedin/linkedin-banner.png"
-subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
-    "--window-size=1584,396", "--virtual-time-budget=8000", f"--screenshot={out}", f"file://{b}"], check=True, capture_output=True)
-b.unlink(); print(out)
-
+shoot(BANNER, root/"linkedin/linkedin-banner.png", "1584,396")
