@@ -9,12 +9,12 @@ twitter:
   card: summary_large_image
 # Course sale. Set active: false to end it and revert all prices to full.
 sale:
-  active: false
+  active: true
   full_price: "£400"
-  price: "£200"
-  saving: "£200"
-  code: "RACOONFRIEND"
-  blurb: "Celebrating 3 years of holy shit!"
+  price: "£280"
+  saving: "30%"
+  code: "BLACKFRIDAY30"
+  blurb: "Black Friday. Holy Shit. Ends Monday."
 # Contact form: the Google Apps Script web app URL (see apps-script/contact-form.gs).
 # Empty = the form shows the email fallback instead of sending.
 contact_form_endpoint: "https://script.google.com/macros/s/AKfycbyrSH3RnU_aZeRpKyAheNw72UDzMUXegDzlxouagbVdSyZyvKArv-5YdUXkEGd2QxBc/exec"
