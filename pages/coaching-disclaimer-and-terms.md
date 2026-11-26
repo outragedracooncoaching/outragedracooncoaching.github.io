@@ -187,11 +187,25 @@ Where an invoice remains unpaid after its due date, the Coach may decline to boo
 For clients residing outside of the United Kingdom, the Coach reserves the right to mandate specific international payment methods (such as secure credit/debit card processing links) rather than direct bank transfers. Where card processing or international billing platforms are used, a standard international transaction fee will be added to the invoice total to ensure the net coaching fee is covered.
 
 ### Your right to cancel (consumers)
-If the Client is buying as a consumer (for themselves, not through or on behalf of a business), they have the right to cancel this agreement within 14 days of the day it is entered into, which is the day the first session is booked, without giving a reason. To cancel, the Client should email [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com) with a clear statement of their decision to cancel.
+If the Client is buying as a consumer (for themselves, not through or on behalf of a business), they have the right to cancel this agreement within 14 days of the day it is entered into, which is the day the first session is booked, without giving a reason. To cancel, the Client should email [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com) with a clear statement of their decision to cancel. The Client may use the [cancellation form](#cancellation-form) but does not have to.
 
 By booking a session that takes place within those 14 days, the Client asks the Coach to start providing the services during the cancellation period. If the Client then cancels within the 14 days, they pay for the services provided up to the point they tell the Coach they are cancelling, charged at the full single-session rate for each session delivered. Once a session has been delivered in full at the Client's request, the right to cancel no longer applies to that session.
 
 This section does not apply to Clients buying through or on behalf of a business, such as an employer paying for coaching.
+
+#### Cancellation form
+
+Complete and return this form only if you wish to cancel the contract.
+
+* To: Valerie Dryden, trading as Outraged Racoon Coaching, Floor 2, Office 2/3, 48 West George Street, Glasgow, G2 1BP, [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com)
+* I/We\* hereby give notice that I/We\* cancel my/our\* contract for the supply of the following service:
+* Ordered on:
+* Name of client(s):
+* Address of client(s):
+* Signature of client(s) (only if this form is sent on paper):
+* Date:
+
+\* Delete as appropriate.
 
 ### Refunds
 Refunds are not available for single sessions, since the invoice for a single session is issued only after the session has been completed and the service delivered.
