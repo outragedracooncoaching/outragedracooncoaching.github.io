@@ -30,7 +30,7 @@ sitemap: false
 The coaching disclaimer and terms and conditions outlined below define the relationship between Coach and Client and underpin any services delivered by Valerie Dryden trading as Outraged Racoon Coaching®. Please make sure you read the following carefully and if you have any questions or queries then please send them by email to [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com).
 
 <!-- Bump this date only on MATERIAL changes to the terms, not typo fixes or unrelated edits. It is what "applies from the date of publication" in the Variation clause refers to. -->
-*Last updated: 19 November 2026*
+*Last updated: 26 November 2026*
 {:.info-updated}
 
 Booking a session, or paying any invoice issued by the Coach, constitutes the Client's acceptance of these terms and conditions in full, including the disclaimer below.
@@ -189,7 +189,14 @@ For clients residing outside of the United Kingdom, the Coach reserves the right
 ### Your right to cancel (consumers)
 If the Client is buying as a consumer (for themselves, not through or on behalf of a business), they have the right to cancel this agreement within 14 days of the day it is entered into, which is the day the first session is booked, without giving a reason. To cancel, the Client should email [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com) with a clear statement of their decision to cancel. The Client may use the [cancellation form](#cancellation-form) but does not have to.
 
-By booking a session that takes place within those 14 days, the Client asks the Coach to start providing the services during the cancellation period. If the Client then cancels within the 14 days, they pay for the services provided up to the point they tell the Coach they are cancelling, charged at the full single-session rate for each session delivered. Once a session has been delivered in full at the Client's request, the right to cancel no longer applies to that session.
+Booking a session does not by itself amount to consent to begin the services within those 14 days. Before commencing services within this period, the Coach will obtain by email the Client's express request and consent to do so, with the Client's acknowledgement that:
+
+* if they cancel, they will pay, where legally permitted, a proportionate amount for services already delivered; and
+* they will lose the right to cancel once the contracted services have been fully performed.
+
+If the Client then cancels within the 14 days, they pay, where legally permitted, a proportionate share of the agreed price for the services delivered up to the point they tell the Coach they are cancelling. For bundles, each session delivered is charged at the discounted bundle rate, not the full single-session rate. This section takes precedence over any conflicting provision about refunds on cancellation.
+
+The statutory right to cancel ends once the contracted services have been fully performed, provided the Client gave that express request and acknowledgement.
 
 This section does not apply to Clients buying through or on behalf of a business, such as an employer paying for coaching.
 
