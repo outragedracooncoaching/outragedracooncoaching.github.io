@@ -30,7 +30,7 @@ sitemap: false
 The coaching disclaimer and terms and conditions outlined below define the relationship between Coach and Client and underpin any services delivered by Valerie Dryden trading as Outraged Racoon Coaching®. Please make sure you read the following carefully and if you have any questions or queries then please send them by email to [outragedracooncoaching@gmail.com](mailto:outragedracooncoaching@gmail.com).
 
 <!-- Bump this date only on MATERIAL changes to the terms, not typo fixes or unrelated edits. It is what "applies from the date of publication" in the Variation clause refers to. -->
-*Last updated: 26 November 2026*
+*Last updated: 19 November 2026*
 {:.info-updated}
 
 Booking a session, or paying any invoice issued by the Coach, constitutes the Client's acceptance of these terms and conditions in full, including the disclaimer below.
@@ -66,7 +66,7 @@ The Client understands that coaching is not therapy and does not substitute for 
 
 The Client agrees to communicate honestly, be open to feedback, and commit the necessary time and energy to participate fully in the coaching process.
 
-The Coach maintains professional indemnity insurance in respect of their coaching, training and education services, subject to the terms and conditions of the insurance policy.
+The Coach holds professional indemnity insurance covering claims of negligence, breach of confidentiality, and defamation, and public liability insurance.
 
 ### Services
 Coaching sessions will be arranged flexibly between the Coach and the Client, with each session bookable up to one month in advance by email or text. The Coach may recommend a frequency of sessions based on a professional assessment of the Client's needs; this recommendation is not binding and may be adjusted by mutual agreement throughout the coaching journey.
